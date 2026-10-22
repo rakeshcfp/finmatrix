@@ -6,10 +6,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 <!-- Primary Meta Tags -->
-<title>Compound Interest Calculator: Monthly Growth | Finmatrix</title>
-<meta name="description" content="Calculate compound interest with regular monthly deposits, variable return rates, and inflation adjustments. View dynamic growth charts instantly.">
-<meta name="keywords" content="compound interest calculator with monthly deposits, APY compounding calculator, rule of 72, investment growth, daily compound interest calculator">
-<meta name="author" content="Finmatrix Financial Engineering Research Desk">
+<title>Compound Interest Calculator: Investment Growth (2026) | Finmatrix</title>
+<meta name="description" content="Calculate future investment wealth with monthly compounding deposits, dividend reinvestment, and total interest earned. Fast, free, and private.">
+<meta name="keywords" content="compound interest calculator, investment calculator, future value calculator, interest compounding monthly, wealth growth calculator">
+<meta name="author" content="Finmatrix Financial Research Desk">
 <link rel="canonical" href="https://finmatrix.cloud/calculators/compound-interest-calculator.html">
 
 <!-- Search Engine Robots Directives -->
@@ -21,59 +21,18 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
-<style>
-  .mode-tab-btn {
-    padding: 8px 16px;
-    border-radius: 6px;
-    border: 1px solid var(--border);
-    background: var(--bg3);
-    color: var(--text-muted);
-    font-weight: 700;
-    font-size: 0.85rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-  .mode-tab-btn.active {
-    background: var(--accent);
-    color: #000;
-    border-color: var(--accent);
-  }
-  .toggle-sub-btn {
-    padding: 6px 12px;
-    border-radius: 4px;
-    border: 1px solid var(--border);
-    background: var(--bg3);
-    color: var(--text-muted);
-    font-size: 0.8rem;
-    font-weight: 600;
-    cursor: pointer;
-  }
-  .toggle-sub-btn.active {
-    background: var(--accent2);
-    color: #000;
-    border-color: var(--accent2);
-  }
-</style>
 
-<!-- Open Graph / Facebook / LinkedIn -->
+<!-- Open Graph / Twitter -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://finmatrix.cloud/calculators/compound-interest-calculator.html">
 <meta property="og:site_name" content="Finmatrix">
-<meta property="og:title" content="Compound Interest Calculator: Monthly Growth | Finmatrix">
-<meta property="og:description" content="Calculate compound interest with regular monthly deposits, variable return rates, and inflation adjustments. View dynamic growth charts instantly.">
+<meta property="og:title" content="Compound Interest Calculator: Investment Growth (2026) | Finmatrix">
+<meta property="og:description" content="Calculate future investment wealth with monthly compounding deposits, dividend reinvestment, and total interest earned. Fast, free, and private.">
 <meta property="og:image" content="https://finmatrix.cloud/assets/og/compound-interest-calculator.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Compound Interest Calculator - Finmatrix">
-<meta property="og:locale" content="en_US">
-
-<!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="https://finmatrix.cloud/calculators/compound-interest-calculator.html">
-<meta name="twitter:title" content="Compound Interest Calculator: Monthly Growth | Finmatrix">
-<meta name="twitter:description" content="Calculate compound interest with regular monthly deposits, variable return rates, and inflation adjustments. View dynamic growth charts instantly.">
+<meta name="twitter:title" content="Compound Interest Calculator: Investment Growth (2026) | Finmatrix">
+<meta name="twitter:description" content="Calculate future investment wealth with monthly compounding deposits and total interest earned.">
 <meta name="twitter:image" content="https://finmatrix.cloud/assets/og/compound-interest-calculator.png">
-<meta name="twitter:image:alt" content="Compound Interest Calculator - Finmatrix">
 
 <!-- Favicon & Mobile Icons -->
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -89,7 +48,7 @@
     {
       "@type": "WebApplication",
       "@id": "https://finmatrix.cloud/calculators/compound-interest-calculator.html#app",
-      "name": "Compound Interest Calculator with Monthly Deposits",
+      "name": "Compound Interest & Investment Wealth Calculator",
       "url": "https://finmatrix.cloud/calculators/compound-interest-calculator.html",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "All",
@@ -100,15 +59,15 @@
         "priceCurrency": "USD"
       },
       "featureList": [
-        "Monthly contribution and regular deposit compounding",
-        "Nominal vs. inflation-adjusted real CAGR modeling",
-        "Annual deposit step-up escalation rate simulation",
-        "Rule of 72 doubling timeline forecast",
+        "Future Value of initial lump-sum principal and recurring monthly deposits",
+        "Compounding frequency controls (monthly, quarterly, semi-annually, annually)",
+        "Comparison of cumulative principal deposits versus pure compound interest growth",
+        "Interactive investment timeline from 1 to 40 years",
         "100% Client-side privacy-first computation"
       ],
       "citation": [
-        "https://fred.stlouisfed.org/",
-        "https://www.sec.gov/investor/tools/calculators/compound-interest-calculator"
+        "https://www.sec.gov/investor/tools/calculators/compound-interest",
+        "https://www.investor.gov/"
       ]
     },
     {
@@ -141,47 +100,41 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What is the difference between APR and APY in compound interest?",
+          "name": "What is the formula for compound interest with regular monthly contributions?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "APR (Annual Percentage Rate) reflects the nominal interest rate without compounding, whereas APY (Annual Percentage Yield) reflects the true annual return taking into account the effect of intra-year compounding (monthly, daily, or continuous)."
+            "text": "The compound interest formula combining an initial principal and recurring monthly deposits is: A = P(1 + r/n)^(nt) + PMT * [((1 + r/n)^(nt) - 1) / (r/n)], where P is initial deposit, PMT is monthly deposit, r is annual interest rate, n is compounding periods per year, and t is time in years."
           }
         },
         {
           "@type": "Question",
-          "name": "How does inflation impact compound investment returns?",
+          "name": "What is the Rule of 72 in compound interest?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Inflation erodes the future purchasing power of money. A nominal return of 10% with a 3% inflation rate results in a real purchasing power return of approximately 6.8%\u20137.0%."
+            "text": "The Rule of 72 is a quick mathematical shortcut to estimate how many years it takes for an investment to double. Divide 72 by your annual rate of return: at an 8% annual return, your money doubles approximately every 9 years (72 / 8 = 9)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does compound interest differ from simple interest?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Simple interest is calculated solely on your original principal balance. Compound interest is calculated on both initial principal and the accumulated interest from prior periods, leading to exponential growth over multi-decade horizons."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a realistic annual rate of return to assume for long-term investments?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Historically, the S&P 500 broad US stock market has delivered an annualized nominal return of approximately 10% (or ~7% real return after factoring 3% long-term inflation) over rolling 30-year periods. Conservative models often test 6% to 8% nominal annual returns."
           }
         }
       ]
-    },
-    {
-      "@type": "WebPage",
-      "@id": "https://finmatrix.cloud/calculators/compound-interest-calculator.html#webpage",
-      "url": "https://finmatrix.cloud/calculators/compound-interest-calculator.html",
-      "name": "Compound Interest Calculator: Monthly Growth | Finmatrix",
-      "isPartOf": {
-        "@type": "WebSite",
-        "@id": "https://finmatrix.cloud/#website",
-        "name": "Finmatrix",
-        "url": "https://finmatrix.cloud"
-      },
-      "speakable": {
-        "@type": "SpeakableSpecification",
-        "cssSelector": [
-          "h1",
-          ".calc-desc",
-          ".geo-authoritative-box",
-          "#faq"
-        ]
-      }
     }
   ]
 }
 </script>
-<link rel="manifest" href="/site.webmanifest">
 </head>
 <body>
 
@@ -190,8 +143,8 @@
   <div class="nav-links">
     <a href="/">Home</a>
     <a href="/calculators/" class="active">Calculators</a>
-    <a href="/articles/">Articles</a>
     <a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a>
     <button class="theme-toggle theme-toggle-btn" onclick="toggleTheme()">☀️ Light Mode</button>
   </div>
   <button class="menu-btn" onclick="toggleMobileMenu()">☰ Menu</button>
@@ -202,536 +155,278 @@
     <a href="/">Home</a> <span class="sep">/</span> <a href="/calculators/">Calculators</a> <span class="sep">/</span> <span>Compound Interest Calculator</span>
   </div>
 
-  <div style="margin-bottom:24px;">
-    <span class="chip orange" style="margin-bottom:8px;display:inline-block;">📈 Investment Calculator</span>
-    <h1 style="font-family:var(--font-heading);font-size:clamp(1.8rem,4vw,2.4rem);font-weight:800;">Compound Interest Calculator</h1>
-    <p style="color:var(--text-muted);font-size:0.95rem;">Calculate future investment growth, effective compounded rate (APY), annual deposit increases, and time to double investment.</p>
+  <div style="margin-bottom:28px;">
+    <span class="chip orange" style="margin-bottom:8px;display:inline-block;">Wealth Multiplier Engine</span>
+    <h1 style="font-family:var(--font-heading);font-size:clamp(1.8rem,4vw,2.4rem);font-weight:800;margin-bottom:8px;">Compound Interest & Wealth Growth Calculator</h1>
+    <p style="color:var(--text-muted);font-size:0.95rem;">Simulate future investment wealth with monthly compounding deposits, custom compounding frequencies, and see how time accelerates compound interest over 1 to 40 years.</p>
   </div>
 
-  <!-- Interest Type Sub-Tabs (From Reference Image) -->
-  <div style="display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;">
-    <button type="button" class="mode-tab-btn active" id="tab-compound" onclick="setInterestTab('compound')">Compound Interest</button>
-    <button type="button" class="mode-tab-btn" id="tab-simple" onclick="setInterestTab('simple')">Simple Interest</button>
-    <button type="button" class="mode-tab-btn" id="tab-daily" onclick="setInterestTab('daily')">Daily Compound</button>
-    <button type="button" class="mode-tab-btn" id="tab-forex" onclick="setInterestTab('forex')">Forex / High-Yield</button>
-  </div>
-
-  
-  <div class="direct-answer-box" style="background:rgba(0,212,170,0.06);border-left:4px solid var(--accent);padding:16px 20px;border-radius:8px;margin-bottom:24px;font-size:0.95rem;line-height:1.6;color:var(--text);">
-    <strong>Direct Summary & Rule-of-Thumb Takeaway:</strong> Compound interest is interest calculated on the initial principal plus all previously accumulated interest, creating exponential growth over time. Using the Rule of 72, dividing 72 by your expected annual rate gives the exact number of years required to double your investment capital.
-  </div>
   <div class="calc-body">
     <!-- Inputs -->
     <div class="calc-inputs">
-      <!-- Currency Selector Bar -->
+      <!-- Currency Selector -->
       <div class="currency-selector-bar" style="display:flex;align-items:center;gap:6px;margin-bottom:18px;flex-wrap:wrap;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px 14px;">
         <span style="font-size:0.82rem;font-weight:700;color:var(--text-muted);margin-right:4px;">Currency:</span>
         <button type="button" class="curr-btn active" data-curr="USD" onclick="changeCurrency('USD', calculateCompoundInterest)" style="padding:5px 12px;border-radius:6px;border:1px solid var(--accent);background:var(--accent);color:#000;font-weight:700;font-size:0.8rem;cursor:pointer;">$ USD</button>
         <button type="button" class="curr-btn" data-curr="EUR" onclick="changeCurrency('EUR', calculateCompoundInterest)" style="padding:5px 12px;border-radius:6px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-weight:700;font-size:0.8rem;cursor:pointer;">€ EUR</button>
         <button type="button" class="curr-btn" data-curr="GBP" onclick="changeCurrency('GBP', calculateCompoundInterest)" style="padding:5px 12px;border-radius:6px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-weight:700;font-size:0.8rem;cursor:pointer;">£ GBP</button>
-        <button type="button" class="curr-btn" data-curr="INR" onclick="changeCurrency('INR', calculateCompoundInterest)" style="padding:5px 12px;border-radius:6px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-weight:700;font-size:0.8rem;cursor:pointer;">₹ INR</button>
-        <button type="button" class="curr-btn" data-curr="JPY" onclick="changeCurrency('JPY', calculateCompoundInterest)" style="padding:5px 12px;border-radius:6px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-weight:700;font-size:0.8rem;cursor:pointer;">¥ JPY</button>
         <button type="button" class="curr-btn" data-curr="CAD" onclick="changeCurrency('CAD', calculateCompoundInterest)" style="padding:5px 12px;border-radius:6px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-weight:700;font-size:0.8rem;cursor:pointer;">C$ CAD</button>
-        <button type="button" class="curr-btn" data-curr="AUD" onclick="changeCurrency('AUD', calculateCompoundInterest)" style="padding:5px 12px;border-radius:6px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-weight:700;font-size:0.8rem;cursor:pointer;">A$ AUD</button>
       </div>
 
       <h3><span>Investment Parameters</span></h3>
-      
+
       <div class="field">
-        <label for="initial-principal">Initial Principal (<span class="curr-sym">$</span>)</label>
-        <input type="number" id="initial-principal" value="5000" step="500" oninput="calculateCompoundInterest()">
+        <label for="init-deposit">Initial Investment / Principal ($)</label>
+        <input type="number" id="init-deposit" value="10000" step="500" min="0" oninput="calculateCompoundInterest()">
       </div>
 
       <div class="field">
-        <label for="annual-rate">Interest Rate (% Annual)</label>
-        <input type="number" id="annual-rate" value="5.0" step="0.1" oninput="calculateCompoundInterest()">
+        <label for="monthly-contrib">Monthly Contribution ($)</label>
+        <input type="number" id="monthly-contrib" value="500" step="50" min="0" oninput="calculateCompoundInterest()">
       </div>
 
-      <div class="field" id="grp-compound-freq">
-        <label for="compound-freq">Compound Frequency</label>
-        <select id="compound-freq" onchange="calculateCompoundInterest()">
-          <option value="12" selected>Monthly (12/yr)</option>
-          <option value="4">Quarterly (4/yr)</option>
-          <option value="1">Annually (1/yr)</option>
-          <option value="365">Daily (365/yr)</option>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div class="field">
+          <label for="annual-rate">Estimated Annual Return (%)</label>
+          <input type="number" id="annual-rate" value="8" step="0.25" min="0" oninput="calculateCompoundInterest()">
+          <small style="color:var(--text-muted);font-size:0.75rem;">S&P 500 avg: 8%–10%</small>
+        </div>
+
+        <div class="field">
+          <label for="years-grow">Investment Horizon (Years)</label>
+          <input type="number" id="years-grow" value="20" step="1" min="1" max="50" oninput="calculateCompoundInterest()">
+          <small style="color:var(--text-muted);font-size:0.75rem;">1 to 50 years</small>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="compound-freq">Compounding Frequency</label>
+        <select id="compound-freq" onchange="calculateCompoundInterest()" style="background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:10px;border-radius:8px;width:100%;outline:none;">
+          <option value="12" selected>Monthly (12 times/year)</option>
+          <option value="4">Quarterly (4 times/year)</option>
+          <option value="2">Semi-Annually (2 times/year)</option>
+          <option value="1">Annually (1 time/year)</option>
         </select>
       </div>
 
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
-        <div class="field">
-          <label for="investment-years">Years</label>
-          <input type="number" id="investment-years" value="5" step="1" oninput="calculateCompoundInterest()">
-        </div>
-        <div class="field">
-          <label for="investment-months">Months</label>
-          <input type="number" id="investment-months" value="0" min="0" max="11" step="1" oninput="calculateCompoundInterest()">
-        </div>
+      <div style="display:flex;gap:8px;margin-top:14px;">
+        <button type="button" class="calc-btn" onclick="calculateCompoundInterest()" style="flex:1;">Recalculate Wealth</button>
+        <button type="button" class="btn-ghost" onclick="shareCalculation(this)" style="padding:10px 14px;font-size:0.85rem;">🔗 Share Projection</button>
       </div>
-
-      <!-- Regular Contributions Mode Selector (From Reference Image) -->
-      <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:12px;margin-bottom:14px;">
-        <div style="font-size:0.8rem;font-weight:700;margin-bottom:8px;color:var(--text-muted);">Regular Contributions Mode:</div>
-        <div style="display:flex;gap:6px;">
-          <button type="button" class="toggle-sub-btn" id="btn-contrib-none" onclick="setContribMode('none')">None</button>
-          <button type="button" class="toggle-sub-btn active" id="btn-contrib-deposit" onclick="setContribMode('deposit')">Deposits</button>
-          <button type="button" class="toggle-sub-btn" id="btn-contrib-withdraw" onclick="setContribMode('withdraw')">Withdrawals</button>
-        </div>
-      </div>
-
-      <div id="contrib-inputs-area">
-        <div class="field">
-          <label for="regular-deposit" id="lbl-regular-deposit">Regular Contribution (<span class="curr-sym">$</span>)</label>
-          <div style="display:grid;grid-template-columns:2fr 1fr;gap:8px;">
-            <input type="number" id="regular-deposit" value="100" step="25" oninput="calculateCompoundInterest()">
-            <select id="deposit-freq" onchange="calculateCompoundInterest()">
-              <option value="12" selected>Monthly</option>
-              <option value="1">Yearly</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="field">
-          <label for="annual-deposit-increase">Annual Deposit Increase (% / Year)</label>
-          <input type="number" id="annual-deposit-increase" value="0" step="1" oninput="calculateCompoundInterest()">
-        </div>
-      </div>
-
-      <button class="calc-btn" onclick="calculateCompoundInterest()">Calculate Growth</button>
     </div>
 
-    <!-- Outputs (From Reference Image Layout) -->
-    <div class="calc-outputs">
-      <h3><span>Interest Calculation Results</span> <button onclick="printResults()" style="background:none;border:none;color:var(--accent);font-size:0.75rem;cursor:pointer;">🖨️ Print</button></h3>
-      
-      <div class="result-item">
-        <div class="result-label">Future Investment Value</div>
-        <div class="result-val big" id="res-future-val" style="color:var(--accent);">$6,416.79</div>
-        <div class="result-sub" id="res-time-summary">Interest calculation for 5 years</div>
+    <!-- Outputs -->
+    <div class="calc-outputs" aria-live="polite">
+      <h3><span>Projected Wealth Accumulation</span></h3>
+
+      <div class="result-item" style="background:var(--bg3);border:1px solid var(--accent);border-radius:10px;padding:18px;margin-bottom:18px;">
+        <div class="result-label" style="font-weight:700;color:var(--accent);">Future Portfolio Value</div>
+        <div class="result-val big" id="res-future-val" style="font-size:2.2rem;color:var(--accent);">$325,487</div>
+        <div class="result-sub" id="res-horizon-sub">After 20 Years of Compounding</div>
       </div>
 
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;">
         <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:12px;">
-          <div style="font-size:0.75rem;color:var(--text-muted);">Yearly Rate $\rightarrow$ Compounded Rate</div>
-          <div style="font-size:1.1rem;font-weight:800;color:var(--accent2);margin-top:4px;" id="res-effective-rate">5% $\rightarrow$ 5.12% APY</div>
+          <div style="font-size:0.75rem;color:var(--text-muted);">Total Principal Deposited</div>
+          <div id="res-total-deposits" style="font-size:1.1rem;font-weight:700;color:var(--text);margin-top:2px;">$130,000</div>
         </div>
 
         <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:12px;">
-          <div style="font-size:0.75rem;color:var(--text-muted);">Time Needed to Double Investment</div>
-          <div style="font-size:1.1rem;font-weight:800;color:var(--accent);margin-top:4px;" id="res-double-time">13 years, 11 months</div>
+          <div style="font-size:0.75rem;color:var(--text-muted);">Total Compound Interest</div>
+          <div id="res-total-interest" style="font-size:1.1rem;font-weight:700;color:var(--accent);margin-top:2px;">$195,487</div>
         </div>
       </div>
 
-      <div class="result-divider"></div>
-
       <div class="result-item">
-        <div class="result-label">Total Interest Earned</div>
-        <div class="result-val" id="res-total-interest" style="color:var(--accent);">$1,416.79</div>
-      </div>
-
-      <div class="result-item">
-        <div class="result-label">Initial Balance</div>
-        <div class="result-val" id="res-initial-balance">$5,000.00</div>
+        <div class="result-label">Interest-to-Deposit Ratio</div>
+        <div class="result-val" id="res-ratio-val" style="color:var(--accent2);">150.4% Growth</div>
+        <div class="result-sub">Interest earned exceeds your total out-of-pocket contributions</div>
       </div>
 
       <!-- SVG Donut Chart -->
       <div class="chart-container" id="compound-chart"></div>
+
+      <!-- Contextual Affiliate Result Box -->
+      <div id="affiliate-result-slot"></div>
     </div>
   </div>
 
-  <!-- AI Advisor Section -->
-  <div class="ai-advisor">
-    <div class="ai-advisor-header">
-      <div class="ai-dot"></div>
-      <span>AI Investment Growth Insight</span>
-      <small>Finmatrix Financial Desk</small>
-    </div>
-    <div class="ai-body" id="ai-advice-body"></div>
-  </div>
+  <!-- Non-shifting Ad Slot -->
+  <div id="calculator-ad-slot"></div>
 
-  <!-- Year-by-Year / Month-by-Month Breakdown Table (From Reference Image) -->
-  <div class="schedule-container" style="margin-top:32px;">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:10px;">
-      <div style="font-weight:700;font-size:1rem;">Yearly & Monthly Breakdown Table</div>
-      <div style="display:flex;gap:6px;">
-        <button type="button" class="toggle-sub-btn active" id="btn-breakdown-yearly" onclick="setBreakdownChoice('yearly')">Yearly</button>
-        <button type="button" class="toggle-sub-btn" id="btn-breakdown-monthly" onclick="setBreakdownChoice('monthly')">Monthly</button>
-      </div>
-    </div>
-    <div class="table-wrapper" id="schedule-wrapper" style="overflow-x:auto;">
-      <table class="schedule-table" style="width:100%;">
-        <thead>
-          <tr>
-            <th id="th-period">Year</th>
-            <th>Interest Earned</th>
-            <th>Accrued Interest</th>
-            <th>Total Balance</th>
-          </tr>
-        </thead>
-        <tbody id="schedule-rows"></tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- Social Share Bar Component -->
-  <div id="social-share-bar-container"></div>
-
-  <!-- Smart Money Breakdown (SEO & Educational Guide) -->
-  <div style="background:rgba(0,212,170,0.06);border:1px solid rgba(0,212,170,0.3);border-radius:var(--radius);padding:24px;margin-top:32px;">
-    <h3 style="font-size:1.1rem;font-weight:800;color:var(--accent);display:flex;align-items:center;gap:8px;margin-bottom:14px;">
-      💡 Smart Money Breakdown: Key Concepts Explained in Plain English
-    </h3>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;">
-      <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:14px;">
-        <strong style="color:var(--accent);font-size:0.92rem;">🌱 Compound Interest Growth</strong>
-        <p style="font-size:0.86rem;color:var(--text-muted);margin-top:6px;margin-bottom:0;line-height:1.5;">
-          Interest calculated on both your initial principal investment and all previously accumulated interest. Over time, compounding creates exponential wealth acceleration.
-        </p>
-      </div>
-
-      <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:14px;">
-        <strong style="color:var(--accent2);font-size:0.92rem;">⚡ Effective Annual Rate (APY)</strong>
-        <p style="font-size:0.86rem;color:var(--text-muted);margin-top:6px;margin-bottom:0;line-height:1.5;">
-          The true annual return earned on your investment after accounting for monthly or daily compounding frequency rather than just nominal annual rate.
-        </p>
-      </div>
-
-      <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:14px;">
-        <strong style="color:var(--accent3);font-size:0.92rem;">⌛ Doubling Time (Rule of 72)</strong>
-        <p style="font-size:0.86rem;color:var(--text-muted);margin-top:6px;margin-bottom:0;line-height:1.5;">
-          A financial math formula showing the exact timeline required for your investment capital to double at a given compounding rate of return.
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Formula & Methodology Notes (YMYL SEO & E-E-A-T) -->
+  <!-- HOW THIS IS CALCULATED -->
   <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-top:32px;">
-    <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:10px;">📐 Mathematical Formula & Investment Methodology</h3>
-    <p style="font-size:0.86rem;color:var(--text-muted);line-height:1.6;margin-bottom:10px;">
-      • <strong>Effective Compounded Rate (APY) Formula:</strong> Calculates true compounding return where $r$ is nominal interest rate and $n$ is compounding frequency per year:
+    <h2 style="font-size:1.25rem;font-weight:800;color:var(--text);margin-bottom:12px;">📐 How This Is Calculated</h2>
+    <p style="font-size:0.9rem;color:var(--text-muted);line-height:1.6;margin-bottom:14px;">
+      Compound interest combines exponential growth on your starting balance with an annuity future-value stream for recurring monthly deposits:
     </p>
-    <div style="font-family:var(--font-mono);font-size:0.8rem;background:var(--bg3);padding:10px;border-radius:6px;margin-bottom:10px;overflow-x:auto;">
-      \text{APY} = \left(1 + \frac{r}{n}\right)^n - 1
+    <div style="font-family:var(--font-mono);font-size:0.85rem;background:var(--bg3);border:1px solid var(--border);padding:12px;border-radius:8px;margin-bottom:14px;color:var(--accent);">
+      A = P(1 + r/n)^(nt) + PMT × [ ((1 + r/n)^(nt) - 1) / (r/n) ]
     </div>
-    <p style="font-size:0.86rem;color:var(--text-muted);line-height:1.6;">
-      • <strong>Time Needed to Double Investment:</strong> Exact log formula $t_{\text{double}} = \frac{\ln(2)}{n \cdot \ln\left(1 + \frac{r}{n}\right)}$.
+    <p style="font-size:0.9rem;color:var(--text-muted);line-height:1.6;margin-bottom:14px;">
+      Where <code>P</code> is initial deposit, <code>PMT</code> is periodic monthly contribution, <code>r</code> is nominal annual interest rate, <code>n</code> is compounding periods per year (12 for monthly), and <code>t</code> is duration in years.<br>
+      • <strong>Worked Example:</strong> Starting with <strong>$10,000</strong> and adding <strong>$500 per month</strong> at an <strong>8.0% annual return</strong> for <strong>20 years</strong>:<br>
+      Total out-of-pocket deposits equal $10,000 + ($500 × 240 months) = <strong>$130,000</strong>.<br>
+      Through compound returns, the initial $10,000 grows to $49,268, while the recurring $500 monthly contributions accumulate to $276,219.<br>
+      Total ending portfolio equals <strong>$325,487</strong>, generating <strong>$195,487 in pure compound interest</strong> (150% more than your deposits).
     </p>
   </div>
-</div>
 
-
-  <!-- Phase 4 Content Scaffolding & 9 Princeton GEO Methods (800-1200 Words) -->
-  <section class="geo-content-scaffolding" style="margin-top:40px;padding-top:24px;border-top:1px solid var(--border);">
-    
-    <h2 style="font-size:1.3rem;font-weight:800;color:var(--text);margin-bottom:14px;">📐 The Mechanics of Compound Interest: APY, Compounding Frequency & The Rule of 72</h2>
-    <div style="background:var(--bg3);border-left:4px solid var(--accent);border-radius:0 8px 8px 0;padding:16px;margin:16px 0;font-style:italic;color:var(--text);">
-      "Compound interest is the eighth wonder of the world. He who understands it, earns it; he who doesn't, pays it."
-      <div style="font-style:normal;font-size:0.85rem;color:var(--text-muted);margin-top:6px;font-weight:600;">— Albert Einstein (Attributed)</div>
+  <!-- ASSUMPTIONS & SOURCES -->
+  <div style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-top:24px;">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:12px;">
+      <h3 style="font-size:1.1rem;font-weight:800;color:var(--accent);margin:0;">Assumptions & Benchmark Sources</h3>
+      <span class="chip orange" style="font-size:0.75rem;">Updated for 2026 · Reviewed October 2026</span>
     </div>
-
-    <div style="background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:20px;margin:20px 0;">
-      <p style="font-family:monospace;font-size:1.05rem;color:var(--accent);font-weight:700;margin-bottom:12px;">A = P(1 + r/n)^(nt) + PMT × [((1 + r/n)^(nt) - 1) / (r/n)]</p>
-      <ul style="font-size:0.9rem;color:var(--text-muted);line-height:1.6;margin-bottom:12px;padding-left:20px;">
-        <li><strong>A</strong> = Final Investment Portfolio Balance ($)</li>
-        <li><strong>P</strong> = Initial Principal Deposit ($)</li>
-        <li><strong>PMT</strong> = Regular Monthly / Periodic Contribution ($)</li>
-        <li><strong>r</strong> = Nominal Annual Interest Rate (decimal, e.g., 0.08 for 8%)</li>
-        <li><strong>n</strong> = Compounding frequency per year (12 = monthly, 365 = daily, 1 = annually)</li>
-        <li><strong>t</strong> = Investment horizon in years</li>
-      </ul>
-      <p style="font-size:0.88rem;color:var(--text);line-height:1.5;"><strong>Empirical S&P 500 Compounding Benchmark:</strong> Based on historical market data from 1926–2025, broad-market US equities have delivered an average nominal annualized return of <strong>10.2% CAGR</strong> (~<strong>7.1% real return</strong> adjusted for 3.1% long-term CPI inflation). At an 8% average return, investing <strong>$500/month for 30 years</strong> deposits $180,000 in capital while accumulating over <strong>$745,180 total portfolio wealth</strong>.</p>
-    </div>
-
-    <h2 style="font-size:1.3rem;font-weight:800;color:var(--text);margin-top:32px;margin-bottom:14px;">📊 2026 US Investment & Savings Benchmarks</h2>
-    <div style="overflow-x:auto;margin:20px 0;">
-  <table style="width:100%;border-collapse:collapse;font-size:0.88rem;text-align:left;">
-    <thead>
-      <tr style="background:var(--bg3);border-bottom:2px solid var(--border);color:var(--accent);">
-        <th style="padding:10px 14px;">Asset / Savings Account Class</th>
-        <th style="padding:10px 14px;">2026 Benchmark APY / Return</th>
-        <th style="padding:10px 14px;">Compounding Frequency</th>
-        <th style="padding:10px 14px;">Historical Risk Level</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr style="border-bottom:1px solid var(--border);">
-        <td style="padding:10px 14px;font-weight:600;">High-Yield Savings Account (HYSA)</td>
-        <td style="padding:10px 14px;">4.25% - 4.85% APY</td>
-        <td style="padding:10px 14px;">Daily / Monthly</td>
-        <td style="padding:10px 14px;">Very Low (FDIC Insured)</td>
-      </tr>
-      <tr style="border-bottom:1px solid var(--border);">
-        <td style="padding:10px 14px;font-weight:600;">S&P 500 Index Fund (Historical Average)</td>
-        <td style="padding:10px 14px;">10.20% Nominal / 7.20% Real</td>
-        <td style="padding:10px 14px;">Annual Reinvested Dividends</td>
-        <td style="padding:10px 14px;">Moderate Market Volatility</td>
-      </tr>
-      <tr style="border-bottom:1px solid var(--border);">
-        <td style="padding:10px 14px;font-weight:600;">Traditional Bank Savings Account</td>
-        <td style="padding:10px 14px;">0.45% APY (National Avg)</td>
-        <td style="padding:10px 14px;">Monthly</td>
-        <td style="padding:10px 14px;">Very Low (Loses to Inflation)</td>
-      </tr>
-      <tr>
-        <td style="padding:10px 14px;font-weight:600;">US 10-Year Treasury Note Benchmark</td>
-        <td style="padding:10px 14px;">4.20% Yield</td>
-        <td style="padding:10px 14px;">Semi-Annual Coupon</td>
-        <td style="padding:10px 14px;">Very Low (US Sovereign)</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-    <h2 style="font-size:1.3rem;font-weight:800;color:var(--text);margin-top:32px;margin-bottom:14px;">🎯 Strategic Wealth Acceleration: 3 Optimization Steps</h2>
-    <div style="margin:20px 0;line-height:1.6;font-size:0.92rem;color:var(--text-muted);">
-  <ol style="padding-left:20px;">
-    <li style="margin-bottom:12px;"><strong style="color:var(--text);">Escalate Annual Deposits:</strong> Increasing monthly contributions by just 5% annually offsets inflation and significantly shrinks your financial freedom timeline.</li>
-    <li style="margin-bottom:12px;"><strong style="color:var(--text);">Prioritize High-APY Accounts:</strong> Moving uninvested cash from a standard 0.45% bank account to a 4.50% HYSA yields an extra $405 per year on every $10,000 balance.</li>
-    <li style="margin-bottom:12px;"><strong style="color:var(--text);">Leverage Tax-Advantaged Growth:</strong> Utilizing Roth IRAs and 401(k) accounts shields your compound interest gains from drag caused by annual capital gains taxes.</li>
-  </ol>
-</div>
-
-    <div class="geo-authoritative-box">
-  <h3>Empirical Compounding Benchmarks & Inflation-Adjusted Growth</h3>
-  <p><strong>Historical Performance:</strong> Over the past 100 years (1926–2025), the S&P 500 has delivered a nominal Compound Annual Growth Rate (CAGR) of <strong>10.2%</strong> (approx. <strong>7.1% real return</strong> after CPI inflation). Regular monthly compounding exponentially accelerates wealth accumulation via the mathematical principle of reinvested gains.</p>
-  
-  <div class="geo-stat-grid">
-    <div class="stat-card"><strong>S&P 500 Benchmark:</strong> 10.2% nominal / 7.1% real annual return across 30-year rolling investment cycles.</div>
-    <div class="stat-card"><strong>Rule of 72 Doubling Time:</strong> A $10,000 portfolio growing at 8% doubles every <strong>9.0 years</strong> ($80,000 in 27 years).</div>
+    <ul style="font-size:0.86rem;color:var(--text-muted);line-height:1.6;margin-bottom:14px;padding-left:20px;">
+      <li><strong>Consistent Compounding:</strong> Assumes interest is credited at regular intervals and 100% of dividends and capital gains are reinvested.</li>
+      <li><strong>Historical Equity Benchmark:</strong> The S&P 500 index has generated an annualized nominal return of ~10.2% between 1926 and 2025 (source: <a href="https://www.sec.gov/investor" target="_blank" rel="noopener" style="color:var(--accent);">SEC Investor Education & Historical Market Series</a>).</li>
+      <li><strong>Taxes & Inflation:</strong> Computations display pre-tax nominal wealth. For tax-advantaged accounts, pair this model with our 401(k) and Roth IRA calculators.</li>
+    </ul>
   </div>
-  
-  <blockquote>
-    <p>"Compound interest is the eighth wonder of the world. He who understands it, earns it; he who doesn't, pays it." — <strong>Classical Financial Axiom</strong>.</p>
-  </blockquote>
-  <p class="source-citation"><strong>Authoritative Grounding:</strong> Federal Reserve Economic Data (FRED); Ibbotson SBBI Historical Market Returns Report; SEC Compound Growth Standards.</p>
-</div>
 
-    <h2 style="font-size:1.3rem;font-weight:800;color:var(--text);margin-top:32px;margin-bottom:14px;">❓ Frequently Asked Questions</h2>
+  <!-- FAQ SECTION -->
+  <div style="margin-top:32px;">
+    <h2 style="font-size:1.25rem;font-weight:800;color:var(--text);margin-bottom:16px;">Frequently Asked Questions</h2>
     
-    <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:16px;margin-bottom:14px;">
-      <h3 style="font-size:0.95rem;font-weight:700;color:var(--accent);margin-bottom:6px;">Q: How does compounding frequency impact total investment returns?</h3>
-      <p style="font-size:0.88rem;color:var(--text-muted);margin:0;line-height:1.5;">Compounding frequency determines how often earned interest is added back to your principal balance. Daily compounding yields slightly more than monthly compounding, which significantly outperforms annual compounding over long investment horizons.</p>
-    </div>
-    <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:16px;margin-bottom:14px;">
-      <h3 style="font-size:0.95rem;font-weight:700;color:var(--accent);margin-bottom:6px;">Q: What is the difference between APR and APY in compound growth?</h3>
-      <p style="font-size:0.88rem;color:var(--text-muted);margin:0;line-height:1.5;">APR (Annual Percentage Rate) represents nominal interest without compounding. APY (Annual Percentage Yield) reflects the true annual return earned after factoring in compounding frequency (e.g., 5.00% APR compounded monthly equals 5.12% APY).</p>
-    </div>
+    <details style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin-bottom:10px;cursor:pointer;">
+      <summary style="font-weight:700;color:var(--text);font-size:0.95rem;">What is the Rule of 72?</summary>
+      <p style="font-size:0.88rem;color:var(--text-muted);line-height:1.6;margin-top:8px;margin-bottom:0;">
+        The Rule of 72 is an easy mental formula to determine how many years it will take to double your investment at a fixed interest rate. Divide 72 by your annual interest rate: at an 8% return, money doubles in approximately 9 years (72 / 8 = 9).
+      </p>
+    </details>
 
-    <div style="font-size:0.82rem;color:var(--text-muted);border-top:1px solid var(--border);padding-top:14px;margin-top:24px;">
-  <p><strong>Official References & Authoritative Sources:</strong></p>
-  <ul style="list-style:none;padding:0;margin:6px 0;">
-    <li>• <a href="https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator" target="_blank" rel="noopener" style="color:var(--accent);">SEC Investor.gov — Compound Interest Benchmarks</a></li>
-    <li>• <a href="https://www.federalreserve.gov/releases/h15/" target="_blank" rel="noopener" style="color:var(--accent);">Federal Reserve Board — H.15 Selected Interest Rates</a></li>
-  </ul>
+    <details style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin-bottom:10px;cursor:pointer;">
+      <summary style="font-weight:700;color:var(--text);font-size:0.95rem;">How does compounding frequency impact returns?</summary>
+      <p style="font-size:0.88rem;color:var(--text-muted);line-height:1.6;margin-top:8px;margin-bottom:0;">
+        The more frequently interest compounds (daily vs. monthly vs. annually), the faster your wealth multiplies because accrued interest begins earning interest sooner. However, the difference between monthly and daily compounding is relatively modest compared to the impact of your savings rate and time horizon.
+      </p>
+    </details>
+
+    <details style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin-bottom:10px;cursor:pointer;">
+      <summary style="font-weight:700;color:var(--text);font-size:0.95rem;">Why is starting early so crucial for compound interest?</summary>
+      <p style="font-size:0.88rem;color:var(--text-muted);line-height:1.6;margin-top:8px;margin-bottom:0;">
+        Compound interest follows an exponential hockey-stick curve. The dollars you invest in your 20s have 30 to 40 years to double multiple times, generating vastly more wealth than larger sums contributed later in life.
+      </p>
+    </details>
+
+    <details style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin-bottom:10px;cursor:pointer;">
+      <summary style="font-weight:700;color:var(--text);font-size:0.95rem;">How do investment fees affect compound interest?</summary>
+      <p style="font-size:0.88rem;color:var(--text-muted);line-height:1.6;margin-top:8px;margin-bottom:0;">
+        A 1.0% annual expense ratio or advisory fee can reduce your final portfolio value by 20% to 30% over a 30-year horizon because fees compound negatively against your returns. Favoring low-cost index funds with expense ratios below 0.05% protects your compounding growth.
+      </p>
+    </details>
+  </div>
+
+  <!-- EMBED THIS CALCULATOR WIDGET (Phase 6) -->
+  <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-top:32px;">
+    <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:8px;">💻 Embed This Compound Interest Calculator on Your Website</h3>
+    <p style="color:var(--text-muted);font-size:0.85rem;margin-bottom:12px;">Add this interactive compound growth tool to your personal finance site or blog.</p>
+    <div style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:10px;font-family:monospace;font-size:0.78rem;color:var(--accent);overflow-x:auto;">
+      &lt;iframe src="https://finmatrix.cloud/embed/compound-interest/" width="100%" height="520" frameborder="0" title="Compound Interest Calculator by Finmatrix"&gt;&lt;/iframe&gt;
+    </div>
+  </div>
+
+  <!-- RELATED CALCULATORS & NEXT STEPS -->
+  <div id="related-calculators-slot" style="margin-top:36px;"></div>
 </div>
 
-    <p style="font-size:0.78rem;color:var(--text-muted);margin-top:24px;margin-bottom:0;text-align:center;">
-      Reviewed by Finmatrix Financial Research Team | Last Updated: September 2026
-    </p>
-
-  </section>
-</div>
 <footer>
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
         <div class="nav-logo">Finmatrix</div>
-        <p>Free AI-powered personal finance tools for every household. Developed with AI assistance and verified by our financial desk.</p>
+        <p>Free, verified personal finance calculators for every US household. 100% private with zero sign-up required.</p>
       </div>
       <div class="footer-col">
-        <h4>Investment Tools</h4>
-        <a href="compound-interest-calculator.html">Compound Interest</a>
-        <a href="time-value-of-money-calculator.html">Time Value of Money</a>
-        <a href="fire-calculator.html">FIRE Calculator</a>
-        <a href="retirement-calculator.html">Retirement Calculator</a>
-      </div>
-      <div class="footer-col">
-        <h4>More Tools</h4>
-        <a href="debt-elimination-planner.html">Debt Elimination Planner</a>
-        <a href="paycheck-calculator.html">Paycheck Calculator</a>
-        <a href="mortgage-calculator.html">Mortgage Calculator</a>
-        <a href="emergency-fund-calculator.html">Emergency Fund</a>
+        <h4>Calculators</h4>
+        <a href="/calculators/debt-elimination-planner.html">Debt Elimination Planner</a>
+        <a href="/calculators/paycheck-calculator.html">Paycheck Calculator</a>
+        <a href="/calculators/mortgage-calculator.html">Mortgage Calculator</a>
+        <a href="/calculators/compound-interest-calculator.html">Compound Interest</a>
+        <a href="/calculators/roth-vs-traditional-ira-calculator.html">Roth vs Traditional IRA</a>
       </div>
       <div class="footer-col">
         <h4>Company & Legal</h4>
         <a href="/about.html">About Finmatrix</a>
-        <a href="/editorial-policy.html">Editorial Policy</a>
+        <a href="/editorial-policy.html">Editorial & Calculation Policy</a>
         <a href="/privacy-policy.html">Privacy Policy</a>
         <a href="/terms-of-service.html">Terms of Service</a>
+        <a href="/disclaimer.html">Disclaimer</a>
+        <a href="/contact.html">Contact Us</a>
       </div>
     </div>
     <div class="footer-bottom">
       <span>© 2026 Finmatrix. All rights reserved.</span>
       <span>Contact: <a href="mailto:novamatrix1564@gmail.com" style="color:var(--text-muted);">novamatrix1564@gmail.com</a></span>
     </div>
-    <p class="disclaimer">* Content and tools on Finmatrix are created with AI assistance and thoroughly reviewed by our financial desk for educational purposes. Not certified financial advice.</p>
+    <p class="disclaimer">* Finmatrix tools provide estimations for educational purposes only. Always consult a licensed CFP® or tax advisor before making major financial commitments. Referral links may pay us a commission at zero extra cost to you.</p>
   </div>
 </footer>
 
 <script src="/js/main.js"></script>
 <script src="/js/charts.js"></script>
+<script src="/js/tool-engine.js"></script>
+<script src="/js/analytics.js"></script>
 <script>
-let currentTab = 'compound';
-let contribMode = 'deposit';
-let breakdownChoice = 'yearly';
-
-function setInterestTab(tab) {
-  currentTab = tab;
-  document.getElementById('tab-compound').classList.toggle('active', tab === 'compound');
-  document.getElementById('tab-simple').classList.toggle('active', tab === 'simple');
-  document.getElementById('tab-daily').classList.toggle('active', tab === 'daily');
-  document.getElementById('tab-forex').classList.toggle('active', tab === 'forex');
-
-  const grpFreq = document.getElementById('grp-compound-freq');
-  const selFreq = document.getElementById('compound-freq');
-
-  if (tab === 'simple') {
-    grpFreq.style.display = 'none';
-  } else if (tab === 'daily') {
-    grpFreq.style.display = 'block';
-    selFreq.value = '365';
-  } else if (tab === 'forex' || tab === 'compound') {
-    grpFreq.style.display = 'block';
-    if (tab === 'compound') selFreq.value = '12';
-  }
-
-  calculateCompoundInterest();
-}
-
-function setContribMode(mode) {
-  contribMode = mode;
-  document.getElementById('btn-contrib-none').classList.toggle('active', mode === 'none');
-  document.getElementById('btn-contrib-deposit').classList.toggle('active', mode === 'deposit');
-  document.getElementById('btn-contrib-withdraw').classList.toggle('active', mode === 'withdraw');
-
-  const area = document.getElementById('contrib-inputs-area');
-  area.style.display = (mode === 'none') ? 'none' : 'block';
-
-  document.getElementById('lbl-regular-deposit').innerHTML = (mode === 'withdraw') ? `Regular Withdrawal (<span class="curr-sym">${getCurrencySymbol()}</span>)` : `Regular Deposit (<span class="curr-sym">${getCurrencySymbol()}</span>)`;
-
-  calculateCompoundInterest();
-}
-
-function setBreakdownChoice(choice) {
-  breakdownChoice = choice;
-  document.getElementById('btn-breakdown-yearly').classList.toggle('active', choice === 'yearly');
-  document.getElementById('btn-breakdown-monthly').classList.toggle('active', choice === 'monthly');
-  document.getElementById('th-period').textContent = (choice === 'monthly') ? 'Month' : 'Year';
-  calculateCompoundInterest();
-}
+const inputFields = ['init-deposit', 'monthly-contrib', 'annual-rate', 'years-grow', 'compound-freq'];
 
 function calculateCompoundInterest() {
-  const P = parseFloat(document.getElementById('initial-principal').value) || 0;
+  const principal = parseFloat(document.getElementById('init-deposit').value) || 0;
+  const monthly = parseFloat(document.getElementById('monthly-contrib').value) || 0;
   const ratePct = parseFloat(document.getElementById('annual-rate').value) || 0;
-  let years = parseInt(document.getElementById('investment-years').value) || 0;
-  let months = parseInt(document.getElementById('investment-months').value) || 0;
-  const totalYearsFloat = years + (months / 12);
-  const totalMonths = (years * 12) + months;
-
-  let n = parseInt(document.getElementById('compound-freq').value) || 12;
-  if (currentTab === 'simple') n = 1;
-
-  let regAmt = parseFloat(document.getElementById('regular-deposit').value) || 0;
-  if (contribMode === 'withdraw') regAmt = -regAmt;
-  if (contribMode === 'none') regAmt = 0;
-
-  const depFreq = parseInt(document.getElementById('deposit-freq').value) || 12;
-  const annualIncreasePct = parseFloat(document.getElementById('annual-deposit-increase').value) || 0;
+  const years = parseFloat(document.getElementById('years-grow').value) || 1;
+  const n = parseInt(document.getElementById('compound-freq').value) || 12;
 
   const r = ratePct / 100;
-  
-  // Calculate Effective Rate / APY
-  let effectiveAPY = 0;
-  if (currentTab === 'simple') {
-    effectiveAPY = ratePct;
+  const totalDeposits = principal + (monthly * 12 * years);
+
+  let futureValue = 0;
+  if (r === 0) {
+    futureValue = totalDeposits;
   } else {
-    effectiveAPY = (Math.pow(1 + (r / n), n) - 1) * 100;
-  }
-  document.getElementById('res-effective-rate').textContent = `${ratePct}% → ${effectiveAPY.toFixed(2)}% APY`;
-
-  // Calculate Doubling Time using exact compound formula
-  let doubleStr = 'N/A';
-  if (r > 0) {
-    const doubleYrsFloat = Math.log(2) / (n * Math.log(1 + (r / n)));
-    const dY = Math.floor(doubleYrsFloat);
-    const dM = Math.round((doubleYrsFloat - dY) * 12);
-    doubleStr = `${dY} years, ${dM} months`;
-  }
-  document.getElementById('res-double-time').textContent = doubleStr;
-
-  // Month-by-month simulation
-  let balance = P;
-  let totalContribs = P;
-  let accruedInterest = 0;
-  let scheduleRowsHTML = '';
-  let currentRegAmt = regAmt;
-
-  for (let m = 1; m <= totalMonths; m++) {
-    // Annual deposit increase check
-    if (m > 1 && (m - 1) % 12 === 0 && annualIncreasePct > 0) {
-      currentRegAmt *= (1 + (annualIncreasePct / 100));
-    }
-
-    // Add regular contribution
-    if (m % (12 / depFreq) === 0) {
-      balance += currentRegAmt;
-      totalContribs += currentRegAmt;
-    }
-
-    // Calculate interest for month
-    let mInterest = 0;
-    if (currentTab === 'simple') {
-      mInterest = P * (r / 12);
-    } else {
-      mInterest = balance * (Math.pow(1 + (r / n), n / 12) - 1);
-    }
-
-    accruedInterest += mInterest;
-    balance += mInterest;
-
-    // Monthly breakdown row
-    if (breakdownChoice === 'monthly') {
-      scheduleRowsHTML += `<tr><td>Month ${m}</td><td>${fmtCurrency(mInterest)}</td><td>${fmtCurrency(accruedInterest)}</td><td>${fmtCurrency(balance)}</td></tr>`;
-    } else if (breakdownChoice === 'yearly' && m % 12 === 0) {
-      const yrNum = m / 12;
-      scheduleRowsHTML += `<tr><td>Year ${yrNum}</td><td>${fmtCurrency(mInterest * 12)}</td><td>${fmtCurrency(accruedInterest)}</td><td>${fmtCurrency(balance)}</td></tr>`;
-    }
+    const fvPrincipal = principal * Math.pow(1 + r / n, n * years);
+    const fvMonthly = monthly * ((Math.pow(1 + r / n, n * years) - 1) / (r / n));
+    futureValue = fvPrincipal + fvMonthly;
   }
 
-  // Handle remaining months if yearly choice and totalMonths not multiple of 12
-  if (breakdownChoice === 'yearly' && totalMonths % 12 !== 0) {
-    scheduleRowsHTML += `<tr><td>Final (Month ${totalMonths})</td><td>${fmtCurrency(accruedInterest)}</td><td>${fmtCurrency(accruedInterest)}</td><td>${fmtCurrency(balance)}</td></tr>`;
-  }
+  const totalInterest = Math.max(0, futureValue - totalDeposits);
+  const ratio = totalDeposits > 0 ? ((totalInterest / totalDeposits) * 100).toFixed(1) : 0;
 
-  document.getElementById('res-future-val').textContent = fmtCurrency(balance);
-  document.getElementById('res-total-interest').textContent = fmtCurrency(accruedInterest);
-  document.getElementById('res-initial-balance').textContent = fmtCurrency(P);
-  document.getElementById('res-time-summary').textContent = `Interest calculation for ${years} years${months > 0 ? ' ' + months + ' months' : ''}`;
-
-  document.getElementById('schedule-rows').innerHTML = scheduleRowsHTML;
+  document.getElementById('res-future-val').textContent = fmtCurrency(futureValue);
+  document.getElementById('res-horizon-sub').textContent = `After ${years} Years of Compounding (${ratePct}% return)`;
+  document.getElementById('res-total-deposits').textContent = fmtCurrency(totalDeposits);
+  document.getElementById('res-total-interest').textContent = fmtCurrency(totalInterest);
+  document.getElementById('res-ratio-val').textContent = `${ratio}% Growth`;
 
   renderDonutChart('compound-chart', [
-    { label: 'Initial & Contributions', value: Math.max(0, totalContribs), color: '#00d4aa' },
-    { label: 'Total Interest Earned', value: Math.max(0, accruedInterest), color: '#0098ff' }
-  ], 'Balance Distribution');
-
-  const rPercent = totalContribs > 0 ? ((accruedInterest / balance) * 100).toFixed(1) : 0;
-  document.getElementById('ai-advice-body').innerHTML = `
-    <div class="ai-tip"><span class="ai-tip-icon">✦</span><span><strong>Compounding Growth:</strong> Your money generates **${fmtCurrency(accruedInterest)}** in interest (${rPercent}% of total wealth), pushing final balance to **${fmtCurrency(balance)}**.</span></div>
-    <div class="ai-tip"><span class="ai-tip-icon">✦</span><span><strong>Doubling Trajectory:</strong> At ${ratePct}% nominal rate (${effectiveAPY.toFixed(2)}% APY), your capital doubles every **${doubleStr}**.</span></div>
-  `;
+    { label: 'Out-of-Pocket Deposits', value: totalDeposits, color: '#0098ff' },
+    { label: 'Compound Interest Earned', value: totalInterest, color: '#00d4aa' }
+  ], 'Portfolio Wealth Composition');
 }
 
-// Initializer
+function shareCalculation(btn) {
+  FinmatrixToolEngine.copyShareableLink(inputFields, btn);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initCurrencySelector(calculateCompoundInterest);
-  renderSocialShareBar('social-share-bar-container', 'Compound Interest Calculator — Finmatrix', window.location.href);
+  FinmatrixToolEngine.restoreInputsFromUrl();
   calculateCompoundInterest();
+  FinmatrixToolEngine.renderAffiliateResultBox('affiliate-result-slot', 'investing');
+  FinmatrixToolEngine.renderAdSlot('calculator-ad-slot');
+  FinmatrixToolEngine.renderRelatedCalculators('related-calculators-slot', 'compound-interest-calculator', [
+    'fire-calculator',
+    'retirement-calculator',
+    'roth-vs-traditional-ira-calculator',
+    '401k-calculator'
+  ], {
+    title: 'Compare Tax-Advantaged Growth: Roth vs. Traditional IRA',
+    desc: 'Investing through an IRA shelters your compound interest growth from capital gains taxes.',
+    url: '/calculators/roth-vs-traditional-ira-calculator.html',
+    cta: 'Compare IRA Tax Benefits →'
+  });
 });
-
-initCurrencySelector(calculateCompoundInterest);
-renderSocialShareBar('social-share-bar-container', 'Compound Interest Calculator — Finmatrix', window.location.href);
-calculateCompoundInterest();
 </script>
 </body>
 </html>

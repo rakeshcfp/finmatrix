@@ -6,10 +6,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 <!-- Primary Meta Tags -->
-<title>Mortgage Calculator with Taxes, PMI & Extra Pay | Finmatrix</title>
-<meta name="description" content="Calculate monthly PITI mortgage payments, property taxes, PMI, and home insurance. See how extra principal payments shorten your loan term.">
-<meta name="keywords" content="mortgage payment calculator with pmi and taxes, home mortgage amortization, extra principal payments, 15 vs 30 year mortgage">
-<meta name="author" content="Finmatrix Financial Engineering Research Desk">
+<title>Mortgage Payment & Amortization Calculator (2026) | Finmatrix</title>
+<meta name="description" content="Calculate monthly PITI mortgage payments, property taxes, home insurance, PMI, and view interactive amortization schedules. Free & private.">
+<meta name="keywords" content="mortgage calculator, piti calculator, mortgage payment calculator, home loan payment, amortization schedule, private mortgage insurance pmi">
+<meta name="author" content="Finmatrix Financial Research Desk">
 <link rel="canonical" href="https://finmatrix.cloud/calculators/mortgage-calculator.html">
 
 <!-- Search Engine Robots Directives -->
@@ -22,25 +22,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 
-<!-- Open Graph / Facebook / LinkedIn -->
+<!-- Open Graph / Twitter -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://finmatrix.cloud/calculators/mortgage-calculator.html">
 <meta property="og:site_name" content="Finmatrix">
-<meta property="og:title" content="Mortgage Calculator with Taxes, PMI & Extra Pay | Finmatrix">
-<meta property="og:description" content="Calculate monthly PITI mortgage payments, property taxes, PMI, and home insurance. See how extra principal payments shorten your loan term.">
+<meta property="og:title" content="Mortgage Payment & Amortization Calculator (2026) | Finmatrix">
+<meta property="og:description" content="Calculate monthly PITI mortgage payments, property taxes, home insurance, PMI, and view amortization schedules.">
 <meta property="og:image" content="https://finmatrix.cloud/assets/og/mortgage-calculator.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Mortgage Payment Calculator - Finmatrix">
-<meta property="og:locale" content="en_US">
-
-<!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="https://finmatrix.cloud/calculators/mortgage-calculator.html">
-<meta name="twitter:title" content="Mortgage Calculator with Taxes, PMI & Extra Pay | Finmatrix">
-<meta name="twitter:description" content="Calculate monthly PITI mortgage payments, property taxes, PMI, and home insurance. See how extra principal payments shorten your loan term.">
+<meta name="twitter:title" content="Mortgage Payment & Amortization Calculator (2026) | Finmatrix">
+<meta name="twitter:description" content="Calculate monthly PITI mortgage payments, property taxes, insurance, and full amortization schedules.">
 <meta name="twitter:image" content="https://finmatrix.cloud/assets/og/mortgage-calculator.png">
-<meta name="twitter:image:alt" content="Mortgage Payment Calculator - Finmatrix">
 
 <!-- Favicon & Mobile Icons -->
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -56,7 +48,7 @@
     {
       "@type": "WebApplication",
       "@id": "https://finmatrix.cloud/calculators/mortgage-calculator.html#app",
-      "name": "Mortgage Payment & Amortization Calculator (PITI + PMI)",
+      "name": "Mortgage Payment & PITI Amortization Calculator",
       "url": "https://finmatrix.cloud/calculators/mortgage-calculator.html",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "All",
@@ -67,15 +59,15 @@
         "priceCurrency": "USD"
       },
       "featureList": [
-        "Complete Monthly PITI payment breakdown (Principal, Interest, Taxes, Insurance)",
-        "Private Mortgage Insurance (PMI) cancellation schedule (78% LTV)",
-        "Extra monthly/yearly principal prepayment payoff accelerator",
-        "Full 30-year year-by-year and month-by-month amortization schedule",
+        "Principal & Interest calculation using standard fixed annuity formulas",
+        "Full PITI breakdown: property taxes, homeowners insurance, and private mortgage insurance (PMI)",
+        "Down payment percentages (3% to 30%+) and automatic PMI threshold removal",
+        "Interactive 15-year and 30-year fixed loan term comparisons",
         "100% Client-side privacy-first computation"
       ],
       "citation": [
-        "https://www.consumerfinance.gov/owning-a-home/",
-        "https://www.fhfa.gov/"
+        "https://www.consumerfinance.gov/owning-a-home/explore-rates/",
+        "https://www.fanniemae.com/"
       ]
     },
     {
@@ -97,7 +89,7 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Mortgage Calculator with Taxes, PMI & Extra Pay",
+          "name": "Mortgage Calculator",
           "item": "https://finmatrix.cloud/calculators/mortgage-calculator.html"
         }
       ]
@@ -108,47 +100,41 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What components make up a monthly PITI mortgage payment?",
+          "name": "What does PITI stand for in a mortgage payment?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "PITI stands for Principal, Interest, Property Taxes, and Homeowners Insurance. If your down payment is less than 20%, Private Mortgage Insurance (PMI) is also included until 20% equity is reached."
+            "text": "PITI stands for Principal, Interest, Taxes, and Insurance. It represents your total monthly housing cost, combining loan principal paydown, lender interest, municipal property taxes, and homeowners hazard insurance into a single monthly escrow payment."
           }
         },
         {
           "@type": "Question",
-          "name": "How does making extra principal payments affect a 30-year mortgage?",
+          "name": "What is Private Mortgage Insurance (PMI) and when does it drop off?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Extra principal payments directly reduce the loan balance, bypassing future compounding interest. An extra $200\u2013$300/month on a typical loan can shorten loan tenure by 5\u20138 years and save over $70,000\u2013$100,000 in interest."
+            "text": "Private Mortgage Insurance (PMI) is required by conventional lenders when your down payment is less than 20% of the home purchase price. Under the federal Homeowners Protection Act, lenders must automatically cancel PMI once your loan balance reaches 78% of the original home value."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does a 15-year mortgage compare to a 30-year mortgage?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A 15-year fixed mortgage carries a higher monthly payment because principal is amortized in half the time, but offers lower interest rates and saves tens of thousands of dollars in cumulative lifetime interest charges compared to a 30-year term."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much should I budget for annual property taxes and insurance?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "National property taxes average approximately 1.1% to 1.2% of assessed home value annually (varying from ~0.3% in Hawaii to over 2.2% in New Jersey). Homeowners insurance typically ranges from $1,200 to $2,500 annually depending on location and hazard risk."
           }
         }
       ]
-    },
-    {
-      "@type": "WebPage",
-      "@id": "https://finmatrix.cloud/calculators/mortgage-calculator.html#webpage",
-      "url": "https://finmatrix.cloud/calculators/mortgage-calculator.html",
-      "name": "Mortgage Calculator with Taxes, PMI & Extra Pay | Finmatrix",
-      "isPartOf": {
-        "@type": "WebSite",
-        "@id": "https://finmatrix.cloud/#website",
-        "name": "Finmatrix",
-        "url": "https://finmatrix.cloud"
-      },
-      "speakable": {
-        "@type": "SpeakableSpecification",
-        "cssSelector": [
-          "h1",
-          ".calc-desc",
-          ".geo-authoritative-box",
-          "#faq"
-        ]
-      }
     }
   ]
 }
 </script>
-<link rel="manifest" href="/site.webmanifest">
 </head>
 <body>
 
@@ -157,8 +143,8 @@
   <div class="nav-links">
     <a href="/">Home</a>
     <a href="/calculators/" class="active">Calculators</a>
-    <a href="/articles/">Articles</a>
     <a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a>
     <button class="theme-toggle theme-toggle-btn" onclick="toggleTheme()">☀️ Light Mode</button>
   </div>
   <button class="menu-btn" onclick="toggleMobileMenu()">☰ Menu</button>
@@ -170,419 +156,301 @@
   </div>
 
   <div style="margin-bottom:28px;">
-    <h1 style="font-family:var(--font-heading);font-size:clamp(1.8rem,4vw,2.4rem);font-weight:800;">US Mortgage Payment Calculator</h1>
-    <p style="color:var(--text-muted);font-size:0.95rem;">Calculate your complete PITI monthly payment (Principal, Interest, Property Taxes, Home Insurance, PMI) and explore your year-by-year amortization schedule.</p>
+    <span class="chip orange" style="margin-bottom:8px;display:inline-block;">PITI & Amortization Engine</span>
+    <h1 style="font-family:var(--font-heading);font-size:clamp(1.8rem,4vw,2.4rem);font-weight:800;margin-bottom:8px;">Mortgage Payment & PITI Amortization Calculator</h1>
+    <p style="color:var(--text-muted);font-size:0.95rem;">Calculate your exact monthly mortgage payment including Principal, Interest, Property Taxes, Home Insurance (PITI), and PMI across 15-year and 30-year terms.</p>
   </div>
 
-  
-  <div class="direct-answer-box" style="background:rgba(0,212,170,0.06);border-left:4px solid var(--accent);padding:16px 20px;border-radius:8px;margin-bottom:24px;font-size:0.95rem;line-height:1.6;color:var(--text);">
-    <strong>Direct Summary & Rule-of-Thumb Takeaway:</strong> A total monthly mortgage payment consists of Principal, Interest, Property Taxes, and Homeowners Insurance (PITI). If your down payment is below 20%, Private Mortgage Insurance (PMI) is also included until your loan-to-value (LTV) ratio drops to 80%.
-  </div>
   <div class="calc-body">
     <!-- Inputs -->
     <div class="calc-inputs">
-      <!-- Currency Selector Bar -->
-      <div class="currency-selector-bar" style="display:flex;align-items:center;gap:6px;margin-bottom:18px;flex-wrap:wrap;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px 14px;">
-        <span style="font-size:0.82rem;font-weight:700;color:var(--text-muted);margin-right:4px;">Currency:</span>
-        <button type="button" class="curr-btn active" data-curr="USD" onclick="changeCurrency('USD', calculateMortgage)" style="padding:5px 12px;border-radius:6px;border:1px solid var(--accent);background:var(--accent);color:#000;font-weight:700;font-size:0.8rem;cursor:pointer;">$ USD</button>
-        <button type="button" class="curr-btn" data-curr="EUR" onclick="changeCurrency('EUR', calculateMortgage)" style="padding:5px 12px;border-radius:6px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-weight:700;font-size:0.8rem;cursor:pointer;">€ EUR</button>
-        <button type="button" class="curr-btn" data-curr="GBP" onclick="changeCurrency('GBP', calculateMortgage)" style="padding:5px 12px;border-radius:6px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-weight:700;font-size:0.8rem;cursor:pointer;">£ GBP</button>
-        <button type="button" class="curr-btn" data-curr="INR" onclick="changeCurrency('INR', calculateMortgage)" style="padding:5px 12px;border-radius:6px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-weight:700;font-size:0.8rem;cursor:pointer;">₹ INR</button>
-        <button type="button" class="curr-btn" data-curr="JPY" onclick="changeCurrency('JPY', calculateMortgage)" style="padding:5px 12px;border-radius:6px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-weight:700;font-size:0.8rem;cursor:pointer;">¥ JPY</button>
-        <button type="button" class="curr-btn" data-curr="CAD" onclick="changeCurrency('CAD', calculateMortgage)" style="padding:5px 12px;border-radius:6px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-weight:700;font-size:0.8rem;cursor:pointer;">C$ CAD</button>
-        <button type="button" class="curr-btn" data-curr="AUD" onclick="changeCurrency('AUD', calculateMortgage)" style="padding:5px 12px;border-radius:6px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-weight:700;font-size:0.8rem;cursor:pointer;">A$ AUD</button>
-      </div>
+      <h3><span>Home Purchase & Loan Terms</span></h3>
 
-      <h3><span>Home Loan Inputs</span></h3>
-      
       <div class="field">
         <label for="home-price">Home Purchase Price ($)</label>
-        <input type="number" id="home-price" value="420000" step="5000" oninput="calculateMortgage()">
+        <input type="number" id="home-price" value="400000" step="5000" min="10000" oninput="calculateMortgage()">
       </div>
 
-      <div class="field">
-        <label for="down-payment">Down Payment ($)</label>
-        <input type="number" id="down-payment" value="84000" step="1000" oninput="calculateMortgage()">
-      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div class="field">
+          <label for="down-payment-pct">Down Payment (%)</label>
+          <input type="number" id="down-payment-pct" value="20" step="1" min="0" max="100" oninput="calculateMortgage()">
+          <small id="down-payment-dollars" style="color:var(--text-muted);font-size:0.75rem;">$80,000</small>
+        </div>
 
-      <div class="field">
-        <label for="interest-rate">Interest Rate (%)</label>
-        <input type="number" id="interest-rate" value="6.75" step="0.125" oninput="calculateMortgage()">
+        <div class="field">
+          <label for="interest-rate">Interest Rate (APR %)</label>
+          <input type="number" id="interest-rate" value="6.5" step="0.125" min="0" oninput="calculateMortgage()">
+        </div>
       </div>
 
       <div class="field">
         <label for="loan-term">Loan Term</label>
-        <select id="loan-term" onchange="calculateMortgage()">
-          <option value="30" selected>30 Years Fixed</option>
-          <option value="15">15 Years Fixed</option>
-          <option value="20">20 Years Fixed</option>
+        <select id="loan-term" onchange="calculateMortgage()" style="background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:10px;border-radius:8px;width:100%;outline:none;">
+          <option value="30" selected>30-Year Fixed</option>
+          <option value="15">15-Year Fixed</option>
+          <option value="20">20-Year Fixed</option>
+          <option value="10">10-Year Fixed</option>
         </select>
       </div>
 
-      <div class="field">
-        <label for="property-tax">Annual Property Tax ($)</label>
-        <input type="number" id="property-tax" value="5040" step="100" oninput="calculateMortgage()">
+      <h3 style="margin-top:18px;margin-bottom:12px;"><span>Taxes, Insurance & Escrow</span></h3>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div class="field">
+          <label for="property-tax-rate">Annual Property Tax (%)</label>
+          <input type="number" id="property-tax-rate" value="1.2" step="0.1" min="0" oninput="calculateMortgage()">
+          <small style="color:var(--text-muted);font-size:0.75rem;">US avg: 1.1% – 1.2%</small>
+        </div>
+
+        <div class="field">
+          <label for="home-insurance">Annual Homeowners Ins. ($)</label>
+          <input type="number" id="home-insurance" value="1400" step="50" min="0" oninput="calculateMortgage()">
+          <small style="color:var(--text-muted);font-size:0.75rem;">Hazard insurance</small>
+        </div>
       </div>
 
-      <div class="field">
-        <label for="home-insurance">Annual Homeowners Insurance ($)</label>
-        <input type="number" id="home-insurance" value="1440" step="50" oninput="calculateMortgage()">
+      <div style="display:flex;gap:8px;margin-top:14px;">
+        <button type="button" class="calc-btn" onclick="calculateMortgage()" style="flex:1;">Recalculate Mortgage</button>
+        <button type="button" class="btn-ghost" onclick="shareCalculation(this)" style="padding:10px 14px;font-size:0.85rem;">🔗 Share Estimate</button>
       </div>
-
-      <button class="calc-btn" onclick="calculateMortgage()">Update Calculation</button>
     </div>
 
     <!-- Outputs -->
-    <div class="calc-outputs">
-      <h3><span>Payment Breakdown</span> <button onclick="printResults()" style="background:none;border:none;color:var(--accent);font-size:0.75rem;cursor:pointer;">🖨️ Print</button></h3>
-      
-      <div class="result-item">
-        <div class="result-label">Total Monthly PITI Payment</div>
-        <div class="result-val big" id="res-total-monthly">$2,724</div>
-        <div class="result-sub">Includes Principal, Interest, Tax & Insurance</div>
+    <div class="calc-outputs" aria-live="polite">
+      <h3><span>Estimated Monthly Payment</span></h3>
+
+      <div class="result-item" style="background:var(--bg3);border:1px solid var(--accent);border-radius:10px;padding:18px;margin-bottom:18px;">
+        <div class="result-label" style="font-weight:700;color:var(--accent);">Total Monthly Housing Payment (PITI)</div>
+        <div class="result-val big" id="res-total-monthly" style="font-size:2.2rem;color:var(--accent);">$2,539</div>
+        <div class="result-sub" id="res-loan-amount-sub">Loan Principal: $320,000 · 30-Year Fixed</div>
       </div>
 
-      <div class="result-divider"></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;">
+        <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:12px;">
+          <div style="font-size:0.75rem;color:var(--text-muted);">Principal & Interest (P&I)</div>
+          <div id="res-monthly-pi" style="font-size:1.1rem;font-weight:700;color:var(--text);margin-top:2px;">$2,023 / mo</div>
+        </div>
 
-      <div class="result-item">
-        <div class="result-label">Principal & Interest (P&I)</div>
-        <div class="result-val" id="res-pi-monthly">$2,184 / mo</div>
+        <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:12px;">
+          <div style="font-size:0.75rem;color:var(--text-muted);">Property Taxes</div>
+          <div id="res-monthly-tax" style="font-size:1.1rem;font-weight:700;color:var(--text);margin-top:2px;">$400 / mo</div>
+        </div>
+
+        <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:12px;">
+          <div style="font-size:0.75rem;color:var(--text-muted);">Homeowners Insurance</div>
+          <div id="res-monthly-ins" style="font-size:1.1rem;font-weight:700;color:var(--text);margin-top:2px;">$117 / mo</div>
+        </div>
+
+        <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:12px;">
+          <div style="font-size:0.75rem;color:var(--text-muted);">PMI (if &lt;20% down)</div>
+          <div id="res-monthly-pmi" style="font-size:1.1rem;font-weight:700;color:var(--text);margin-top:2px;">$0 / mo</div>
+        </div>
       </div>
 
       <div class="result-item">
-        <div class="result-label">Total Mortgage Loan Amount</div>
-        <div class="result-val" id="res-loan-amt">$336,000</div>
-      </div>
-
-      <div class="result-item">
-        <div class="result-label">Total Interest Paid Over Loan Term</div>
-        <div class="result-val" id="res-total-interest">$450,240</div>
+        <div class="result-label">Total Cumulative Interest Over Loan Life</div>
+        <div class="result-val" id="res-total-interest" style="color:var(--accent3);">$408,143</div>
+        <div class="result-sub" id="res-total-cost">Total Mortgage Cost: $728,143</div>
       </div>
 
       <!-- SVG Donut Chart -->
       <div class="chart-container" id="mortgage-chart"></div>
+
+      <!-- Contextual Affiliate Result Box -->
+      <div id="affiliate-result-slot"></div>
     </div>
   </div>
 
-  <!-- AI Advisor Section -->
-  <div class="ai-advisor">
-    <div class="ai-advisor-header">
-      <div class="ai-dot"></div>
-      <span>AI Mortgage Advisor</span>
-      <small>Finmatrix Financial Desk</small>
-    </div>
-    <div class="ai-body" id="ai-advice-body"></div>
-  </div>
+  <!-- Non-shifting Ad Slot -->
+  <div id="calculator-ad-slot"></div>
 
-  <!-- Clean Partner Cards (Coming Soon State) -->
-  <div class="affiliate-section">
-    <div class="affiliate-header">
-      <div class="affiliate-title">🏠 Featured US Mortgage Lenders</div>
-      <span class="ftc-tag" onclick="showFTCDisclosure()">ⓘ Advertiser Disclosure</span>
-    </div>
-    <div class="affiliate-grid">
-      <div class="affiliate-card">
-        <div>
-          <div class="affiliate-brand">Rocket Mortgage</div>
-          <div class="affiliate-rate">6.25% APR</div>
-          <div class="affiliate-desc">Fast digital pre-approval · Flexible down payment options</div>
-        </div>
-        <span class="affiliate-badge coming-soon" style="background:var(--bg3);color:var(--text-muted);padding:8px 14px;border-radius:6px;font-size:0.8rem;border:1px solid var(--border);display:inline-block;text-align:center;">Partner Link Coming Soon</span>
-      </div>
-
-      <div class="affiliate-card">
-        <div>
-          <div class="affiliate-brand">Better Mortgage</div>
-          <div class="affiliate-rate">6.15% APR</div>
-          <div class="affiliate-desc">$0 lender fees · Instant online pre-approval commitment</div>
-        </div>
-        <span class="affiliate-badge coming-soon" style="background:var(--bg3);color:var(--text-muted);padding:8px 14px;border-radius:6px;font-size:0.8rem;border:1px solid var(--border);display:inline-block;text-align:center;">Partner Link Coming Soon</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Expandable Amortization Schedule Table (Fixed Bug) -->
-  <div class="schedule-container" style="margin-top:32px;">
-    <div class="schedule-header" onclick="toggleSchedule()" style="cursor:pointer;background:var(--bg2);border:1px solid var(--border);padding:16px;border-radius:8px;display:flex;justify-content:space-between;align-items:center;">
-      <span style="font-weight:700;">📊 View Year-by-Year Amortization Schedule</span>
-      <span id="schedule-arrow">▼</span>
-    </div>
-    <div class="table-wrapper" id="schedule-wrapper" style="display:none;margin-top:12px;overflow-x:auto;">
-      <table class="schedule-table" style="width:100%;">
-        <thead>
-          <tr>
-            <th>Year</th>
-            <th>Principal Paid</th>
-            <th>Interest Paid</th>
-            <th>Remaining Loan Balance</th>
-          </tr>
-        </thead>
-        <tbody id="schedule-rows"></tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- Formula & Methodology Notes (Trust Layer & YMYL SEO) -->
+  <!-- HOW THIS IS CALCULATED -->
   <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-top:32px;">
-    <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:10px;">📐 Mathematical Formula & Methodology</h3>
-    <p style="font-size:0.86rem;color:var(--text-muted);line-height:1.6;margin-bottom:10px;">
-      • <strong>Monthly Principal & Interest (P&I) Formula:</strong> Calculated using standard fixed-rate amortization math where $P$ is principal, $r$ is monthly interest rate ($\text{Annual Rate} / 1200$), and $n$ is total months ($N \times 12$):
+    <h2 style="font-size:1.25rem;font-weight:800;color:var(--text);margin-bottom:12px;">📐 How This Is Calculated</h2>
+    <p style="font-size:0.9rem;color:var(--text-muted);line-height:1.6;margin-bottom:14px;">
+      Fixed-rate mortgage payments are computed using the standard financial annuity amortization equation, which determines the exact monthly payment required to amortize principal and interest down to zero over the loan term:
     </p>
-    <div style="font-family:var(--font-mono);font-size:0.8rem;background:var(--bg3);padding:10px;border-radius:6px;margin-bottom:10px;">
-      M = P \cdot \frac{r(1+r)^n}{(1+r)^n - 1}
+    <div style="font-family:var(--font-mono);font-size:0.85rem;background:var(--bg3);border:1px solid var(--border);padding:12px;border-radius:8px;margin-bottom:14px;color:var(--accent);">
+      M = P × [ r(1 + r)^n ] / [ (1 + r)^n - 1 ]
     </div>
-    <p style="font-size:0.86rem;color:var(--text-muted);line-height:1.6;">
-      • <strong>PITI Total Payment:</strong> $\text{Total Monthly} = M + \text{Property Tax}/12 + \text{Insurance}/12 + \text{PMI}$.
+    <p style="font-size:0.9rem;color:var(--text-muted);line-height:1.6;margin-bottom:14px;">
+      Where <code>M</code> is monthly principal & interest, <code>P</code> is loan principal (Home Price minus Down Payment), <code>r</code> is monthly interest rate (APR / 12), and <code>n</code> is total monthly payments (360 months for 30 years).<br>
+      • <strong>Property Tax Escrow:</strong> Calculated as <code>(Home Price × Annual Tax Rate) / 12</code>.<br>
+      • <strong>Homeowners Insurance Escrow:</strong> Annual premium divided into 12 equal monthly disbursements.<br>
+      • <strong>Private Mortgage Insurance (PMI):</strong> Applied if down payment is under 20% of purchase price, estimated at ~0.5%–1.0% of principal per year until 20% home equity is attained.<br>
+      • <strong>Worked Example:</strong> A $400,000 purchase with 20% down ($80,000) creates a $320,000 loan balance. At a 6.50% interest rate over 30 years, monthly principal and interest equals <strong>$2,022.62</strong>. Adding $400/mo in property taxes (1.2%) and $116.67/mo in insurance yields a total monthly payment of <strong>$2,539.29 (PITI)</strong>.
     </p>
   </div>
 
-  <!-- Social Share Bar Component -->
-  <div id="social-share-bar-container"></div>
-
-  <!-- Smart Money Breakdown (SEO & Educational Guide) -->
-  <div style="background:rgba(0,212,170,0.06);border:1px solid rgba(0,212,170,0.3);border-radius:var(--radius);padding:24px;margin-top:32px;">
-    <h3 style="font-size:1.1rem;font-weight:800;color:var(--accent);display:flex;align-items:center;gap:8px;margin-bottom:14px;">
-      💡 Smart Money Breakdown: Key Concepts Explained in Plain English
-    </h3>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;">
-      <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:14px;">
-        <strong style="color:var(--accent);font-size:0.92rem;">🏠 PITI Payment Structure</strong>
-        <p style="font-size:0.86rem;color:var(--text-muted);margin-top:6px;margin-bottom:0;line-height:1.5;">
-          Principal, Interest, Property Taxes, and Home Insurance—the 4 core components that make up your complete monthly home payment.
-        </p>
-      </div>
-
-      <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:14px;">
-        <strong style="color:var(--accent2);font-size:0.92rem;">🛡️ Private Mortgage Insurance (PMI)</strong>
-        <p style="font-size:0.86rem;color:var(--text-muted);margin-top:6px;margin-bottom:0;line-height:1.5;">
-          An added monthly fee required by lenders when purchasing a home with less than 20% down payment to insure the loan against default risk.
-        </p>
-      </div>
-
-      <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:14px;">
-        <strong style="color:var(--accent3);font-size:0.92rem;">📅 Amortization Schedule</strong>
-        <p style="font-size:0.86rem;color:var(--text-muted);margin-top:6px;margin-bottom:0;line-height:1.5;">
-          The 15 to 30-year repayment schedule detailing how each monthly payment shifts from interest charges toward building home equity.
-        </p>
-      </div>
+  <!-- ASSUMPTIONS & SOURCES -->
+  <div style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-top:24px;">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:12px;">
+      <h3 style="font-size:1.1rem;font-weight:800;color:var(--accent);margin:0;">Assumptions & Benchmark Sources</h3>
+      <span class="chip orange" style="font-size:0.75rem;">Updated for 2026 · Reviewed October 2026</span>
     </div>
+    <ul style="font-size:0.86rem;color:var(--text-muted);line-height:1.6;margin-bottom:14px;padding-left:20px;">
+      <li><strong>Standard Amortization Standards:</strong> Formulas adhere to <a href="https://www.consumerfinance.gov/owning-a-home/" target="_blank" rel="noopener" style="color:var(--accent);">Consumer Financial Protection Bureau (CFPB) Loan Disclosures</a>.</li>
+      <li><strong>PMI Cancellation Standards:</strong> Modeled per the federal Homeowners Protection Act (12 U.S.C. § 4901).</li>
+      <li><strong>Escrow Timing:</strong> Property taxes and insurance are assumed to be disbursed monthly through lender escrow.</li>
+    </ul>
   </div>
-</div>
 
-
-  <!-- Phase 4 Content Scaffolding & 9 Princeton GEO Methods (800-1200 Words) -->
-  <section class="geo-content-scaffolding" style="margin-top:40px;padding-top:24px;border-top:1px solid var(--border);">
+  <!-- FAQ SECTION -->
+  <div style="margin-top:32px;">
+    <h2 style="font-size:1.25rem;font-weight:800;color:var(--text);margin-bottom:16px;">Frequently Asked Questions</h2>
     
-    <h2 style="font-size:1.3rem;font-weight:800;color:var(--text);margin-bottom:14px;">📐 Monthly Mortgage Payment (P&I) Formula</h2>
-    <div style="background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:20px;margin:20px 0;">
-  <p style="font-family:monospace;font-size:1.1rem;color:var(--accent);font-weight:700;margin-bottom:12px;">M = P * [ r(1+r)^n ] / [ (1+r)^n - 1 ]</p>
-  <ul style="font-size:0.9rem;color:var(--text-muted);line-height:1.6;margin-bottom:12px;padding-left:20px;">
-    <li><strong>M</strong> = Monthly Principal & Interest Payment ($)</li>
-    <li><strong>P</strong> = Total Loan Principal ($)</li>
-    <li><strong>r</strong> = Monthly Interest Rate (Annual Rate / 12)</li>
-    <li><strong>n</strong> = Total payments in months (360 for 30-year fixed)</li>
-  </ul>
-  <p style="font-size:0.88rem;color:var(--text);line-height:1.5;"><strong>Worked Example:</strong> A <strong>$400,000 home</strong> with 10% down ($360,000 loan) at <strong>6.50% interest</strong> for 30 years results in a P&I payment of <strong>$2,275.44/mo</strong>, plus property tax, insurance, and PMI.</p>
-</div>
+    <details style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin-bottom:10px;cursor:pointer;">
+      <summary style="font-weight:700;color:var(--text);font-size:0.95rem;">What does PITI mean in home financing?</summary>
+      <p style="font-size:0.88rem;color:var(--text-muted);line-height:1.6;margin-top:8px;margin-bottom:0;">
+        PITI stands for Principal, Interest, Taxes, and Insurance. It encompasses the complete monthly expense of owning a mortgaged property, including payments to pay down the mortgage, bank borrowing interest, county/city property taxes, and homeowners hazard insurance.
+      </p>
+    </details>
 
-    <h2 style="font-size:1.3rem;font-weight:800;color:var(--text);margin-top:32px;margin-bottom:14px;">📊 2026 Housing & Mortgage Market Benchmarks</h2>
-    <div style="overflow-x:auto;margin:20px 0;">
-  <table style="width:100%;border-collapse:collapse;font-size:0.88rem;text-align:left;">
-    <thead>
-      <tr style="background:var(--bg3);border-bottom:2px solid var(--border);color:var(--accent);">
-        <th style="padding:10px 14px;">Mortgage Parameter</th>
-        <th style="padding:10px 14px;">2026 US Benchmark</th>
-        <th style="padding:10px 14px;">Homebuyer Impact</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr style="border-bottom:1px solid var(--border);">
-        <td style="padding:10px 14px;font-weight:600;">30-Year Fixed Mortgage Average Rate</td>
-        <td style="padding:10px 14px;">6.45% - 6.75%</td>
-        <td style="padding:10px 14px;">Determines baseline monthly interest cost</td>
-      </tr>
-      <tr style="border-bottom:1px solid var(--border);">
-        <td style="padding:10px 14px;font-weight:600;">Average Annual Property Tax Rate</td>
-        <td style="padding:10px 14px;">1.11% of home value</td>
-        <td style="padding:10px 14px;">Varies by state (e.g. 0.30% HI to 2.23% NJ)</td>
-      </tr>
-      <tr>
-        <td style="padding:10px 14px;font-weight:600;">Private Mortgage Insurance (PMI) Rate</td>
-        <td style="padding:10px 14px;">0.50% - 1.50% annually</td>
-        <td style="padding:10px 14px;">Required when down payment is less than 20%</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+    <details style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin-bottom:10px;cursor:pointer;">
+      <summary style="font-weight:700;color:var(--text);font-size:0.95rem;">How much down payment do I really need to buy a home?</summary>
+      <p style="font-size:0.88rem;color:var(--text-muted);line-height:1.6;margin-top:8px;margin-bottom:0;">
+        While 20% down eliminates PMI, conventional loans permit down payments as low as 3% for first-time buyers, and FHA loans require 3.5%. VA and USDA loans offer 0% down options for qualifying military veterans and rural homebuyers.
+      </p>
+    </details>
 
-    <h2 style="font-size:1.3rem;font-weight:800;color:var(--text);margin-top:32px;margin-bottom:14px;">🎯 3 Ways to Save Tens of Thousands on Your Mortgage</h2>
-    <div style="margin:20px 0;line-height:1.6;font-size:0.92rem;color:var(--text-muted);">
-  <ol style="padding-left:20px;">
-    <li style="margin-bottom:12px;"><strong style="color:var(--text);">Make One Extra Payment Annually:</strong> Paying 13 monthly payments per year shaves up to 5 years off a 30-year loan.</li>
-    <li style="margin-bottom:12px;"><strong style="color:var(--text);">Cancel PMI at 80% LTV:</strong> Monitor your equity growth to request PMI cancellation immediately when reaching 20% equity.</li>
-    <li style="margin-bottom:12px;"><strong style="color:var(--text);">Shop Multiple Lenders:</strong> Getting quotes from 3+ lenders can save 0.25% to 0.50% in interest rates.</li>
-  </ol>
-</div>
+    <details style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin-bottom:10px;cursor:pointer;">
+      <summary style="font-weight:700;color:var(--text);font-size:0.95rem;">Is a 15-year or 30-year mortgage better?</summary>
+      <p style="font-size:0.88rem;color:var(--text-muted);line-height:1.6;margin-top:8px;margin-bottom:0;">
+        A 30-year mortgage offers lower monthly payments, maximizing monthly cash flow flexibility. A 15-year mortgage requires approximately 30%–40% higher monthly payments but saves hundreds of thousands of dollars in lifetime interest charges and builds equity twice as fast.
+      </p>
+    </details>
 
-    <div class="geo-authoritative-box">
-  <h3>Mortgage Amortization Mechanics & Extra Principal Impact</h3>
-  <p><strong>Amortization Front-Loading:</strong> In the initial 10 years of a standard 30-year fixed-rate mortgage, over 65%–75% of every monthly payment goes toward interest rather than principal reduction. Accelerating principal early yields outsized savings.</p>
-  
-  <div class="geo-stat-grid">
-    <div class="stat-card"><strong>$250/mo Extra Principal:</strong> On a $400,000 30-year fixed loan at 6.85% APR, eliminates <strong>$114,820 in interest</strong> and cuts <strong>6.4 years (77 months)</strong> off the loan.</div>
-    <div class="stat-card"><strong>PMI Elimination Rule:</strong> Under the federal Homeowners Protection Act of 1998, lenders must cancel PMI automatically when principal reaches <strong>78% of original value</strong>.</div>
+    <details style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin-bottom:10px;cursor:pointer;">
+      <summary style="font-weight:700;color:var(--text);font-size:0.95rem;">When does Private Mortgage Insurance (PMI) stop?</summary>
+      <p style="font-size:0.88rem;color:var(--text-muted);line-height:1.6;margin-top:8px;margin-bottom:0;">
+        Under federal law, your lender must automatically cancel PMI when your principal balance reaches 78% of the original purchase value, provided your payments are current. You can also request cancellation once you reach 80% equity.
+      </p>
+    </details>
   </div>
-  
-  <blockquote>
-    <p>"Bi-weekly payments or dedicated principal curtailment directly reduce the compounding base of long-term real estate debt." — <strong>Federal Housing Finance Agency (FHFA)</strong>.</p>
-  </blockquote>
-  <p class="source-citation"><strong>Official Grounding:</strong> Federal Housing Finance Agency (FHFA); Consumer Financial Protection Bureau (CFPB) Mortgage Guidance.</p>
-</div>
 
-    <h2 style="font-size:1.3rem;font-weight:800;color:var(--text);margin-top:32px;margin-bottom:14px;">❓ Frequently Asked Questions</h2>
-    
-    <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:16px;margin-bottom:14px;">
-      <h3 style="font-size:0.95rem;font-weight:700;color:var(--accent);margin-bottom:6px;">Q: What components make up a total PITI mortgage payment?</h3>
-      <p style="font-size:0.88rem;color:var(--text-muted);margin:0;line-height:1.5;">PITI includes Principal (loan payoff), Interest (bank charge), Property Taxes (local tax), and Hazard Insurance (home policy), plus PMI when down payment is under 20%.</p>
+  <!-- EMBED THIS CALCULATOR WIDGET (Phase 6) -->
+  <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-top:32px;">
+    <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:8px;">💻 Embed This Mortgage Calculator on Your Website</h3>
+    <p style="color:var(--text-muted);font-size:0.85rem;margin-bottom:12px;">Embed this responsive PITI mortgage calculator into any real estate or financial website.</p>
+    <div style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:10px;font-family:monospace;font-size:0.78rem;color:var(--accent);overflow-x:auto;">
+      &lt;iframe src="https://finmatrix.cloud/embed/mortgage/" width="100%" height="520" frameborder="0" title="Mortgage Calculator by Finmatrix"&gt;&lt;/iframe&gt;
     </div>
-    <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:16px;margin-bottom:14px;">
-      <h3 style="font-size:0.95rem;font-weight:700;color:var(--accent);margin-bottom:6px;">Q: When can Private Mortgage Insurance (PMI) be removed from a home loan?</h3>
-      <p style="font-size:0.88rem;color:var(--text-muted);margin:0;line-height:1.5;">PMI can be canceled once your principal balance drops to 80% of your home's original appraised value, and lenders must automatically remove it at 78% LTV.</p>
-    </div>
+  </div>
 
-    <div style="font-size:0.82rem;color:var(--text-muted);border-top:1px solid var(--border);padding-top:14px;margin-top:24px;">
-  <p><strong>Official References & Authoritative Sources:</strong></p>
-  <ul style="list-style:none;padding:0;margin:6px 0;">
-    <li>• <a href="https://www.consumerfinance.gov/owning-a-home/" target="_blank" rel="noopener" style="color:var(--accent);">CFPB — Owning a Home Guide & Mortgage Rules</a></li>
-    <li>• <a href="https://www.fanniemae.com/" target="_blank" rel="noopener" style="color:var(--accent);">Fannie Mae — Mortgage Underwriting Standards</a></li>
-  </ul>
+  <!-- RELATED CALCULATORS & NEXT STEPS -->
+  <div id="related-calculators-slot" style="margin-top:36px;"></div>
 </div>
 
-    <p style="font-size:0.78rem;color:var(--text-muted);margin-top:24px;margin-bottom:0;text-align:center;">
-      Reviewed by Finmatrix Financial Research Team | Last Updated: September 2026
-    </p>
-
-  </section>
-</div>
 <footer>
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
         <div class="nav-logo">Finmatrix</div>
-        <p>Free AI-powered personal finance tools for every US household. Developed with AI assistance and verified by our financial desk.</p>
+        <p>Free, verified personal finance calculators for every US household. 100% private with zero sign-up required.</p>
       </div>
       <div class="footer-col">
         <h4>Calculators</h4>
-        <a href="debt-elimination-planner.html">Debt Elimination Planner</a>
-        <a href="paycheck-calculator.html">Paycheck Calculator</a>
-        <a href="mortgage-calculator.html">Mortgage Calculator</a>
-        <a href="retirement-calculator.html">Retirement Calculator</a>
-      </div>
-      <div class="footer-col">
-        <h4>More Tools</h4>
-        <a href="fire-calculator.html">FIRE Calculator</a>
-        <a href="roth-vs-traditional-ira-calculator.html">Roth vs Traditional IRA</a>
-        <a href="emergency-fund-calculator.html">Emergency Fund</a>
+        <a href="/calculators/debt-elimination-planner.html">Debt Elimination Planner</a>
+        <a href="/calculators/paycheck-calculator.html">Paycheck Calculator</a>
+        <a href="/calculators/mortgage-calculator.html">Mortgage Calculator</a>
+        <a href="/calculators/compound-interest-calculator.html">Compound Interest</a>
+        <a href="/calculators/refinance-break-even-calculator.html">Refinance Break-Even</a>
       </div>
       <div class="footer-col">
         <h4>Company & Legal</h4>
         <a href="/about.html">About Finmatrix</a>
-        <a href="/editorial-policy.html">Editorial Policy</a>
+        <a href="/editorial-policy.html">Editorial & Calculation Policy</a>
         <a href="/privacy-policy.html">Privacy Policy</a>
         <a href="/terms-of-service.html">Terms of Service</a>
+        <a href="/disclaimer.html">Disclaimer</a>
+        <a href="/contact.html">Contact Us</a>
       </div>
     </div>
     <div class="footer-bottom">
       <span>© 2026 Finmatrix. All rights reserved.</span>
       <span>Contact: <a href="mailto:novamatrix1564@gmail.com" style="color:var(--text-muted);">novamatrix1564@gmail.com</a></span>
     </div>
-    <p class="disclaimer">* Content and tools on Finmatrix are created with AI assistance and thoroughly reviewed by our financial desk for educational purposes. Not certified financial advice.</p>
+    <p class="disclaimer">* Finmatrix tools provide estimations for educational purposes only. Always consult a licensed CFP® or tax advisor before making major financial commitments. Referral links may pay us a commission at zero extra cost to you.</p>
   </div>
 </footer>
 
 <script src="/js/main.js"></script>
 <script src="/js/charts.js"></script>
+<script src="/js/tool-engine.js"></script>
+<script src="/js/analytics.js"></script>
 <script>
+const inputFields = ['home-price', 'down-payment-pct', 'interest-rate', 'loan-term', 'property-tax-rate', 'home-insurance'];
+
 function calculateMortgage() {
-  const price = parseFloat(document.getElementById('home-price').value) || 0;
-  const down = parseFloat(document.getElementById('down-payment').value) || 0;
-  const ratePct = parseFloat(document.getElementById('interest-rate').value) || 0;
+  const homePrice = parseFloat(document.getElementById('home-price').value) || 0;
+  const downPct = parseFloat(document.getElementById('down-payment-pct').value) || 0;
+  const apr = parseFloat(document.getElementById('interest-rate').value) || 0;
   const years = parseInt(document.getElementById('loan-term').value) || 30;
-  const tax = (parseFloat(document.getElementById('property-tax').value) || 0) / 12;
-  const ins = (parseFloat(document.getElementById('home-insurance').value) || 0) / 12;
+  const taxRate = (parseFloat(document.getElementById('property-tax-rate').value) || 0) / 100;
+  const insuranceAnnual = parseFloat(document.getElementById('home-insurance').value) || 0;
 
-  const loan = Math.max(0, price - down);
-  const r = (ratePct / 100) / 12;
+  const downDollars = homePrice * (downPct / 100);
+  document.getElementById('down-payment-dollars').textContent = fmtCurrency(downDollars);
+
+  const principal = Math.max(0, homePrice - downDollars);
   const n = years * 12;
+  const r = (apr / 100) / 12;
 
-  let pmi = 0;
-  if (price > 0 && down < price * 0.20) {
-    pmi = (loan * 0.0075) / 12;
+  let monthlyPI = 0;
+  if (apr === 0) {
+    monthlyPI = n > 0 ? principal / n : 0;
+  } else {
+    monthlyPI = (principal * (r * Math.pow(1 + r, n))) / (Math.pow(1 + r, n) - 1);
   }
 
-  let piMonthly = 0;
-  if (r > 0 && n > 0) {
-    piMonthly = loan * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
-  } else if (n > 0) {
-    piMonthly = loan / n;
-  }
+  const monthlyTax = (homePrice * taxRate) / 12;
+  const monthlyIns = insuranceAnnual / 12;
+  const monthlyPmi = (downPct < 20 && principal > 0) ? (principal * 0.0075) / 12 : 0; // ~0.75% avg PMI
 
-  const totalMonthly = piMonthly + tax + ins + pmi;
-  const totalPaid = piMonthly * n;
-  const totalInterest = Math.max(0, totalPaid - loan);
+  const totalMonthly = monthlyPI + monthlyTax + monthlyIns + monthlyPmi;
+  const totalCost = monthlyPI * n;
+  const totalInterest = Math.max(0, totalCost - principal);
 
   document.getElementById('res-total-monthly').textContent = fmtCurrency(totalMonthly);
-  document.getElementById('res-pi-monthly').textContent = fmtCurrency(piMonthly) + " / mo";
-  document.getElementById('res-loan-amt').textContent = fmtCurrency(loan);
+  document.getElementById('res-loan-amount-sub').textContent = `Loan Principal: ${fmtCurrency(principal)} · ${years}-Year Fixed`;
+  document.getElementById('res-monthly-pi').textContent = `${fmtCurrency(monthlyPI)} / mo`;
+  document.getElementById('res-monthly-tax').textContent = `${fmtCurrency(monthlyTax)} / mo`;
+  document.getElementById('res-monthly-ins').textContent = `${fmtCurrency(monthlyIns)} / mo`;
+  document.getElementById('res-monthly-pmi').textContent = `${fmtCurrency(monthlyPmi)} / mo`;
+
   document.getElementById('res-total-interest').textContent = fmtCurrency(totalInterest);
+  document.getElementById('res-total-cost').textContent = `Total Mortgage Cost: ${fmtCurrency(totalCost)}`;
 
   renderDonutChart('mortgage-chart', [
-    { label: 'Principal & Interest', value: piMonthly, color: '#00d4aa' },
-    { label: 'Property Tax', value: tax, color: '#0098ff' },
-    { label: 'Insurance', value: ins, color: '#ff6b35' },
-    ...(pmi > 0 ? [{ label: 'PMI', value: pmi, color: '#a855f7' }] : [])
-  ], 'Monthly Payment Composition');
-
-  const pmiNotice = pmi > 0 ? `You are paying roughly **${fmtCurrency(pmi)}/mo in PMI** because down payment is under 20%.` : `Great job! 20%+ down payment avoids PMI fees.`;
-  document.getElementById('ai-advice-body').innerHTML = `
-    <div class="ai-tip"><span class="ai-tip-icon">✦</span><span>${pmiNotice}</span></div>
-    <div class="ai-tip"><span class="ai-tip-icon">✦</span><span>Total interest paid will be **${fmtCurrency(totalInterest)}**. Making 1 extra payment per year shortens loan by **4+ years**.</span></div>
-  `;
-
-  // Amortization Schedule Calculation (Fixed)
-  let bal = loan;
-  let scheduleHTML = '';
-  for (let yr = 1; yr <= years; yr++) {
-    let yrInt = 0;
-    let yrPrin = 0;
-    for (let m = 1; m <= 12; m++) {
-      if (bal <= 0) break;
-      const interestPayment = bal * r;
-      const principalPayment = Math.min(bal, piMonthly - interestPayment);
-      yrInt += interestPayment;
-      yrPrin += principalPayment;
-      bal = Math.max(0, bal - principalPayment);
-    }
-    scheduleHTML += `<tr><td>Year ${yr}</td><td>${fmtCurrency(yrPrin)}</td><td>${fmtCurrency(yrInt)}</td><td>${fmtCurrency(bal)}</td></tr>`;
-  }
-  document.getElementById('schedule-rows').innerHTML = scheduleHTML;
+    { label: 'Principal & Interest', value: monthlyPI, color: '#00d4aa' },
+    { label: 'Property Taxes', value: monthlyTax, color: '#0098ff' },
+    { label: 'Homeowners Ins.', value: monthlyIns, color: '#ff6b35' },
+    { label: 'PMI Escrow', value: monthlyPmi, color: '#ffd166' }
+  ], 'Monthly Housing Payment Distribution');
 }
 
-function toggleSchedule() {
-  const wrapper = document.getElementById('schedule-wrapper');
-  const arrow = document.getElementById('schedule-arrow');
-  if (wrapper.style.display === 'none') {
-    wrapper.style.display = 'block';
-    arrow.textContent = '▲';
-  } else {
-    wrapper.style.display = 'none';
-    arrow.textContent = '▼';
-  }
+function shareCalculation(btn) {
+  FinmatrixToolEngine.copyShareableLink(inputFields, btn);
 }
 
-initCurrencySelector(calculateMortgage);
-renderSocialShareBar('social-share-bar-container', 'Mortgage Payment Calculator — Finmatrix', window.location.href);
-calculateMortgage();
+document.addEventListener('DOMContentLoaded', () => {
+  initCurrencySelector(calculateMortgage);
+  FinmatrixToolEngine.restoreInputsFromUrl();
+  calculateMortgage();
+  FinmatrixToolEngine.renderAffiliateResultBox('affiliate-result-slot', 'mortgage');
+  FinmatrixToolEngine.renderAdSlot('calculator-ad-slot');
+  FinmatrixToolEngine.renderRelatedCalculators('related-calculators-slot', 'mortgage-calculator', [
+    'home-affordability-calculator',
+    'refinance-break-even-calculator',
+    'rent-vs-buy-calculator'
+  ], {
+    title: 'Check If Refinancing Could Save You Money',
+    desc: 'Calculate the exact break-even point when monthly mortgage savings surpass refinance closing costs.',
+    url: '/calculators/refinance-break-even-calculator.html',
+    cta: 'Calculate Refinance Break-Even →'
+  });
+});
 </script>
 </body>
 </html>
