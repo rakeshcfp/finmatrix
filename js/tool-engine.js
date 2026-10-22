@@ -88,11 +88,30 @@
     await loadConfigs();
     if (!affiliatesConfig || !affiliatesConfig.offers) return;
 
+    // Auto-detect category from data attribute if not passed
+    const targetCategory = category || container.getAttribute('data-category') || 'hysa';
+
     // Check dev flag
     const urlParams = new URLSearchParams(window.location.search);
     const devMonetization = urlParams.get('dev_monetization') === 'true' || (siteConfig && siteConfig.monetization && siteConfig.monetization.dev_mode);
 
-    const offer = affiliatesConfig.offers.find(o => o.category === category);
+    // Match offer with alias fallback
+    let offer = affiliatesConfig.offers.find(o => o.category === targetCategory);
+    if (!offer) {
+      const aliases = {
+        'savings-investing': 'investing',
+        'loan': 'personal-loan',
+        'auto-loan': 'personal-loan',
+        'debt': 'balance-transfer',
+        'debt-payoff': 'balance-transfer',
+        'housing': 'mortgage',
+        'income-tax': 'tax-software'
+      };
+      const fallbackCat = aliases[targetCategory];
+      if (fallbackCat) {
+        offer = affiliatesConfig.offers.find(o => o.category === fallbackCat);
+      }
+    }
     if (!offer) return;
 
     const isPlaceholder = offer.url.includes('example.com') || offer.url.includes('REPLACE_ME');
@@ -196,13 +215,49 @@
     `;
   }
 
-  window.FinmatrixToolEngine = {
+  const engine = {
     loadConfigs,
     restoreInputsFromUrl,
+    initParams: restoreInputsFromUrl,
     getShareableUrl,
     copyShareableLink,
+    copyShareUrl: function() {
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(window.location.href).then(() => {
+          alert('Shareable calculation link copied to clipboard!');
+        }).catch(() => {
+          prompt('Copy this calculation link:', window.location.href);
+        });
+      } else {
+        prompt('Copy this calculation link:', window.location.href);
+      }
+    },
+    updateUrl: function(paramsObj) {
+      if (!paramsObj || typeof paramsObj !== 'object') return;
+      const params = new URLSearchParams();
+      Object.keys(paramsObj).forEach(k => {
+        if (paramsObj[k] !== undefined && paramsObj[k] !== null && paramsObj[k] !== '') {
+          params.set(k, paramsObj[k]);
+        }
+      });
+      const queryStr = params.toString();
+      const newUrl = queryStr ? `${window.location.pathname}?${queryStr}` : window.location.pathname;
+      window.history.replaceState(null, '', newUrl);
+    },
+    initAffiliateBox: function(containerId, category) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+      const cat = category || container.getAttribute('data-category');
+      renderAffiliateResultBox(containerId, cat);
+    },
+    initAdSlot: function(containerId, slotName) {
+      renderAdSlot(containerId, slotName);
+    },
     renderAffiliateResultBox,
     renderAdSlot,
     renderRelatedCalculators
   };
+
+  window.FinmatrixEngine = engine;
+  window.FinmatrixToolEngine = engine;
 })();
