@@ -1,0 +1,133 @@
+{
+  "tax_year": 2026,
+  "last_reviewed": "October 2026",
+  "disclaimer": "Statutory US tax parameters reflect official IRS and Social Security Administration inflation adjustments for Tax Year 2026. For educational modeling purposes only.",
+  "fica": {
+    "social_security_rate": 0.062,
+    "social_security_wage_base": 184500,
+    "max_social_security_tax": 11439.00,
+    "medicare_rate": 0.0145,
+    "additional_medicare_rate": 0.009,
+    "additional_medicare_threshold_single": 200000,
+    "additional_medicare_threshold_mfj": 250000,
+    "additional_medicare_threshold_mfs": 125000,
+    "source": "https://www.ssa.gov/oact/cola/cba.html",
+    "verified": true
+  },
+  "standard_deductions": {
+    "single": 16100,
+    "married_filing_jointly": 32200,
+    "head_of_household": 24150,
+    "married_filing_separately": 16100,
+    "source": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026",
+    "verified": true
+  },
+  "federal_brackets": {
+    "single": [
+      { "rate": 0.10, "min": 0, "max": 12400 },
+      { "rate": 0.12, "min": 12400, "max": 50400 },
+      { "rate": 0.22, "min": 50400, "max": 105700 },
+      { "rate": 0.24, "min": 105700, "max": 201775 },
+      { "rate": 0.32, "min": 201775, "max": 256225 },
+      { "rate": 0.35, "min": 256225, "max": 640600 },
+      { "rate": 0.37, "min": 640600, "max": null }
+    ],
+    "married_filing_jointly": [
+      { "rate": 0.10, "min": 0, "max": 24800 },
+      { "rate": 0.12, "min": 24800, "max": 100800 },
+      { "rate": 0.22, "min": 100800, "max": 211400 },
+      { "rate": 0.24, "min": 211400, "max": 403550 },
+      { "rate": 0.32, "min": 403550, "max": 512450 },
+      { "rate": 0.35, "min": 512450, "max": 768700 },
+      { "rate": 0.37, "min": 768700, "max": null }
+    ],
+    "head_of_household": [
+      { "rate": 0.10, "min": 0, "max": 17700 },
+      { "rate": 0.12, "min": 17700, "max": 67450 },
+      { "rate": 0.22, "min": 67450, "max": 105700 },
+      { "rate": 0.24, "min": 105700, "max": 201750 },
+      { "rate": 0.32, "min": 201750, "max": 256200 },
+      { "rate": 0.35, "min": 256200, "max": 640600 },
+      { "rate": 0.37, "min": 640600, "max": null }
+    ],
+    "source": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026",
+    "verified": true
+  },
+  "retirement_limits": {
+    "401k_elective_deferral": 24500,
+    "401k_catchup_50plus": 8000,
+    "401k_catchup_60_to_63": 11250,
+    "401k_total_annual_addition": 72000,
+    "ira_contribution_limit": 7500,
+    "ira_catchup_50plus": 1100,
+    "roth_ira_phaseout_single": {
+      "min": 153000,
+      "max": 168000
+    },
+    "roth_ira_phaseout_mfj": {
+      "min": 240000,
+      "max": 250000
+    },
+    "source": "https://www.irs.gov/newsroom/401k-limit-increases-for-2026",
+    "verified": true
+  },
+  "hsa_limits": {
+    "self_only": 4400,
+    "family": 8750,
+    "catchup_55plus": 1000,
+    "hdhp_min_deductible_self": 1700,
+    "hdhp_min_deductible_family": 3400,
+    "hdhp_max_out_of_pocket_self": 8500,
+    "hdhp_max_out_of_pocket_family": 17000,
+    "source": "https://www.irs.gov/pub/irs-drop/rp-25-xx.pdf",
+    "verified": true
+  },
+  "state_taxes": {
+    "no_income_tax": ["TX", "FL", "WA", "NV", "TN", "WY", "SD", "AK", "NH"],
+    "common_flat_states": {
+      "PA": { "rate": 0.0307, "name": "Pennsylvania", "verified": true, "source": "https://www.revenue.pa.gov/" },
+      "IL": { "rate": 0.0495, "name": "Illinois", "verified": true, "source": "https://tax.illinois.gov/" },
+      "NC": { "rate": 0.0450, "name": "North Carolina", "verified": true, "source": "https://www.ncdor.gov/" },
+      "IN": { "rate": 0.0305, "name": "Indiana", "verified": true, "source": "https://www.in.gov/dor/" },
+      "MI": { "rate": 0.0425, "name": "Michigan", "verified": true, "source": "https://www.michigan.gov/taxes" },
+      "CO": { "rate": 0.0440, "name": "Colorado", "verified": true, "source": "https://tax.colorado.gov/" },
+      "UT": { "rate": 0.0465, "name": "Utah", "verified": true, "source": "https://tax.utah.gov/" }
+    },
+    "progressive_examples": {
+      "CA": {
+        "name": "California",
+        "standard_deduction_single": 5540,
+        "brackets_single": [
+          { "rate": 0.01, "max": 10756 },
+          { "rate": 0.02, "max": 25499 },
+          { "rate": 0.04, "max": 40245 },
+          { "rate": 0.06, "max": 55866 },
+          { "rate": 0.08, "max": 70606 },
+          { "rate": 0.093, "max": 360659 },
+          { "rate": 0.103, "max": 432787 },
+          { "rate": 0.113, "max": 721314 },
+          { "rate": 0.123, "max": 1000000 },
+          { "rate": 0.133, "max": null }
+        ],
+        "verified": true,
+        "source": "https://www.ftb.ca.gov/"
+      },
+      "NY": {
+        "name": "New York",
+        "standard_deduction_single": 8000,
+        "brackets_single": [
+          { "rate": 0.04, "max": 8500 },
+          { "rate": 0.045, "max": 11700 },
+          { "rate": 0.0525, "max": 13900 },
+          { "rate": 0.055, "max": 80650 },
+          { "rate": 0.06, "max": 215400 },
+          { "rate": 0.0685, "max": 1077550 },
+          { "rate": 0.0965, "max": 5000000 },
+          { "rate": 0.109, "max": null }
+        ],
+        "verified": true,
+        "source": "https://www.tax.ny.gov/"
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "Finmatrix",
+  "domain": "https://finmatrix.cloud",
+  "title": "Finmatrix — Free Financial Calculators & Wealth Tools",
+  "description": "Free, privacy-first personal finance calculators for US paycheck take-home pay, debt payoff, mortgage amortization, and retirement planning. 100% free with zero sign-up.",
+  "ga4_id": "G-XXXXXXXXXX",
+  "rates_last_verified": "October 2026",
+  "tax_year": 2026,
+  "author": {
+    "name": "Finmatrix Financial Research Desk",
+    "role": "Financial Engineering & Quantitative Analysis",
+    "bio": "TODO: VERIFY - Replace with real author name and professional biographical credentials.",
+    "email": "novamatrix1564@gmail.com",
+    "sameAs": []
+  },
+  "organization": {
+    "name": "Finmatrix",
+    "url": "https://finmatrix.cloud",
+    "logo": "https://finmatrix.cloud/favicon.svg",
+    "foundingYear": 2026,
+    "sameAs": []
+  },
+  "monetization": {
+    "dev_mode": false,
+    "ads": {
+      "enabled": false,
+      "client_id": "ca-pub-XXXXXXXXXXXXXXXX"
+    }
+  }
+}

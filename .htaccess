@@ -15,6 +15,21 @@
   # Serve index.html for directory requests
   DirectoryIndex index.html
 
+  # 3. Redirect Legacy Articles to Calculators
+  RewriteRule ^articles/avalanche-vs-snowball-debt\.html$ /calculators/debt-elimination-planner.html [R=301,L]
+  RewriteRule ^articles/ultimate-credit-card-debt-elimination-guide\.html$ /calculators/credit-card-payoff-calculator.html [R=301,L]
+  RewriteRule ^articles/hysa-vs-cd-2025\.html$ /calculators/hysa-vs-cd-calculator.html [R=301,L]
+  RewriteRule ^articles/rent-vs-buy-2025\.html$ /calculators/rent-vs-buy-calculator.html [R=301,L]
+  RewriteRule ^articles/roth-ira-vs-401k\.html$ /calculators/roth-vs-traditional-ira-calculator.html [R=301,L]
+  RewriteRule ^articles/how-to-build-emergency-fund\.html$ /calculators/emergency-fund-calculator.html [R=301,L]
+  RewriteRule ^articles/50-30-20-rule-budgeting\.html$ /calculators/paycheck-calculator.html [R=301,L]
+  RewriteRule ^articles/what-is-the-4-percent-rule\.html$ /calculators/fire-calculator.html [R=301,L]
+  RewriteRule ^articles/boost-credit-score-30-days\.html$ /calculators/debt-elimination-planner.html [R=301,L]
+  RewriteRule ^articles/investing-50-dollars\.html$ /calculators/compound-interest-calculator.html [R=301,L]
+  RewriteRule ^articles/side-hustles-1000-month\.html$ /calculators/hourly-to-salary-calculator.html [R=301,L]
+  RewriteRule ^articles/?$ /calculators/ [R=301,L]
+  RewriteRule ^articles/index\.html$ /calculators/ [R=301,L]
+
   # Do NOT rewrite real existing files or directories
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d

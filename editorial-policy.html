@@ -6,41 +6,19 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 <!-- Primary Meta Tags -->
-<title>Editorial Standards & FTC Affiliate Policy | Finmatrix</title>
-<meta name="description" content="Our commitment to objective financial modeling, mathematical accuracy, primary government data grounding, and transparent FTC disclosures.">
-<meta name="keywords" content="editorial policy, ftc affiliate disclosure, financial research standards, unbiased finance tools">
-<meta name="author" content="Finmatrix Financial Engineering Research Desk">
+<title>Editorial Standards, Calculation Policy & FTC Disclosures | Finmatrix</title>
+<meta name="description" content="Our commitment to mathematical precision, primary government data sources (IRS, SSA, CFPB, Federal Reserve), annual tax updates, and transparent affiliate standards.">
+<meta name="keywords" content="editorial policy, ftc affiliate disclosure, financial calculator accuracy, unbiased finance tools, 2026 tax update policy">
+<meta name="author" content="Finmatrix Financial Research Desk">
 <link rel="canonical" href="https://finmatrix.cloud/editorial-policy.html">
 
 <!-- Search Engine Robots Directives -->
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-<meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
-
-<!-- Open Graph / Facebook / LinkedIn -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://finmatrix.cloud/editorial-policy.html">
-<meta property="og:site_name" content="Finmatrix">
-<meta property="og:title" content="Editorial Standards & FTC Affiliate Policy | Finmatrix">
-<meta property="og:description" content="Our commitment to objective financial modeling, mathematical accuracy, primary government data grounding, and transparent FTC disclosures.">
-<meta property="og:image" content="https://finmatrix.cloud/assets/og/editorial-policy.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Editorial Standards & FTC Policy - Finmatrix">
-<meta property="og:locale" content="en_US">
-
-<!-- Twitter / X -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="https://finmatrix.cloud/editorial-policy.html">
-<meta name="twitter:title" content="Editorial Standards & FTC Affiliate Policy | Finmatrix">
-<meta name="twitter:description" content="Our commitment to objective financial modeling, mathematical accuracy, primary government data grounding, and transparent FTC disclosures.">
-<meta name="twitter:image" content="https://finmatrix.cloud/assets/og/editorial-policy.png">
-<meta name="twitter:image:alt" content="Editorial Standards & FTC Policy - Finmatrix">
 
 <!-- Favicon, Manifest & Mobile Icons -->
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -58,8 +36,8 @@
       "@type": "WebPage",
       "@id": "https://finmatrix.cloud/editorial-policy.html#webpage",
       "url": "https://finmatrix.cloud/editorial-policy.html",
-      "name": "Editorial Standards & FTC Affiliate Policy | Finmatrix",
-      "description": "Our commitment to objective financial modeling, mathematical accuracy, primary government data grounding, and transparent FTC disclosures.",
+      "name": "Editorial Standards, Calculation Policy & FTC Disclosures | Finmatrix",
+      "description": "Our commitment to mathematical precision, primary government data sources, annual tax updates, and transparent affiliate standards.",
       "breadcrumb": {
         "@type": "BreadcrumbList",
         "itemListElement": [
@@ -89,9 +67,10 @@
   <div class="nav-links">
     <a href="/">Home</a>
     <a href="/calculators/">Calculators</a>
-    <a href="/articles/">Articles</a>
     <a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a>
     <button class="theme-toggle theme-toggle-btn" onclick="toggleTheme()">☀️ Light Mode</button>
+    <a href="/calculators/" class="nav-cta">Try Free →</a>
   </div>
   <button class="menu-btn" onclick="toggleMobileMenu()">☰ Menu</button>
 </nav>
@@ -101,18 +80,41 @@
     <a href="/">Home</a> <span class="sep">/</span> <span>Editorial Policy</span>
   </div>
 
-  <h1>Editorial Standards & FTC Disclosure</h1>
+  <h1>Editorial Policy, Calculation Standards & FTC Disclosures</h1>
 
   <div class="article-content">
-    <h2>1. FTC Affiliate Disclosure</h2>
-    <p>Finmatrix participates in financial affiliate networks (including CJ Affiliate, Impact, and direct bank partner referral programs). When you click on links to financial products (such as High-Yield Savings Accounts, Mortgage Lenders, or Credit Cards) and open an account or get approved, Finmatrix may receive financial compensation.</p>
-
-    <div class="highlight">
-      💡 <strong>Our Promise:</strong> Referral compensation does NOT impact our objective mathematical formulas, calculator outputs, or honest product reviews. You pay zero extra fees by using our partner links.
+    <div class="highlight" style="background:rgba(0,212,170,0.06);border-left:4px solid var(--accent);">
+      🎯 <strong>Our Core Editorial Principle:</strong> Calculation correctness is more important than feature volume. In personal finance (YMYL), incorrect numbers harm real people. Every calculator published on Finmatrix must disclose its assumptions, cite primary authoritative sources, and undergo automated mathematical unit testing.
     </div>
 
-    <h2>2. Editorial Independence & AI Transparency</h2>
-    <p>Our financial desk operates with full editorial independence. Financial providers cannot pay us to guarantee favorable calculator results or positive reviews. Content is drafted with generative AI assistance and thoroughly fact-checked and reviewed by our editorial team prior to publication. Contact our desk at <a href="mailto:novamatrix1564@gmail.com" style="color:var(--accent);">novamatrix1564@gmail.com</a>.</p>
+    <h2>1. How Calculations Are Built and Reviewed</h2>
+    <p>Finmatrix tools are built strictly on standard financial engineering formulas and statutory tax code logic:</p>
+    <ul>
+      <li><strong>Standard Amortization & TVM:</strong> Loan and mortgage payment formulas utilize the standard annuity present-value formula: <code>PMT = P * (r / (1 - (1 + r)^(-n)))</code>, matching the standards prescribed by Fannie Mae and the Consumer Financial Protection Bureau (CFPB).</li>
+      <li><strong>Debt Elimination Models:</strong> The Debt Avalanche and Snowball algorithms perform true monthly multi-debt amortization simulations, factoring in compounding interest, minimum monthly payment caps, and leftover payment cascade.</li>
+      <li><strong>Tax Models:</strong> Federal income tax withholding is calculated using progressive bracket slices rather than effective tax rate simplifications. FICA withholding implements statutory wage caps for Social Security ($184,500 in 2026) and Additional Medicare surtaxes on high earners.</li>
+      <li><strong>Independent Code Audits:</strong> Before any calculation formula is released, it is tested against known reference scenarios using automated unit test suites (`tests/calculator-formulas.test.js`), including edge cases such as 0% interest, zero balance, and high-net-worth brackets.</li>
+    </ul>
+
+    <h2>2. How and When Tax-Year Data Is Updated</h2>
+    <p>Tax brackets, standard deduction amounts, retirement contribution caps, and FICA wage bases are updated annually according to the following strict schedule:</p>
+    <ul>
+      <li><strong>Annual Release Audits (October – November):</strong> When the IRS issues its official inflation adjustment Revenue Procedure (e.g., Rev. Proc. 2025-32 for Tax Year 2026) and the Social Security Administration publishes its annual Cost-of-Living bulletin, our quantitative team updates <code>config/tax-year.json</code> with exact statutory figures.</li>
+      <li><strong>January Roll-Forward:</strong> On January 1st of each calendar year, all live calculators automatically roll forward to compute against the new tax year's verified parameters.</li>
+      <li><strong>Verification Tagging:</strong> Every statutory constant is labeled with its official government source URL and a verification boolean. Any parameter pending final regulatory confirmation is explicitly tagged <code>TODO: VERIFY</code> and logged in our public documentation.</li>
+    </ul>
+
+    <h2>3. How Affiliate Relationships Work (FTC Compliance)</h2>
+    <p>Finmatrix is a free financial utility supported in part by financial affiliate partnerships. To ensure absolute consumer transparency and compliance with Federal Trade Commission (FTC) guidelines:</p>
+    <ul>
+      <li><strong>Zero Formula Bias:</strong> Financial partners cannot buy higher calculator rankings, manipulate formula outputs, or alter mathematical recommendations. If a tool indicates that paying off a 24% APR card via the Avalanche method is mathematically optimal, that result will never change based on commercial relationships.</li>
+      <li><strong>Prominent Sponsorship Attributes:</strong> All partner and affiliate links explicitly declare <code>rel="sponsored nofollow noopener"</code> and open in a new window (<code>target="_blank"</code>).</li>
+      <li><strong>Contextual & Relevant:</strong> Partner offers appear contextually only after calculation results (e.g., balance transfer credit cards appear after debt calculation, high-yield savings accounts appear after emergency fund calculation).</li>
+      <li><strong>No Artificial Scarcity or Phantom Offers:</strong> If an affiliate offer does not have a verified, active partner URL, no broken or deceptive link is shown to the user.</li>
+    </ul>
+
+    <h2>4. Corrections and Discrepancy Reporting</h2>
+    <p>We invite user scrutiny. If you identify a computational bug or tax rule discrepancy, please email our editorial desk at <a href="mailto:novamatrix1564@gmail.com" style="color:var(--accent);">novamatrix1564@gmail.com</a>. Corrections are investigated, tested, and pushed to production within 48 hours.</p>
   </div>
 </div>
 
@@ -121,20 +123,14 @@
     <div class="footer-top">
       <div class="footer-brand">
         <div class="nav-logo">Finmatrix</div>
-        <p>Free AI-powered personal finance tools for every US household. Developed with AI assistance and verified by our financial desk.</p>
+        <p>Free, verified personal finance calculators for every US household. 100% private with zero sign-up required.</p>
       </div>
       <div class="footer-col">
         <h4>Calculators</h4>
         <a href="/calculators/debt-elimination-planner.html">Debt Elimination Planner</a>
         <a href="/calculators/paycheck-calculator.html">Paycheck Calculator</a>
         <a href="/calculators/mortgage-calculator.html">Mortgage Calculator</a>
-        <a href="/calculators/retirement-calculator.html">Retirement Calculator</a>
-      </div>
-      <div class="footer-col">
-        <h4>More Tools</h4>
-        <a href="/calculators/fire-calculator.html">FIRE Calculator</a>
-        <a href="/calculators/roth-vs-traditional-ira-calculator.html">Roth vs Traditional IRA</a>
-        <a href="/calculators/emergency-fund-calculator.html">Emergency Fund</a>
+        <a href="/calculators/compound-interest-calculator.html">Compound Interest</a>
       </div>
       <div class="footer-col">
         <h4>Company & Legal</h4>
@@ -142,16 +138,19 @@
         <a href="/editorial-policy.html">Editorial Policy</a>
         <a href="/privacy-policy.html">Privacy Policy</a>
         <a href="/terms-of-service.html">Terms of Service</a>
+        <a href="/disclaimer.html">Disclaimer</a>
+        <a href="/contact.html">Contact Us</a>
       </div>
     </div>
     <div class="footer-bottom">
       <span>© 2026 Finmatrix. All rights reserved.</span>
       <span>Contact: <a href="mailto:novamatrix1564@gmail.com" style="color:var(--text-muted);">novamatrix1564@gmail.com</a></span>
     </div>
-    <p class="disclaimer">* Content and tools on Finmatrix are created with AI assistance and thoroughly reviewed by our financial desk for educational purposes. Not certified financial advice.</p>
+    <p class="disclaimer">* Finmatrix tools provide estimations for educational purposes only. Always consult a licensed CFP® or tax advisor before making major financial commitments.</p>
   </div>
 </footer>
 
 <script src="/js/main.js"></script>
+<script src="/js/analytics.js"></script>
 </body>
 </html>

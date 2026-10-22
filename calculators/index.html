@@ -6,10 +6,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 <!-- Primary Meta Tags -->
-<title>All 14+ Free Financial Calculators & Tools | Finmatrix</title>
-<meta name="description" content="Explore 14+ interactive personal finance calculators for mortgages, debt snowball, paycheck taxes, and compound interest. Fast, free, and private.">
+<title>All 20+ Free Financial Calculators & Tools (2026) | Finmatrix</title>
+<meta name="description" content="Explore 20+ free, client-side personal finance calculators for paycheck taxes, debt avalanche vs snowball, mortgage amortization, 401(k), and retirement. 100% private.">
 <meta name="keywords" content="free financial calculators, mortgage calculator, debt payoff calculator, compound interest calculator, paycheck calculator, retirement calculator, fire calculator, loan calculator">
-<meta name="author" content="Finmatrix Financial Engineering Research Desk">
+<meta name="author" content="Finmatrix Financial Research Desk">
 <link rel="canonical" href="https://finmatrix.cloud/calculators/">
 
 <!-- Search Engine Robots Directives -->
@@ -21,8 +21,8 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://finmatrix.cloud/calculators/">
 <meta property="og:site_name" content="Finmatrix">
-<meta property="og:title" content="All 14+ Free Financial Calculators & Tools | Finmatrix">
-<meta property="og:description" content="Explore 14+ interactive personal finance calculators for mortgages, debt snowball, paycheck taxes, and compound interest. Fast, free, and private.">
+<meta property="og:title" content="All 20+ Free Financial Calculators & Tools (2026) | Finmatrix">
+<meta property="og:description" content="Explore 20+ free, client-side personal finance calculators for paycheck taxes, debt avalanche vs snowball, mortgage amortization, 401(k), and retirement. 100% private.">
 <meta property="og:image" content="https://finmatrix.cloud/assets/og/calculators.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -32,8 +32,8 @@
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content="https://finmatrix.cloud/calculators/">
-<meta name="twitter:title" content="All 14+ Free Financial Calculators & Tools | Finmatrix">
-<meta name="twitter:description" content="Explore 14+ interactive personal finance calculators for mortgages, debt snowball, paycheck taxes, and compound interest. Fast, free, and private.">
+<meta name="twitter:title" content="All 20+ Free Financial Calculators & Tools (2026) | Finmatrix">
+<meta name="twitter:description" content="Explore 20+ free, client-side personal finance calculators for paycheck taxes, debt avalanche vs snowball, mortgage amortization, 401(k), and retirement. 100% private.">
 <meta name="twitter:image" content="https://finmatrix.cloud/assets/og/calculators.png">
 <meta name="twitter:image:alt" content="All Financial Calculators & Tools - Finmatrix">
 
@@ -59,8 +59,8 @@
       "@type": "CollectionPage",
       "@id": "https://finmatrix.cloud/calculators/#webpage",
       "url": "https://finmatrix.cloud/calculators/",
-      "name": "All 14+ Free Financial Calculators & Tools | Finmatrix",
-      "description": "Explore 14+ interactive personal finance calculators for mortgages, debt snowball, paycheck taxes, and compound interest. Fast, free, and private.",
+      "name": "All 20+ Free Financial Calculators & Tools (2026) | Finmatrix",
+      "description": "Explore 20+ free personal finance calculators for mortgages, debt payoff, paycheck taxes, 401(k), and compound interest.",
       "breadcrumb": {
         "@id": "https://finmatrix.cloud/calculators/#breadcrumb"
       }
@@ -96,10 +96,10 @@
   <div class="nav-links">
     <a href="/">Home</a>
     <a href="/calculators/" class="active">Calculators</a>
-    <a href="/articles/">Articles</a>
     <a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a>
     <button class="theme-toggle theme-toggle-btn" onclick="toggleTheme()">☀️ Light Mode</button>
-    <a href="/calculators/" class="nav-cta">Try Free →</a>
+    <a href="/calculators/" class="nav-cta">Explore Tools →</a>
   </div>
   <button class="menu-btn" onclick="toggleMobileMenu()">☰ Menu</button>
 </nav>
@@ -112,209 +112,124 @@
 
     <div class="section-label">Suite</div>
     <h1 class="section-title">All Personal Finance & Investment Calculators</h1>
-    <p class="section-sub">Thirteen free calculators covering every major US personal finance & investment goal — each powered by instant AI financial coaching.</p>
+    <p class="section-sub">Free, client-side financial tools covering every major US personal finance goal — updated for the 2026 tax year with zero personal data collection.</p>
 
-    <!-- SECTION 1: INVESTMENT CALCULATORS -->
-    <div style="margin-top:36px;margin-bottom:20px;border-bottom:1px solid var(--border);padding-bottom:12px;">
-      <h2 style="font-family:var(--font-heading);font-size:1.4rem;font-weight:800;color:var(--accent);display:flex;align-items:center;gap:8px;">
-        📈 Investment & Wealth Calculators
-      </h2>
-      <p style="color:var(--text-muted);font-size:0.88rem;margin-top:4px;">Calculate Future Value (FV), Present Value (PV), Time Value of Money (TVM), compound growth, retirement timelines, tax-advantaged IRAs, and early retirement milestones.</p>
+    <!-- Search & Filter Controls -->
+    <div style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-top:28px;margin-bottom:32px;">
+      <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-bottom:16px;">
+        <div style="flex:1;min-width:280px;position:relative;">
+          <input type="text" id="calc-search-input" placeholder="Search calculators by name, keyword, or tax rule..." style="width:100%;background:var(--bg2);border:1px solid var(--border);color:var(--text);padding:12px 16px;border-radius:8px;font-family:var(--font-body);font-size:0.95rem;outline:none;">
+        </div>
+        <div id="search-counter" style="font-size:0.85rem;font-weight:700;color:var(--accent);min-width:120px;text-align:right;">
+          Loading tools...
+        </div>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <button type="button" class="category-pill active" onclick="filterByCategory('all', this)" style="background:var(--accent);color:#000;border:none;padding:6px 14px;border-radius:20px;font-size:0.8rem;font-weight:700;cursor:pointer;">All Tools</button>
+        <button type="button" class="category-pill" onclick="filterByCategory('income-tax', this)" style="background:var(--bg2);color:var(--text);border:1px solid var(--border);padding:6px 14px;border-radius:20px;font-size:0.8rem;font-weight:600;cursor:pointer;">💵 Income & Tax</button>
+        <button type="button" class="category-pill" onclick="filterByCategory('debt', this)" style="background:var(--bg2);color:var(--text);border:1px solid var(--border);padding:6px 14px;border-radius:20px;font-size:0.8rem;font-weight:600;cursor:pointer;">💳 Debt & Credit</button>
+        <button type="button" class="category-pill" onclick="filterByCategory('housing', this)" style="background:var(--bg2);color:var(--text);border:1px solid var(--border);padding:6px 14px;border-radius:20px;font-size:0.8rem;font-weight:600;cursor:pointer;">🏠 Housing & Mortgage</button>
+        <button type="button" class="category-pill" onclick="filterByCategory('savings-investing', this)" style="background:var(--bg2);color:var(--text);border:1px solid var(--border);padding:6px 14px;border-radius:20px;font-size:0.8rem;font-weight:600;cursor:pointer;">📈 Savings & Investing</button>
+        <button type="button" class="category-pill" onclick="filterByCategory('loans', this)" style="background:var(--bg2);color:var(--text);border:1px solid var(--border);padding:6px 14px;border-radius:20px;font-size:0.8rem;font-weight:600;cursor:pointer;">📑 Loans & Borrowing</button>
+      </div>
     </div>
 
-    <div class="cards-grid">
-      <!-- TIME VALUE OF MONEY CALCULATOR -->
-      <a href="time-value-of-money-calculator.html" class="card" style="border-color:var(--accent);">
-        <div class="card-icon">⌛</div>
-        <h3>Time Value of Money (FV & PV)</h3>
-        <p>Calculate Future Value (FV), Present Value (PV) needed today, and purchasing power erosion over time.</p>
-        <div class="card-footer">
-          <span class="chip orange">🔥 NEW TVM Tool</span>
-          <span style="color:var(--accent);font-weight:700;">Calculate →</span>
-        </div>
-      </a>
-
-      <!-- COMPOUND INTEREST CALCULATOR -->
-      <a href="compound-interest-calculator.html" class="card">
-        <div class="card-icon">📈</div>
-        <h3>Compound Interest Calculator</h3>
-        <p>Calculate future investment wealth, monthly deposit compounding, and total interest earned over 1–40 years.</p>
-        <div class="card-footer">
-          <span class="chip orange">Investment Tool</span>
-          <span style="color:var(--accent);font-weight:700;">Calculate →</span>
-        </div>
-      </a>
-
-      <a href="fire-calculator.html" class="card">
-        <div class="card-icon">🔥</div>
-        <h3>FIRE Early Retirement Calculator</h3>
-        <p>Financial Independence Retire Early number, savings rate %, and age milestone trajectory.</p>
-        <div class="card-footer">
-          <span class="chip orange">Early Retirement</span>
-          <span style="color:var(--accent);font-weight:700;">Calculate →</span>
-        </div>
-      </a>
-
-      <a href="retirement-calculator.html" class="card">
-        <div class="card-icon">🏖️</div>
-        <h3>Retirement Growth Calculator</h3>
-        <p>Nest egg projection, 4% withdrawal income rule, and monthly savings gap analysis.</p>
-        <div class="card-footer">
-          <span class="chip">Retirement</span>
-          <span style="color:var(--accent);font-weight:700;">Calculate →</span>
-        </div>
-      </a>
-
-      <a href="roth-vs-traditional-ira-calculator.html" class="card">
-        <div class="card-icon">🏦</div>
-        <h3>Roth vs. Traditional IRA</h3>
-        <p>Side-by-side post-tax wealth comparison at retirement using 2025/2026 IRS tax bracket math.</p>
-        <div class="card-footer">
-          <span class="chip orange">IRS Limits</span>
-          <span style="color:var(--accent);font-weight:700;">Calculate →</span>
-        </div>
-      </a>
-
-      <a href="college-savings-calculator.html" class="card">
-        <div class="card-icon">🎓</div>
-        <h3>College 529 Savings Calculator</h3>
-        <p>Projected 4-year tuition inflation and monthly 529 plan savings required to cover costs.</p>
-        <div class="card-footer">
-          <span class="chip">Education</span>
-          <span style="color:var(--accent);font-weight:700;">Calculate →</span>
-        </div>
-      </a>
+    <!-- Category Hub Links Bar -->
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid var(--border);font-size:0.85rem;">
+      <span style="color:var(--text-muted);font-weight:600;">Category Guides:</span>
+      <a href="/calculators/income-tax/" style="color:var(--accent);text-decoration:none;">Income Tax Hub →</a>
+      <a href="/calculators/debt/" style="color:var(--accent2);text-decoration:none;">Debt Elimination Hub →</a>
+      <a href="/calculators/housing/" style="color:var(--accent3);text-decoration:none;">Housing Hub →</a>
+      <a href="/calculators/savings-investing/" style="color:var(--accent);text-decoration:none;">Savings & Investing Hub →</a>
+      <a href="/calculators/loans/" style="color:var(--accent2);text-decoration:none;">Loans Hub →</a>
     </div>
 
-    <!-- SECTION 2: DEBT & CREDIT CALCULATORS -->
-    <div style="margin-top:48px;margin-bottom:20px;border-bottom:1px solid var(--border);padding-bottom:12px;">
-      <h2 style="font-family:var(--font-heading);font-size:1.4rem;font-weight:800;color:var(--accent2);display:flex;align-items:center;gap:8px;">
-        💳 Debt Elimination & Credit Calculators
-      </h2>
-      <p style="color:var(--text-muted);font-size:0.88rem;margin-top:4px;">Crush high-interest credit card debt, optimize balance transfers, and calculate loan interest.</p>
-    </div>
-
-    <div class="cards-grid">
-      <a href="debt-elimination-planner.html" class="card">
-        <div class="card-icon">⚡</div>
-        <h3>Multi-Card Debt Elimination</h3>
-        <p>Compare Debt Avalanche vs. Debt Snowball side-by-side and calculate 0% APR balance transfer savings.</p>
-        <div class="card-footer">
-          <span class="chip orange">🔥 Flagship Tool</span>
-          <span style="color:var(--accent);font-weight:700;">Calculate →</span>
-        </div>
-      </a>
-
-      <a href="credit-card-payoff-calculator.html" class="card">
-        <div class="card-icon">💳</div>
-        <h3>Credit Card Debt Payoff</h3>
-        <p>Calculate months to debt freedom and interest saved with 0% APR balance transfers.</p>
-        <div class="card-footer">
-          <span class="chip orange">Debt Payoff</span>
-          <span style="color:var(--accent);font-weight:700;">Calculate →</span>
-        </div>
-      </a>
-
-      <a href="loan-calculator.html" class="card">
-        <div class="card-icon">💵</div>
-        <h3>Personal Loan Calculator</h3>
-        <p>Monthly payment and total interest breakdown for personal loans, auto financing, or student debt.</p>
-        <div class="card-footer">
-          <span class="chip">Loans</span>
-          <span style="color:var(--accent);font-weight:700;">Calculate →</span>
-        </div>
-      </a>
-    </div>
-
-    <!-- SECTION 3: INCOME & SAVINGS CALCULATORS -->
-    <div style="margin-top:48px;margin-bottom:20px;border-bottom:1px solid var(--border);padding-bottom:12px;">
-      <h2 style="font-family:var(--font-heading);font-size:1.4rem;font-weight:800;color:var(--accent3);display:flex;align-items:center;gap:8px;">
-        🏠 Income, Housing & Savings Calculators
-      </h2>
-      <p style="color:var(--text-muted);font-size:0.88rem;margin-top:4px;">Calculate take-home pay, PITI mortgage payments, home affordability, and emergency safety nets.</p>
-    </div>
-
-    <div class="cards-grid">
-      <a href="paycheck-calculator.html" class="card">
-        <div class="card-icon">💵</div>
-        <h3>Paycheck & Take-Home Pay</h3>
-        <p>Calculate net take-home paycheck after Federal, FICA, State taxes, 401(k), and health deductions.</p>
-        <div class="card-footer">
-          <span class="chip orange">#1 Popular</span>
-          <span style="color:var(--accent);font-weight:700;">Calculate →</span>
-        </div>
-      </a>
-
-      <a href="mortgage-calculator.html" class="card">
-        <div class="card-icon">🏠</div>
-        <h3>Mortgage Payment Calculator</h3>
-        <p>Principal & interest, property taxes, home insurance, PMI, and year-by-year amortization table.</p>
-        <div class="card-footer">
-          <span class="chip">Housing</span>
-          <span style="color:var(--accent);font-weight:700;">Calculate →</span>
-        </div>
-      </a>
-
-      <a href="home-affordability-calculator.html" class="card">
-        <div class="card-icon">🏡</div>
-        <h3>Home Affordability Calculator</h3>
-        <p>Maximum affordable home price based on gross monthly income, debt payments, and 28/36 DTI rules.</p>
-        <div class="card-footer">
-          <span class="chip">Home Buying</span>
-          <span style="color:var(--accent);font-weight:700;">Calculate →</span>
-        </div>
-      </a>
-
-      <a href="emergency-fund-calculator.html" class="card">
-        <div class="card-icon">🛡️</div>
-        <h3>Emergency Fund Calculator</h3>
-        <p>Ideal safety net target for 3-12 months of expenses and high-yield savings APY compounding timeline.</p>
-        <div class="card-footer">
-          <span class="chip orange">Savings</span>
-          <span style="color:var(--accent);font-weight:700;">Calculate →</span>
-        </div>
-      </a>
+    <!-- Active Grid for Search & Categorization -->
+    <div class="cards-grid" id="all-calculators-grid">
+      <!-- Populated dynamically via js/search.js -->
     </div>
   </div>
 </section>
 
+<!-- ══ FOOTER ══ -->
 <footer>
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
         <div class="nav-logo">Finmatrix</div>
-        <p>Free AI-powered personal finance tools for every US household. Developed with AI assistance and verified by our financial desk.</p>
+        <p>Free, verified personal finance calculators for every US household. 100% private with zero sign-up required.</p>
       </div>
       <div class="footer-col">
-        <h4>Investment Tools</h4>
-        <a href="/calculators/time-value-of-money-calculator.html">Time Value of Money (TVM)</a>
-        <a href="/calculators/compound-interest-calculator.html">Compound Interest</a>
-        <a href="/calculators/fire-calculator.html">FIRE Calculator</a>
-        <a href="/calculators/retirement-calculator.html">Retirement Calculator</a>
-      </div>
-      <div class="footer-col">
-        <h4>More Tools</h4>
+        <h4>Calculators</h4>
         <a href="/calculators/debt-elimination-planner.html">Debt Elimination Planner</a>
         <a href="/calculators/paycheck-calculator.html">Paycheck Calculator</a>
         <a href="/calculators/mortgage-calculator.html">Mortgage Calculator</a>
+        <a href="/calculators/compound-interest-calculator.html">Compound Interest</a>
+        <a href="/calculators/refinance-break-even-calculator.html">Refinance Break-Even</a>
+      </div>
+      <div class="footer-col">
+        <h4>More Tools</h4>
+        <a href="/calculators/roth-vs-traditional-ira-calculator.html">Roth vs Traditional IRA</a>
+        <a href="/calculators/rent-vs-buy-calculator.html">Rent vs Buy</a>
+        <a href="/calculators/401k-calculator.html">401(k) Growth & Match</a>
+        <a href="/calculators/fire-calculator.html">FIRE Calculator</a>
         <a href="/calculators/emergency-fund-calculator.html">Emergency Fund</a>
       </div>
       <div class="footer-col">
         <h4>Company & Legal</h4>
         <a href="/about.html">About Finmatrix</a>
-        <a href="/editorial-policy.html">Editorial Policy</a>
+        <a href="/editorial-policy.html">Editorial & Calculation Policy</a>
         <a href="/privacy-policy.html">Privacy Policy</a>
         <a href="/terms-of-service.html">Terms of Service</a>
+        <a href="/disclaimer.html">Disclaimer</a>
+        <a href="/contact.html">Contact Us</a>
       </div>
     </div>
     <div class="footer-bottom">
       <span>© 2026 Finmatrix. All rights reserved.</span>
       <span>Contact: <a href="mailto:novamatrix1564@gmail.com" style="color:var(--text-muted);">novamatrix1564@gmail.com</a></span>
     </div>
-    <p class="disclaimer">* Content and tools on Finmatrix are created with AI assistance and thoroughly reviewed by our financial desk for educational purposes. Not certified financial advice.</p>
+    <p class="disclaimer">* Finmatrix tools provide estimations for educational purposes only. Always consult a licensed CFP® or tax advisor before making major financial commitments.</p>
   </div>
 </footer>
 
 <script src="/js/main.js"></script>
+<script src="/js/search.js"></script>
+<script src="/js/analytics.js"></script>
+<script>
+let currentCategory = 'all';
+
+function filterByCategory(category, btnEl) {
+  currentCategory = category;
+  document.querySelectorAll('.category-pill').forEach(btn => {
+    btn.style.background = 'var(--bg2)';
+    btn.style.color = 'var(--text)';
+    btn.style.border = '1px solid var(--border)';
+    btn.classList.remove('active');
+  });
+
+  if (btnEl) {
+    btnEl.style.background = 'var(--accent)';
+    btnEl.style.color = '#000';
+    btnEl.style.border = 'none';
+    btnEl.classList.add('active');
+  }
+
+  const searchInput = document.getElementById('calc-search-input');
+  FinmatrixSearch.initSearch('calc-search-input', 'all-calculators-grid', {
+    category: currentCategory === 'all' ? null : currentCategory,
+    counterId: 'search-counter'
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  FinmatrixSearch.initSearch('calc-search-input', 'all-calculators-grid', {
+    category: null,
+    counterId: 'search-counter'
+  });
+});
+</script>
 </body>
 </html>
