@@ -51,7 +51,10 @@
 <IfModule mod_headers.c>
   Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
   Header always set X-Content-Type-Options "nosniff"
-  Header always set X-Frame-Options "SAMEORIGIN"
+  SetEnvIf Request_URI "^/embed/" IS_EMBED
+  Header always set X-Frame-Options "ALLOWALL" env=IS_EMBED
+  Header always set Content-Security-Policy "frame-ancestors *" env=IS_EMBED
+  Header always set X-Frame-Options "SAMEORIGIN" env=!IS_EMBED
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   <FilesMatch "\.(css|js|svg|png|jpg|ico|webp)$">
     Header set Cache-Control "max-age=2592000, public"

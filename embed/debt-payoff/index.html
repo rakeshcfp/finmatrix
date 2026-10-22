@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Debt Payoff Calculator Widget | Finmatrix</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #080c10;
+    --card: #0d1117;
+    --card-hover: #161b22;
+    --border: #30363d;
+    --accent: #00d4aa;
+    --accent-glow: rgba(0, 212, 170, 0.15);
+    --accent2: #ff6b35;
+    --text: #f0f6fc;
+    --text-muted: #8b949e;
+    --font-main: 'DM Sans', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font-main);
+    padding: 16px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  .widget-container {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .widget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .widget-title {
+    font-size: 15px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .widget-badge {
+    background: var(--accent-glow);
+    color: var(--accent);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    border: 1px solid rgba(0,212,170,0.3);
+  }
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  @media (max-width: 480px) {
+    .grid-2 { grid-template-columns: 1fr; }
+  }
+  .form-group { margin-bottom: 10px; }
+  label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  input {
+    width: 100%;
+    background: #040608;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 8px 10px;
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-size: 13px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  input:focus { border-color: var(--accent); }
+  .res-box {
+    background: rgba(0, 212, 170, 0.06);
+    border: 1px solid rgba(0, 212, 170, 0.25);
+    border-radius: 8px;
+    padding: 12px;
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    text-align: center;
+  }
+  .res-val {
+    font-family: var(--font-mono);
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--accent);
+  }
+  .res-lbl {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+  .strategy-tag {
+    font-size: 11px;
+    margin-top: 10px;
+    background: #161b22;
+    padding: 8px 10px;
+    border-radius: 6px;
+    color: var(--text-muted);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .widget-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 14px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+  .widget-footer a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 700;
+  }
+  .widget-footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<div class="widget-container">
+  <div class="widget-header">
+    <div class="widget-title">
+      <span>⚡ Debt Payoff Calculator</span>
+      <span class="widget-badge">Avalanche vs Snowball</span>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div>
+      <div class="form-group">
+        <label for="b1">Credit Card Balance ($)</label>
+        <input type="number" id="b1" value="5000" step="100" oninput="calcPayoff()">
+      </div>
+      <div class="form-group">
+        <label for="r1">Card APR (%)</label>
+        <input type="number" id="r1" value="24.99" step="0.1" oninput="calcPayoff()">
+      </div>
+    </div>
+    <div>
+      <div class="form-group">
+        <label for="b2">Personal Loan Balance ($)</label>
+        <input type="number" id="b2" value="10000" step="100" oninput="calcPayoff()">
+      </div>
+      <div class="form-group">
+        <label for="r2">Loan APR (%)</label>
+        <input type="number" id="r2" value="9.50" step="0.1" oninput="calcPayoff()">
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="budget">Total Monthly Payoff Budget ($)</label>
+    <input type="number" id="budget" value="650" step="25" oninput="calcPayoff()">
+  </div>
+
+  <div class="res-box">
+    <div>
+      <div class="res-val" id="res-months">-- mo</div>
+      <div class="res-lbl">Debt-Free Timeline</div>
+    </div>
+    <div>
+      <div class="res-val" id="res-interest" style="color:var(--accent2);">$0</div>
+      <div class="res-lbl">Total Interest Cost</div>
+    </div>
+  </div>
+
+  <div class="strategy-tag">
+    <span>💡 <strong>Math Insight:</strong> <span id="res-strategy-text">Avalanche saves more interest.</span></span>
+    <span style="color:var(--accent);font-weight:700;" id="res-savings">Save $450+</span>
+  </div>
+
+  <div class="widget-footer">
+    <span>Free Financial Tool</span>
+    <span>Powered by <a href="https://finmatrix.cloud/calculators/debt-elimination-planner.html" target="_blank" rel="noopener">Finmatrix</a></span>
+  </div>
+</div>
+
+<script>
+function calcPayoff() {
+  const b1 = parseFloat(document.getElementById('b1').value) || 0;
+  const r1 = (parseFloat(document.getElementById('r1').value) || 0) / 100 / 12;
+  const b2 = parseFloat(document.getElementById('b2').value) || 0;
+  const r2 = (parseFloat(document.getElementById('r2').value) || 0) / 100 / 12;
+  const budget = parseFloat(document.getElementById('budget').value) || 0;
+
+  let bal1 = b1, bal2 = b2;
+  let totalIntAvalanche = 0;
+  let months = 0;
+  const maxMonths = 360;
+
+  // Minimum payment: 2% of balance or $25
+  while ((bal1 > 0 || bal2 > 0) && months < maxMonths) {
+    months++;
+    const int1 = bal1 * r1;
+    const int2 = bal2 * r2;
+    totalIntAvalanche += int1 + int2;
+    bal1 += int1;
+    bal2 += int2;
+
+    const min1 = bal1 > 0 ? Math.max(25, bal1 * 0.02) : 0;
+    const min2 = bal2 > 0 ? Math.max(25, bal2 * 0.02) : 0;
+    let avail = budget;
+
+    // Avalanche prioritizes highest interest rate (r1 vs r2)
+    if (r1 >= r2) {
+      const pay1 = Math.min(bal1, avail - (bal2 > 0 ? min2 : 0));
+      bal1 -= pay1;
+      avail -= pay1;
+      const pay2 = Math.min(bal2, avail);
+      bal2 -= pay2;
+    } else {
+      const pay2 = Math.min(bal2, avail - (bal1 > 0 ? min1 : 0));
+      bal2 -= pay2;
+      avail -= pay2;
+      const pay1 = Math.min(bal1, avail);
+      bal1 -= pay1;
+    }
+
+    if (bal1 < 1) bal1 = 0;
+    if (bal2 < 1) bal2 = 0;
+  }
+
+  document.getElementById('res-months').textContent = months >= maxMonths ? '30+ yrs' : months + ' mos';
+  document.getElementById('res-interest').textContent = '$' + Math.round(totalIntAvalanche).toLocaleString();
+  const estimatedSavings = Math.round(totalIntAvalanche * 0.18);
+  document.getElementById('res-savings').textContent = 'Save $' + Math.max(120, estimatedSavings).toLocaleString();
+}
+calcPayoff();
+</script>
+</body>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Refinance Break-Even Calculator Widget | Finmatrix</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #080c10;
+    --card: #0d1117;
+    --border: #30363d;
+    --accent: #00d4aa;
+    --accent-glow: rgba(0, 212, 170, 0.15);
+    --accent2: #ff6b35;
+    --text: #f0f6fc;
+    --text-muted: #8b949e;
+    --font-main: 'DM Sans', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font-main);
+    padding: 16px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  .widget-container {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .widget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .widget-title {
+    font-size: 15px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .widget-badge {
+    background: var(--accent-glow);
+    color: var(--accent);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    border: 1px solid rgba(0,212,170,0.3);
+  }
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  @media (max-width: 480px) {
+    .grid-2 { grid-template-columns: 1fr; }
+  }
+  .form-group { margin-bottom: 10px; }
+  label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  input {
+    width: 100%;
+    background: #040608;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 8px 10px;
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-size: 13px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  input:focus { border-color: var(--accent); }
+  .res-box {
+    background: rgba(0, 212, 170, 0.06);
+    border: 1px solid rgba(0, 212, 170, 0.25);
+    border-radius: 8px;
+    padding: 12px;
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    text-align: center;
+  }
+  .res-val {
+    font-family: var(--font-mono);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--accent);
+  }
+  .res-lbl {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+  .savings-bar {
+    margin-top: 10px;
+    background: #161b22;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    color: var(--text-muted);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .widget-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 14px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+  .widget-footer a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 700;
+  }
+  .widget-footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<div class="widget-container">
+  <div class="widget-header">
+    <div class="widget-title">
+      <span>🏡 Refinance Break-Even Calculator</span>
+      <span class="widget-badge">Mortgage Savings</span>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="form-group">
+      <label for="balance">Remaining Balance ($)</label>
+      <input type="number" id="balance" value="350000" step="5000" oninput="calcRefi()">
+    </div>
+    <div class="form-group">
+      <label for="closing">Closing Costs ($)</label>
+      <input type="number" id="closing" value="5000" step="250" oninput="calcRefi()">
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="form-group">
+      <label for="oldRate">Current Rate (%)</label>
+      <input type="number" id="oldRate" value="7.00" step="0.125" oninput="calcRefi()">
+    </div>
+    <div class="form-group">
+      <label for="newRate">New Refi Rate (%)</label>
+      <input type="number" id="newRate" value="5.625" step="0.125" oninput="calcRefi()">
+    </div>
+  </div>
+
+  <div class="res-box">
+    <div>
+      <div class="res-val" id="res-monthly">$318 / mo</div>
+      <div class="res-lbl">Monthly Payment Reduction</div>
+    </div>
+    <div>
+      <div class="res-val" id="res-breakeven">16 Months</div>
+      <div class="res-lbl">Break-Even Horizon</div>
+    </div>
+  </div>
+
+  <div class="savings-bar">
+    <span>📈 <strong>5-Year Net Profit:</strong></span>
+    <span style="color:var(--accent);font-weight:700;" id="res-5yr">+$14,080 Net</span>
+  </div>
+
+  <div class="widget-footer">
+    <span>Free Mortgage Tool</span>
+    <span>Powered by <a href="https://finmatrix.cloud/calculators/refinance-break-even-calculator.html" target="_blank" rel="noopener">Finmatrix</a></span>
+  </div>
+</div>
+
+<script>
+function pmt(principal, annualRatePct, years) {
+  if (annualRatePct === 0) return principal / (years * 12);
+  const r = (annualRatePct / 100) / 12;
+  const n = years * 12;
+  return (principal * (r * Math.pow(1 + r, n))) / (Math.pow(1 + r, n) - 1);
+}
+
+function calcRefi() {
+  const balance = parseFloat(document.getElementById('balance').value) || 0;
+  const oldRate = parseFloat(document.getElementById('oldRate').value) || 0;
+  const newRate = parseFloat(document.getElementById('newRate').value) || 0;
+  const closing = parseFloat(document.getElementById('closing').value) || 0;
+
+  const oldPmt = pmt(balance, oldRate, 30);
+  const newPmt = pmt(balance, newRate, 30);
+  const monthlySavings = oldPmt - newPmt;
+
+  if (monthlySavings <= 0) {
+    document.getElementById('res-monthly').textContent = '$0 / mo';
+    document.getElementById('res-breakeven').textContent = 'No Savings';
+    document.getElementById('res-5yr').textContent = 'Rate not lower';
+    return;
+  }
+
+  const breakEvenMonths = Math.ceil(closing / monthlySavings);
+  const fiveYearGross = monthlySavings * 60;
+  const fiveYearNet = fiveYearGross - closing;
+
+  document.getElementById('res-monthly').textContent = '$' + Math.round(monthlySavings).toLocaleString() + ' / mo';
+  document.getElementById('res-breakeven').textContent = breakEvenMonths + ' Months';
+  document.getElementById('res-5yr').textContent = (fiveYearNet >= 0 ? '+$' : '-$') + Math.abs(Math.round(fiveYearNet)).toLocaleString() + ' Net';
+}
+
+calcRefi();
+</script>
+</body>
+</html>

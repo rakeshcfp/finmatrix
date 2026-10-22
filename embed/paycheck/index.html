@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paycheck Calculator Widget | Finmatrix</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #080c10;
+    --card: #0d1117;
+    --border: #30363d;
+    --accent: #00d4aa;
+    --accent-glow: rgba(0, 212, 170, 0.15);
+    --accent2: #ff6b35;
+    --text: #f0f6fc;
+    --text-muted: #8b949e;
+    --font-main: 'DM Sans', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font-main);
+    padding: 16px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  .widget-container {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .widget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .widget-title {
+    font-size: 15px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .widget-badge {
+    background: var(--accent-glow);
+    color: var(--accent);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    border: 1px solid rgba(0,212,170,0.3);
+  }
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  @media (max-width: 480px) {
+    .grid-2 { grid-template-columns: 1fr; }
+  }
+  .form-group { margin-bottom: 10px; }
+  label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  input, select {
+    width: 100%;
+    background: #040608;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 8px 10px;
+    color: var(--text);
+    font-family: var(--font-main);
+    font-size: 13px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  input { font-family: var(--font-mono); }
+  input:focus, select:focus { border-color: var(--accent); }
+  .res-box {
+    background: rgba(0, 212, 170, 0.06);
+    border: 1px solid rgba(0, 212, 170, 0.25);
+    border-radius: 8px;
+    padding: 12px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .res-val {
+    font-family: var(--font-mono);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--accent);
+  }
+  .res-lbl {
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+  .breakdown-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--text-muted);
+    padding: 4px 0;
+    border-bottom: 1px dashed var(--border);
+  }
+  .breakdown-row:last-child { border-bottom: none; }
+  .breakdown-list {
+    margin-top: 10px;
+    background: #161b22;
+    padding: 8px 12px;
+    border-radius: 6px;
+  }
+  .widget-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 14px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+  .widget-footer a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 700;
+  }
+  .widget-footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<div class="widget-container">
+  <div class="widget-header">
+    <div class="widget-title">
+      <span>💵 Take-Home Paycheck Calculator</span>
+      <span class="widget-badge">2026 Tax Rules</span>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="form-group">
+      <label for="salary">Annual Salary / Gross ($)</label>
+      <input type="number" id="salary" value="75000" step="1000" oninput="calcPaycheck()">
+    </div>
+    <div class="form-group">
+      <label for="freq">Pay Frequency</label>
+      <select id="freq" onchange="calcPaycheck()">
+        <option value="26" selected>Bi-Weekly (26/yr)</option>
+        <option value="12">Monthly (12/yr)</option>
+        <option value="24">Semi-Monthly (24/yr)</option>
+        <option value="52">Weekly (52/yr)</option>
+        <option value="1">Annually (1/yr)</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="form-group">
+      <label for="status">Filing Status</label>
+      <select id="status" onchange="calcPaycheck()">
+        <option value="single" selected>Single Filer</option>
+        <option value="mfj">Married Filing Jointly</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="state">State Withholding</label>
+      <select id="state" onchange="calcPaycheck()">
+        <option value="TX" selected>Texas (0% tax)</option>
+        <option value="FL">Florida (0% tax)</option>
+        <option value="WA">Washington (0% tax)</option>
+        <option value="NV">Nevada (0% tax)</option>
+        <option value="CA">California (~6.0%)</option>
+        <option value="NY">New York (~5.5%)</option>
+        <option value="IL">Illinois (4.95%)</option>
+        <option value="PA">Pennsylvania (3.07%)</option>
+        <option value="NC">North Carolina (4.50%)</option>
+        <option value="GA">Georgia (5.39%)</option>
+        <option value="OH">Ohio (~3.50%)</option>
+        <option value="OTHER">Other State (~4.5%)</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="res-box">
+    <div>
+      <div class="res-lbl">Estimated Net Paycheck</div>
+      <div class="res-val" id="res-net">$2,192</div>
+    </div>
+    <div style="text-align:right;">
+      <div class="res-lbl">Effective Tax Rate</div>
+      <div class="res-val" id="res-eff" style="font-size:16px;color:var(--text);">24.0%</div>
+    </div>
+  </div>
+
+  <div class="breakdown-list">
+    <div class="breakdown-row"><span>Federal Income Tax:</span><span id="res-fed">$382</span></div>
+    <div class="breakdown-row"><span>Social Security (6.2%):</span><span id="res-ss">$179</span></div>
+    <div class="breakdown-row"><span>Medicare (1.45%):</span><span id="res-med">$42</span></div>
+    <div class="breakdown-row"><span>State Income Tax:</span><span id="res-state">$0</span></div>
+  </div>
+
+  <div class="widget-footer">
+    <span>Free Tax Calculation</span>
+    <span>Powered by <a href="https://finmatrix.cloud/calculators/paycheck-calculator.html" target="_blank" rel="noopener">Finmatrix</a></span>
+  </div>
+</div>
+
+<script>
+const stateRates = {
+  TX: 0, FL: 0, WA: 0, NV: 0,
+  CA: 0.060, NY: 0.055, IL: 0.0495, PA: 0.0307, NC: 0.045, GA: 0.0539, OH: 0.035, OTHER: 0.045
+};
+
+function calcFederalTax(taxable, status) {
+  if (taxable <= 0) return 0;
+  // 2026 Brackets
+  const brackets = status === 'mfj' ? [
+    { cap: 24800, rate: 0.10 },
+    { cap: 100800, rate: 0.12 },
+    { cap: 211400, rate: 0.22 },
+    { cap: 403550, rate: 0.24 },
+    { cap: 512450, rate: 0.32 },
+    { cap: 768700, rate: 0.35 },
+    { cap: Infinity, rate: 0.37 }
+  ] : [
+    { cap: 12400, rate: 0.10 },
+    { cap: 50400, rate: 0.12 },
+    { cap: 105700, rate: 0.22 },
+    { cap: 201775, rate: 0.24 },
+    { cap: 256225, rate: 0.32 },
+    { cap: 640600, rate: 0.35 },
+    { cap: Infinity, rate: 0.37 }
+  ];
+
+  let tax = 0, prev = 0;
+  for (const b of brackets) {
+    if (taxable > b.cap) {
+      tax += (b.cap - prev) * b.rate;
+      prev = b.cap;
+    } else {
+      tax += (taxable - prev) * b.rate;
+      break;
+    }
+  }
+  return tax;
+}
+
+function calcPaycheck() {
+  const gross = parseFloat(document.getElementById('salary').value) || 0;
+  const periods = parseInt(document.getElementById('freq').value) || 26;
+  const status = document.getElementById('status').value;
+  const stateCode = document.getElementById('state').value;
+
+  const stdDed = status === 'mfj' ? 32200 : 16100;
+  const taxable = Math.max(0, gross - stdDed);
+  const annualFed = calcFederalTax(taxable, status);
+
+  // 2026 OASDI cap: $184,500
+  const ssWage = Math.min(gross, 184500);
+  const annualSS = ssWage * 0.062;
+  const annualMed = gross * 0.0145;
+
+  const stRate = stateRates[stateCode] !== undefined ? stateRates[stateCode] : 0.045;
+  const annualState = taxable * stRate;
+
+  const annualTotalTax = annualFed + annualSS + annualMed + annualState;
+  const annualNet = Math.max(0, gross - annualTotalTax);
+
+  const netPaycheck = annualNet / periods;
+  const fedPerPeriod = annualFed / periods;
+  const ssPerPeriod = annualSS / periods;
+  const medPerPeriod = annualMed / periods;
+  const statePerPeriod = annualState / periods;
+  const effRate = gross > 0 ? (annualTotalTax / gross) * 100 : 0;
+
+  document.getElementById('res-net').textContent = '$' + Math.round(netPaycheck).toLocaleString();
+  document.getElementById('res-eff').textContent = effRate.toFixed(1) + '%';
+  document.getElementById('res-fed').textContent = '$' + Math.round(fedPerPeriod).toLocaleString();
+  document.getElementById('res-ss').textContent = '$' + Math.round(ssPerPeriod).toLocaleString();
+  document.getElementById('res-med').textContent = '$' + Math.round(medPerPeriod).toLocaleString();
+  document.getElementById('res-state').textContent = '$' + Math.round(statePerPeriod).toLocaleString();
+}
+
+calcPaycheck();
+</script>
+</body>
+</html>
