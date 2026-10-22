@@ -1,0 +1,45 @@
+# Finmatrix Robots Directive (Optimized for Web & AI Search Crawlers)
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# OpenAI Crawlers (SearchGPT & ChatGPT Live Ingestion)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# Anthropic Crawlers (Claude & Claude-Web Live Search)
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Perplexity AI Search
+User-agent: PerplexityBot
+Allow: /
+
+# Google Gemini & Apple Intelligence
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Meta AI & Semantic Web Crawlers
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+# Canonical XML Sitemap
+Sitemap: https://finmatrix.cloud/sitemap.xml

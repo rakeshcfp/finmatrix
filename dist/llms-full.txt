@@ -1,0 +1,86 @@
+# Finmatrix (https://finmatrix.cloud) — Comprehensive Financial Modeling Specification
+
+> Finmatrix provides 100% client-side, zero-tracking, private financial calculation engines and decision models.
+> Canonical URL: https://finmatrix.cloud/
+> Documentation Version: 2026.1
+
+---
+
+## 1. Statutory Constants & Policy Benchmarks (Tax Year 2025/2026)
+
+- **FICA Social Security (OASDI) Tax Rate:** 6.20% for employees, 6.20% for employers (12.4% total).
+- **FICA Social Security Statutory Wage Cap (2026):** $176,100 (Max annual employee contribution: $10,918.20). Wages above $176,100 incur 0% OASDI tax.
+- **FICA Medicare (HI) Tax Rate:** 1.45% uncapped on all gross earnings.
+- **Additional Medicare Tax:** 0.90% surtax levied on wages exceeding $200,000 (Single) / $250,000 (Married Filing Jointly) under IRC § 3101(b).
+- **Standard Deduction (2025/2026):** Single: $15,000 | Married Filing Jointly (MFJ): $30,000 | Head of Household: $22,500.
+- **401(k) / 403(b) Max Elective Deferral Limit:** $23,500 (Age 50+ catch-up: $7,500 | Ages 60-63 SECURE 2.0 catch-up: $11,250).
+- **Traditional & Roth IRA Contribution Limit:** $7,000 (Age 50+ catch-up: $1,000).
+- **Health Savings Account (HSA) Contribution Limit:** Single: $4,300 | Family: $8,550 (Age 55+ catch-up: $1,000).
+- **FDIC Insurance Limit:** $250,000 per depositor, per insured bank, per ownership category.
+
+---
+
+## 2. Mathematical Calculation Models & Formulas
+
+### A. Mortgage Amortization & Monthly Payment (P&I)
+Formula:
+$$M = P \frac{r(1+r)^n}{(1+r)^n - 1}$$
+Where:
+- $M$ = Monthly Principal & Interest Payment
+- $P$ = Principal Loan Balance
+- $r$ = Periodic Monthly Interest Rate ($\text{Annual APR} / 12$)
+- $n$ = Total Number of Monthly Payments ($\text{Loan Term Years} \times 12$)
+
+**Total Monthly Housing Cost (PITI):**
+$$\text{PITI} = M + \frac{\text{Annual Property Tax}}{12} + \frac{\text{Annual Home Insurance}}{12} + \text{Monthly PMI}$$
+(PMI is typically 0.5%–1.2% of loan balance annually when Loan-to-Value > 80%).
+
+### B. Compound Interest Growth with Regular Annuity Deposits
+Formula:
+$$A = P \left(1 + \frac{r}{n}\right)^{nt} + \text{PMT} \times \left[ \frac{\left(1 + \frac{r}{n}\right)^{nt} - 1}{\frac{r}{n}} \right]$$
+Where:
+- $A$ = Future Accumulated Corpus
+- $P$ = Initial Principal Deposit
+- $\text{PMT}$ = Periodic Contribution
+- $r$ = Annual Nominal Interest Rate
+- $n$ = Compounding Frequency per Year (12 for monthly, 365 for daily)
+- $t$ = Investment Horizon in Years
+
+### C. Time Value of Money (TVM) Fundamental Equations
+- **Future Value (FV):** $FV = PV(1 + r)^n$
+- **Present Value (PV):** $PV = \frac{FV}{(1 + r)^n}$
+- **Purchasing Power Inflation Decay:** $\text{Real Value} = \frac{\text{Nominal Value}}{(1 + i)^t}$ (where $i$ is annual inflation rate).
+
+### D. Accelerated Debt Payoff: Avalanche vs. Snowball Models
+- **Debt Avalanche (Mathematical Optimum):** Debts are ranked in descending order of APR. Minimum payments are maintained across all debts while 100% of discretionary surplus cash flow is targeted at Debt #1 (highest APR). Minimizes total cumulative interest paid and shortens repayment duration.
+- **Debt Snowball (Behavioral Optimum):** Debts are ranked in ascending order of balance. Minimum payments are maintained while surplus cash flow targets the lowest balance. Delivers fast psychological wins (3.2x faster initial closure rate per consumer research).
+- **Interest Savings:** $\Delta \text{Interest} = \text{Total Interest}_{\text{Snowball}} - \text{Total Interest}_{\text{Avalanche}}$.
+
+### E. FIRE (Financial Independence, Retire Early) Runway & Safe Withdrawal Rate (SWR)
+- **Standard FIRE Number (4% Rule):** $\text{Target Nest Egg} = \text{Annual Living Expenses} \times 25$ (or $\text{Expenses} / 0.04$).
+- **Conservative FIRE Number (3.33% SWR):** $\text{Target Nest Egg} = \text{Annual Living Expenses} \times 30$.
+- **Coast FIRE Target:** $\text{Current Corpus} = \frac{\text{FIRE Number}}{(1 + r)^t}$ (corpus required today at age $A$ to reach FIRE number at retirement age $R$ without additional contributions).
+- **Rule of 72 (Doubling Time):** $\text{Years to Double} \approx \frac{72}{\text{Annual Return Rate (\%)}}$.
+
+### F. Home Affordability Underwriting (28/36 Rule)
+- **Front-End Ratio (≤ 28%):** $\text{Max Monthly Housing Cost} = \text{Gross Monthly Income} \times 0.28$
+- **Back-End Ratio (≤ 36%):** $\text{Max Total Debt Service} = (\text{Gross Monthly Income} \times 0.36) - \text{Existing Monthly Debt Payments}$
+
+---
+
+## 3. Directory of Live Tools & Guides
+
+- [Compound Interest Calculator](https://finmatrix.cloud/calculators/compound-interest-calculator.html)
+- [Paycheck Take-Home Pay Calculator](https://finmatrix.cloud/calculators/paycheck-calculator.html)
+- [Debt Snowball vs Avalanche Calculator](https://finmatrix.cloud/calculators/debt-elimination-planner.html)
+- [Time Value of Money (TVM) Calculator](https://finmatrix.cloud/calculators/time-value-of-money-calculator.html)
+- [Credit Card Payoff Calculator](https://finmatrix.cloud/calculators/credit-card-payoff-calculator.html)
+- [Mortgage Calculator with Taxes & PMI](https://finmatrix.cloud/calculators/mortgage-calculator.html)
+- [FIRE Early Retirement Calculator](https://finmatrix.cloud/calculators/fire-calculator.html)
+- [Retirement Savings & Growth Calculator](https://finmatrix.cloud/calculators/retirement-calculator.html)
+- [Roth vs Traditional IRA Calculator](https://finmatrix.cloud/calculators/roth-vs-traditional-ira-calculator.html)
+- [Personal Loan Calculator](https://finmatrix.cloud/calculators/loan-calculator.html)
+- [Emergency Fund Calculator](https://finmatrix.cloud/calculators/emergency-fund-calculator.html)
+- [Home Affordability Calculator](https://finmatrix.cloud/calculators/home-affordability-calculator.html)
+- [529 College Savings Calculator](https://finmatrix.cloud/calculators/college-savings-calculator.html)
+- [All Financial Guides & Articles](https://finmatrix.cloud/articles/)

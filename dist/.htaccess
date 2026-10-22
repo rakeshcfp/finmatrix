@@ -1,0 +1,44 @@
+# Finmatrix Apache Web Server Configuration (Hostinger / cPanel / Shared Hosting)
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # 1. Force HTTPS
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://finmatrix.cloud/$1 [L,R=301]
+
+  # 2. Canonicalize WWW to Non-WWW
+  RewriteCond %{HTTP_HOST} ^www\.finmatrix\.cloud [NC]
+  RewriteRule ^(.*)$ https://finmatrix.cloud/$1 [L,R=301]
+
+  # Serve index.html for directory requests
+  DirectoryIndex index.html
+
+  # Do NOT rewrite real existing files or directories
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Serve .html files without requiring extension in URL
+  RewriteCond %{REQUEST_FILENAME}\.html -f
+  RewriteRule ^(.*)$ $1.html [L]
+</IfModule>
+
+# Enforce Correct MIME Types
+<IfModule mod_mime.c>
+  AddType text/css .css
+  AddType application/javascript .js
+  AddType image/svg+xml .svg
+</IfModule>
+
+# Security & Modern SEO Headers
+<IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  <FilesMatch "\.(css|js|svg|png|jpg|ico|webp)$">
+    Header set Cache-Control "max-age=2592000, public"
+  </FilesMatch>
+</IfModule>

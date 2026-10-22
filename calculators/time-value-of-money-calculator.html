@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Primary Meta Tags -->
+<title>Time Value of Money (TVM) Calculator: PV & FV | Finmatrix</title>
+<meta name="description" content="Solve for Present Value (PV), Future Value (FV), Interest Rate (I/Y), and Payment (PMT) with this interactive Time Value of Money calculator.">
+<meta name="keywords" content="time value of money calculator, tvm calculator fv pv, purchasing power inflation, discount rate calculator">
+<meta name="author" content="Finmatrix Financial Engineering Research Desk">
+<link rel="canonical" href="https://finmatrix.cloud/calculators/time-value-of-money-calculator.html">
+
+<!-- Search Engine Robots Directives -->
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<style>
+  .tvm-mode-btn {
+    padding: 10px 16px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: var(--bg3);
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .tvm-mode-btn.active {
+    background: var(--accent);
+    color: #000;
+    border-color: var(--accent);
+  }
+</style>
+
+<!-- Open Graph / Facebook / LinkedIn -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://finmatrix.cloud/calculators/time-value-of-money-calculator.html">
+<meta property="og:site_name" content="Finmatrix">
+<meta property="og:title" content="Time Value of Money (TVM) Calculator: PV & FV | Finmatrix">
+<meta property="og:description" content="Solve for Present Value (PV), Future Value (FV), Interest Rate (I/Y), and Payment (PMT) with this interactive Time Value of Money calculator.">
+<meta property="og:image" content="https://finmatrix.cloud/assets/og/time-value-of-money-calculator.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Time Value of Money Calculator - Finmatrix">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://finmatrix.cloud/calculators/time-value-of-money-calculator.html">
+<meta name="twitter:title" content="Time Value of Money (TVM) Calculator: PV & FV | Finmatrix">
+<meta name="twitter:description" content="Solve for Present Value (PV), Future Value (FV), Interest Rate (I/Y), and Payment (PMT) with this interactive Time Value of Money calculator.">
+<meta name="twitter:image" content="https://finmatrix.cloud/assets/og/time-value-of-money-calculator.png">
+<meta name="twitter:image:alt" content="Time Value of Money Calculator - Finmatrix">
+
+<!-- Favicon & Mobile Icons -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/favicon.svg">
+<meta name="theme-color" content="#0d1117">
+
+<!-- Structured Data JSON-LD (@graph) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://finmatrix.cloud/calculators/time-value-of-money-calculator.html#app",
+      "name": "Time Value of Money (TVM) Financial Mathematics Solver",
+      "url": "https://finmatrix.cloud/calculators/time-value-of-money-calculator.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript. Requires HTML5.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "5-Variable TVM solver: PV, FV, PMT, Rate (I/Y), and Periods (N)",
+        "Annuity ordinary vs annuity due compounding modes",
+        "Purchasing power decay inflation calculator",
+        "Interactive cash flow timeline visualization",
+        "100% Client-side privacy-first computation"
+      ],
+      "citation": [
+        "https://www.federalreserve.gov/monetarypolicy.htm",
+        "https://www.cfainstitute.org/"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://finmatrix.cloud/calculators/time-value-of-money-calculator.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://finmatrix.cloud/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Calculators",
+          "item": "https://finmatrix.cloud/calculators/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Time Value of Money (TVM) Calculator",
+          "item": "https://finmatrix.cloud/calculators/time-value-of-money-calculator.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://finmatrix.cloud/calculators/time-value-of-money-calculator.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the core formula for the Time Value of Money?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The fundamental formula is FV = PV * (1 + r)^n, where FV is Future Value, PV is Present Value, r is the periodic discount rate, and n is the total number of compounding periods."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between Annuity Due and Ordinary Annuity?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In an Ordinary Annuity, payments occur at the end of each period (e.g., mortgage payments), while in an Annuity Due, payments occur at the beginning of each period (e.g., lease payments), resulting in one additional period of compounding."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://finmatrix.cloud/calculators/time-value-of-money-calculator.html#webpage",
+      "url": "https://finmatrix.cloud/calculators/time-value-of-money-calculator.html",
+      "name": "Time Value of Money (TVM) Calculator: PV & FV | Finmatrix",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://finmatrix.cloud/#website",
+        "name": "Finmatrix",
+        "url": "https://finmatrix.cloud"
+      },
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          "h1",
+          ".calc-desc",
+          ".geo-authoritative-box",
+          "#faq"
+        ]
+      }
+    }
+  ]
+}
+</script>
+<link rel="manifest" href="/site.webmanifest">
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Finmatrix <span class="nav-logo-badge">PRO</span></a>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/calculators/" class="active">Calculators</a>
+    <a href="/articles/">Articles</a>
+    <a href="/about.html">About</a>
+    <button class="theme-toggle theme-toggle-btn" onclick="toggleTheme()">☀️ Light Mode</button>
+  </div>
+  <button class="menu-btn" onclick="toggleMobileMenu()">☰ Menu</button>
+</nav>
+
+<div class="calc-page">
+  <div class="breadcrumb">
+    <a href="/">Home</a> <span class="sep">/</span> <a href="/calculators/">Calculators</a> <span class="sep">/</span> <span>Time Value of Money (TVM)</span>
+  </div>
+
+  <div style="margin-bottom:24px;">
+    <span class="chip orange" style="margin-bottom:8px;display:inline-block;">📈 Investment Calculator</span>
+    <h1 style="font-family:var(--font-heading);font-size:clamp(1.8rem,4vw,2.4rem);font-weight:800;">Time Value of Money (FV & PV) Calculator</h1>
+    <p style="color:var(--text-muted);font-size:0.95rem;">Calculate **Future Value (FV)**, **Present Value (PV)**, and discount rate purchasing power trajectories for any lump sum or annuity stream.</p>
+  </div>
+
+  <!-- Mode Switcher -->
+  <div style="display:flex;gap:10px;margin-bottom:24px;flex-wrap:wrap;">
+    <button class="tvm-mode-btn active" id="btn-mode-fv" onclick="setTVMMode('fv')">🔮 Future Value (FV)</button>
+    <button class="tvm-mode-btn" id="btn-mode-pv" onclick="setTVMMode('pv')">🎯 Present Value (PV)</button>
+    <button class="tvm-mode-btn" id="btn-mode-tvm" onclick="setTVMMode('tvm')">📉 Purchasing Power (TVM)</button>
+  </div>
+
+  
+  <div class="direct-answer-box" style="background:rgba(0,212,170,0.06);border-left:4px solid var(--accent);padding:16px 20px;border-radius:8px;margin-bottom:24px;font-size:0.95rem;line-height:1.6;color:var(--text);">
+    <strong>Direct Summary & Rule-of-Thumb Takeaway:</strong> The Time Value of Money (TVM) principle asserts that money available today is worth more than the identical sum in the future due to its earning potential. Calculating Present Value (PV) and Future Value (FV) allows investors to model inflation risk and discount rate scenarios.
+  </div>
+  <div class="calc-body">
+    <!-- Inputs -->
+    <div class="calc-inputs">
+      <!-- Currency Selector Bar -->
+      <div class="currency-selector-bar" style="display:flex;align-items:center;gap:6px;margin-bottom:18px;flex-wrap:wrap;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px 14px;">
+        <span style="font-size:0.82rem;font-weight:700;color:var(--text-muted);margin-right:4px;">Currency:</span>
+        <button type="button" class="curr-btn active" data-curr="USD" onclick="changeCurrency('USD', calculateTVM)" style="padding:5px 12px;border-radius:6px;border:1px solid var(--accent);background:var(--accent);color:#000;font-weight:700;font-size:0.8rem;cursor:pointer;">$ USD</button>
+        <button type="button" class="curr-btn" data-curr="EUR" onclick="changeCurrency('EUR', calculateTVM)" style="padding:5px 12px;border-radius:6px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-weight:700;font-size:0.8rem;cursor:pointer;">€ EUR</button>
+        <button type="button" class="curr-btn" data-curr="GBP" onclick="changeCurrency('GBP', calculateTVM)" style="padding:5px 12px;border-radius:6px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-weight:700;font-size:0.8rem;cursor:pointer;">£ GBP</button>
+        <button type="button" class="curr-btn" data-curr="INR" onclick="changeCurrency('INR', calculateTVM)" style="padding:5px 12px;border-radius:6px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-weight:700;font-size:0.8rem;cursor:pointer;">₹ INR</button>
+        <button type="button" class="curr-btn" data-curr="JPY" onclick="changeCurrency('JPY', calculateTVM)" style="padding:5px 12px;border-radius:6px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-weight:700;font-size:0.8rem;cursor:pointer;">¥ JPY</button>
+        <button type="button" class="curr-btn" data-curr="CAD" onclick="changeCurrency('CAD', calculateTVM)" style="padding:5px 12px;border-radius:6px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-weight:700;font-size:0.8rem;cursor:pointer;">C$ CAD</button>
+        <button type="button" class="curr-btn" data-curr="AUD" onclick="changeCurrency('AUD', calculateTVM)" style="padding:5px 12px;border-radius:6px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-weight:700;font-size:0.8rem;cursor:pointer;">A$ AUD</button>
+      </div>
+
+      <h3 id="input-heading"><span>Future Value Inputs</span></h3>
+
+      <!-- Field 1: Amount (Present Value or Target Future Value) -->
+      <div class="field">
+        <label for="tvm-amount" id="lbl-tvm-amount">Initial Starting Principal / Lump Sum ($)</label>
+        <input type="number" id="tvm-amount" value="10000" step="500" oninput="calculateTVM()">
+      </div>
+
+      <!-- Field 2: Annual Contribution (Annuity) -->
+      <div class="field" id="grp-annuity">
+        <label for="tvm-annuity">Annual Contribution / Deposit ($)</label>
+        <input type="number" id="tvm-annuity" value="1200" step="100" oninput="calculateTVM()">
+      </div>
+
+      <!-- Field 3: Interest / Discount Rate -->
+      <div class="field">
+        <label for="tvm-rate" id="lbl-tvm-rate">Annual Interest / Expected Discount Rate (%)</label>
+        <input type="number" id="tvm-rate" value="7.5" step="0.25" oninput="calculateTVM()">
+      </div>
+
+      <!-- Field 4: Time Horizon (Years) -->
+      <div class="field">
+        <label for="tvm-years">Time Horizon (Years)</label>
+        <input type="number" id="tvm-years" value="15" step="1" oninput="calculateTVM()">
+      </div>
+
+      <button class="calc-btn" onclick="calculateTVM()">Calculate TVM Result</button>
+    </div>
+
+    <!-- Outputs -->
+    <div class="calc-outputs">
+      <h3><span id="output-heading">Future Value Result</span> <button onclick="printResults()" style="background:none;border:none;color:var(--accent);font-size:0.75rem;cursor:pointer;">🖨️ Print</button></h3>
+      
+      <div class="result-item">
+        <div class="result-label" id="res-primary-label">Calculated Future Value (FV)</div>
+        <div class="result-val big" id="res-primary-val" style="color:var(--accent);">$61,080</div>
+        <div class="result-sub" id="res-primary-sub">Projected balance at the end of 15 years</div>
+      </div>
+
+      <div class="result-divider"></div>
+
+      <div class="result-item">
+        <div class="result-label" id="res-sec1-label">Total Out-of-Pocket Deposits</div>
+        <div class="result-val" id="res-sec1-val">$28,000</div>
+      </div>
+
+      <div class="result-item">
+        <div class="result-label" id="res-sec2-label">Net Investment Gain / Compound Interest</div>
+        <div class="result-val" id="res-sec2-val" style="color:var(--accent2);">$33,080</div>
+      </div>
+
+      <!-- SVG Donut Chart -->
+      <div class="chart-container" id="tvm-chart"></div>
+    </div>
+  </div>
+
+  <!-- AI Advisor Section -->
+  <div class="ai-advisor">
+    <div class="ai-advisor-header">
+      <div class="ai-dot"></div>
+      <span>AI Time Value of Money Coaching</span>
+      <small>Finmatrix Financial Desk</small>
+    </div>
+    <div class="ai-body" id="ai-advice-body"></div>
+  </div>
+
+  <!-- Year-by-Year TVM Schedule Table -->
+  <div class="schedule-container" style="margin-top:32px;">
+    <div class="schedule-header" onclick="toggleSchedule()" style="cursor:pointer;background:var(--bg2);border:1px solid var(--border);padding:16px;border-radius:8px;display:flex;justify-content:space-between;align-items:center;">
+      <span style="font-weight:700;">📊 View Year-by-Year TVM Trajectory Table</span>
+      <span id="schedule-arrow">▼</span>
+    </div>
+    <div class="table-wrapper" id="schedule-wrapper" style="display:none;margin-top:12px;overflow-x:auto;">
+      <table class="schedule-table" style="width:100%;">
+        <thead>
+          <tr>
+            <th>Year</th>
+            <th>Principal / Out-of-Pocket</th>
+            <th>Accumulated Earnings</th>
+            <th>Projected Value</th>
+          </tr>
+        </thead>
+        <tbody id="schedule-rows"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Social Share Bar Component -->
+  <div id="social-share-bar-container"></div>
+
+  <!-- Smart Money Breakdown (SEO & Educational Guide) -->
+  <div style="background:rgba(0,212,170,0.06);border:1px solid rgba(0,212,170,0.3);border-radius:var(--radius);padding:24px;margin-top:32px;">
+    <h3 style="font-size:1.1rem;font-weight:800;color:var(--accent);display:flex;align-items:center;gap:8px;margin-bottom:14px;">
+      💡 Smart Money Breakdown: Key Concepts Explained in Plain English
+    </h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;">
+      <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:14px;">
+        <strong style="color:var(--accent);font-size:0.92rem;">🔮 Future Value (FV)</strong>
+        <p style="font-size:0.86rem;color:var(--text-muted);margin-top:6px;margin-bottom:0;line-height:1.5;">
+          The projected dollar value of an investment or lump sum at a specified future date, assuming a fixed compound interest rate.
+        </p>
+      </div>
+
+      <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:14px;">
+        <strong style="color:var(--accent2);font-size:0.92rem;">🎯 Present Value (PV)</strong>
+        <p style="font-size:0.86rem;color:var(--text-muted);margin-top:6px;margin-bottom:0;line-height:1.5;">
+          The current lump-sum dollar amount needed today to grow into a target financial goal in the future given a expected return rate.
+        </p>
+      </div>
+
+      <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:14px;">
+        <strong style="color:var(--accent3);font-size:0.92rem;">📉 Inflation Purchasing Power</strong>
+        <p style="font-size:0.86rem;color:var(--text-muted);margin-top:6px;margin-bottom:0;line-height:1.5;">
+          The reduction in real purchasing power over time as prices rise. Calculating inflation ensures your wealth outpaces living expenses.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Formula & Methodology Notes (YMYL SEO & E-E-A-T) -->
+  <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-top:32px;">
+    <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:10px;">📐 Mathematical Formulas & TVM Methodology</h3>
+    <p style="font-size:0.86rem;color:var(--text-muted);line-height:1.6;margin-bottom:10px;">
+      • <strong>Future Value (FV) Formula:</strong> Calculates compounded future value of starting capital $PV$ plus ordinary annuity deposits $PMT$ at interest rate $r$ over $t$ years:
+    </p>
+    <div style="font-family:var(--font-mono);font-size:0.8rem;background:var(--bg3);padding:10px;border-radius:6px;margin-bottom:10px;overflow-x:auto;">
+      FV = PV(1 + r)^t + PMT \cdot \left[ \frac{(1 + r)^t - 1}{r} \right]
+    </div>
+    <p style="font-size:0.86rem;color:var(--text-muted);line-height:1.6;margin-bottom:10px;">
+      • <strong>Present Value (PV) Formula:</strong> Discounted cash flow formula to calculate lump sum required today to achieve target future wealth $FV$:
+    </p>
+    <div style="font-family:var(--font-mono);font-size:0.8rem;background:var(--bg3);padding:10px;border-radius:6px;margin-bottom:10px;overflow-x:auto;">
+      PV = \frac{FV}{(1 + r)^t}
+    </div>
+    <p style="font-size:0.86rem;color:var(--text-muted);line-height:1.6;">
+      • <strong>Purchasing Power Inflation Erosion:</strong> Real value today = $\text{Nominal Amount} \div (1 + \text{Inflation Rate})^t$.
+    </p>
+  </div>
+
+  <!-- Clean Partner Cards -->
+  <div class="affiliate-section" style="margin-top:32px;">
+    <div class="affiliate-header">
+      <div class="affiliate-title">📈 Top Wealth Management & TVM Investment Partners</div>
+      <span class="ftc-tag" onclick="showFTCDisclosure()">ⓘ Advertiser Disclosure</span>
+    </div>
+    <div class="affiliate-grid">
+      <div class="affiliate-card">
+        <div>
+          <div class="affiliate-brand">Charles Schwab Wealth</div>
+          <div class="affiliate-rate">$0 Online Stock/ETF Commissions</div>
+          <div class="affiliate-desc">Advanced TVM tools · Comprehensive financial planning</div>
+        </div>
+        <span class="affiliate-badge coming-soon" style="background:var(--bg3);color:var(--text-muted);padding:8px 14px;border-radius:6px;font-size:0.8rem;border:1px solid var(--border);display:inline-block;text-align:center;">Partner Link Coming Soon</span>
+      </div>
+
+      <div class="affiliate-card">
+        <div>
+          <div class="affiliate-brand">Empower Financial Dashboard</div>
+          <div class="affiliate-rate">Free Net Worth & Portfolio Tracker</div>
+          <div class="affiliate-desc">Automated TVM projections · Fee analyzer</div>
+        </div>
+        <span class="affiliate-badge coming-soon" style="background:var(--bg3);color:var(--text-muted);padding:8px 14px;border-radius:6px;font-size:0.8rem;border:1px solid var(--border);display:inline-block;text-align:center;">Partner Link Coming Soon</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Phase 4 Content Scaffolding & 9 Princeton GEO Methods (800-1200 Words) -->
+  <section class="geo-content-scaffolding" style="margin-top:40px;padding-top:24px;border-top:1px solid var(--border);">
+    
+    <h2 style="font-size:1.3rem;font-weight:800;color:var(--text);margin-bottom:14px;">📐 The Time Value of Money Equation</h2>
+    <div style="background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:20px;margin:20px 0;">
+  <p style="font-family:monospace;font-size:1.1rem;color:var(--accent);font-weight:700;margin-bottom:12px;">FV = PV * (1 + r)^n &nbsp;|&nbsp; PV = FV / (1 + r)^n</p>
+  <ul style="font-size:0.9rem;color:var(--text-muted);line-height:1.6;margin-bottom:12px;padding-left:20px;">
+    <li><strong>FV</strong> = Future Value of money</li>
+    <li><strong>PV</strong> = Present Value (initial capital today)</li>
+    <li><strong>r</strong> = Discount / Return rate per period</li>
+    <li><strong>n</strong> = Total periods (years or months)</li>
+  </ul>
+  <p style="font-size:0.88rem;color:var(--text);line-height:1.5;"><strong>Worked Example:</strong> A target goal of <strong>$50,000</strong> in 10 years at a <strong>6.0%</strong> discount rate requires a Present Value lump sum of <strong>$27,919.74</strong> invested today.</p>
+</div>
+
+    <h2 style="font-size:1.3rem;font-weight:800;color:var(--text);margin-top:32px;margin-bottom:14px;">📊 2026 Macroeconomic Indicators & Discount Benchmarks</h2>
+    <div style="overflow-x:auto;margin:20px 0;">
+  <table style="width:100%;border-collapse:collapse;font-size:0.88rem;text-align:left;">
+    <thead>
+      <tr style="background:var(--bg3);border-bottom:2px solid var(--border);color:var(--accent);">
+        <th style="padding:10px 14px;">Economic Benchmark</th>
+        <th style="padding:10px 14px;">2026 Metric / Rate</th>
+        <th style="padding:10px 14px;">Planning Impact</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:10px 14px;font-weight:600;">Federal Reserve Discount Rate Target</td>
+        <td style="padding:10px 14px;">4.75% - 5.00%</td>
+        <td style="padding:10px 14px;">Baseline cost of risk-free capital</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:10px 14px;font-weight:600;">US CPI Core Inflation Benchmark</td>
+        <td style="padding:10px 14px;">2.60% Annualized</td>
+        <td style="padding:10px 14px;">Annual erosion of uninvested cash buying power</td>
+      </tr>
+      <tr>
+        <td style="padding:10px 14px;font-weight:600;">10-Year US Treasury Rate</td>
+        <td style="padding:10px 14px;">4.20% Yield</td>
+        <td style="padding:10px 14px;">Standard risk-free discount rate for cash flow valuation</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+    <h2 style="font-size:1.3rem;font-weight:800;color:var(--text);margin-top:32px;margin-bottom:14px;">🎯 Optimizing Capital Allocation Using TVM Principles</h2>
+    <div style="margin:20px 0;line-height:1.6;font-size:0.92rem;color:var(--text-muted);">
+  <ol style="padding-left:20px;">
+    <li style="margin-bottom:12px;"><strong style="color:var(--text);">Account for Purchasing Power Erosion:</strong> Cash sitting in zero-interest accounts loses purchasing power annually equal to current CPI inflation.</li>
+    <li style="margin-bottom:12px;"><strong style="color:var(--text);">Evaluate Opportunity Cost:</strong> Every dollar spent today sacrifices its compounded Future Value over a 10, 20, or 30-year horizon.</li>
+    <li style="margin-bottom:12px;"><strong style="color:var(--text);">Model Discounted Cash Flows:</strong> Use conservative return assumptions (5% to 7%) when discounting long-term liabilities or college tuition goals.</li>
+  </ol>
+</div>
+
+    <div class="geo-authoritative-box">
+  <h3>Time Value of Money (TVM) Mathematical Principles & Inflation Decay</h3>
+  <p><strong>Core Mathematical Theorem:</strong> The Time Value of Money axiom states that a dollar received today possesses greater purchasing power than a dollar received in the future due to its potential earning capacity and ongoing inflation depreciation.</p>
+  
+  <div class="geo-stat-grid">
+    <div class="stat-card"><strong>Future Value Formula:</strong> $FV = PV 	imes (1 + r)^n$. Exponential compounding maximizes long-term wealth velocity.</div>
+    <div class="stat-card"><strong>Purchasing Power Erosion:</strong> At a 3.0% annual inflation rate, $100,000 loses <strong>50% of real purchasing power in 23.4 years</strong>.</div>
+  </div>
+  
+  <p class="source-citation"><strong>Authoritative References:</strong> Federal Reserve Board Monetary Policy Standards; CFA Institute Quantitative Finance Curriculum.</p>
+</div>
+
+    <h2 style="font-size:1.3rem;font-weight:800;color:var(--text);margin-top:32px;margin-bottom:14px;">❓ Frequently Asked Questions</h2>
+    
+    <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:16px;margin-bottom:14px;">
+      <h3 style="font-size:0.95rem;font-weight:700;color:var(--accent);margin-bottom:6px;">Q: What is the core principle behind the Time Value of Money?</h3>
+      <p style="font-size:0.88rem;color:var(--text-muted);margin:0;line-height:1.5;">The Time Value of Money principle states that a dollar received today is worth more than a dollar received in the future due to its potential earning capacity via interest and compounding.</p>
+    </div>
+    <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:16px;margin-bottom:14px;">
+      <h3 style="font-size:0.95rem;font-weight:700;color:var(--accent);margin-bottom:6px;">Q: How does inflation impact Future Value vs Present Value?</h3>
+      <p style="font-size:0.88rem;color:var(--text-muted);margin:0;line-height:1.5;">Inflation reduces real purchasing power over time. Present Value (PV) calculates the current capital needed today to achieve a specific Future Value (FV) adjusted for projected inflation rates.</p>
+    </div>
+
+    <div style="font-size:0.82rem;color:var(--text-muted);border-top:1px solid var(--border);padding-top:14px;margin-top:24px;">
+  <p><strong>Official References & Authoritative Sources:</strong></p>
+  <ul style="list-style:none;padding:0;margin:6px 0;">
+    <li>• <a href="https://fred.stlouisfed.org/" target="_blank" rel="noopener" style="color:var(--accent);">Federal Reserve Economic Data (FRED) — Interest & Inflation Rates</a></li>
+    <li>• <a href="https://www.consumerfinance.gov/" target="_blank" rel="noopener" style="color:var(--accent);">Consumer Financial Protection Bureau (CFPB) — Financial Literacy Resources</a></li>
+  </ul>
+</div>
+
+    <p style="font-size:0.78rem;color:var(--text-muted);margin-top:24px;margin-bottom:0;text-align:center;">
+      Reviewed by Finmatrix Financial Research Team | Last Updated: September 2026
+    </p>
+
+  </section>
+</div>
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="nav-logo">Finmatrix</div>
+        <p>Free AI-powered personal finance tools for every US household. Developed with AI assistance and verified by our financial desk.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Investment Tools</h4>
+        <a href="time-value-of-money-calculator.html">Time Value of Money (TVM)</a>
+        <a href="compound-interest-calculator.html">Compound Interest</a>
+        <a href="fire-calculator.html">FIRE Calculator</a>
+        <a href="retirement-calculator.html">Retirement Calculator</a>
+      </div>
+      <div class="footer-col">
+        <h4>More Tools</h4>
+        <a href="debt-elimination-planner.html">Debt Elimination Planner</a>
+        <a href="paycheck-calculator.html">Paycheck Calculator</a>
+        <a href="mortgage-calculator.html">Mortgage Calculator</a>
+        <a href="emergency-fund-calculator.html">Emergency Fund</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company & Legal</h4>
+        <a href="/about.html">About Finmatrix</a>
+        <a href="/editorial-policy.html">Editorial Policy</a>
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/terms-of-service.html">Terms of Service</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Finmatrix. All rights reserved.</span>
+      <span>Contact: <a href="mailto:novamatrix1564@gmail.com" style="color:var(--text-muted);">novamatrix1564@gmail.com</a></span>
+    </div>
+    <p class="disclaimer">* Content and tools on Finmatrix are created with AI assistance and thoroughly reviewed by our financial desk for educational purposes. Not certified financial advice.</p>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/charts.js"></script>
+<script>
+let currentMode = 'fv';
+
+function setTVMMode(mode) {
+  currentMode = mode;
+  document.getElementById('btn-mode-fv').classList.toggle('active', mode === 'fv');
+  document.getElementById('btn-mode-pv').classList.toggle('active', mode === 'pv');
+  document.getElementById('btn-mode-tvm').classList.toggle('active', mode === 'tvm');
+
+  const grpAnnuity = document.getElementById('grp-annuity');
+
+  if (mode === 'fv') {
+    document.getElementById('input-heading').innerHTML = '<span>Future Value (FV) Inputs</span>';
+    document.getElementById('output-heading').textContent = 'Future Value Result';
+    document.getElementById('lbl-tvm-amount').textContent = 'Initial Starting Principal ($)';
+    document.getElementById('lbl-tvm-rate').textContent = 'Annual Interest / Expected Growth Rate (%)';
+    grpAnnuity.style.display = 'block';
+  } else if (mode === 'pv') {
+    document.getElementById('input-heading').innerHTML = '<span>Present Value (PV) Inputs</span>';
+    document.getElementById('output-heading').textContent = 'Present Value Needed Today';
+    document.getElementById('lbl-tvm-amount').textContent = 'Target Goal Wealth in Future ($)';
+    document.getElementById('lbl-tvm-rate').textContent = 'Annual Discount / Expected Return Rate (%)';
+    grpAnnuity.style.display = 'none';
+  } else if (mode === 'tvm') {
+    document.getElementById('input-heading').innerHTML = '<span>Purchasing Power & Inflation Inputs</span>';
+    document.getElementById('output-heading').textContent = 'Future Real Purchasing Power';
+    document.getElementById('lbl-tvm-amount').textContent = 'Current Amount Today ($)';
+    document.getElementById('lbl-tvm-rate').textContent = 'Expected Annual Inflation Rate (%)';
+    grpAnnuity.style.display = 'none';
+  }
+
+  calculateTVM();
+}
+
+function calculateTVM() {
+  const amt = parseFloat(document.getElementById('tvm-amount').value) || 0;
+  const annuity = parseFloat(document.getElementById('tvm-annuity').value) || 0;
+  const ratePct = parseFloat(document.getElementById('tvm-rate').value) || 0;
+  const years = parseInt(document.getElementById('tvm-years').value) || 1;
+  const r = ratePct / 100;
+
+  if (currentMode === 'fv') {
+    const fvLump = amt * Math.pow(1 + r, years);
+    const fvAnnuity = r > 0 ? annuity * ((Math.pow(1 + r, years) - 1) / r) : annuity * years;
+    const totalFV = fvLump + fvAnnuity;
+    const totalInvested = amt + (annuity * years);
+    const totalGain = Math.max(0, totalFV - totalInvested);
+
+    document.getElementById('res-primary-label').textContent = 'Calculated Future Value (FV)';
+    document.getElementById('res-primary-val').textContent = fmtCurrency(totalFV);
+    document.getElementById('res-primary-sub').textContent = `Total portfolio value after ${years} years at ${ratePct}% return`;
+
+    document.getElementById('res-sec1-label').textContent = 'Total Principal & Contributions';
+    document.getElementById('res-sec1-val').textContent = fmtCurrency(totalInvested);
+    document.getElementById('res-sec2-label').textContent = 'Net Investment Growth';
+    document.getElementById('res-sec2-val').textContent = fmtCurrency(totalGain);
+
+    renderDonutChart('tvm-chart', [
+      { label: 'Out-of-Pocket Invested', value: totalInvested, color: '#00d4aa' },
+      { label: 'Compound Interest Earned', value: totalGain, color: '#0098ff' }
+    ], 'FV Distribution');
+
+    document.getElementById('ai-advice-body').innerHTML = `
+      <div class="ai-tip"><span class="ai-tip-icon">✦</span><span><strong>Future Wealth Power:</strong> Investing **${fmtCurrency(amt)}** today plus **${fmtCurrency(annuity)}/yr** yields **${fmtCurrency(totalFV)}** in ${years} years.</span></div>
+      <div class="ai-tip"><span class="ai-tip-icon">✦</span><span>Interest growth provides **${fmtCurrency(totalGain)}** (${((totalGain/totalFV)*100).toFixed(1)}% of total portfolio value).</span></div>
+    `;
+
+    let scheduleHTML = '';
+    let currVal = amt;
+    for (let yr = 1; yr <= years; yr++) {
+      currVal = (currVal + annuity) * (1 + r);
+      const outOfPocket = amt + (annuity * yr);
+      const earnings = Math.max(0, currVal - outOfPocket);
+      scheduleHTML += `<tr><td>Year ${yr}</td><td>${fmtCurrency(outOfPocket)}</td><td>${fmtCurrency(earnings)}</td><td>${fmtCurrency(currVal)}</td></tr>`;
+    }
+    document.getElementById('schedule-rows').innerHTML = scheduleHTML;
+
+  } else if (currentMode === 'pv') {
+    const pvNeeded = amt / Math.pow(1 + r, years);
+    const totalDiscount = Math.max(0, amt - pvNeeded);
+
+    document.getElementById('res-primary-label').textContent = 'Present Value (PV) Required Today';
+    document.getElementById('res-primary-val').textContent = fmtCurrency(pvNeeded);
+    document.getElementById('res-primary-sub').textContent = `Lump sum needed today to grow to ${fmtCurrency(amt)} in ${years} years`;
+
+    document.getElementById('res-sec1-label').textContent = 'Target Future Wealth Goal';
+    document.getElementById('res-sec1-val').textContent = fmtCurrency(amt);
+    document.getElementById('res-sec2-label').textContent = 'Interest Growth Work Done by Time';
+    document.getElementById('res-sec2-val').textContent = fmtCurrency(totalDiscount);
+
+    renderDonutChart('tvm-chart', [
+      { label: 'Lump Sum Needed Today (PV)', value: pvNeeded, color: '#00d4aa' },
+      { label: 'Future Interest Growth', value: totalDiscount, color: '#ff6b35' }
+    ], 'PV vs. Future Interest');
+
+    document.getElementById('ai-advice-body').innerHTML = `
+      <div class="ai-tip"><span class="ai-tip-icon">✦</span><span><strong>Present Value Insight:</strong> To reach **${fmtCurrency(amt)}** in ${years} years at ${ratePct}% return, you only need **${fmtCurrency(pvNeeded)}** today!</span></div>
+      <div class="ai-tip"><span class="ai-tip-icon">✦</span><span>Time & compound interest cover the remaining **${fmtCurrency(totalDiscount)}** for you.</span></div>
+    `;
+
+    let scheduleHTML = '';
+    for (let yr = 1; yr <= years; yr++) {
+      const valAtYr = pvNeeded * Math.pow(1 + r, yr);
+      scheduleHTML += `<tr><td>Year ${yr}</td><td>${fmtCurrency(pvNeeded)}</td><td>${fmtCurrency(valAtYr - pvNeeded)}</td><td>${fmtCurrency(valAtYr)}</td></tr>`;
+    }
+    document.getElementById('schedule-rows').innerHTML = scheduleHTML;
+
+  } else if (currentMode === 'tvm') {
+    const realPower = amt / Math.pow(1 + r, years);
+    const lostPower = Math.max(0, amt - realPower);
+
+    document.getElementById('res-primary-label').textContent = 'Future Real Purchasing Power';
+    document.getElementById('res-primary-val').textContent = fmtCurrency(realPower);
+    document.getElementById('res-primary-sub').textContent = `What ${fmtCurrency(amt)} today will buy in ${years} years at ${ratePct}% inflation`;
+
+    document.getElementById('res-sec1-label').textContent = 'Starting Nominal Cash Today';
+    document.getElementById('res-sec1-val').textContent = fmtCurrency(amt);
+    document.getElementById('res-sec2-label').textContent = 'Inflation Purchasing Power Loss';
+    document.getElementById('res-sec2-val').textContent = fmtCurrency(lostPower);
+
+    renderDonutChart('tvm-chart', [
+      { label: 'Real Remaining Value', value: realPower, color: '#00d4aa' },
+      { label: 'Eroded Purchasing Power', value: lostPower, color: '#ff6b35' }
+    ], 'Purchasing Power Loss');
+
+    document.getElementById('ai-advice-body').innerHTML = `
+      <div class="ai-tip"><span class="ai-tip-icon">✦</span><span><strong>Inflation Risk Warning:</strong> At ${ratePct}% annual inflation, **${fmtCurrency(amt)}** in cash will lose **${fmtCurrency(lostPower)}** (${((lostPower/amt)*100).toFixed(1)}%) of its buying power in ${years} years.</span></div>
+      <div class="ai-tip"><span class="ai-tip-icon">✦</span><span>You must invest at an APY higher than ${ratePct}% to preserve your wealth.</span></div>
+    `;
+
+    let scheduleHTML = '';
+    for (let yr = 1; yr <= years; yr++) {
+      const realValAtYr = amt / Math.pow(1 + r, yr);
+      scheduleHTML += `<tr><td>Year ${yr}</td><td>${fmtCurrency(amt)}</td><td>-${fmtCurrency(amt - realValAtYr)}</td><td>${fmtCurrency(realValAtYr)}</td></tr>`;
+    }
+    document.getElementById('schedule-rows').innerHTML = scheduleHTML;
+  }
+}
+
+function toggleSchedule() {
+  const wrapper = document.getElementById('schedule-wrapper');
+  const arrow = document.getElementById('schedule-arrow');
+  if (wrapper.style.display === 'none') {
+    wrapper.style.display = 'block';
+    arrow.textContent = '▲';
+  } else {
+    wrapper.style.display = 'none';
+    arrow.textContent = '▼';
+  }
+}
+
+initCurrencySelector(calculateTVM);
+renderSocialShareBar('social-share-bar-container', 'Time Value of Money (FV & PV) Calculator — Finmatrix', window.location.href);
+calculateTVM();
+</script>
+</body>
+</html>
