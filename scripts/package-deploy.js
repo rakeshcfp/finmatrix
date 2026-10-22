@@ -43,6 +43,7 @@ const filesToCopy = [
   'netlify.toml',
   '.htaccess',
   'subscribe.php',
+  'unzip.php',
   'llms.txt',
   'llms-full.txt'
 ];
