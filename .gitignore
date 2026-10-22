@@ -3,4 +3,5 @@ node_modules/
 Thumbs.db
 __pycache__/
 *.pyc
-finmatrix-deployment.zip
+*.zip
+dist-deploy/
