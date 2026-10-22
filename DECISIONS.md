@@ -45,3 +45,13 @@ This log records every significant design, architectural, and data choice made d
 ### Decision 7: Embeddable Widgets
 - **Choice:** Build clean, responsive iframe widget views for top tools at `/embed/<tool>/` (e.g. `/embed/debt-payoff/`, `/embed/paycheck/`, `/embed/refinance-break-even/`) with `X-Frame-Options: ALLOWALL` (or permissive CSP frame-ancestors in `_headers`), `noindex, nofollow`, and a mandatory "Powered by Finmatrix" backlink to the parent tool.
 - **Rationale:** Generates organic, high-domain-authority backlinks from personal finance bloggers and webmasters.
+
+### Decision 8: Prioritized Scenario Tools & Mathematical Models
+- **Choice:** Built all 12 requested scenario calculators (Refinance Break-Even, Rent vs Buy, Roth vs Traditional IRA, Paycheck Withholding by State, Self-Employed 1099 SECA Tax, Bonus 22% Statutory Withholding, Hourly to Salary, Auto Loan with Trade-In & Tax Credits, Student Loan Extra Payments, HYSA vs CD Yields, 401(k) Tiered Employer Match, and Debt-to-Income Ratios).
+- **Choice:** Verified all mathematical models with a 21-test Node.js automated test suite (`tests/calculator-formulas.test.js`) testing boundary conditions, 0% interest, negative equity, and maximum wage caps.
+- **Rationale:** Ensures exact calculation correctness for YMYL Google quality raters and real utility for users.
+
+### Decision 9: Automated Technical SEO & QA Pipeline
+- **Choice:** Authored `scripts/qa-validator.js` and `scripts/build-sitemap.js` to ensure that every page strictly complies with single-H1 requirements, meta description length limits, canonical consistency, error-free JSON-LD, zero broken internal links (`href="#"`), and complete sitemap indexing of all 36 live routes.
+- **Rationale:** Prevents regression during future content and tool additions.
+

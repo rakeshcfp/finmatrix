@@ -39,3 +39,9 @@ This log contains all items requiring input, verification, or credentials from t
 - [x] **2026 IRA Contribution Limit:** Verified ($7,500; catch-up $1,100).
 - [x] **2026 HSA Contribution Limits:** Verified ($4,400 Single / $8,750 Family).
 - [ ] **Additional State Tax Models:** Top 10 states (TX, FL, WA, NV, PA, IL, NC, IN, CA, NY) are verified in `config/tax-year.json`. If adding specific scenario pages for remaining US states, verify each state revenue department's exact brackets before publishing.
+
+## 6. Google AdSense Application & Activation
+- [ ] **Submit to AdSense:** Follow the step-by-step checklist in [`ADSENSE_READINESS.md`](file:///c:/Antigravity/finmatrix/ADSENSE_READINESS.md) to submit `https://finmatrix.cloud` for Google AdSense site approval.
+- [ ] **Enable Display Ads:** Once approved, update `config/site.json` with `"ads": { "enabled": true, "client_id": "ca-pub-..." }`.
+- [ ] **Publish ads.txt:** Place your authorized `ads.txt` file in the root directory.
+
