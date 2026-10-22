@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Primary Meta Tags -->
+<title>Debt-to-Income (DTI) Ratio Calculator (2026) | Finmatrix</title>
+<meta name="description" content="Calculate your front-end and back-end Debt-to-Income (DTI) ratio. Verify mortgage qualification thresholds for Conventional (36%), FHA (43%), and VA loans.">
+<meta name="keywords" content="debt to income calculator, dti ratio calculator, mortgage qualification dti, front end dti, back end dti 2026">
+<meta name="author" content="Finmatrix Financial Research Desk">
+<link rel="canonical" href="https://finmatrix.cloud/calculators/debt-to-income-calculator.html">
+
+<!-- Search Engine Robots Directives -->
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://finmatrix.cloud/calculators/debt-to-income-calculator.html">
+<meta property="og:site_name" content="Finmatrix">
+<meta property="og:title" content="Debt-to-Income (DTI) Ratio Calculator (2026) | Finmatrix">
+<meta property="og:description" content="Calculate front-end housing and back-end total debt ratios to verify mortgage qualification.">
+<meta property="og:image" content="https://finmatrix.cloud/assets/og/dti-calculator.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Debt-to-Income (DTI) Calculator (2026) | Finmatrix">
+<meta name="twitter:description" content="Evaluate your front-end and back-end DTI underwriting ratios for Conventional, FHA, and VA home loans.">
+
+<!-- Favicon & Mobile Icons -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/favicon.svg">
+<meta name="theme-color" content="#0d1117">
+
+<!-- Structured Data JSON-LD (@graph) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://finmatrix.cloud/calculators/debt-to-income-calculator.html#app",
+      "name": "Debt-to-Income (DTI) Ratio Calculator",
+      "url": "https://finmatrix.cloud/calculators/debt-to-income-calculator.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript. Requires HTML5.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "Front-End Housing Ratio (28% benchmark) calculation",
+        "Back-End Total Debt Ratio (36% to 43% benchmarks) calculation",
+        "Conventional, FHA, VA, and USDA underwriting qualification status",
+        "Maximum allowable monthly debt budget headroom estimation",
+        "100% Client-side privacy-first computation with shareable URL parameters"
+      ],
+      "citation": [
+        "https://www.consumerfinance.gov/ask-cfpb/what-is-a-debt-to-income-ratio-why-is-the-43-debt-to-income-ratio-important-en-1791/",
+        "https://selling-guide.fanniemae.com/"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://finmatrix.cloud/calculators/debt-to-income-calculator.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://finmatrix.cloud/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Calculators",
+          "item": "https://finmatrix.cloud/calculators/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Loans",
+          "item": "https://finmatrix.cloud/calculators/loans/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Debt-to-Income (DTI)",
+          "item": "https://finmatrix.cloud/calculators/debt-to-income-calculator.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://finmatrix.cloud/calculators/debt-to-income-calculator.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the difference between front-end and back-end DTI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Front-end DTI calculates only your housing costs (mortgage principal, interest, taxes, insurance, and HOA dues) divided by your gross monthly income (ideal target: ≤28%). Back-end DTI includes housing plus all other recurring monthly debts—auto loans, student loans, credit card minimums, and child support—divided by gross monthly income (ideal target: ≤36% for conventional, ≤43% for conforming/FHA)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is a 43% DTI ratio significant in mortgage lending?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Under the Consumer Financial Protection Bureau's Qualified Mortgage (QM) rule, 43% is typically the maximum debt-to-income ratio for a lender to originate a standardized Qualified Mortgage, although automated underwriting systems (like Fannie Mae's Desktop Underwriter) can approve ratios up to 45%–50% with compensating factors such as high credit scores or significant cash reserves."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What debts are NOT included in a DTI ratio?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "DTI only measures contractual debt obligations. It does NOT include living expenses such as groceries, utility bills (electricity, water, gas), cell phone plans, health insurance, cable/streaming subscriptions, or auto insurance, unless they are court-ordered judgments or delinquent collections."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I quickly lower my DTI ratio before applying for a mortgage?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The fastest ways to lower your DTI include: paying off small revolving credit card balances entirely (eliminating their monthly minimum payment), refinancing high-interest debt into longer terms with lower payments, or adding a co-borrower to increase total household qualifying gross income."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Finmatrix <span class="nav-logo-badge">PRO</span></a>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/calculators/" class="active">Calculators</a>
+    <a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a>
+    <button class="theme-toggle theme-toggle-btn" onclick="toggleTheme()">☀️ Light Mode</button>
+  </div>
+  <button class="menu-btn" onclick="toggleMobileMenu()">☰ Menu</button>
+</nav>
+
+<section>
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="/">Home</a> <span class="sep">/</span> <a href="/calculators/">Calculators</a> <span class="sep">/</span> <a href="/calculators/loans/">Loans</a> <span class="sep">/</span> <span>Debt-to-Income (DTI)</span>
+    </div>
+
+    <div class="section-label">Loans & Underwriting Suite</div>
+    <h1 class="section-title">Debt-to-Income (DTI) Ratio Calculator (2026)</h1>
+    <div class="reviewed-line">
+      <span>Updated for 2026 Fannie Mae/Freddie Mac guidelines</span> · <span>Reviewed October 2026</span> · <span>By Finmatrix Financial Research Desk</span>
+    </div>
+    <p class="section-sub">Calculate your front-end housing and back-end total debt ratios, and evaluate whether your debt profile meets mortgage lending underwriting benchmarks.</p>
+
+    <div class="calc-grid">
+      <!-- Calculator Inputs Form -->
+      <div class="calc-card">
+        <h2 style="font-size:1.15rem;margin-bottom:20px;display:flex;align-items:center;gap:8px;">
+          <span>⚖️</span> Income & Monthly Debt Obligations
+        </h2>
+
+        <form id="dti-form" onsubmit="event.preventDefault(); calculateDti();">
+          <div class="form-group">
+            <label for="monthlyIncome">Gross Monthly Household Income ($)</label>
+            <input type="number" id="monthlyIncome" value="8000" min="1000" step="250" required>
+            <span class="input-hint">Gross pre-tax monthly income across all borrowers ($96,000/yr)</span>
+          </div>
+
+          <div class="form-group">
+            <label for="housingCost">Proposed Rent or Mortgage PITI ($/mo)</label>
+            <input type="number" id="housingCost" value="1800" min="0" step="50" required>
+            <span class="input-hint">Principal, Interest, Property Taxes, Insurance, and HOA</span>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div class="form-group">
+              <label for="autoDebt">Monthly Auto Loan Payments ($)</label>
+              <input type="number" id="autoDebt" value="350" min="0" step="25">
+            </div>
+            <div class="form-group">
+              <label for="studentDebt">Monthly Student Loan Payments ($)</label>
+              <input type="number" id="studentDebt" value="200" min="0" step="25">
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div class="form-group">
+              <label for="creditCardDebt">Credit Card Minimum Payments ($)</label>
+              <input type="number" id="creditCardDebt" value="100" min="0" step="10">
+            </div>
+            <div class="form-group">
+              <label for="otherDebt">Other Recurring Debts ($)</label>
+              <input type="number" id="otherDebt" value="0" min="0" step="25">
+              <span class="input-hint">Personal loans, child support</span>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:10px;margin-top:20px;">
+            <button type="submit" class="btn btn-primary" style="flex:1;">Calculate DTI Ratios →</button>
+            <button type="button" class="btn btn-secondary" onclick="shareDtiUrl()" title="Share calculation link">🔗 Share</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Results Display Area -->
+      <div class="calc-card" id="dti-results-card">
+        <h2 style="font-size:1.15rem;margin-bottom:20px;display:flex;align-items:center;gap:8px;">
+          <span>📊</span> Underwriting Assessment
+        </h2>
+
+        <div style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:24px;text-align:center;margin-bottom:20px;">
+          <div style="font-size:0.85rem;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);font-weight:700;">Back-End Total DTI</div>
+          <div id="res-backend-dti" style="font-size:2.4rem;font-weight:800;font-family:var(--font-mono);color:var(--accent);margin:8px 0;">30.6%</div>
+          <div id="res-underwriting-status" style="font-size:0.95rem;color:var(--accent);font-weight:700;">Conventional Standard (≤36% Limit)</div>
+        </div>
+
+        <div class="stats-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;">
+          <div style="background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px;">
+            <div style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;">Front-End (Housing)</div>
+            <div id="res-frontend-dti" style="font-size:1.3rem;font-weight:700;color:var(--accent3);margin-top:4px;">22.5%</div>
+            <div style="font-size:0.75rem;color:var(--text-muted);margin-top:4px;">Target benchmark: ≤28%</div>
+          </div>
+          <div style="background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px;">
+            <div style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;">Total Monthly Debt</div>
+            <div id="res-total-monthly-debt" style="font-size:1.3rem;font-weight:700;color:var(--text);margin-top:4px;">$2,450 / mo</div>
+            <div style="font-size:0.75rem;color:var(--text-muted);margin-top:4px;">Housing + all debt</div>
+          </div>
+        </div>
+
+        <!-- Loan Guideline Benchmark Table -->
+        <table style="width:100%;border-collapse:collapse;font-size:0.85rem;margin-top:16px;">
+          <thead>
+            <tr style="border-bottom:1px solid var(--border);text-align:left;color:var(--text-muted);">
+              <th style="padding:8px 4px;">Loan Program</th>
+              <th style="padding:8px 4px;">Max Back-End</th>
+              <th style="padding:8px 4px;text-align:right;">Qualification</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border-subtle);">
+              <td style="padding:8px 4px;">Conventional (Fannie/Freddie)</td>
+              <td style="padding:8px 4px;">36% – 43%</td>
+              <td id="res-status-conventional" style="padding:8px 4px;font-weight:700;color:var(--accent);text-align:right;">Approved (Strong)</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-subtle);">
+              <td style="padding:8px 4px;">FHA Home Loan</td>
+              <td style="padding:8px 4px;">43% – 50%</td>
+              <td id="res-status-fha" style="padding:8px 4px;font-weight:700;color:var(--accent);text-align:right;">Approved</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-subtle);">
+              <td style="padding:8px 4px;">VA Military Loan</td>
+              <td style="padding:8px 4px;">41%</td>
+              <td id="res-status-va" style="padding:8px 4px;font-weight:700;color:var(--accent);text-align:right;">Approved</td>
+            </tr>
+            <tr>
+              <td style="padding:8px 4px;">Remaining Debt Capacity (to 43%)</td>
+              <td style="padding:8px 4px;">CFPB QM Limit</td>
+              <td id="res-debt-capacity" style="padding:8px 4px;color:var(--accent3);text-align:right;">+$990 / mo room</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Contextual Affiliate Slot -->
+        <div id="finmatrix-affiliate-slot" data-category="mortgage" style="margin-top:24px;"></div>
+
+        <!-- Non-shifting Ad Container Slot -->
+        <div id="finmatrix-ad-slot" style="margin-top:20px;"></div>
+      </div>
+    </div>
+
+    <!-- Educational Deep-Dive: How this is calculated -->
+    <div class="calc-card" style="margin-top:32px;">
+      <h2 style="font-size:1.2rem;margin-bottom:16px;">How Debt-to-Income (DTI) Ratios Are Calculated</h2>
+      <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.6;margin-bottom:16px;">
+        Mortgage underwriters evaluate two distinct mathematical metrics to determine loan affordability:
+      </p>
+      <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:16px;font-family:var(--font-mono);font-size:0.85rem;color:var(--text);margin-bottom:16px;">
+        <strong>Front-End DTI (Housing Ratio):</strong> [ Monthly Proposed Housing Cost ÷ Gross Monthly Income ] × 100<br><br>
+        <strong>Back-End DTI (Total Debt Ratio):</strong> [ (Housing + Auto + Student Loans + Credit Minimums) ÷ Gross Monthly Income ] × 100
+      </div>
+      <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.6;margin-bottom:16px;">
+        <strong>The 28/36 Rule of Thumb:</strong> Financial institutions traditionally prefer a front-end ratio of <strong>28% or less</strong> and a back-end ratio of <strong>36% or less</strong>. In high-cost housing markets, conforming conventional loans frequently permit back-end DTIs up to <strong>43%</strong> (and up to 45%–50% with automated underwriting approval).
+      </p>
+      <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.6;">
+        <strong>Worked Example:</strong> If gross monthly household income is <strong>$8,000</strong> with an <strong>$1,800 mortgage PITI</strong>, a $350 auto loan, a $200 student loan, and $100 in credit card minimums, total monthly debt obligations equal <strong>$2,450</strong>:
+      </p>
+      <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:12px;font-family:var(--font-mono);font-size:0.85rem;margin-bottom:16px;">
+        Front-End DTI = $1,800 ÷ $8,000 = <strong>22.5%</strong> (Well under 28% limit)<br>
+        Back-End DTI = $2,450 ÷ $8,000 = <strong>30.6%</strong> (Well under 36% conventional benchmark)
+      </div>
+    </div>
+
+    <!-- Assumptions and Sources -->
+    <div class="calc-card" style="margin-top:24px;">
+      <h2 style="font-size:1.2rem;margin-bottom:16px;">Assumptions & Official Sources</h2>
+      <ul style="color:var(--text-muted);font-size:0.9rem;line-height:1.6;padding-left:20px;margin-bottom:16px;">
+        <li><strong>Gross Income Standards:</strong> Uses gross pre-tax income prior to federal, state, and payroll deductions, consistent with Fannie Mae Single-Family Selling Guide B3-6-02.</li>
+        <li><strong>Debt Definitions:</strong> Excludes non-debt living expenses (food, cell phone, car insurance, streaming services) in accordance with CFPB guidelines.</li>
+        <li><strong>Authoritative Citations:</strong> Consumer Financial Protection Bureau QM DTI Benchmark (<a href="https://www.consumerfinance.gov/" target="_blank" rel="noopener" style="color:var(--accent);">CFPB.gov</a>) and Fannie Mae Eligibility Matrix (<a href="https://selling-guide.fanniemae.com/" target="_blank" rel="noopener" style="color:var(--accent);">FannieMae.com</a>).</li>
+      </ul>
+      <p class="disclaimer" style="margin:0;">* Disclaimer: Mortgage approval is subject to credit score (FICO), loan-to-value (LTV) ratio, employment history, and asset verification. This calculator is provided for estimation purposes only.</p>
+    </div>
+
+    <!-- Frequently Asked Questions -->
+    <div class="calc-card" style="margin-top:24px;">
+      <h2 style="font-size:1.2rem;margin-bottom:16px;">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>What is a good DTI ratio to buy a house?</summary>
+          <div class="faq-answer">
+            A back-end DTI of 36% or lower is considered excellent for conventional mortgage qualification. A DTI between 36% and 43% is acceptable for many conforming and FHA loans, while DTIs above 43% require strong credit scores and cash reserves.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>What debts are included in DTI?</summary>
+          <div class="faq-answer">
+            DTI includes recurring contractual debt: mortgage payments, auto loans, student loans, credit card minimums, and personal loans. It does not include utilities, groceries, or car insurance.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>How can I quickly improve my DTI ratio?</summary>
+          <div class="faq-answer">
+            Pay off small credit card balances completely to eliminate their monthly minimum payments, or refinance existing loans to lower monthly installments.
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <!-- Related Calculators -->
+    <div style="margin-top:32px;">
+      <h3 style="font-size:1.1rem;margin-bottom:16px;">Related Loans & Housing Calculators</h3>
+      <div class="cards-grid">
+        <a href="/calculators/home-affordability-calculator.html" class="card">
+          <div class="card-icon">🏡</div>
+          <h3>Home Affordability (28/36 DTI)</h3>
+          <p>Determine maximum home purchasing power based on gross household income.</p>
+        </a>
+        <a href="/calculators/mortgage-calculator.html" class="card">
+          <div class="card-icon">🏠</div>
+          <h3>Mortgage Payment (PITI)</h3>
+          <p>Calculate monthly principal, interest, taxes, and insurance with amortization tables.</p>
+        </a>
+        <a href="/calculators/auto-loan-calculator.html" class="card">
+          <div class="card-icon">🚗</div>
+          <h3>Auto Loan & Trade-In</h3>
+          <p>See how buying a car affects your total monthly debt obligations.</p>
+        </a>
+        <a href="/calculators/debt-elimination-planner.html" class="card">
+          <div class="card-icon">⚡</div>
+          <h3>Debt Snowball vs Avalanche</h3>
+          <p>Pay down existing credit cards and loans to lower your DTI before applying for a mortgage.</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="nav-logo">Finmatrix</div>
+        <p>Free, verified personal finance calculators for every US household. 100% private with zero sign-up required.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Calculators</h4>
+        <a href="/calculators/debt-elimination-planner.html">Debt Elimination Planner</a>
+        <a href="/calculators/paycheck-calculator.html">Paycheck Calculator</a>
+        <a href="/calculators/debt-to-income-calculator.html">Debt-to-Income (DTI)</a>
+        <a href="/calculators/mortgage-calculator.html">Mortgage Calculator</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company & Legal</h4>
+        <a href="/about.html">About Finmatrix</a>
+        <a href="/editorial-policy.html">Editorial & Calculation Policy</a>
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/terms-of-service.html">Terms of Service</a>
+        <a href="/disclaimer.html">Disclaimer</a>
+        <a href="/contact.html">Contact Us</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Finmatrix. All rights reserved.</span>
+      <span>Contact: <a href="mailto:novamatrix1564@gmail.com" style="color:var(--text-muted);">novamatrix1564@gmail.com</a></span>
+    </div>
+    <p class="disclaimer">* Finmatrix tools provide estimations for educational purposes only. Always consult a licensed mortgage broker before applying for home loans.</p>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/tool-engine.js"></script>
+<script src="/js/analytics.js"></script>
+<script>
+function calculateDti() {
+  const monthlyIncome = parseFloat(document.getElementById('monthlyIncome').value) || 0;
+  const housingCost = parseFloat(document.getElementById('housingCost').value) || 0;
+  const autoDebt = parseFloat(document.getElementById('autoDebt').value) || 0;
+  const studentDebt = parseFloat(document.getElementById('studentDebt').value) || 0;
+  const creditCardDebt = parseFloat(document.getElementById('creditCardDebt').value) || 0;
+  const otherDebt = parseFloat(document.getElementById('otherDebt').value) || 0;
+
+  if (monthlyIncome <= 0) return;
+
+  const totalDebt = housingCost + autoDebt + studentDebt + creditCardDebt + otherDebt;
+  const frontEndDti = Number(((housingCost / monthlyIncome) * 100).toFixed(1));
+  const backEndDti = Number(((totalDebt / monthlyIncome) * 100).toFixed(1));
+
+  // Max debt at 43% QM threshold
+  const maxDebtAt43 = monthlyIncome * 0.43;
+  const remainingRoom = Math.round(maxDebtAt43 - totalDebt);
+
+  document.getElementById('res-backend-dti').textContent = backEndDti.toFixed(1) + '%';
+  document.getElementById('res-frontend-dti').textContent = frontEndDti.toFixed(1) + '%';
+  document.getElementById('res-total-monthly-debt').textContent = '$' + Math.round(totalDebt).toLocaleString() + ' / mo';
+
+  if (backEndDti <= 36) {
+    document.getElementById('res-backend-dti').style.color = 'var(--accent)';
+    document.getElementById('res-underwriting-status').textContent = 'Conventional Standard (≤36% Limit)';
+    document.getElementById('res-underwriting-status').style.color = 'var(--accent)';
+    document.getElementById('res-status-conventional').textContent = 'Approved (Strong)';
+    document.getElementById('res-status-conventional').style.color = 'var(--accent)';
+  } else if (backEndDti <= 43) {
+    document.getElementById('res-backend-dti').style.color = 'var(--accent3)';
+    document.getElementById('res-underwriting-status').textContent = 'Conforming / FHA Range (36%–43%)';
+    document.getElementById('res-underwriting-status').style.color = 'var(--accent3)';
+    document.getElementById('res-status-conventional').textContent = 'Conditional / AUS Needed';
+    document.getElementById('res-status-conventional').style.color = 'var(--accent3)';
+  } else {
+    document.getElementById('res-backend-dti').style.color = 'var(--accent2)';
+    document.getElementById('res-underwriting-status').textContent = 'High Risk (>43% Limit)';
+    document.getElementById('res-underwriting-status').style.color = 'var(--accent2)';
+    document.getElementById('res-status-conventional').textContent = 'Denied (>43%)';
+    document.getElementById('res-status-conventional').style.color = 'var(--accent2)';
+  }
+
+  document.getElementById('res-status-fha').textContent = backEndDti <= 50 ? 'Approved' : 'High Risk';
+  document.getElementById('res-status-fha').style.color = backEndDti <= 50 ? 'var(--accent)' : 'var(--accent2)';
+  document.getElementById('res-status-va').textContent = backEndDti <= 41 ? 'Approved' : 'Requires Reserves';
+  document.getElementById('res-status-va').style.color = backEndDti <= 41 ? 'var(--accent)' : 'var(--accent2)';
+
+  if (remainingRoom >= 0) {
+    document.getElementById('res-debt-capacity').textContent = '+$' + remainingRoom.toLocaleString() + ' / mo room';
+    document.getElementById('res-debt-capacity').style.color = 'var(--accent3)';
+  } else {
+    document.getElementById('res-debt-capacity').textContent = '-$' + Math.abs(remainingRoom).toLocaleString() + ' over limit';
+    document.getElementById('res-debt-capacity').style.color = 'var(--accent2)';
+  }
+
+  if (window.FinmatrixEngine) {
+    FinmatrixEngine.updateUrl({
+      monthlyIncome,
+      housingCost,
+      autoDebt,
+      studentDebt,
+      creditCardDebt,
+      otherDebt
+    });
+  }
+}
+
+function shareDtiUrl() {
+  if (window.FinmatrixEngine) {
+    FinmatrixEngine.copyShareUrl();
+  } else {
+    navigator.clipboard.writeText(window.location.href);
+    alert('Calculation link copied to clipboard!');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.FinmatrixEngine) {
+    FinmatrixEngine.initParams();
+    FinmatrixEngine.initAffiliateBox('finmatrix-affiliate-slot');
+    FinmatrixEngine.initAdSlot('finmatrix-ad-slot');
+  }
+  calculateDti();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Primary Meta Tags -->
+<title>HYSA vs. CD Calculator (2026): Yield & Liquidity | Finmatrix</title>
+<meta name="description" content="Compare High-Yield Savings Accounts (HYSA) vs Certificate of Deposits (CD). Calculate APY yield differences, early withdrawal penalties, and cash liquidity.">
+<meta name="keywords" content="hysa vs cd calculator, high yield savings vs certificate of deposit, cd penalty calculator, cash yield comparison 2026">
+<meta name="author" content="Finmatrix Financial Research Desk">
+<link rel="canonical" href="https://finmatrix.cloud/calculators/hysa-vs-cd-calculator.html">
+
+<!-- Search Engine Robots Directives -->
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://finmatrix.cloud/calculators/hysa-vs-cd-calculator.html">
+<meta property="og:site_name" content="Finmatrix">
+<meta property="og:title" content="HYSA vs. CD Calculator (2026): Yield & Liquidity | Finmatrix">
+<meta property="og:description" content="Compare high-yield savings APYs against fixed Certificate of Deposit terms and early penalty clauses.">
+<meta property="og:image" content="https://finmatrix.cloud/assets/og/hysa-cd.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="HYSA vs. CD Calculator (2026) | Finmatrix">
+<meta name="twitter:description" content="Evaluate the true mathematical trade-off between flexible HYSA liquidity and locked CD yields.">
+
+<!-- Favicon & Mobile Icons -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/favicon.svg">
+<meta name="theme-color" content="#0d1117">
+
+<!-- Structured Data JSON-LD (@graph) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://finmatrix.cloud/calculators/hysa-vs-cd-calculator.html#app",
+      "name": "HYSA vs. CD Yield & Liquidity Calculator",
+      "url": "https://finmatrix.cloud/calculators/hysa-vs-cd-calculator.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript. Requires HTML5.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "Compound interest modeling with daily and monthly compounding intervals",
+        "Direct APY interest earnings comparison over 3 to 60 months",
+        "Early withdrawal penalty cost simulator (e.g. 90-day to 180-day interest penalties)",
+        "Rate-cut protection valuation for fixed CD terms",
+        "100% Client-side privacy-first computation with shareable URL parameters"
+      ],
+      "citation": [
+        "https://www.consumerfinance.gov/consumer-tools/bank-accounts/",
+        "https://www.fdic.gov/resources/deposit-insurance/"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://finmatrix.cloud/calculators/hysa-vs-cd-calculator.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://finmatrix.cloud/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Calculators",
+          "item": "https://finmatrix.cloud/calculators/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Savings & Investing",
+          "item": "https://finmatrix.cloud/calculators/savings-investing/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "HYSA vs CD",
+          "item": "https://finmatrix.cloud/calculators/hysa-vs-cd-calculator.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://finmatrix.cloud/calculators/hysa-vs-cd-calculator.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the primary difference between an HYSA and a CD?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A High-Yield Savings Account (HYSA) provides flexible liquidity, allowing deposits and withdrawals anytime, but its APY is variable and can change with Federal Reserve interest rate adjustments. A Certificate of Deposit (CD) locks in a fixed APY for a set duration (e.g., 12 months), but withdrawing funds early incurs an early withdrawal penalty."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does an early withdrawal penalty work on a CD?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If you break a CD before its maturity date, banks assess an early withdrawal penalty equal to a set number of months of interest (typically 90 days for terms under 12 months, and 180 days to 1 year of interest for terms over 12 months). In some cases, the penalty can eat into your original principal if broken very early."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are HYSAs and CDs FDIC insured?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Both HYSAs and CDs held at FDIC-insured banks are backed by the full faith and credit of the United States Government up to $250,000 per depositor, per insured bank, for each account ownership category."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When is a CD better than an HYSA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A CD is superior when interest rates are expected to decline. By locking in a 5.0% APY for 12 or 24 months, your return is guaranteed even if the Federal Reserve cuts rates and HYSA variable yields drop to 3.5% or lower."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Finmatrix <span class="nav-logo-badge">PRO</span></a>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/calculators/" class="active">Calculators</a>
+    <a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a>
+    <button class="theme-toggle theme-toggle-btn" onclick="toggleTheme()">☀️ Light Mode</button>
+  </div>
+  <button class="menu-btn" onclick="toggleMobileMenu()">☰ Menu</button>
+</nav>
+
+<section>
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="/">Home</a> <span class="sep">/</span> <a href="/calculators/">Calculators</a> <span class="sep">/</span> <a href="/calculators/savings-investing/">Savings & Investing</a> <span class="sep">/</span> <span>HYSA vs CD</span>
+    </div>
+
+    <div class="section-label">Savings & Cash Allocation Suite</div>
+    <h1 class="section-title">HYSA vs. CD Calculator: Yield & Liquidity</h1>
+    <div class="reviewed-line">
+      <span>Updated for the 2026 cash market</span> · <span>Reviewed October 2026</span> · <span>By Finmatrix Financial Research Desk</span>
+    </div>
+    <p class="section-sub">Compare the exact dollar yield, rate-lock protection, and early withdrawal penalties between high-yield savings accounts and fixed certificates of deposit.</p>
+
+    <div class="calc-grid">
+      <!-- Calculator Inputs Form -->
+      <div class="calc-card">
+        <h2 style="font-size:1.15rem;margin-bottom:20px;display:flex;align-items:center;gap:8px;">
+          <span>💰</span> Cash Deposit Setup
+        </h2>
+
+        <form id="hysa-cd-form" onsubmit="event.preventDefault(); calculateHysaCd();">
+          <div class="form-group">
+            <label for="depositAmount">Deposit Principal ($)</label>
+            <input type="number" id="depositAmount" value="25000" min="500" step="500" required>
+            <span class="input-hint">Initial cash sum to deposit</span>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div class="form-group">
+              <label for="hysaApy">HYSA APY (%)</label>
+              <input type="number" id="hysaApy" value="4.25" min="0.1" max="15.0" step="0.05" required>
+              <span class="input-hint">Flexible / variable yield</span>
+            </div>
+            <div class="form-group">
+              <label for="cdApy">CD APY (%)</label>
+              <input type="number" id="cdApy" value="5.10" min="0.1" max="15.0" step="0.05" required>
+              <span class="input-hint">Fixed / locked yield</span>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div class="form-group">
+              <label for="termMonths">Holding Term (Months)</label>
+              <select id="termMonths" style="width:100%;background:var(--bg2);border:1px solid var(--border);color:var(--text);padding:10px 12px;border-radius:8px;">
+                <option value="6">6 Months</option>
+                <option value="12" selected>12 Months (1 Year)</option>
+                <option value="18">18 Months</option>
+                <option value="24">24 Months (2 Years)</option>
+                <option value="36">36 Months (3 Years)</option>
+                <option value="60">60 Months (5 Years)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="earlyPenaltyMonths">CD Penalty (Months Interest)</label>
+              <select id="earlyPenaltyMonths" style="width:100%;background:var(--bg2);border:1px solid var(--border);color:var(--text);padding:10px 12px;border-radius:8px;">
+                <option value="3" selected>3 Months (90 Days)</option>
+                <option value="6">6 Months (180 Days)</option>
+                <option value="12">12 Months (1 Year)</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:10px;margin-top:20px;">
+            <button type="submit" class="btn btn-primary" style="flex:1;">Compare Yields →</button>
+            <button type="button" class="btn btn-secondary" onclick="shareHysaCdUrl()" title="Share calculation link">🔗 Share</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Results Display Area -->
+      <div class="calc-card" id="hysa-cd-results-card">
+        <h2 style="font-size:1.15rem;margin-bottom:20px;display:flex;align-items:center;gap:8px;">
+          <span>📊</span> Interest Earnings Over <span id="res-term-badge">12 Months</span>
+        </h2>
+
+        <div style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:24px;text-align:center;margin-bottom:20px;">
+          <div style="font-size:0.85rem;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);font-weight:700;">Yield Advantage</div>
+          <div id="res-advantage-title" style="font-size:2.2rem;font-weight:800;font-family:var(--font-mono);color:var(--accent);margin:8px 0;">CD Wins by $218</div>
+          <div id="res-advantage-desc" style="font-size:0.95rem;color:var(--text-muted);">CD generates $1,288 vs HYSA $1,070</div>
+        </div>
+
+        <div class="stats-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;">
+          <div style="background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px;">
+            <div style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;">Fixed CD Return</div>
+            <div id="res-cd-total" style="font-size:1.3rem;font-weight:700;color:var(--accent);margin-top:4px;">$1,288 Interest</div>
+            <div style="font-size:0.75rem;color:var(--text-muted);margin-top:4px;">Guaranteed fixed rate</div>
+          </div>
+          <div style="background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px;">
+            <div style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;">Flexible HYSA Return</div>
+            <div id="res-hysa-total" style="font-size:1.3rem;font-weight:700;color:var(--accent3);margin-top:4px;">$1,070 Interest</div>
+            <div style="font-size:0.75rem;color:var(--text-muted);margin-top:4px;">100% liquid anytime</div>
+          </div>
+        </div>
+
+        <!-- Comparison Table -->
+        <table style="width:100%;border-collapse:collapse;font-size:0.85rem;margin-top:16px;">
+          <thead>
+            <tr style="border-bottom:1px solid var(--border);text-align:left;color:var(--text-muted);">
+              <th style="padding:8px 4px;">Feature</th>
+              <th style="padding:8px 4px;">HYSA</th>
+              <th style="padding:8px 4px;text-align:right;color:var(--accent);">Certificate of Deposit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border-subtle);">
+              <td style="padding:8px 4px;">APY Rate</td>
+              <td id="res-table-hysa-apy" style="padding:8px 4px;">4.25% (Floating)</td>
+              <td id="res-table-cd-apy" style="padding:8px 4px;font-weight:700;color:var(--accent);text-align:right;">5.10% (Locked)</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-subtle);">
+              <td style="padding:8px 4px;">Final Account Balance</td>
+              <td id="res-table-hysa-bal" style="padding:8px 4px;">$26,070</td>
+              <td id="res-table-cd-bal" style="padding:8px 4px;font-weight:700;color:var(--accent);text-align:right;">$26,288</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-subtle);">
+              <td style="padding:8px 4px;">Liquidity & Access</td>
+              <td style="padding:8px 4px;color:var(--accent3);">Immediate (No Fees)</td>
+              <td style="padding:8px 4px;text-align:right;color:var(--text-muted);">Locked until maturity</td>
+            </tr>
+            <tr>
+              <td style="padding:8px 4px;">Early Break Penalty</td>
+              <td style="padding:8px 4px;">$0</td>
+              <td id="res-table-penalty" style="padding:8px 4px;color:var(--accent2);text-align:right;">-$319 (3 mo interest)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Contextual Affiliate Slot -->
+        <div id="finmatrix-affiliate-slot" data-category="hysa" style="margin-top:24px;"></div>
+
+        <!-- Non-shifting Ad Container Slot -->
+        <div id="finmatrix-ad-slot" style="margin-top:20px;"></div>
+      </div>
+    </div>
+
+    <!-- Educational Deep-Dive: How this is calculated -->
+    <div class="calc-card" style="margin-top:32px;">
+      <h2 style="font-size:1.2rem;margin-bottom:16px;">How This Is Calculated: The Liquidity Trade-Off</h2>
+      <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.6;margin-bottom:16px;">
+        Both High-Yield Savings Accounts (HYSAs) and Certificates of Deposit (CDs) calculate interest using monthly compounding:
+      </p>
+      <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:16px;font-family:var(--font-mono);font-size:0.85rem;color:var(--text);margin-bottom:16px;">
+        A = P × (1 + r ÷ 12)ⁿ
+      </div>
+      <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.6;margin-bottom:16px;">
+        Where <strong>P</strong> is deposit principal, <strong>r</strong> is the annual APY rate, and <strong>n</strong> is the number of months held.
+      </p>
+      <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.6;">
+        <strong>The Early Withdrawal Penalty Risk:</strong> If you withdraw money from a CD prior to maturity, the financial institution imposes a penalty (typically 90 days of interest on a 1-year CD). On a <strong>$25,000 deposit at 5.10% APY</strong>, a 3-month penalty equals <strong>$318.75</strong>. If you break the CD at month 6, your net earned interest drops from $637 to $319, which is significantly <em>worse</em> than the $531 you would have earned in a penalty-free HYSA!
+      </p>
+    </div>
+
+    <!-- Assumptions and Sources -->
+    <div class="calc-card" style="margin-top:24px;">
+      <h2 style="font-size:1.2rem;margin-bottom:16px;">Assumptions & Official Sources</h2>
+      <ul style="color:var(--text-muted);font-size:0.9rem;line-height:1.6;padding-left:20px;margin-bottom:16px;">
+        <li><strong>Compounding Standard:</strong> Modeled with standard monthly interest compounding.</li>
+        <li><strong>FDIC Insurance:</strong> Both account types assume deposit at an FDIC-insured or NCUA-insured institution up to the federal $250,000 limit (<a href="https://www.fdic.gov/" target="_blank" rel="noopener" style="color:var(--accent);">FDIC.gov</a>).</li>
+        <li><strong>Variable HYSA Assumptions:</strong> Models HYSA rate as constant over the comparison timeframe; in real-world conditions, HYSA rates fluctuate following Federal Open Market Committee (FOMC) benchmark federal funds rate adjustments.</li>
+      </ul>
+      <p class="disclaimer" style="margin:0;">* Disclaimer: APY rates and early withdrawal penalties vary by bank and credit union. This tool is for educational comparison purposes only.</p>
+    </div>
+
+    <!-- Frequently Asked Questions -->
+    <div class="calc-card" style="margin-top:24px;">
+      <h2 style="font-size:1.2rem;margin-bottom:16px;">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>What is the difference between an HYSA and a CD?</summary>
+          <div class="faq-answer">
+            An HYSA offers flexible liquidity with variable interest rates that can change at any time. A CD locks in a fixed rate for a specific term, but charges penalties for withdrawing funds early.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>What is a CD ladder strategy?</summary>
+          <div class="faq-answer">
+            A CD ladder splits your cash across multiple CDs with staggered maturity dates (e.g., 3-month, 6-month, 9-month, and 12-month terms). This ensures regular liquidity while capturing higher long-term yields.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Is interest on HYSAs and CDs taxable?</summary>
+          <div class="faq-answer">
+            Yes. Interest earned on both HYSAs and CDs is taxable as ordinary income in the year it is credited and reported on IRS Form 1099-INT.
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <!-- Related Calculators -->
+    <div style="margin-top:32px;">
+      <h3 style="font-size:1.1rem;margin-bottom:16px;">Related Savings & Investing Calculators</h3>
+      <div class="cards-grid">
+        <a href="/calculators/compound-interest-calculator.html" class="card">
+          <div class="card-icon">📈</div>
+          <h3>Compound Interest Calculator</h3>
+          <p>Model exponential long-term asset growth with recurring monthly contributions.</p>
+        </a>
+        <a href="/calculators/emergency-fund-calculator.html" class="card">
+          <div class="card-icon">🛡️</div>
+          <h3>Emergency Fund Calculator</h3>
+          <p>Calculate your ideal 3 to 6-month cash safety net size for an HYSA.</p>
+        </a>
+        <a href="/calculators/time-value-of-money-calculator.html" class="card">
+          <div class="card-icon">⌛</div>
+          <h3>Time Value of Money (TVM)</h3>
+          <p>Compute Future Value (FV) and see how inflation erodes cash purchasing power.</p>
+        </a>
+        <a href="/calculators/fire-calculator.html" class="card">
+          <div class="card-icon">🔥</div>
+          <h3>FIRE Early Retirement</h3>
+          <p>Model financial independence milestones and safe portfolio withdrawal rates.</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="nav-logo">Finmatrix</div>
+        <p>Free, verified personal finance calculators for every US household. 100% private with zero sign-up required.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Calculators</h4>
+        <a href="/calculators/debt-elimination-planner.html">Debt Elimination Planner</a>
+        <a href="/calculators/paycheck-calculator.html">Paycheck Calculator</a>
+        <a href="/calculators/hysa-vs-cd-calculator.html">HYSA vs. CD</a>
+        <a href="/calculators/mortgage-calculator.html">Mortgage Calculator</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company & Legal</h4>
+        <a href="/about.html">About Finmatrix</a>
+        <a href="/editorial-policy.html">Editorial & Calculation Policy</a>
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/terms-of-service.html">Terms of Service</a>
+        <a href="/disclaimer.html">Disclaimer</a>
+        <a href="/contact.html">Contact Us</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Finmatrix. All rights reserved.</span>
+      <span>Contact: <a href="mailto:novamatrix1564@gmail.com" style="color:var(--text-muted);">novamatrix1564@gmail.com</a></span>
+    </div>
+    <p class="disclaimer">* Finmatrix tools provide estimations for educational purposes only. Always verify bank APY disclosures before depositing funds.</p>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/tool-engine.js"></script>
+<script src="/js/analytics.js"></script>
+<script>
+function calculateHysaCd() {
+  const deposit = parseFloat(document.getElementById('depositAmount').value) || 0;
+  const hysaApy = parseFloat(document.getElementById('hysaApy').value) || 0;
+  const cdApy = parseFloat(document.getElementById('cdApy').value) || 0;
+  const termMonths = parseInt(document.getElementById('termMonths').value) || 12;
+  const penaltyMonths = parseInt(document.getElementById('earlyPenaltyMonths').value) || 3;
+
+  const hysaMonthlyRate = (hysaApy / 100) / 12;
+  const cdMonthlyRate = (cdApy / 100) / 12;
+
+  const hysaFV = deposit * Math.pow(1 + hysaMonthlyRate, termMonths);
+  const cdFV = deposit * Math.pow(1 + cdMonthlyRate, termMonths);
+
+  const hysaInterest = hysaFV - deposit;
+  const cdInterest = cdFV - deposit;
+  const diff = Math.round(cdInterest - hysaInterest);
+  const penaltyAmount = deposit * cdMonthlyRate * penaltyMonths;
+
+  document.getElementById('res-term-badge').textContent = termMonths + ' Months';
+  document.getElementById('res-cd-total').textContent = '$' + Math.round(cdInterest).toLocaleString() + ' Interest';
+  document.getElementById('res-hysa-total').textContent = '$' + Math.round(hysaInterest).toLocaleString() + ' Interest';
+
+  document.getElementById('res-table-hysa-apy').textContent = hysaApy.toFixed(2) + '% (Floating)';
+  document.getElementById('res-table-cd-apy').textContent = cdApy.toFixed(2) + '% (Locked)';
+  document.getElementById('res-table-hysa-bal').textContent = '$' + Math.round(hysaFV).toLocaleString();
+  document.getElementById('res-table-cd-bal').textContent = '$' + Math.round(cdFV).toLocaleString();
+  document.getElementById('res-table-penalty').textContent = '-$' + Math.round(penaltyAmount).toLocaleString() + ' (' + penaltyMonths + ' mo int)';
+
+  if (diff >= 0) {
+    document.getElementById('res-advantage-title').textContent = 'CD Wins by $' + diff.toLocaleString();
+    document.getElementById('res-advantage-title').style.color = 'var(--accent)';
+    document.getElementById('res-advantage-desc').textContent = 'CD generates $' + Math.round(cdInterest).toLocaleString() + ' vs HYSA $' + Math.round(hysaInterest).toLocaleString();
+  } else {
+    document.getElementById('res-advantage-title').textContent = 'HYSA Wins by $' + Math.abs(diff).toLocaleString();
+    document.getElementById('res-advantage-title').style.color = 'var(--accent3)';
+    document.getElementById('res-advantage-desc').textContent = 'HYSA generates $' + Math.round(hysaInterest).toLocaleString() + ' vs CD $' + Math.round(cdInterest).toLocaleString();
+  }
+
+  if (window.FinmatrixEngine) {
+    FinmatrixEngine.updateUrl({
+      depositAmount: deposit,
+      hysaApy,
+      cdApy,
+      termMonths,
+      earlyPenaltyMonths: penaltyMonths
+    });
+  }
+}
+
+function shareHysaCdUrl() {
+  if (window.FinmatrixEngine) {
+    FinmatrixEngine.copyShareUrl();
+  } else {
+    navigator.clipboard.writeText(window.location.href);
+    alert('Calculation link copied to clipboard!');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.FinmatrixEngine) {
+    FinmatrixEngine.initParams();
+    FinmatrixEngine.initAffiliateBox('finmatrix-affiliate-slot');
+    FinmatrixEngine.initAdSlot('finmatrix-ad-slot');
+  }
+  calculateHysaCd();
+});
+</script>
+</body>
+</html>

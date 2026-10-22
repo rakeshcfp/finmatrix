@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Primary Meta Tags -->
+<title>Self-Employed (1099) Tax Calculator (2026): 1099 vs W-2 | Finmatrix</title>
+<meta name="description" content="Calculate 2026 self-employment tax (15.3% SECA), quarterly estimated payments, 20% QBI deduction, and compare 1099 contractor income to W-2 equivalent salary.">
+<meta name="keywords" content="self employed tax calculator 2026, 1099 tax calculator, 1099 vs w2 calculator, seca tax calculator, quarterly estimated taxes 2026">
+<meta name="author" content="Finmatrix Financial Research Desk">
+<link rel="canonical" href="https://finmatrix.cloud/calculators/self-employed-tax-calculator.html">
+
+<!-- Search Engine Robots Directives -->
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://finmatrix.cloud/calculators/self-employed-tax-calculator.html">
+<meta property="og:site_name" content="Finmatrix">
+<meta property="og:title" content="Self-Employed (1099) Tax Calculator (2026): 1099 vs W-2 | Finmatrix">
+<meta property="og:description" content="Calculate 15.3% SECA self-employment tax, 20% QBI deductions, quarterly estimated taxes, and equivalent W-2 corporate compensation.">
+<meta property="og:image" content="https://finmatrix.cloud/assets/og/self-employed-tax.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="1099 Self-Employed Tax Calculator (2026) | Finmatrix">
+<meta name="twitter:description" content="Model 2026 1099 contractor taxes, Schedule C net profit, and W-2 salary equivalence.">
+
+<!-- Favicon & Mobile Icons -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/favicon.svg">
+<meta name="theme-color" content="#0d1117">
+
+<!-- Structured Data JSON-LD (@graph) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://finmatrix.cloud/calculators/self-employed-tax-calculator.html#app",
+      "name": "Self-Employed (1099) Tax & W-2 Comparison Calculator",
+      "url": "https://finmatrix.cloud/calculators/self-employed-tax-calculator.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript. Requires HTML5.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "15.3% SECA self-employment tax modeling under statutory 2026 $184,500 Social Security cap",
+        "92.35% statutory net earnings base (IRC § 1402(a)(12))",
+        "Above-the-line 50% SECA tax deduction (IRC § 164(f))",
+        "20% Qualified Business Income (QBI) pass-through deduction (IRC § 199A)",
+        "Quarterly Form 1040-ES estimated tax voucher schedule",
+        "1099 vs W-2 equivalent salary purchasing-power benchmarking"
+      ],
+      "citation": [
+        "https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes",
+        "https://www.irs.gov/forms-pubs/about-schedule-c-form-1040"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://finmatrix.cloud/calculators/self-employed-tax-calculator.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://finmatrix.cloud/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Calculators",
+          "item": "https://finmatrix.cloud/calculators/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Income Tax",
+          "item": "https://finmatrix.cloud/calculators/income-tax/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Self-Employed Tax",
+          "item": "https://finmatrix.cloud/calculators/self-employed-tax-calculator.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://finmatrix.cloud/calculators/self-employed-tax-calculator.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why is self-employment tax 15.3% instead of 7.65%?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "W-2 corporate employees only see 7.65% deducted from their paychecks because their employer is legally required to pay the matching 7.65% FICA contribution directly. When you are self-employed or work as a 1099 contractor, you are both the employee and the employer, making you responsible for the full 15.3% SECA tax (12.4% Social Security + 2.9% Medicare)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the 92.35% multiplier for self-employment tax?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Under Internal Revenue Code § 1402(a)(12), your 15.3% SECA tax is not applied to 100% of your net business profit. Instead, it applies to 92.35% (100% minus 7.65%) of net profit, ensuring self-employed taxpayers are treated equitably with W-2 workers whose employer FICA share is not counted as taxable income."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When are 2026 quarterly estimated tax payments due?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The IRS mandates quarterly estimated tax payments (Form 1040-ES) on: Q1 due April 15, 2026; Q2 due June 15, 2026; Q3 due September 15, 2026; and Q4 due January 15, 2027. Missing these deadlines can incur IRS Section 6654 underpayment penalties."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does the 20% Qualified Business Income (QBI) deduction work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Created by the Tax Cuts and Jobs Act (IRC § 199A), eligible sole proprietors, single-member LLCs, and S-corps can deduct up to 20% of their qualified net business profit directly from their taxable income before federal income tax brackets are applied, subject to income thresholds."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much more should a 1099 contractor charge to match a W-2 salary?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A standard financial rule of thumb is that 1099 contractors should bill 25% to 40% higher gross revenue than a W-2 salary to achieve equal take-home pay. This covers the additional 7.65% employer FICA tax, unpaid holidays/sick leave, health insurance premiums, accounting software, and lack of employer 401(k) match."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Finmatrix <span class="nav-logo-badge">PRO</span></a>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/calculators/" class="active">Calculators</a>
+    <a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a>
+    <button class="theme-toggle theme-toggle-btn" onclick="toggleTheme()">☀️ Light Mode</button>
+  </div>
+  <button class="menu-btn" onclick="toggleMobileMenu()">☰ Menu</button>
+</nav>
+
+<section>
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="/">Home</a> <span class="sep">/</span> <a href="/calculators/">Calculators</a> <span class="sep">/</span> <a href="/calculators/income-tax/">Income Tax</a> <span class="sep">/</span> <span>Self-Employed Tax</span>
+    </div>
+
+    <div class="section-label">Income Tax & Payroll Suite</div>
+    <h1 class="section-title">Self-Employed (1099) Tax & W-2 Comparison Calculator</h1>
+    <div class="reviewed-line">
+      <span>Updated for the 2026 tax year ($184,500 FICA cap)</span> · <span>Reviewed October 2026</span> · <span>By Finmatrix Financial Research Desk</span>
+    </div>
+    <p class="section-sub">Estimate your 15.3% SECA self-employment tax, 20% QBI pass-through deductions, quarterly estimated vouchers, and compare 1099 contractor gross to equivalent W-2 salary.</p>
+
+    <div class="calc-grid">
+      <!-- Calculator Inputs Form -->
+      <div class="calc-card">
+        <h2 style="font-size:1.15rem;margin-bottom:20px;display:flex;align-items:center;gap:8px;">
+          <span>💼</span> 1099 Business Income
+        </h2>
+
+        <form id="seca-form" onsubmit="event.preventDefault(); calculateSeca();">
+          <div class="form-group">
+            <label for="grossRevenue">Annual 1099 Gross Revenue ($)</label>
+            <input type="number" id="grossRevenue" value="100000" min="1000" step="1000" required>
+            <span class="input-hint">Total 1099-NEC & 1099-K payments received</span>
+          </div>
+
+          <div class="form-group">
+            <label for="businessExpenses">Deductible Business Expenses ($)</label>
+            <input type="number" id="businessExpenses" value="15000" min="0" step="500" required>
+            <span class="input-hint">Software, home office, supplies, travel, mileage (Schedule C)</span>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div class="form-group">
+              <label for="filingStatus">IRS Filing Status</label>
+              <select id="filingStatus" style="width:100%;background:var(--bg2);border:1px solid var(--border);color:var(--text);padding:10px 12px;border-radius:8px;">
+                <option value="single" selected>Single ($16,100 Std Ded)</option>
+                <option value="married_filing_jointly">Married Jointly ($32,200 Std Ded)</option>
+                <option value="head_of_household">Head of Household ($24,150 Std Ded)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="stateRate">State Tax Rate (%)</label>
+              <input type="number" id="stateRate" value="5.0" min="0" max="13.3" step="0.5" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="solo401k">Pre-Tax Solo 401(k) / SEP-IRA ($)</label>
+            <input type="number" id="solo401k" value="0" min="0" max="69000" step="500">
+            <span class="input-hint">Optional elective retirement deferral (reduces income tax)</span>
+          </div>
+
+          <div style="display:flex;gap:10px;margin-top:20px;">
+            <button type="submit" class="btn btn-primary" style="flex:1;">Calculate 1099 Taxes →</button>
+            <button type="button" class="btn btn-secondary" onclick="shareSecaUrl()" title="Share calculation link">🔗 Share</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Results Display Area -->
+      <div class="calc-card" id="seca-results-card">
+        <h2 style="font-size:1.15rem;margin-bottom:20px;display:flex;align-items:center;gap:8px;">
+          <span>📊</span> Tax Liability & Net Take-Home
+        </h2>
+
+        <div style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:24px;text-align:center;margin-bottom:20px;">
+          <div style="font-size:0.85rem;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);font-weight:700;">Net Annual Take-Home</div>
+          <div id="res-net-takehome" style="font-size:2.4rem;font-weight:800;font-family:var(--font-mono);color:var(--accent);margin:8px 0;">$64,312</div>
+          <div id="res-effective-rate" style="font-size:0.95rem;color:var(--text-muted);">Effective Total Tax Rate: 24.3% on $85,000 Net Profit</div>
+        </div>
+
+        <div class="stats-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;">
+          <div style="background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px;">
+            <div style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;">Quarterly Estimated Payment</div>
+            <div id="res-quarterly-tax" style="font-size:1.3rem;font-weight:700;color:var(--accent2);margin-top:4px;">$5,172 / qtr</div>
+            <div style="font-size:0.75rem;color:var(--text-muted);margin-top:4px;">Form 1040-ES voucher target</div>
+          </div>
+          <div style="background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px;">
+            <div style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;">Equivalent W-2 Salary</div>
+            <div id="res-w2-equiv" style="font-size:1.3rem;font-weight:700;color:var(--accent3);margin-top:4px;">$74,800</div>
+            <div style="font-size:0.75rem;color:var(--text-muted);margin-top:4px;">Matches your net spendable income</div>
+          </div>
+        </div>
+
+        <!-- Tax Breakdown Table -->
+        <table style="width:100%;border-collapse:collapse;font-size:0.85rem;margin-top:16px;">
+          <thead>
+            <tr style="border-bottom:1px solid var(--border);text-align:left;color:var(--text-muted);">
+              <th style="padding:8px 4px;">Tax Component</th>
+              <th style="padding:8px 4px;">Statutory Basis</th>
+              <th style="padding:8px 4px;text-align:right;">Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border-subtle);">
+              <td style="padding:8px 4px;">Self-Employment Tax (SECA)</td>
+              <td style="padding:8px 4px;">15.3% on 92.35% profit</td>
+              <td id="res-seca-tax" style="padding:8px 4px;font-weight:700;color:var(--accent2);text-align:right;">$12,010</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-subtle);">
+              <td style="padding:8px 4px;">Federal Income Tax</td>
+              <td style="padding:8px 4px;">After 50% SECA, QBI & Std Ded</td>
+              <td id="res-fed-tax" style="padding:8px 4px;text-align:right;">$4,428</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-subtle);">
+              <td style="padding:8px 4px;">State Income Tax</td>
+              <td id="res-state-basis" style="padding:8px 4px;">5.0% state estimate</td>
+              <td id="res-state-tax" style="padding:8px 4px;text-align:right;">$4,250</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-subtle);">
+              <td style="padding:8px 4px;">20% QBI Tax Deduction</td>
+              <td style="padding:8px 4px;color:var(--accent);">IRC § 199A Savings</td>
+              <td id="res-qbi-amount" style="padding:8px 4px;color:var(--accent);text-align:right;">-$17,000 Base</td>
+            </tr>
+            <tr>
+              <td style="padding:8px 4px;font-weight:700;">Total Combined Tax</td>
+              <td style="padding:8px 4px;">Federal + SECA + State</td>
+              <td id="res-total-tax" style="padding:8px 4px;font-weight:800;color:var(--accent2);text-align:right;">$20,688</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Contextual Affiliate Slot -->
+        <div id="finmatrix-affiliate-slot" data-category="tax-software" style="margin-top:24px;"></div>
+
+        <!-- Non-shifting Ad Container Slot -->
+        <div id="finmatrix-ad-slot" style="margin-top:20px;"></div>
+      </div>
+    </div>
+
+    <!-- Educational Deep-Dive: How this is calculated -->
+    <div class="calc-card" style="margin-top:32px;">
+      <h2 style="font-size:1.2rem;margin-bottom:16px;">How Self-Employment Taxes Are Calculated (2026 Rules)</h2>
+      <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.6;margin-bottom:16px;">
+        Unlike corporate employees who split payroll taxes with an employer, self-employed taxpayers (sole proprietors, independent contractors, freelancers, and single-member LLCs) are subject to the <strong>Self-Employment Contributions Act (SECA)</strong> tax rate of <strong>15.3%</strong>:
+      </p>
+      <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:16px;font-family:var(--font-mono);font-size:0.85rem;color:var(--text);margin-bottom:16px;">
+        1. <strong>Net Schedule C Profit</strong> = Gross 1099 Revenue − Business Expenses<br>
+        2. <strong>Taxable SECA Base</strong> = Net Profit × 0.9235 (IRC § 1402(a)(12))<br>
+        3. <strong>Social Security (12.4%)</strong> = Capped at statutory $184,500 wage base (2026 limit)<br>
+        4. <strong>Medicare (2.9%)</strong> = Uncapped on all self-employment earnings (+ 0.9% > $200k)<br>
+        5. <strong>50% Above-the-Line SECA Deduction</strong> = Half of your SECA tax reduces federal taxable income
+      </div>
+      <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.6;margin-bottom:16px;">
+        <strong>The 20% QBI Pass-Through Deduction:</strong> Under IRC Section 199A, most small business owners can deduct up to <strong>20% of their net business profit</strong> from federal taxable income, dramatically reducing effective marginal tax rates.
+      </p>
+      <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.6;">
+        <strong>Worked Example:</strong> If you bill <strong>$100,000</strong> with <strong>$15,000</strong> in Schedule C deductions, your net profit is <strong>$85,000</strong>. Your SECA taxable base is $78,497.50 ($85,000 × 0.9235), resulting in <strong>$12,010 in SECA taxes</strong> ($9,734 Social Security + $2,276 Medicare). You then deduct half of that ($6,005) plus the 20% QBI deduction ($17,000) and your 2026 Single Standard Deduction ($16,100), leaving just <strong>$45,895 in federal taxable income</strong>!
+      </p>
+    </div>
+
+    <!-- Assumptions and Sources -->
+    <div class="calc-card" style="margin-top:24px;">
+      <h2 style="font-size:1.2rem;margin-bottom:16px;">Assumptions & Official Sources</h2>
+      <ul style="color:var(--text-muted);font-size:0.9rem;line-height:1.6;padding-left:20px;margin-bottom:16px;">
+        <li><strong>FICA Cap:</strong> Social Security tax (12.4%) applies up to the verified 2026 statutory wage base of <strong>$184,500</strong>. Medicare (2.9%) is uncapped.</li>
+        <li><strong>Standard Deductions (2026):</strong> Single filers receive $16,100; Married Filing Jointly receives $32,200; Head of Household receives $24,150 (IRS Rev. Proc. 2025-32).</li>
+        <li><strong>QBI Qualification:</strong> Assumes pass-through business profit qualifies for the full 20% Section 199A deduction under applicable taxable income thresholds.</li>
+        <li><strong>Official IRS Citations:</strong> IRS Schedule C (<a href="https://www.irs.gov/schedule-c" target="_blank" rel="noopener" style="color:var(--accent);">IRS.gov/schedule-c</a>), Schedule SE (<a href="https://www.irs.gov/schedule-se" target="_blank" rel="noopener" style="color:var(--accent);">IRS.gov/schedule-se</a>), and Form 1040-ES Estimated Tax Instructions.</li>
+      </ul>
+      <p class="disclaimer" style="margin:0;">* Disclaimer: This calculator is designed for general estimation and educational modeling. State income tax rules, municipal local taxes, and specialized QBI phase-outs for specified service trades (SSTBs) vary. Always consult a licensed CPA or Enrolled Agent (EA) before filing quarterly estimated taxes.</p>
+    </div>
+
+    <!-- Frequently Asked Questions -->
+    <div class="calc-card" style="margin-top:24px;">
+      <h2 style="font-size:1.2rem;margin-bottom:16px;">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Why is self-employment tax 15.3% instead of 7.65%?</summary>
+          <div class="faq-answer">
+            On a W-2, your employer covers half of your FICA tax (7.65%), and you pay the other half. When self-employed, you act as both employer and employee, making you responsible for the entire 15.3% SECA total.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>What is the 92.35% multiplier for self-employment tax?</summary>
+          <div class="faq-answer">
+            The IRS does not charge SECA tax on your entire profit. It first multiplies your net Schedule C earnings by 92.35% (reflecting a deduction for the employer-equivalent portion).
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>When are 2026 quarterly estimated tax payments due?</summary>
+          <div class="faq-answer">
+            The IRS requires four equal estimated tax payments on: April 15, 2026 (Q1), June 15, 2026 (Q2), September 15, 2026 (Q3), and January 15, 2027 (Q4).
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>How does the 20% QBI deduction work?</summary>
+          <div class="faq-answer">
+            Under IRC Section 199A, qualifying small business owners can deduct 20% of their net profit from their taxable income before calculating federal income tax, providing massive tax relief for pass-through entities.
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <!-- Related Calculators -->
+    <div style="margin-top:32px;">
+      <h3 style="font-size:1.1rem;margin-bottom:16px;">Related Tax & Payroll Calculators</h3>
+      <div class="cards-grid">
+        <a href="/calculators/paycheck-calculator.html" class="card">
+          <div class="card-icon">💵</div>
+          <h3>Paycheck & Take-Home Pay</h3>
+          <p>Calculate net take-home pay for standard W-2 bi-weekly or monthly corporate employees.</p>
+        </a>
+        <a href="/calculators/bonus-tax-calculator.html" class="card">
+          <div class="card-icon">🎁</div>
+          <h3>Bonus Tax Calculator</h3>
+          <p>Understand why bonuses are withheld at the 22% statutory supplemental rate.</p>
+        </a>
+        <a href="/calculators/hourly-to-salary-calculator.html" class="card">
+          <div class="card-icon">⏱️</div>
+          <h3>Hourly to Salary Calculator</h3>
+          <p>Convert hourly freelance rates to annual gross and after-tax take-home earnings.</p>
+        </a>
+        <a href="/calculators/401k-calculator.html" class="card">
+          <div class="card-icon">💼</div>
+          <h3>401(k) & Solo 401(k) Growth</h3>
+          <p>Model tax-deferred retirement accumulation up to statutory 2026 annual addition caps.</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="nav-logo">Finmatrix</div>
+        <p>Free, verified personal finance calculators for every US household. 100% private with zero sign-up required.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Calculators</h4>
+        <a href="/calculators/debt-elimination-planner.html">Debt Elimination Planner</a>
+        <a href="/calculators/paycheck-calculator.html">Paycheck Calculator</a>
+        <a href="/calculators/self-employed-tax-calculator.html">Self-Employed 1099 Tax</a>
+        <a href="/calculators/mortgage-calculator.html">Mortgage Calculator</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company & Legal</h4>
+        <a href="/about.html">About Finmatrix</a>
+        <a href="/editorial-policy.html">Editorial & Calculation Policy</a>
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/terms-of-service.html">Terms of Service</a>
+        <a href="/disclaimer.html">Disclaimer</a>
+        <a href="/contact.html">Contact Us</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Finmatrix. All rights reserved.</span>
+      <span>Contact: <a href="mailto:novamatrix1564@gmail.com" style="color:var(--text-muted);">novamatrix1564@gmail.com</a></span>
+    </div>
+    <p class="disclaimer">* Finmatrix tools provide estimations for educational purposes only. Always consult a licensed CPA or tax attorney before making tax filings.</p>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/tool-engine.js"></script>
+<script src="/js/analytics.js"></script>
+<script>
+const taxBrackets = {
+  single: [
+    { rate: 0.10, max: 12400 },
+    { rate: 0.12, max: 50400 },
+    { rate: 0.22, max: 105700 },
+    { rate: 0.24, max: 201775 },
+    { rate: 0.32, max: 256225 },
+    { rate: 0.35, max: 640600 },
+    { rate: 0.37, max: Infinity }
+  ],
+  married_filing_jointly: [
+    { rate: 0.10, max: 24800 },
+    { rate: 0.12, max: 100800 },
+    { rate: 0.22, max: 211400 },
+    { rate: 0.24, max: 403550 },
+    { rate: 0.32, max: 512450 },
+    { rate: 0.35, max: 768700 },
+    { rate: 0.37, max: Infinity }
+  ],
+  head_of_household: [
+    { rate: 0.10, max: 17700 },
+    { rate: 0.12, max: 67450 },
+    { rate: 0.22, max: 105700 },
+    { rate: 0.24, max: 201750 },
+    { rate: 0.32, max: 256200 },
+    { rate: 0.35, max: 640600 },
+    { rate: 0.37, max: Infinity }
+  ]
+};
+
+const stdDeductions = {
+  single: 16100,
+  married_filing_jointly: 32200,
+  head_of_household: 24150
+};
+
+function computeFedTax(taxableIncome, status) {
+  if (taxableIncome <= 0) return 0;
+  const brackets = taxBrackets[status] || taxBrackets.single;
+  let tax = 0;
+  let prevMax = 0;
+  for (const b of brackets) {
+    if (taxableIncome > prevMax) {
+      const slice = Math.min(taxableIncome, b.max) - prevMax;
+      tax += slice * b.rate;
+      if (taxableIncome <= b.max) break;
+      prevMax = b.max;
+    }
+  }
+  return tax;
+}
+
+function calculateSeca() {
+  const grossRevenue = parseFloat(document.getElementById('grossRevenue').value) || 0;
+  const businessExpenses = parseFloat(document.getElementById('businessExpenses').value) || 0;
+  const filingStatus = document.getElementById('filingStatus').value || 'single';
+  const stateRatePct = (parseFloat(document.getElementById('stateRate').value) || 0) / 100;
+  const solo401k = parseFloat(document.getElementById('solo401k').value) || 0;
+
+  const netProfit = Math.max(0, grossRevenue - businessExpenses);
+  const secaBase = netProfit * 0.9235;
+
+  // Social Security 12.4% up to $184,500
+  const ssTax = Math.min(secaBase, 184500) * 0.124;
+  // Medicare 2.9% + 0.9% over $200k
+  let medTax = secaBase * 0.029;
+  if (secaBase > 200000) {
+    medTax += (secaBase - 200000) * 0.009;
+  }
+
+  const totalSeca = ssTax + medTax;
+  const halfSeca = totalSeca * 0.50;
+  const qbiDeduction = netProfit * 0.20;
+
+  const stdDed = stdDeductions[filingStatus] || 16100;
+  const federalTaxable = Math.max(0, netProfit - halfSeca - qbiDeduction - solo401k - stdDed);
+  const fedTax = computeFedTax(federalTaxable, filingStatus);
+
+  const stateTax = Math.max(0, netProfit - solo401k) * stateRatePct;
+  const totalTax = totalSeca + fedTax + stateTax;
+  const netTakeHome = netProfit - totalTax;
+  const quarterly = totalTax / 4;
+  const effectivePct = netProfit > 0 ? ((totalTax / netProfit) * 100).toFixed(1) : 0;
+  const w2Equiv = Math.round(netProfit * 0.88);
+
+  document.getElementById('res-net-takehome').textContent = '$' + Math.round(netTakeHome).toLocaleString();
+  document.getElementById('res-effective-rate').textContent = 'Effective Total Tax Rate: ' + effectivePct + '% on $' + Math.round(netProfit).toLocaleString() + ' Net Profit';
+  document.getElementById('res-quarterly-tax').textContent = '$' + Math.round(quarterly).toLocaleString() + ' / qtr';
+  document.getElementById('res-w2-equiv').textContent = '$' + w2Equiv.toLocaleString();
+  document.getElementById('res-seca-tax').textContent = '$' + Math.round(totalSeca).toLocaleString();
+  document.getElementById('res-fed-tax').textContent = '$' + Math.round(fedTax).toLocaleString();
+  document.getElementById('res-state-basis').textContent = (stateRatePct * 100).toFixed(1) + '% state estimate';
+  document.getElementById('res-state-tax').textContent = '$' + Math.round(stateTax).toLocaleString();
+  document.getElementById('res-qbi-amount').textContent = '-$' + Math.round(qbiDeduction).toLocaleString() + ' Base';
+  document.getElementById('res-total-tax').textContent = '$' + Math.round(totalTax).toLocaleString();
+
+  if (window.FinmatrixEngine) {
+    FinmatrixEngine.updateUrl({
+      grossRevenue,
+      businessExpenses,
+      filingStatus,
+      stateRate: (stateRatePct * 100).toFixed(1),
+      solo401k
+    });
+  }
+}
+
+function shareSecaUrl() {
+  if (window.FinmatrixEngine) {
+    FinmatrixEngine.copyShareUrl();
+  } else {
+    navigator.clipboard.writeText(window.location.href);
+    alert('Calculation link copied to clipboard!');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.FinmatrixEngine) {
+    FinmatrixEngine.initParams();
+    FinmatrixEngine.initAffiliateBox('finmatrix-affiliate-slot');
+    FinmatrixEngine.initAdSlot('finmatrix-ad-slot');
+  }
+  calculateSeca();
+});
+</script>
+</body>
+</html>

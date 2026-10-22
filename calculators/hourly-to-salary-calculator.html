@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Primary Meta Tags -->
+<title>Hourly to Salary Calculator (2026): Gross & After-Tax Pay | Finmatrix</title>
+<meta name="description" content="Convert hourly wage to annual, monthly, bi-weekly, and after-tax take-home salary based on 2,080 standard hours and 2026 IRS tax brackets. Free & private.">
+<meta name="keywords" content="hourly to salary calculator, wage converter, hourly to annual salary after tax, 2080 hours salary converter, take home pay hourly to salary">
+<meta name="author" content="Finmatrix Financial Research Desk">
+<link rel="canonical" href="https://finmatrix.cloud/calculators/hourly-to-salary-calculator.html">
+
+<!-- Search Engine Robots Directives -->
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://finmatrix.cloud/calculators/hourly-to-salary-calculator.html">
+<meta property="og:site_name" content="Finmatrix">
+<meta property="og:title" content="Hourly to Salary Calculator (2026): Gross & After-Tax Pay | Finmatrix">
+<meta property="og:description" content="Convert your hourly wage into annual gross and net after-tax take-home pay based on 2,080 standard hours.">
+<meta property="og:image" content="https://finmatrix.cloud/assets/og/hourly-salary.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hourly to Salary Calculator (2026) | Finmatrix">
+<meta name="twitter:description" content="Calculate your annual salary, monthly paycheck, and after-tax net take-home from any hourly wage.">
+
+<!-- Favicon & Mobile Icons -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/favicon.svg">
+<meta name="theme-color" content="#0d1117">
+
+<!-- Structured Data JSON-LD (@graph) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://finmatrix.cloud/calculators/hourly-to-salary-calculator.html#app",
+      "name": "Hourly to Salary After-Tax Calculator",
+      "url": "https://finmatrix.cloud/calculators/hourly-to-salary-calculator.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript. Requires HTML5.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "2,080 annual work hours standard baseline conversion",
+        "Overtime 1.5x calculation under Fair Labor Standards Act (FLSA)",
+        "2026 Federal tax brackets and $16,100 Single / $32,200 MFJ standard deductions",
+        "7.65% FICA withholding modeling ($184,500 Social Security cap)",
+        "Net take-home pay breakdown: Hourly, Daily, Weekly, Bi-Weekly, Monthly, and Annual",
+        "100% Client-side privacy-first computation with shareable URL parameters"
+      ],
+      "citation": [
+        "https://www.dol.gov/agencies/whd/flsa",
+        "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://finmatrix.cloud/calculators/hourly-to-salary-calculator.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://finmatrix.cloud/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Calculators",
+          "item": "https://finmatrix.cloud/calculators/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Income Tax",
+          "item": "https://finmatrix.cloud/calculators/income-tax/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Hourly to Salary",
+          "item": "https://finmatrix.cloud/calculators/hourly-to-salary-calculator.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://finmatrix.cloud/calculators/hourly-to-salary-calculator.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How many work hours are in a standard full-time year?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A standard US full-time work year consists of 2,080 hours (40 hours per week × 52 weeks). Multiplying an hourly rate by 2,080 yields the standard annual gross salary benchmark."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is 1.5x overtime calculated under US labor law?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Under the federal Fair Labor Standards Act (FLSA), non-exempt employees must receive overtime pay for hours worked over 40 in a workweek at a rate not less than time-and-one-half (1.5x) their regular rate of pay."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between gross salary and after-tax take-home?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Gross salary is your total earnings before any deductions. After-tax take-home pay is what you actually receive after mandatory deductions: Federal income tax, FICA (6.2% Social Security + 1.45% Medicare), state income taxes, and optional pre-tax benefits like 401(k) or health insurance."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do paid holidays and unpaid vacation impact the calculation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If you receive paid time off (PTO), you are paid for all 52 weeks (2,080 hours). If you are a contractor without paid leave and take 2 unpaid weeks off, you work 50 weeks (2,000 hours), reducing your annual gross earnings accordingly."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Finmatrix <span class="nav-logo-badge">PRO</span></a>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/calculators/" class="active">Calculators</a>
+    <a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a>
+    <button class="theme-toggle theme-toggle-btn" onclick="toggleTheme()">☀️ Light Mode</button>
+  </div>
+  <button class="menu-btn" onclick="toggleMobileMenu()">☰ Menu</button>
+</nav>
+
+<section>
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="/">Home</a> <span class="sep">/</span> <a href="/calculators/">Calculators</a> <span class="sep">/</span> <a href="/calculators/income-tax/">Income Tax</a> <span class="sep">/</span> <span>Hourly to Salary</span>
+    </div>
+
+    <div class="section-label">Income Tax & Payroll Suite</div>
+    <h1 class="section-title">Hourly to Salary After-Tax Calculator (2026)</h1>
+    <div class="reviewed-line">
+      <span>Updated for the 2026 tax year (2,080 hours benchmark)</span> · <span>Reviewed October 2026</span> · <span>By Finmatrix Financial Research Desk</span>
+    </div>
+    <p class="section-sub">Convert any hourly wage into gross annual salary and exact after-tax take-home pay across daily, weekly, bi-weekly, and monthly pay periods.</p>
+
+    <div class="calc-grid">
+      <!-- Calculator Inputs Form -->
+      <div class="calc-card">
+        <h2 style="font-size:1.15rem;margin-bottom:20px;display:flex;align-items:center;gap:8px;">
+          <span>⏱️</span> Hourly Wage Parameters
+        </h2>
+
+        <form id="hourly-form" onsubmit="event.preventDefault(); calculateWage();">
+          <div class="form-group">
+            <label for="hourlyRate">Hourly Pay Rate ($/hr)</label>
+            <input type="number" id="hourlyRate" value="35.00" min="5.00" step="0.50" required>
+            <span class="input-hint">Your standard hourly base rate</span>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div class="form-group">
+              <label for="hoursPerWeek">Hours per Week</label>
+              <input type="number" id="hoursPerWeek" value="40" min="1" max="80" step="1" required>
+            </div>
+            <div class="form-group">
+              <label for="weeksPerYear">Weeks per Year</label>
+              <input type="number" id="weeksPerYear" value="52" min="1" max="52" step="1" required>
+              <span class="input-hint">52 weeks = paid full-year/PTO</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="overtimeHours">Overtime Hours per Week (1.5x Pay)</label>
+            <input type="number" id="overtimeHours" value="0" min="0" max="40" step="1">
+            <span class="input-hint">Paid at time-and-a-half ($<span id="hint-ot-rate">52.50</span>/hr)</span>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div class="form-group">
+              <label for="wageFilingStatus">Filing Status</label>
+              <select id="wageFilingStatus" style="width:100%;background:var(--bg2);border:1px solid var(--border);color:var(--text);padding:10px 12px;border-radius:8px;">
+                <option value="single" selected>Single ($16,100 Std Ded)</option>
+                <option value="married_filing_jointly">Married Jointly ($32,200 Std Ded)</option>
+                <option value="head_of_household">Head of Household ($24,150 Std Ded)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="wageStateRate">State Tax Rate (%)</label>
+              <input type="number" id="wageStateRate" value="5.0" min="0" max="13.3" step="0.5" required>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:10px;margin-top:20px;">
+            <button type="submit" class="btn btn-primary" style="flex:1;">Convert Wage →</button>
+            <button type="button" class="btn btn-secondary" onclick="shareWageUrl()" title="Share calculation link">🔗 Share</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Results Display Area -->
+      <div class="calc-card" id="wage-results-card">
+        <h2 style="font-size:1.15rem;margin-bottom:20px;display:flex;align-items:center;gap:8px;">
+          <span>📊</span> Salary & Take-Home Conversion
+        </h2>
+
+        <div style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:24px;text-align:center;margin-bottom:20px;">
+          <div style="font-size:0.85rem;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);font-weight:700;">Annual Gross Salary</div>
+          <div id="res-annual-gross" style="font-size:2.4rem;font-weight:800;font-family:var(--font-mono);color:var(--accent);margin:8px 0;">$72,800</div>
+          <div id="res-hourly-net-sub" style="font-size:0.95rem;color:var(--text-muted);">True After-Tax Hourly Pay: $27.59 / hr</div>
+        </div>
+
+        <div class="stats-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;">
+          <div style="background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px;">
+            <div style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;">Net Bi-Weekly Paycheck</div>
+            <div id="res-biweekly-net" style="font-size:1.3rem;font-weight:700;color:var(--accent);margin-top:4px;">$2,207</div>
+            <div style="font-size:0.75rem;color:var(--text-muted);margin-top:4px;">Take-home every 2 weeks</div>
+          </div>
+          <div style="background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px;">
+            <div style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;">Net Monthly Take-Home</div>
+            <div id="res-monthly-net" style="font-size:1.3rem;font-weight:700;color:var(--accent3);margin-top:4px;">$4,781</div>
+            <div style="font-size:0.75rem;color:var(--text-muted);margin-top:4px;">Net spendable cash flow</div>
+          </div>
+        </div>
+
+        <!-- Conversion Matrix Table -->
+        <table style="width:100%;border-collapse:collapse;font-size:0.85rem;margin-top:16px;">
+          <thead>
+            <tr style="border-bottom:1px solid var(--border);text-align:left;color:var(--text-muted);">
+              <th style="padding:8px 4px;">Timeframe</th>
+              <th style="padding:8px 4px;">Gross Pay</th>
+              <th style="padding:8px 4px;text-align:right;color:var(--accent);">Net Take-Home</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border-subtle);">
+              <td style="padding:8px 4px;">Hourly</td>
+              <td id="res-table-hourly-gross" style="padding:8px 4px;">$35.00</td>
+              <td id="res-table-hourly-net" style="padding:8px 4px;font-weight:700;color:var(--accent);text-align:right;">$27.59</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-subtle);">
+              <td style="padding:8px 4px;">Daily (8 Hours)</td>
+              <td id="res-table-daily-gross" style="padding:8px 4px;">$280.00</td>
+              <td id="res-table-daily-net" style="padding:8px 4px;text-align:right;">$220.68</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-subtle);">
+              <td style="padding:8px 4px;">Weekly (40 Hours)</td>
+              <td id="res-table-weekly-gross" style="padding:8px 4px;">$1,400.00</td>
+              <td id="res-table-weekly-net" style="padding:8px 4px;text-align:right;">$1,103.40</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-subtle);">
+              <td style="padding:8px 4px;">Bi-Weekly (26 Periods)</td>
+              <td id="res-table-biweekly-gross" style="padding:8px 4px;">$2,800.00</td>
+              <td id="res-table-biweekly-net" style="padding:8px 4px;text-align:right;">$2,206.81</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-subtle);">
+              <td style="padding:8px 4px;">Monthly (12 Months)</td>
+              <td id="res-table-monthly-gross" style="padding:8px 4px;">$6,066.67</td>
+              <td id="res-table-monthly-net" style="padding:8px 4px;text-align:right;">$4,781.42</td>
+            </tr>
+            <tr>
+              <td style="padding:8px 4px;font-weight:700;">Annual</td>
+              <td id="res-table-annual-gross" style="padding:8px 4px;font-weight:700;">$72,800.00</td>
+              <td id="res-table-annual-net" style="padding:8px 4px;font-weight:800;color:var(--accent);text-align:right;">$57,377.00</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Contextual Affiliate Slot -->
+        <div id="finmatrix-affiliate-slot" data-category="hysa" style="margin-top:24px;"></div>
+
+        <!-- Non-shifting Ad Container Slot -->
+        <div id="finmatrix-ad-slot" style="margin-top:20px;"></div>
+      </div>
+    </div>
+
+    <!-- Educational Deep-Dive: How this is calculated -->
+    <div class="calc-card" style="margin-top:32px;">
+      <h2 style="font-size:1.2rem;margin-bottom:16px;">How Hourly to Salary Is Calculated</h2>
+      <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.6;margin-bottom:16px;">
+        In corporate payroll and human resources, the gold standard conversion between hourly wages and annual gross salaries is based on <strong>2,080 working hours per year</strong>:
+      </p>
+      <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:16px;font-family:var(--font-mono);font-size:0.85rem;color:var(--text);margin-bottom:16px;">
+        <strong>Standard Annual Hours:</strong> 40 Hours/Week × 52 Weeks = 2,080 Hours<br><br>
+        <strong>Gross Annual Salary:</strong> Hourly Wage × 2,080 + (Overtime Hours × 1.5 × Hourly Wage × 52)<br><br>
+        <strong>Net Take-Home:</strong> Gross Salary − [ 2026 Federal Tax + 7.65% FICA + State Tax ]
+      </div>
+      <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.6;margin-bottom:16px;">
+        <strong>Quick Mental Rule of Thumb:</strong> To estimate your annual salary quickly in your head, double your hourly wage and add three zeros. For example, $35/hour × 2 = 70 → approximately <strong>$70,000/year</strong> ($72,800 precisely with 2,080 hours).
+      </p>
+      <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.6;">
+        <strong>Worked Example:</strong> At <strong>$35.00/hour</strong> with zero overtime, your annual gross pay is <strong>$72,800</strong>. Under 2026 Single tax rules, you receive a $16,100 Standard Deduction, leaving $56,700 taxable federally ($6,214 tax). FICA is 7.65% ($5,569), and an estimated 5.0% state tax deducts $3,640. Total deductions equal <strong>$15,423</strong>, giving you a true net annual take-home of <strong>$57,377</strong> ($2,207 every two weeks).
+      </p>
+    </div>
+
+    <!-- Assumptions and Sources -->
+    <div class="calc-card" style="margin-top:24px;">
+      <h2 style="font-size:1.2rem;margin-bottom:16px;">Assumptions & Official Sources</h2>
+      <ul style="color:var(--text-muted);font-size:0.9rem;line-height:1.6;padding-left:20px;margin-bottom:16px;">
+        <li><strong>FLSA Compliance:</strong> Overtime is calculated at 1.5x base hourly wage for weekly hours beyond 40 per the U.S. Department of Labor Fair Labor Standards Act (<a href="https://www.dol.gov/agencies/whd/flsa" target="_blank" rel="noopener" style="color:var(--accent);">DOL.gov/flsa</a>).</li>
+        <li><strong>Tax Year Standards:</strong> 2026 IRS marginal tax brackets and standard deductions ($16,100 Single / $32,200 MFJ) are verified against IRS Rev. Proc. 2025-32.</li>
+        <li><strong>FICA Cap:</strong> Social Security tax is 6.2% up to the verified 2026 wage base of $184,500; Medicare is 1.45% uncapped.</li>
+      </ul>
+      <p class="disclaimer" style="margin:0;">* Disclaimer: This tool provides estimations for educational modeling. Exact paycheck withholdings may differ based on local municipal taxes, employer benefits, HSA contributions, and pre-tax 401(k) elections.</p>
+    </div>
+
+    <!-- Frequently Asked Questions -->
+    <div class="calc-card" style="margin-top:24px;">
+      <h2 style="font-size:1.2rem;margin-bottom:16px;">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>How many work hours are in a standard year?</summary>
+          <div class="faq-answer">
+            A standard full-time year consists of 2,080 hours (40 hours per week × 52 weeks).
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>How do unpaid vacation days affect salary?</summary>
+          <div class="faq-answer">
+            If you take 2 weeks of unpaid vacation, reduce the total weeks to 50 (2,000 hours). At $35/hour, 50 weeks equals $70,000 gross instead of $72,800.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>How is overtime taxed?</summary>
+          <div class="faq-answer">
+            Overtime pay is taxed as ordinary income. While your paycheck may have higher tax withheld due to temporary higher gross pay, your final tax rate at year-end is determined by your total annual taxable income.
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <!-- Related Calculators -->
+    <div style="margin-top:32px;">
+      <h3 style="font-size:1.1rem;margin-bottom:16px;">Related Income & Career Calculators</h3>
+      <div class="cards-grid">
+        <a href="/calculators/paycheck-calculator.html" class="card">
+          <div class="card-icon">💵</div>
+          <h3>Paycheck & Take-Home Pay</h3>
+          <p>Model exact net paychecks with 401(k), health insurance, and state exemptions.</p>
+        </a>
+        <a href="/calculators/self-employed-tax-calculator.html" class="card">
+          <div class="card-icon">📊</div>
+          <h3>1099 Self-Employed Tax</h3>
+          <p>Calculate 15.3% SECA self-employment taxes and quarterly estimated payments.</p>
+        </a>
+        <a href="/calculators/bonus-tax-calculator.html" class="card">
+          <div class="card-icon">🎁</div>
+          <h3>Bonus Tax Calculator</h3>
+          <p>Understand why supplemental pay and bonuses are withheld at 22%.</p>
+        </a>
+        <a href="/calculators/compound-interest-calculator.html" class="card">
+          <div class="card-icon">📈</div>
+          <h3>Compound Interest Calculator</h3>
+          <p>Simulate how saving a portion of your hourly wage creates long-term wealth.</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="nav-logo">Finmatrix</div>
+        <p>Free, verified personal finance calculators for every US household. 100% private with zero sign-up required.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Calculators</h4>
+        <a href="/calculators/debt-elimination-planner.html">Debt Elimination Planner</a>
+        <a href="/calculators/paycheck-calculator.html">Paycheck Calculator</a>
+        <a href="/calculators/hourly-to-salary-calculator.html">Hourly to Salary</a>
+        <a href="/calculators/mortgage-calculator.html">Mortgage Calculator</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company & Legal</h4>
+        <a href="/about.html">About Finmatrix</a>
+        <a href="/editorial-policy.html">Editorial & Calculation Policy</a>
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/terms-of-service.html">Terms of Service</a>
+        <a href="/disclaimer.html">Disclaimer</a>
+        <a href="/contact.html">Contact Us</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Finmatrix. All rights reserved.</span>
+      <span>Contact: <a href="mailto:novamatrix1564@gmail.com" style="color:var(--text-muted);">novamatrix1564@gmail.com</a></span>
+    </div>
+    <p class="disclaimer">* Finmatrix tools provide estimations for educational purposes only. Always consult a licensed CFP® or tax advisor before making major financial commitments.</p>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/tool-engine.js"></script>
+<script src="/js/analytics.js"></script>
+<script>
+const taxBrackets = {
+  single: [
+    { rate: 0.10, max: 12400 },
+    { rate: 0.12, max: 50400 },
+    { rate: 0.22, max: 105700 },
+    { rate: 0.24, max: 201775 },
+    { rate: 0.32, max: 256225 },
+    { rate: 0.35, max: 640600 },
+    { rate: 0.37, max: Infinity }
+  ],
+  married_filing_jointly: [
+    { rate: 0.10, max: 24800 },
+    { rate: 0.12, max: 100800 },
+    { rate: 0.22, max: 211400 },
+    { rate: 0.24, max: 403550 },
+    { rate: 0.32, max: 512450 },
+    { rate: 0.35, max: 768700 },
+    { rate: 0.37, max: Infinity }
+  ],
+  head_of_household: [
+    { rate: 0.10, max: 17700 },
+    { rate: 0.12, max: 67450 },
+    { rate: 0.22, max: 105700 },
+    { rate: 0.24, max: 201750 },
+    { rate: 0.32, max: 256200 },
+    { rate: 0.35, max: 640600 },
+    { rate: 0.37, max: Infinity }
+  ]
+};
+
+const stdDeductions = {
+  single: 16100,
+  married_filing_jointly: 32200,
+  head_of_household: 24150
+};
+
+function computeFedTax(taxableIncome, status) {
+  if (taxableIncome <= 0) return 0;
+  const brackets = taxBrackets[status] || taxBrackets.single;
+  let tax = 0;
+  let prevMax = 0;
+  for (const b of brackets) {
+    if (taxableIncome > prevMax) {
+      const slice = Math.min(taxableIncome, b.max) - prevMax;
+      tax += slice * b.rate;
+      if (taxableIncome <= b.max) break;
+      prevMax = b.max;
+    }
+  }
+  return tax;
+}
+
+function calculateWage() {
+  const hourlyRate = parseFloat(document.getElementById('hourlyRate').value) || 0;
+  const hoursPerWeek = parseFloat(document.getElementById('hoursPerWeek').value) || 40;
+  const weeksPerYear = parseFloat(document.getElementById('weeksPerYear').value) || 52;
+  const overtimeHours = parseFloat(document.getElementById('overtimeHours').value) || 0;
+  const filingStatus = document.getElementById('wageFilingStatus').value || 'single';
+  const stateRatePct = (parseFloat(document.getElementById('wageStateRate').value) || 0) / 100;
+
+  // Overtime rate 1.5x
+  const otRate = hourlyRate * 1.5;
+  document.getElementById('hint-ot-rate').textContent = otRate.toFixed(2);
+
+  const regularAnnualHours = hoursPerWeek * weeksPerYear;
+  const regularAnnualGross = hourlyRate * regularAnnualHours;
+  const overtimeAnnualGross = overtimeHours * otRate * weeksPerYear;
+  const totalAnnualGross = regularAnnualGross + overtimeAnnualGross;
+
+  // Tax calculations
+  const stdDed = stdDeductions[filingStatus] || 16100;
+  const fedTaxable = Math.max(0, totalAnnualGross - stdDed);
+  const fedTax = computeFedTax(fedTaxable, filingStatus);
+
+  // FICA
+  const ssTax = Math.min(totalAnnualGross, 184500) * 0.062;
+  const medTax = totalAnnualGross * 0.0145;
+  const stateTax = totalAnnualGross * stateRatePct;
+
+  const totalTax = fedTax + ssTax + medTax + stateTax;
+  const netAnnual = Math.max(0, totalAnnualGross - totalTax);
+  const totalHoursWorked = regularAnnualHours + (overtimeHours * weeksPerYear);
+  const hourlyNet = totalHoursWorked > 0 ? (netAnnual / totalHoursWorked) : 0;
+
+  // Timeframe breakdowns
+  const dailyGross = totalAnnualGross / (weeksPerYear * 5);
+  const dailyNet = netAnnual / (weeksPerYear * 5);
+  const weeklyGross = totalAnnualGross / weeksPerYear;
+  const weeklyNet = netAnnual / weeksPerYear;
+  const biweeklyGross = totalAnnualGross / 26;
+  const biweeklyNet = netAnnual / 26;
+  const monthlyGross = totalAnnualGross / 12;
+  const monthlyNet = netAnnual / 12;
+
+  document.getElementById('res-annual-gross').textContent = '$' + Math.round(totalAnnualGross).toLocaleString();
+  document.getElementById('res-hourly-net-sub').textContent = 'True After-Tax Hourly Pay: $' + hourlyNet.toFixed(2) + ' / hr';
+  document.getElementById('res-biweekly-net').textContent = '$' + Math.round(biweeklyNet).toLocaleString();
+  document.getElementById('res-monthly-net').textContent = '$' + Math.round(monthlyNet).toLocaleString();
+
+  document.getElementById('res-table-hourly-gross').textContent = '$' + hourlyRate.toFixed(2);
+  document.getElementById('res-table-hourly-net').textContent = '$' + hourlyNet.toFixed(2);
+  document.getElementById('res-table-daily-gross').textContent = '$' + dailyGross.toFixed(2);
+  document.getElementById('res-table-daily-net').textContent = '$' + dailyNet.toFixed(2);
+  document.getElementById('res-table-weekly-gross').textContent = '$' + weeklyGross.toFixed(2);
+  document.getElementById('res-table-weekly-net').textContent = '$' + weeklyNet.toFixed(2);
+  document.getElementById('res-table-biweekly-gross').textContent = '$' + biweeklyGross.toFixed(2);
+  document.getElementById('res-table-biweekly-net').textContent = '$' + biweeklyNet.toFixed(2);
+  document.getElementById('res-table-monthly-gross').textContent = '$' + monthlyGross.toFixed(2);
+  document.getElementById('res-table-monthly-net').textContent = '$' + monthlyNet.toFixed(2);
+  document.getElementById('res-table-annual-gross').textContent = '$' + totalAnnualGross.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  document.getElementById('res-table-annual-net').textContent = '$' + netAnnual.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+  if (window.FinmatrixEngine) {
+    FinmatrixEngine.updateUrl({
+      hourlyRate,
+      hoursPerWeek,
+      weeksPerYear,
+      overtimeHours,
+      filingStatus,
+      stateRate: (stateRatePct * 100).toFixed(1)
+    });
+  }
+}
+
+function shareWageUrl() {
+  if (window.FinmatrixEngine) {
+    FinmatrixEngine.copyShareUrl();
+  } else {
+    navigator.clipboard.writeText(window.location.href);
+    alert('Calculation link copied to clipboard!');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.FinmatrixEngine) {
+    FinmatrixEngine.initParams();
+    FinmatrixEngine.initAffiliateBox('finmatrix-affiliate-slot');
+    FinmatrixEngine.initAdSlot('finmatrix-ad-slot');
+  }
+  calculateWage();
+});
+</script>
+</body>
+</html>

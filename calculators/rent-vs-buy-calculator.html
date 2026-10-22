@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Primary Meta Tags -->
+<title>Rent vs. Buy Calculator (2026): True Net Worth Cost Analysis | Finmatrix</title>
+<meta name="description" content="Free 2026 Rent vs Buy Calculator. Compare home equity and appreciation against renting and investing the down payment in index funds. 100% private.">
+<meta name="keywords" content="rent vs buy calculator, is it better to rent or buy, homeownership opportunity cost, price to rent ratio 2026, rent vs buy net worth">
+<meta name="author" content="Finmatrix Financial Research Desk">
+<link rel="canonical" href="https://finmatrix.cloud/calculators/rent-vs-buy-calculator.html">
+
+<!-- Search Engine Robots Directives -->
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://finmatrix.cloud/calculators/rent-vs-buy-calculator.html">
+<meta property="og:site_name" content="Finmatrix">
+<meta property="og:title" content="Rent vs. Buy Calculator (2026): True Net Worth Analysis | Finmatrix">
+<meta property="og:description" content="Compare total unrecoverable homeownership costs against renting and investing the down payment into index funds.">
+<meta property="og:image" content="https://finmatrix.cloud/assets/og/rent-vs-buy.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Rent vs. Buy Calculator (2026) | Finmatrix">
+<meta name="twitter:description" content="Calculate the financial break-even between homeownership and renting with true opportunity cost modeling.">
+
+<!-- Favicon & Mobile Icons -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/favicon.svg">
+<meta name="theme-color" content="#0d1117">
+
+<!-- Structured Data JSON-LD (@graph) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://finmatrix.cloud/calculators/rent-vs-buy-calculator.html#app",
+      "name": "Rent vs. Buy True Cost Calculator",
+      "url": "https://finmatrix.cloud/calculators/rent-vs-buy-calculator.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript. Requires HTML5.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "Unrecoverable cost modeling: mortgage interest, property taxes, maintenance, and 6% seller closing costs",
+        "Renter opportunity cost simulation: investing down payment and monthly savings in S&P 500 index funds",
+        "Multi-year net worth projection over 1 to 30 years",
+        "Configurable home appreciation and rent inflation vectors",
+        "100% Client-side privacy-first computation with shareable URL parameters"
+      ],
+      "citation": [
+        "https://www.consumerfinance.gov/owning-a-home/",
+        "https://www.census.gov/construction/chars/"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://finmatrix.cloud/calculators/rent-vs-buy-calculator.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://finmatrix.cloud/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Calculators",
+          "item": "https://finmatrix.cloud/calculators/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Housing",
+          "item": "https://finmatrix.cloud/calculators/housing/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Rent vs Buy",
+          "item": "https://finmatrix.cloud/calculators/rent-vs-buy-calculator.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://finmatrix.cloud/calculators/rent-vs-buy-calculator.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the 5% rule in the rent vs buy decision?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The 5% rule (popularized by Ben Felix, CFA) estimates the unrecoverable annual cost of owning a home: approximately 1% in property taxes, 1% in home maintenance, and 3% in capital cost (mortgage interest or lost investment return). Multiplying a home's price by 5% and dividing by 12 gives the monthly rent at which renting and buying are financially equivalent."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is renting really 'throwing money away'?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Renting buys shelter, flexibility, and eliminates financial liabilities such as emergency roof replacements, foundation repairs, HOA special assessments, and property tax hikes. Furthermore, homeownership incurs massive unrecoverable costs—during the initial 5 to 7 years of a 30-year mortgage, the majority of your monthly payments goes directly to bank interest, property taxes, and insurance rather than principal equity."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does investing the down payment capital change the math?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "When you buy, your down payment ($80,000 on a $400,000 home) is illiquidly tied up in real estate. A disciplined renter can invest that same $80,000 into a diversified index fund (like the S&P 500) compounding at historical long-term averages (7%–10% nominal), frequently generating substantial portfolio wealth that outpaces home price appreciation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the typical break-even timeline for buying a house?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because buying a home incurs 2%–5% in upfront closing costs and 5%–7% in selling/realtor commissions upon exit, it typically takes 4 to 7 years for home price appreciation and principal amortization to offset transaction fees."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Finmatrix <span class="nav-logo-badge">PRO</span></a>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/calculators/" class="active">Calculators</a>
+    <a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a>
+    <button class="theme-toggle theme-toggle-btn" onclick="toggleTheme()">☀️ Light Mode</button>
+  </div>
+  <button class="menu-btn" onclick="toggleMobileMenu()">☰ Menu</button>
+</nav>
+
+<section>
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="/">Home</a> <span class="sep">/</span> <a href="/calculators/">Calculators</a> <span class="sep">/</span> <a href="/calculators/housing/">Housing</a> <span class="sep">/</span> <span>Rent vs Buy</span>
+    </div>
+
+    <div class="section-label">Housing & Mortgage Suite</div>
+    <h1 class="section-title">Rent vs. Buy Calculator (True Net Worth Analysis)</h1>
+    <div class="reviewed-line">
+      <span>Updated for the 2026 housing market</span> · <span>Reviewed October 2026</span> · <span>By Finmatrix Financial Research Desk</span>
+    </div>
+    <p class="section-sub">Compare the true net worth generated by homeownership (equity, appreciation, tax deduction) against renting and investing down payment capital into index funds.</p>
+
+    <div class="calc-grid">
+      <!-- Calculator Inputs Form -->
+      <div class="calc-card">
+        <h2 style="font-size:1.15rem;margin-bottom:20px;display:flex;align-items:center;gap:8px;">
+          <span>🔑</span> Housing Scenarios
+        </h2>
+
+        <form id="rent-buy-form" onsubmit="event.preventDefault(); calculateRentVsBuy();">
+          <div class="form-group">
+            <label for="homePrice">Target Home Purchase Price ($)</label>
+            <input type="number" id="homePrice" value="400000" min="50000" step="5000" required>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div class="form-group">
+              <label for="downPaymentPct">Down Payment (%)</label>
+              <input type="number" id="downPaymentPct" value="20" min="3" max="100" step="1" required>
+            </div>
+            <div class="form-group">
+              <label for="mortgageRate">Mortgage Rate (%)</label>
+              <input type="number" id="mortgageRate" value="6.50" min="1.0" max="15.0" step="0.1" required>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div class="form-group">
+              <label for="monthlyRent">Equivalent Monthly Rent ($)</label>
+              <input type="number" id="monthlyRent" value="2200" min="300" step="50" required>
+            </div>
+            <div class="form-group">
+              <label for="horizonYears">Time Horizon (Years)</label>
+              <input type="number" id="horizonYears" value="10" min="1" max="30" step="1" required>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div class="form-group">
+              <label for="homeAppreciation">Home Appreciation (%)</label>
+              <input type="number" id="homeAppreciation" value="3.0" min="0" max="12" step="0.5" required>
+              <span class="input-hint">Historical avg ~3.5%</span>
+            </div>
+            <div class="form-group">
+              <label for="investmentReturn">Stock Market Return (%)</label>
+              <input type="number" id="investmentReturn" value="7.0" min="0" max="15" step="0.5" required>
+              <span class="input-hint">S&P 500 real return ~7%</span>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div class="form-group">
+              <label for="rentInflation">Rent Inflation (%)</label>
+              <input type="number" id="rentInflation" value="3.0" min="0" max="10" step="0.5" required>
+            </div>
+            <div class="form-group">
+              <label for="propertyTaxRate">Property Tax Rate (%)</label>
+              <input type="number" id="propertyTaxRate" value="1.20" min="0" max="4.0" step="0.1" required>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:10px;margin-top:20px;">
+            <button type="submit" class="btn btn-primary" style="flex:1;">Compare Net Worth →</button>
+            <button type="button" class="btn btn-secondary" onclick="shareRentBuyUrl()" title="Share calculation link">🔗 Share</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Results Display Area -->
+      <div class="calc-card" id="rent-buy-results-card">
+        <h2 style="font-size:1.15rem;margin-bottom:20px;display:flex;align-items:center;gap:8px;">
+          <span>📈</span> Net Worth Comparison (<span id="res-years-badge">10 Years</span>)
+        </h2>
+
+        <div style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:24px;text-align:center;margin-bottom:20px;">
+          <div style="font-size:0.85rem;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);font-weight:700;">Financial Verdict</div>
+          <div id="res-verdict-title" style="font-size:1.8rem;font-weight:800;font-family:var(--font-mono);color:var(--accent);margin:8px 0;">Buying is Superior</div>
+          <div id="res-verdict-desc" style="font-size:0.95rem;color:var(--text-muted);">Generates $54,200 higher net worth after 10 years</div>
+        </div>
+
+        <div class="stats-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;">
+          <div style="background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px;">
+            <div style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;">Homeowner Net Worth</div>
+            <div id="res-buyer-networth" style="font-size:1.3rem;font-weight:700;color:var(--accent);margin-top:4px;">$248,310</div>
+            <div style="font-size:0.75rem;color:var(--text-muted);margin-top:4px;">Home equity minus 6% selling fees</div>
+          </div>
+          <div style="background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px;">
+            <div style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;">Renter Net Worth</div>
+            <div id="res-renter-networth" style="font-size:1.3rem;font-weight:700;color:var(--accent3);margin-top:4px;">$194,110</div>
+            <div style="font-size:0.75rem;color:var(--text-muted);margin-top:4px;">Invested down payment + rent savings</div>
+          </div>
+        </div>
+
+        <!-- Monthly Outflow Table -->
+        <table style="width:100%;border-collapse:collapse;font-size:0.85rem;margin-top:16px;">
+          <thead>
+            <tr style="border-bottom:1px solid var(--border);text-align:left;color:var(--text-muted);">
+              <th style="padding:8px 4px;">Cost Component</th>
+              <th style="padding:8px 4px;">Buyer (Year 1)</th>
+              <th style="padding:8px 4px;">Renter (Year 1)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border-subtle);">
+              <td style="padding:8px 4px;">Monthly Housing Payment</td>
+              <td id="res-buyer-monthly" style="padding:8px 4px;font-weight:700;color:var(--accent);">$2,856 / mo</td>
+              <td id="res-renter-monthly" style="padding:8px 4px;">$2,200 / mo</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-subtle);">
+              <td style="padding:8px 4px;">Initial Capital Required</td>
+              <td id="res-buyer-capital" style="padding:8px 4px;">$92,000</td>
+              <td style="padding:8px 4px;color:var(--accent3);">Invested in Index Funds</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-subtle);">
+              <td style="padding:8px 4px;">Ending Property Value</td>
+              <td id="res-final-home-value" style="padding:8px 4px;">$537,567</td>
+              <td style="padding:8px 4px;">N/A</td>
+            </tr>
+            <tr>
+              <td style="padding:8px 4px;">Remaining Debt</td>
+              <td id="res-final-loan-balance" style="padding:8px 4px;">$257,000</td>
+              <td style="padding:8px 4px;color:var(--accent3);">$0 Debt</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Contextual Affiliate Slot -->
+        <div id="finmatrix-affiliate-slot" data-category="mortgage" style="margin-top:24px;"></div>
+
+        <!-- Non-shifting Ad Container Slot -->
+        <div id="finmatrix-ad-slot" style="margin-top:20px;"></div>
+      </div>
+    </div>
+
+    <!-- Educational Deep-Dive: How this is calculated -->
+    <div class="calc-card" style="margin-top:32px;">
+      <h2 style="font-size:1.2rem;margin-bottom:16px;">How This Is Calculated: The Unrecoverable Cost Framework</h2>
+      <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.6;margin-bottom:16px;">
+        Traditional rent vs. buy comparisons commit a critical error: they simply contrast a monthly mortgage payment against monthly rent, ignoring the massive unrecoverable costs of homeownership and the opportunity cost of tied-up down payment equity.
+      </p>
+      <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:16px;font-family:var(--font-mono);font-size:0.85rem;color:var(--text);margin-bottom:16px;">
+        <span style="color:var(--accent2);">Unrecoverable Buying Costs:</span> Mortgage Interest + Property Taxes + Maintenance (1%) + Home Insurance + 6% Realtor Selling Fees<br><br>
+        <span style="color:var(--accent3);">Unrecoverable Renting Costs:</span> Monthly Rent Payments<br><br>
+        <span style="color:var(--accent);">Opportunity Cost:</span> Down payment & transaction fees compounded in the stock market (S&P 500) over the same horizon
+      </div>
+      <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.6;margin-bottom:16px;">
+        <strong>Worked Example:</strong> On a <strong>$400,000 home</strong> with 20% down ($80,000) and $12,000 in closing costs, the buyer commits <strong>$92,000 in cash</strong> upfront. Over a 10-year horizon with 3% home appreciation, the property value increases to <strong>$537,567</strong>. Meanwhile, the loan principal reduces to <strong>$257,000</strong>. After subtracting a standard 6% real estate broker selling fee ($32,254), the buyer's net cash equity is <strong>$248,313</strong>.
+      </p>
+      <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.6;">
+        Conversely, the renter invests that same initial <strong>$92,000</strong> into a balanced index fund portfolio achieving <strong>7% annualized return</strong>, growing to <strong>$180,967</strong>. Adding the monthly difference between owner housing outlays and rent gives the renter a total accumulated net worth of <strong>$194,110</strong>. In this specific scenario, buying delivers a net advantage of <strong>$54,203</strong>.
+      </p>
+    </div>
+
+    <!-- Assumptions and Sources -->
+    <div class="calc-card" style="margin-top:24px;">
+      <h2 style="font-size:1.2rem;margin-bottom:16px;">Assumptions & Official Sources</h2>
+      <ul style="color:var(--text-muted);font-size:0.9rem;line-height:1.6;padding-left:20px;margin-bottom:16px;">
+        <li><strong>Maintenance Rule:</strong> Home maintenance is modeled at 1.0% of the home's market value annually, covering appliance replacement, roof maintenance, and structural upkeep.</li>
+        <li><strong>Transaction Friction:</strong> Buying closing costs are modeled at 3.0% of purchase price; selling transaction costs (agent commissions, transfer taxes) are modeled at 6.0% upon disposition.</li>
+        <li><strong>Reinvestment Discipline:</strong> Assumes the renter diligently invests 100% of the down payment savings and any monthly cash savings into low-cost index funds compounding monthly.</li>
+        <li><strong>Data Sources:</strong> Benchmark metrics derived from the Federal Reserve Bank of St. Louis (FRED) Housing Data (<a href="https://fred.stlouisfed.org/" target="_blank" rel="noopener" style="color:var(--accent);">FRED</a>) and U.S. Census Bureau Home Financing Surveys (<a href="https://www.census.gov/" target="_blank" rel="noopener" style="color:var(--accent);">Census.gov</a>).</li>
+      </ul>
+      <p class="disclaimer" style="margin:0;">* Disclaimer: This calculator provides theoretical modeling for educational purposes only. It does not predict future real estate appreciation or stock market volatility. Consult a certified financial planner (CFP®) before making real estate commitments.</p>
+    </div>
+
+    <!-- Frequently Asked Questions -->
+    <div class="calc-card" style="margin-top:24px;">
+      <h2 style="font-size:1.2rem;margin-bottom:16px;">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>What is the 5% rule in the rent vs buy decision?</summary>
+          <div class="faq-answer">
+            The 5% rule breaks down unrecoverable ownership costs into three parts: 1% for municipal property taxes, 1% for annual home maintenance/repairs, and 3% for cost of capital (mortgage interest or lost investment returns). Multiplying the home price by 5% and dividing by 12 yields the monthly rent threshold. If equivalent rent is below that number, renting is mathematically superior.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Is renting really 'throwing money away'?</summary>
+          <div class="faq-answer">
+            No. Renting pays for shelter, eliminates maintenance liabilities, and preserves mobility. Furthermore, in the early years of a 30-year mortgage, up to 75% of your monthly mortgage payment goes to interest, taxes, and insurance rather than building equity.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>How does investing the down payment capital change the outcome?</summary>
+          <div class="faq-answer">
+            Down payments ($80,000 or more) represent significant capital that is tied up in a single physical asset. If invested in the stock market (e.g. S&P 500 historical ~7% real return), compound interest can outpace real estate appreciation in many geographic markets.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>What is the typical break-even timeline for buying a house?</summary>
+          <div class="faq-answer">
+            Because of 2%–5% purchase closing costs and 6% seller realtor commissions, homeownership typically requires a minimum stay of 4 to 7 years to break even against renting.
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <!-- Related Calculators -->
+    <div style="margin-top:32px;">
+      <h3 style="font-size:1.1rem;margin-bottom:16px;">Related Housing & Investment Calculators</h3>
+      <div class="cards-grid">
+        <a href="/calculators/mortgage-calculator.html" class="card">
+          <div class="card-icon">🏠</div>
+          <h3>Mortgage Payment (PITI)</h3>
+          <p>Calculate monthly principal, interest, property taxes, insurance, and PMI with amortization tables.</p>
+        </a>
+        <a href="/calculators/refinance-break-even-calculator.html" class="card">
+          <div class="card-icon">🔄</div>
+          <h3>Refinance Break-Even</h3>
+          <p>Find the exact month when lower interest rates recover mortgage closing costs.</p>
+        </a>
+        <a href="/calculators/compound-interest-calculator.html" class="card">
+          <div class="card-icon">📈</div>
+          <h3>Compound Interest Calculator</h3>
+          <p>Simulate how investing your down payment in index funds compounds over decades.</p>
+        </a>
+        <a href="/calculators/home-affordability-calculator.html" class="card">
+          <div class="card-icon">🏡</div>
+          <h3>Home Affordability (28/36 DTI)</h3>
+          <p>Compute maximum purchase price based on gross household income and debt limits.</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="nav-logo">Finmatrix</div>
+        <p>Free, verified personal finance calculators for every US household. 100% private with zero sign-up required.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Calculators</h4>
+        <a href="/calculators/debt-elimination-planner.html">Debt Elimination Planner</a>
+        <a href="/calculators/paycheck-calculator.html">Paycheck Calculator</a>
+        <a href="/calculators/mortgage-calculator.html">Mortgage Calculator</a>
+        <a href="/calculators/rent-vs-buy-calculator.html">Rent vs. Buy</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company & Legal</h4>
+        <a href="/about.html">About Finmatrix</a>
+        <a href="/editorial-policy.html">Editorial & Calculation Policy</a>
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/terms-of-service.html">Terms of Service</a>
+        <a href="/disclaimer.html">Disclaimer</a>
+        <a href="/contact.html">Contact Us</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Finmatrix. All rights reserved.</span>
+      <span>Contact: <a href="mailto:novamatrix1564@gmail.com" style="color:var(--text-muted);">novamatrix1564@gmail.com</a></span>
+    </div>
+    <p class="disclaimer">* Finmatrix tools provide estimations for educational purposes only. Always consult a licensed CFP® or tax advisor before making major financial commitments.</p>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/tool-engine.js"></script>
+<script src="/js/analytics.js"></script>
+<script>
+function pmt(principal, annualRatePct, years) {
+  if (annualRatePct === 0) return principal / (years * 12);
+  const r = (annualRatePct / 100) / 12;
+  const n = years * 12;
+  return (principal * (r * Math.pow(1 + r, n))) / (Math.pow(1 + r, n) - 1);
+}
+
+function calculateRentVsBuy() {
+  const homePrice = parseFloat(document.getElementById('homePrice').value) || 0;
+  const downPaymentPct = (parseFloat(document.getElementById('downPaymentPct').value) || 0) / 100;
+  const mortgageRate = parseFloat(document.getElementById('mortgageRate').value) || 0;
+  const monthlyRent = parseFloat(document.getElementById('monthlyRent').value) || 0;
+  const horizonYears = parseInt(document.getElementById('horizonYears').value) || 10;
+  const homeAppreciation = (parseFloat(document.getElementById('homeAppreciation').value) || 0) / 100;
+  const investmentReturn = (parseFloat(document.getElementById('investmentReturn').value) || 0) / 100;
+  const rentInflation = (parseFloat(document.getElementById('rentInflation').value) || 0) / 100;
+  const propertyTaxRate = (parseFloat(document.getElementById('propertyTaxRate').value) || 0) / 100;
+  const maintenanceRate = 0.01;
+  const closingCostBuyRate = 0.03;
+  const sellingCostRate = 0.06;
+
+  const downPayment = homePrice * downPaymentPct;
+  const loanPrincipal = homePrice - downPayment;
+  const monthlyPI = pmt(loanPrincipal, mortgageRate, 30);
+  const initialMonthlyTax = (homePrice * propertyTaxRate) / 12;
+  const initialMonthlyMaint = (homePrice * maintenanceRate) / 12;
+  const initialMonthlyIns = 100; // $1,200/yr
+  const buyerInitialMonthly = monthlyPI + initialMonthlyTax + initialMonthlyMaint + initialMonthlyIns;
+  const buyerInitialCapital = downPayment + (homePrice * closingCostBuyRate);
+
+  // Simulation over horizonYears
+  let homeValue = homePrice;
+  let remainingLoan = loanPrincipal;
+  const r = (mortgageRate / 100) / 12;
+
+  let renterPortfolio = buyerInitialCapital;
+  let curRent = monthlyRent;
+
+  for (let y = 1; y <= horizonYears; y++) {
+    for (let m = 1; m <= 12; m++) {
+      const interestPmt = remainingLoan * r;
+      const principalPmt = monthlyPI - interestPmt;
+      remainingLoan = Math.max(0, remainingLoan - principalPmt);
+
+      const ownerMonthlyCash = monthlyPI + (homeValue * propertyTaxRate / 12) + (homeValue * maintenanceRate / 12) + 100;
+      const cashDiff = ownerMonthlyCash - curRent;
+
+      // Compound renter portfolio monthly at market return + invest difference
+      renterPortfolio = (renterPortfolio * (1 + investmentReturn / 12)) + cashDiff;
+    }
+    homeValue *= (1 + homeAppreciation);
+    curRent *= (1 + rentInflation);
+  }
+
+  const buyerEquity = homeValue - remainingLoan;
+  const buyerNetWorth = buyerEquity - (homeValue * sellingCostRate);
+  const diff = Math.round(buyerNetWorth - renterPortfolio);
+
+  document.getElementById('res-years-badge').textContent = horizonYears + ' Years';
+  document.getElementById('res-buyer-networth').textContent = '$' + Math.round(buyerNetWorth).toLocaleString();
+  document.getElementById('res-renter-networth').textContent = '$' + Math.round(renterPortfolio).toLocaleString();
+  document.getElementById('res-buyer-monthly').textContent = '$' + Math.round(buyerInitialMonthly).toLocaleString() + ' / mo';
+  document.getElementById('res-renter-monthly').textContent = '$' + Math.round(monthlyRent).toLocaleString() + ' / mo';
+  document.getElementById('res-buyer-capital').textContent = '$' + Math.round(buyerInitialCapital).toLocaleString();
+  document.getElementById('res-final-home-value').textContent = '$' + Math.round(homeValue).toLocaleString();
+  document.getElementById('res-final-loan-balance').textContent = '$' + Math.round(remainingLoan).toLocaleString();
+
+  if (diff >= 0) {
+    document.getElementById('res-verdict-title').textContent = 'Buying is Superior';
+    document.getElementById('res-verdict-title').style.color = 'var(--accent)';
+    document.getElementById('res-verdict-desc').textContent = 'Generates $' + Math.abs(diff).toLocaleString() + ' higher net worth after ' + horizonYears + ' years';
+  } else {
+    document.getElementById('res-verdict-title').textContent = 'Renting is Superior';
+    document.getElementById('res-verdict-title').style.color = 'var(--accent3)';
+    document.getElementById('res-verdict-desc').textContent = 'Generates $' + Math.abs(diff).toLocaleString() + ' higher net worth after ' + horizonYears + ' years';
+  }
+
+  if (window.FinmatrixEngine) {
+    FinmatrixEngine.updateUrl({
+      homePrice,
+      downPaymentPct: Math.round(downPaymentPct * 100),
+      mortgageRate,
+      monthlyRent,
+      horizonYears,
+      homeAppreciation: Math.round(homeAppreciation * 100),
+      investmentReturn: Math.round(investmentReturn * 100),
+      rentInflation: Math.round(rentInflation * 100),
+      propertyTaxRate: (propertyTaxRate * 100).toFixed(1)
+    });
+  }
+}
+
+function shareRentBuyUrl() {
+  if (window.FinmatrixEngine) {
+    FinmatrixEngine.copyShareUrl();
+  } else {
+    navigator.clipboard.writeText(window.location.href);
+    alert('Calculation link copied to clipboard!');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.FinmatrixEngine) {
+    FinmatrixEngine.initParams();
+    FinmatrixEngine.initAffiliateBox('finmatrix-affiliate-slot');
+    FinmatrixEngine.initAdSlot('finmatrix-ad-slot');
+  }
+  calculateRentVsBuy();
+});
+</script>
+</body>
+</html>

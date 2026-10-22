@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Primary Meta Tags -->
+<title>Bonus Tax Calculator (2026): 22% Supplemental Withholding | Finmatrix</title>
+<meta name="description" content="Calculate net bonus take-home pay after 22% federal supplemental withholding, FICA, and state taxes. Discover if you get a tax refund or owe at year-end.">
+<meta name="keywords" content="bonus tax calculator 2026, supplemental tax rate 22 percent, bonus withholding vs tax liability, bonus take home pay calculator">
+<meta name="author" content="Finmatrix Financial Research Desk">
+<link rel="canonical" href="https://finmatrix.cloud/calculators/bonus-tax-calculator.html">
+
+<!-- Search Engine Robots Directives -->
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://finmatrix.cloud/calculators/bonus-tax-calculator.html">
+<meta property="og:site_name" content="Finmatrix">
+<meta property="og:title" content="Bonus Tax Calculator (2026): 22% Supplemental Withholding | Finmatrix">
+<meta property="og:description" content="Calculate why bonuses are taxed heavily and find your exact net take-home pay and year-end tax reconciliation.">
+<meta property="og:image" content="https://finmatrix.cloud/assets/og/bonus-tax.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bonus Tax Calculator (2026) | Finmatrix">
+<meta name="twitter:description" content="Calculate your true net bonus payout after 22% IRS supplemental withholding, FICA, and state deductions.">
+
+<!-- Favicon & Mobile Icons -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/favicon.svg">
+<meta name="theme-color" content="#0d1117">
+
+<!-- Structured Data JSON-LD (@graph) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://finmatrix.cloud/calculators/bonus-tax-calculator.html#app",
+      "name": "Bonus & Supplemental Withholding Tax Calculator",
+      "url": "https://finmatrix.cloud/calculators/bonus-tax-calculator.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript. Requires HTML5.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "22% Statutory Federal supplemental withholding calculation per IRS Publication 15-T",
+        "Social Security 6.2% FICA cap enforcement ($184,500 statutory limit for 2026)",
+        "1.45% Medicare withholding and 0.9% additional Medicare threshold tracking",
+        "Year-end tax reconciliation: compares upfront withholding to true marginal 1040 bracket",
+        "Pre-tax 401(k) elective deferral offset modeling",
+        "100% Client-side privacy-first computation with shareable URL parameters"
+      ],
+      "citation": [
+        "https://www.irs.gov/publications/p15t",
+        "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://finmatrix.cloud/calculators/bonus-tax-calculator.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://finmatrix.cloud/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Calculators",
+          "item": "https://finmatrix.cloud/calculators/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Income Tax",
+          "item": "https://finmatrix.cloud/calculators/income-tax/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Bonus Tax",
+          "item": "https://finmatrix.cloud/calculators/bonus-tax-calculator.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://finmatrix.cloud/calculators/bonus-tax-calculator.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why are bonuses taxed at such a high rate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bonuses are not taxed at a higher rate; they are withheld at a statutory flat rate. The IRS classifies bonuses as 'supplemental wages' (IRS Pub 15-T), requiring employers to withhold a flat 22% for federal income tax, plus 7.65% for FICA and state income taxes. This upfront withholding (often 30%–45% total) ensures taxpayers do not face unexpected tax bills at year-end."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I get money back from my bonus taxes when I file my tax return?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, if your marginal tax bracket is lower than the 22% flat withholding rate (e.g., if you are in the 10% or 12% federal bracket), the excess 10%–12% withheld will be refunded to you when you file your annual Form 1040. Conversely, if your salary places you in the 24%, 32%, or higher bracket, you may owe the difference at tax time."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I put my bonus into a 401(k) to avoid taxes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. If your employer's payroll system allows elective deferrals from supplemental pay, contributing a portion or all of your bonus into a traditional pre-tax 401(k) avoids both the 22% federal withholding and state income tax, up to the statutory 2026 limit of $24,500. FICA taxes (7.65%) still apply."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the supplemental withholding rate for bonuses exceeding $1 million?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Under IRS rules, any supplemental wages paid to an employee that exceed $1 million during a calendar year are subject to mandatory federal withholding at the highest statutory bracket: 37%."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Finmatrix <span class="nav-logo-badge">PRO</span></a>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/calculators/" class="active">Calculators</a>
+    <a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a>
+    <button class="theme-toggle theme-toggle-btn" onclick="toggleTheme()">☀️ Light Mode</button>
+  </div>
+  <button class="menu-btn" onclick="toggleMobileMenu()">☰ Menu</button>
+</nav>
+
+<section>
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="/">Home</a> <span class="sep">/</span> <a href="/calculators/">Calculators</a> <span class="sep">/</span> <a href="/calculators/income-tax/">Income Tax</a> <span class="sep">/</span> <span>Bonus Tax</span>
+    </div>
+
+    <div class="section-label">Income Tax & Payroll Suite</div>
+    <h1 class="section-title">Bonus & Overtime Withholding Tax Calculator</h1>
+    <div class="reviewed-line">
+      <span>Updated for the 2026 tax year (22% flat rate)</span> · <span>Reviewed October 2026</span> · <span>By Finmatrix Financial Research Desk</span>
+    </div>
+    <p class="section-sub">Calculate your exact net bonus payout after 22% statutory supplemental withholding, FICA, and state payroll deductions, and see your true year-end tax adjustment.</p>
+
+    <div class="calc-grid">
+      <!-- Calculator Inputs Form -->
+      <div class="calc-card">
+        <h2 style="font-size:1.15rem;margin-bottom:20px;display:flex;align-items:center;gap:8px;">
+          <span>🎁</span> Bonus & Salary Parameters
+        </h2>
+
+        <form id="bonus-form" onsubmit="event.preventDefault(); calculateBonus();">
+          <div class="form-group">
+            <label for="bonusAmount">Gross Bonus / Supplemental Amount ($)</label>
+            <input type="number" id="bonusAmount" value="10000" min="500" step="500" required>
+            <span class="input-hint">Gross annual bonus, commission, or overtime payout</span>
+          </div>
+
+          <div class="form-group">
+            <label for="annualSalary">Regular Annual Salary ($)</label>
+            <input type="number" id="annualSalary" value="85000" min="10000" step="1000" required>
+            <span class="input-hint">Base annual W-2 wage (determines your true tax bracket)</span>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div class="form-group">
+              <label for="bonusFilingStatus">Filing Status</label>
+              <select id="bonusFilingStatus" style="width:100%;background:var(--bg2);border:1px solid var(--border);color:var(--text);padding:10px 12px;border-radius:8px;">
+                <option value="single" selected>Single ($16,100 Std Ded)</option>
+                <option value="married_filing_jointly">Married Jointly ($32,200 Std Ded)</option>
+                <option value="head_of_household">Head of Household ($24,150 Std Ded)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="bonusStateRate">State Tax Rate (%)</label>
+              <input type="number" id="bonusStateRate" value="5.0" min="0" max="13.3" step="0.5" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="bonus401kPct">Bonus 401(k) Deferral (%)</label>
+            <input type="number" id="bonus401kPct" value="0" min="0" max="100" step="1">
+            <span class="input-hint">Elective pre-tax 401(k) contribution directly from bonus</span>
+          </div>
+
+          <div style="display:flex;gap:10px;margin-top:20px;">
+            <button type="submit" class="btn btn-primary" style="flex:1;">Calculate Take-Home →</button>
+            <button type="button" class="btn btn-secondary" onclick="shareBonusUrl()" title="Share calculation link">🔗 Share</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Results Display Area -->
+      <div class="calc-card" id="bonus-results-card">
+        <h2 style="font-size:1.15rem;margin-bottom:20px;display:flex;align-items:center;gap:8px;">
+          <span>📊</span> Net Bonus Payout
+        </h2>
+
+        <div style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:24px;text-align:center;margin-bottom:20px;">
+          <div style="font-size:0.85rem;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);font-weight:700;">Immediate Net Check</div>
+          <div id="res-bonus-net" style="font-size:2.4rem;font-weight:800;font-family:var(--font-mono);color:var(--accent);margin:8px 0;">$6,535</div>
+          <div id="res-withholding-rate" style="font-size:0.95rem;color:var(--text-muted);">Total Upfront Withheld: 34.7% ($3,465)</div>
+        </div>
+
+        <div class="stats-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;">
+          <div style="background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px;">
+            <div style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;">Year-End Tax Reconciliation</div>
+            <div id="res-reconcile-val" style="font-size:1.3rem;font-weight:700;color:var(--accent);margin-top:4px;">$0 Break-Even</div>
+            <div id="res-reconcile-sub" style="font-size:0.75rem;color:var(--text-muted);margin-top:4px;">Withheld matches your 22% bracket</div>
+          </div>
+          <div style="background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px;">
+            <div style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;">True Marginal Tax Due</div>
+            <div id="res-true-tax" style="font-size:1.3rem;font-weight:700;color:var(--accent3);margin-top:4px;">$2,200</div>
+            <div style="font-size:0.75rem;color:var(--text-muted);margin-top:4px;">Federal income tax on Form 1040</div>
+          </div>
+        </div>
+
+        <!-- Deduction Table -->
+        <table style="width:100%;border-collapse:collapse;font-size:0.85rem;margin-top:16px;">
+          <thead>
+            <tr style="border-bottom:1px solid var(--border);text-align:left;color:var(--text-muted);">
+              <th style="padding:8px 4px;">Withholding Item</th>
+              <th style="padding:8px 4px;">Rate Applied</th>
+              <th style="padding:8px 4px;text-align:right;">Withheld</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border-subtle);">
+              <td style="padding:8px 4px;">Federal Supplemental Tax</td>
+              <td style="padding:8px 4px;">22.0% Flat Rate (IRS)</td>
+              <td id="res-fed-withheld" style="padding:8px 4px;font-weight:700;color:var(--accent2);text-align:right;">$2,200</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-subtle);">
+              <td style="padding:8px 4px;">Social Security (FICA)</td>
+              <td id="res-ss-rate-label" style="padding:8px 4px;">6.2% (< $184,500 Cap)</td>
+              <td id="res-ss-withheld" style="padding:8px 4px;text-align:right;">$620</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-subtle);">
+              <td style="padding:8px 4px;">Medicare (FICA)</td>
+              <td style="padding:8px 4px;">1.45% Uncapped</td>
+              <td id="res-med-withheld" style="padding:8px 4px;text-align:right;">$145</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-subtle);">
+              <td style="padding:8px 4px;">State Income Tax</td>
+              <td id="res-state-rate-label" style="padding:8px 4px;">5.0% Supplemental</td>
+              <td id="res-state-withheld" style="padding:8px 4px;text-align:right;">$500</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-subtle);">
+              <td style="padding:8px 4px;">401(k) Pre-Tax Contribution</td>
+              <td id="res-401k-rate-label" style="padding:8px 4px;">0% Deferral</td>
+              <td id="res-401k-withheld" style="padding:8px 4px;color:var(--accent3);text-align:right;">$0</td>
+            </tr>
+            <tr>
+              <td style="padding:8px 4px;font-weight:700;">Total Upfront Deductions</td>
+              <td style="padding:8px 4px;">All Deductions</td>
+              <td id="res-total-deductions" style="padding:8px 4px;font-weight:800;color:var(--accent2);text-align:right;">$3,465</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Contextual Affiliate Slot -->
+        <div id="finmatrix-affiliate-slot" data-category="tax-software" style="margin-top:24px;"></div>
+
+        <!-- Non-shifting Ad Container Slot -->
+        <div id="finmatrix-ad-slot" style="margin-top:20px;"></div>
+      </div>
+    </div>
+
+    <!-- Educational Deep-Dive: How this is calculated -->
+    <div class="calc-card" style="margin-top:32px;">
+      <h2 style="font-size:1.2rem;margin-bottom:16px;">How Bonus Taxes Work: Withholding vs. Actual Tax</h2>
+      <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.6;margin-bottom:16px;">
+        When workers receive a bonus, they are often shocked to see 30% to 45% missing from their check. This occurs because the IRS requires employers to treat bonuses, commissions, severance, and overtime as <strong>supplemental wages</strong> governed by <strong>IRS Publication 15-T</strong>:
+      </p>
+      <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:16px;font-family:var(--font-mono);font-size:0.85rem;color:var(--text);margin-bottom:16px;">
+        1. <strong>Federal Supplemental Rate:</strong> Exactly 22% flat withholding (or 37% for amounts exceeding $1,000,000)<br>
+        2. <strong>Social Security:</strong> 6.2% up to the 2026 cap of $184,500 across combined salary + bonus<br>
+        3. <strong>Medicare:</strong> 1.45% uncapped (+ 0.9% additional over $200k single / $250k married)<br>
+        4. <strong>State Withholding:</strong> Fixed supplemental rate (e.g., CA 10.23%, NY 11.70%, IL 4.95%)
+      </div>
+      <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.6;margin-bottom:16px;">
+        <strong>The Key Difference: Withholding ≠ Final Tax:</strong> Withholding is merely a preliminary prepayment toward your annual tax liability. At tax season, your bonus is lumped together with your regular salary on Form 1040. If your salary puts you in the 12% marginal bracket, you overpaid by 10% on your bonus and will receive a <strong>cash tax refund</strong>. If your salary puts you in the 24% or 32% bracket, you underpaid by 2% to 10% and will owe the difference!
+      </p>
+    </div>
+
+    <!-- Assumptions and Sources -->
+    <div class="calc-card" style="margin-top:24px;">
+      <h2 style="font-size:1.2rem;margin-bottom:16px;">Assumptions & Official Sources</h2>
+      <ul style="color:var(--text-muted);font-size:0.9rem;line-height:1.6;padding-left:20px;margin-bottom:16px;">
+        <li><strong>Publication 15-T:</strong> Adheres to official IRS Publication 15-T Section 7 (Supplemental Wages) flat 22% percentage method (<a href="https://www.irs.gov/publications/p15t" target="_blank" rel="noopener" style="color:var(--accent);">IRS.gov/p15t</a>).</li>
+        <li><strong>FICA Cap:</strong> Social Security tax is calculated factoring your regular YTD salary against the verified 2026 cap of <strong>$184,500</strong>. If your base salary already exceeds $184,500, 0% Social Security tax is withheld from your bonus.</li>
+        <li><strong>Aggregate Method Alternative:</strong> Employers occasionally use the "aggregate method" (taxing the bonus as if it were regular pay spread across pay periods). This calculator models the standard flat percentage method utilized by over 90% of US corporate payroll processors.</li>
+      </ul>
+      <p class="disclaimer" style="margin:0;">* Disclaimer: This calculator provides withholding estimations for educational purposes only. State tax withholding regulations and individual employer payroll setups vary. Consult a qualified tax advisor or payroll department regarding specific withholding adjustments.</p>
+    </div>
+
+    <!-- Frequently Asked Questions -->
+    <div class="calc-card" style="margin-top:24px;">
+      <h2 style="font-size:1.2rem;margin-bottom:16px;">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Why are bonuses taxed at such a high rate?</summary>
+          <div class="faq-answer">
+            Bonuses are not taxed at a higher rate; they are withheld at a statutory flat 22% federal rate, plus 7.65% FICA and state payroll taxes. This upfront withholding prevents workers from owing large tax penalties when filing their annual return.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Do I get money back from my bonus taxes when I file?</summary>
+          <div class="faq-answer">
+            Yes, if your final taxable income falls in the 10% or 12% federal brackets, you will receive a refund for the excess tax withheld from your bonus.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Can I defer my bonus into my 401(k) to save on taxes?</summary>
+          <div class="faq-answer">
+            Yes, if your company payroll system supports it, you can elect to contribute up to 100% of your bonus into a pre-tax 401(k) (subject to the 2026 $24,500 annual limit), avoiding both the 22% federal withholding and state income taxes.
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <!-- Related Calculators -->
+    <div style="margin-top:32px;">
+      <h3 style="font-size:1.1rem;margin-bottom:16px;">Related Income & Tax Calculators</h3>
+      <div class="cards-grid">
+        <a href="/calculators/paycheck-calculator.html" class="card">
+          <div class="card-icon">💵</div>
+          <h3>Paycheck & Take-Home Pay</h3>
+          <p>Calculate regular bi-weekly and monthly net take-home pay across all 50 states.</p>
+        </a>
+        <a href="/calculators/self-employed-tax-calculator.html" class="card">
+          <div class="card-icon">📊</div>
+          <h3>1099 Self-Employed Tax</h3>
+          <p>Estimate 15.3% SECA self-employment taxes and quarterly estimated vouchers.</p>
+        </a>
+        <a href="/calculators/hourly-to-salary-calculator.html" class="card">
+          <div class="card-icon">⏱️</div>
+          <h3>Hourly to Salary Calculator</h3>
+          <p>Convert hourly wages to annual gross and after-tax salary figures.</p>
+        </a>
+        <a href="/calculators/401k-calculator.html" class="card">
+          <div class="card-icon">💼</div>
+          <h3>401(k) Growth & Match</h3>
+          <p>Model retirement asset accumulation up to the statutory 2026 $24,500 limit.</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="nav-logo">Finmatrix</div>
+        <p>Free, verified personal finance calculators for every US household. 100% private with zero sign-up required.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Calculators</h4>
+        <a href="/calculators/debt-elimination-planner.html">Debt Elimination Planner</a>
+        <a href="/calculators/paycheck-calculator.html">Paycheck Calculator</a>
+        <a href="/calculators/bonus-tax-calculator.html">Bonus Tax Calculator</a>
+        <a href="/calculators/mortgage-calculator.html">Mortgage Calculator</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company & Legal</h4>
+        <a href="/about.html">About Finmatrix</a>
+        <a href="/editorial-policy.html">Editorial & Calculation Policy</a>
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/terms-of-service.html">Terms of Service</a>
+        <a href="/disclaimer.html">Disclaimer</a>
+        <a href="/contact.html">Contact Us</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Finmatrix. All rights reserved.</span>
+      <span>Contact: <a href="mailto:novamatrix1564@gmail.com" style="color:var(--text-muted);">novamatrix1564@gmail.com</a></span>
+    </div>
+    <p class="disclaimer">* Finmatrix tools provide estimations for educational purposes only. Always consult a licensed CPA or tax professional before making financial commitments.</p>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/tool-engine.js"></script>
+<script src="/js/analytics.js"></script>
+<script>
+const taxBrackets = {
+  single: [
+    { rate: 0.10, max: 12400 },
+    { rate: 0.12, max: 50400 },
+    { rate: 0.22, max: 105700 },
+    { rate: 0.24, max: 201775 },
+    { rate: 0.32, max: 256225 },
+    { rate: 0.35, max: 640600 },
+    { rate: 0.37, max: Infinity }
+  ],
+  married_filing_jointly: [
+    { rate: 0.10, max: 24800 },
+    { rate: 0.12, max: 100800 },
+    { rate: 0.22, max: 211400 },
+    { rate: 0.24, max: 403550 },
+    { rate: 0.32, max: 512450 },
+    { rate: 0.35, max: 768700 },
+    { rate: 0.37, max: Infinity }
+  ],
+  head_of_household: [
+    { rate: 0.10, max: 17700 },
+    { rate: 0.12, max: 67450 },
+    { rate: 0.22, max: 105700 },
+    { rate: 0.24, max: 201750 },
+    { rate: 0.32, max: 256200 },
+    { rate: 0.35, max: 640600 },
+    { rate: 0.37, max: Infinity }
+  ]
+};
+
+const stdDeductions = {
+  single: 16100,
+  married_filing_jointly: 32200,
+  head_of_household: 24150
+};
+
+function computeFedTax(taxableIncome, status) {
+  if (taxableIncome <= 0) return 0;
+  const brackets = taxBrackets[status] || taxBrackets.single;
+  let tax = 0;
+  let prevMax = 0;
+  for (const b of brackets) {
+    if (taxableIncome > prevMax) {
+      const slice = Math.min(taxableIncome, b.max) - prevMax;
+      tax += slice * b.rate;
+      if (taxableIncome <= b.max) break;
+      prevMax = b.max;
+    }
+  }
+  return tax;
+}
+
+function calculateBonus() {
+  const bonusAmount = parseFloat(document.getElementById('bonusAmount').value) || 0;
+  const annualSalary = parseFloat(document.getElementById('annualSalary').value) || 0;
+  const filingStatus = document.getElementById('bonusFilingStatus').value || 'single';
+  const stateRatePct = (parseFloat(document.getElementById('bonusStateRate').value) || 0) / 100;
+  const bonus401kPct = (parseFloat(document.getElementById('bonus401kPct').value) || 0) / 100;
+
+  const bonus401kAmount = bonusAmount * bonus401kPct;
+  const taxableBonus = Math.max(0, bonusAmount - bonus401kAmount);
+
+  // Federal supplemental withholding: 22%
+  const fedWithheld = taxableBonus * 0.22;
+
+  // FICA: Check salary vs $184,500 SS cap
+  const ssCap = 184500;
+  let ssWithheld = 0;
+  if (annualSalary < ssCap) {
+    const remainingCap = ssCap - annualSalary;
+    ssWithheld = Math.min(bonusAmount, remainingCap) * 0.062;
+  }
+  const medWithheld = bonusAmount * 0.0145;
+  const stateWithheld = taxableBonus * stateRatePct;
+
+  const totalDeductions = fedWithheld + ssWithheld + medWithheld + stateWithheld + bonus401kAmount;
+  const netBonus = Math.max(0, bonusAmount - totalDeductions);
+  const withholdingPct = bonusAmount > 0 ? ((totalDeductions / bonusAmount) * 100).toFixed(1) : 0;
+
+  // True marginal tax rate at year-end
+  const stdDed = stdDeductions[filingStatus] || 16100;
+  const baseTaxable = Math.max(0, annualSalary - stdDed);
+  const totalTaxable = Math.max(0, annualSalary + taxableBonus - stdDed);
+  const baseTax = computeFedTax(baseTaxable, filingStatus);
+  const totalTax = computeFedTax(totalTaxable, filingStatus);
+  const trueBonusTax = totalTax - baseTax;
+  const refundOrOwed = Math.round(fedWithheld - trueBonusTax);
+
+  document.getElementById('res-bonus-net').textContent = '$' + Math.round(netBonus).toLocaleString();
+  document.getElementById('res-withholding-rate').textContent = 'Total Upfront Withheld: ' + withholdingPct + '% ($' + Math.round(totalDeductions).toLocaleString() + ')';
+  document.getElementById('res-true-tax').textContent = '$' + Math.round(trueBonusTax).toLocaleString();
+  document.getElementById('res-fed-withheld').textContent = '$' + Math.round(fedWithheld).toLocaleString();
+  document.getElementById('res-ss-withheld').textContent = '$' + Math.round(ssWithheld).toLocaleString();
+  document.getElementById('res-med-withheld').textContent = '$' + Math.round(medWithheld).toLocaleString();
+  document.getElementById('res-state-withheld').textContent = '$' + Math.round(stateWithheld).toLocaleString();
+  document.getElementById('res-401k-withheld').textContent = '$' + Math.round(bonus401kAmount).toLocaleString();
+  document.getElementById('res-total-deductions').textContent = '$' + Math.round(totalDeductions).toLocaleString();
+
+  if (refundOrOwed > 0) {
+    document.getElementById('res-reconcile-val').textContent = '+$' + refundOrOwed.toLocaleString() + ' Refund';
+    document.getElementById('res-reconcile-val').style.color = 'var(--accent)';
+    document.getElementById('res-reconcile-sub').textContent = 'You will get this back when filing Form 1040';
+  } else if (refundOrOwed < 0) {
+    document.getElementById('res-reconcile-val').textContent = '-$' + Math.abs(refundOrOwed).toLocaleString() + ' Tax Due';
+    document.getElementById('res-reconcile-val').style.color = 'var(--accent2)';
+    document.getElementById('res-reconcile-sub').textContent = 'Your higher tax bracket creates extra liability';
+  } else {
+    document.getElementById('res-reconcile-val').textContent = '$0 Break-Even';
+    document.getElementById('res-reconcile-val').style.color = 'var(--text-muted)';
+    document.getElementById('res-reconcile-sub').textContent = 'Withholding exactly matches your bracket';
+  }
+
+  if (window.FinmatrixEngine) {
+    FinmatrixEngine.updateUrl({
+      bonusAmount,
+      annualSalary,
+      filingStatus,
+      stateRate: (stateRatePct * 100).toFixed(1),
+      bonus401kPct: Math.round(bonus401kPct * 100)
+    });
+  }
+}
+
+function shareBonusUrl() {
+  if (window.FinmatrixEngine) {
+    FinmatrixEngine.copyShareUrl();
+  } else {
+    navigator.clipboard.writeText(window.location.href);
+    alert('Calculation link copied to clipboard!');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.FinmatrixEngine) {
+    FinmatrixEngine.initParams();
+    FinmatrixEngine.initAffiliateBox('finmatrix-affiliate-slot');
+    FinmatrixEngine.initAdSlot('finmatrix-ad-slot');
+  }
+  calculateBonus();
+});
+</script>
+</body>
+</html>

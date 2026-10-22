@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Primary Meta Tags -->
+<title>401(k) Growth & Employer Match Calculator (2026: $24,500) | Finmatrix</title>
+<meta name="description" content="Calculate your future 401(k) retirement balance with employer match formulas, salary increases, and updated 2026 IRS contribution caps ($24,500). Free & private.">
+<meta name="keywords" content="401k calculator, 401k match calculator, 401k contribution limits 2026, 401k retirement growth calculator">
+<meta name="author" content="Finmatrix Financial Research Desk">
+<link rel="canonical" href="https://finmatrix.cloud/calculators/401k-calculator.html">
+
+<!-- Search Engine Robots Directives -->
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://finmatrix.cloud/calculators/401k-calculator.html">
+<meta property="og:site_name" content="Finmatrix">
+<meta property="og:title" content="401(k) Growth & Employer Match Calculator (2026) | Finmatrix">
+<meta property="og:description" content="Project your 401(k) retirement nest egg with employer match tiers and 2026 IRS limits ($24,500).">
+<meta property="og:image" content="https://finmatrix.cloud/assets/og/401k-calculator.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="401(k) Calculator (2026 Limits) | Finmatrix">
+<meta name="twitter:description" content="Model employer match matching formulas and 401(k) compound growth under 2026 IRS rules.">
+
+<!-- Favicon & Mobile Icons -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/favicon.svg">
+<meta name="theme-color" content="#0d1117">
+
+<!-- Structured Data JSON-LD (@graph) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://finmatrix.cloud/calculators/401k-calculator.html#app",
+      "name": "401(k) Growth & Employer Match Calculator",
+      "url": "https://finmatrix.cloud/calculators/401k-calculator.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript. Requires HTML5.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "2026 statutory elective deferral limit enforcement ($24,500 / $8,000 catch-up 50+)",
+        "Tiered employer match modeling (e.g., 50% match up to 6% of salary)",
+        "Annual salary growth and wage progression simulation",
+        "Compound investment growth curve over 1 to 40 years",
+        "100% Client-side privacy-first computation with shareable URL parameters"
+      ],
+      "citation": [
+        "https://www.irs.gov/newsroom/401k-limit-increases-for-2026",
+        "https://www.dol.gov/general/topic/retirement/typesofplans"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://finmatrix.cloud/calculators/401k-calculator.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://finmatrix.cloud/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Calculators",
+          "item": "https://finmatrix.cloud/calculators/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Savings & Investing",
+          "item": "https://finmatrix.cloud/calculators/savings-investing/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "401(k) Growth & Match",
+          "item": "https://finmatrix.cloud/calculators/401k-calculator.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://finmatrix.cloud/calculators/401k-calculator.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the 401(k) contribution limit for the 2026 tax year?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For the 2026 tax year, the employee elective deferral limit is $24,500. Workers aged 50 and older can make an additional catch-up contribution of $8,000, bringing their maximum elective deferral to $32,500. The combined limit for employee plus employer contributions is $72,000."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does an employer 401(k) match work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An employer match is additional money contributed by your employer based on your own contributions. A common formula is a 50% match up to 6% of your salary. If you earn $100,000 and contribute 6% ($6,000), your employer contributes an extra 3% ($3,000) of free money directly into your account."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does an employer match count toward the $24,500 limit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The $24,500 limit applies strictly to employee elective deferrals. Employer matching contributions count toward the broader IRC Section 415(c) total annual additions limit, which is $72,000 in 2026."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the vesting schedule for employer matching?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Your own 401(k) contributions are always 100% immediately vested. Employer matching contributions, however, may be subject to a vesting schedule (either 'cliff' vesting over 1–3 years or 'graded' vesting of 20% per year over 5–6 years). If you leave before fully vesting, you forfeit the unvested employer portion."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Finmatrix <span class="nav-logo-badge">PRO</span></a>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/calculators/" class="active">Calculators</a>
+    <a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a>
+    <button class="theme-toggle theme-toggle-btn" onclick="toggleTheme()">☀️ Light Mode</button>
+  </div>
+  <button class="menu-btn" onclick="toggleMobileMenu()">☰ Menu</button>
+</nav>
+
+<section>
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="/">Home</a> <span class="sep">/</span> <a href="/calculators/">Calculators</a> <span class="sep">/</span> <a href="/calculators/savings-investing/">Savings & Investing</a> <span class="sep">/</span> <span>401(k) Growth</span>
+    </div>
+
+    <div class="section-label">Savings & Retirement Suite</div>
+    <h1 class="section-title">401(k) Growth & Employer Match Calculator (2026)</h1>
+    <div class="reviewed-line">
+      <span>Updated for the 2026 tax year ($24,500 limit)</span> · <span>Reviewed October 2026</span> · <span>By Finmatrix Financial Research Desk</span>
+    </div>
+    <p class="section-sub">Project your retirement wealth accumulation, capture 100% of your company's matching formula, and model compound returns under statutory 2026 IRS caps.</p>
+
+    <div class="calc-grid">
+      <!-- Calculator Inputs Form -->
+      <div class="calc-card">
+        <h2 style="font-size:1.15rem;margin-bottom:20px;display:flex;align-items:center;gap:8px;">
+          <span>💼</span> 401(k) Contribution Parameters
+        </h2>
+
+        <form id="k-form" onsubmit="event.preventDefault(); calculate401k();">
+          <div class="form-group">
+            <label for="currentSalary">Current Annual Salary ($)</label>
+            <input type="number" id="currentSalary" value="100000" min="15000" step="1000" required>
+            <span class="input-hint">Your base annual gross earnings</span>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div class="form-group">
+              <label for="employeePct">Your Contribution (%)</label>
+              <input type="number" id="employeePct" value="10" min="1" max="100" step="0.5" required>
+              <span class="input-hint">Capped at $24,500/yr (2026)</span>
+            </div>
+            <div class="form-group">
+              <label for="salaryGrowthPct">Salary Growth (%/yr)</label>
+              <input type="number" id="salaryGrowthPct" value="3.0" min="0" max="15.0" step="0.5" required>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div class="form-group">
+              <label for="matchRatio">Employer Match Ratio (%)</label>
+              <select id="matchRatio" style="width:100%;background:var(--bg2);border:1px solid var(--border);color:var(--text);padding:10px 12px;border-radius:8px;">
+                <option value="0.50" selected>50% Match (Common)</option>
+                <option value="1.00">100% Dollar-for-Dollar</option>
+                <option value="0.25">25% Match</option>
+                <option value="0">0% No Match</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="matchCapPct">Match Cap (% of Salary)</label>
+              <input type="number" id="matchCapPct" value="6" min="0" max="15" step="0.5" required>
+              <span class="input-hint">e.g. 50% up to 6% = 3% max</span>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div class="form-group">
+              <label for="currentBalance">Current 401(k) Balance ($)</label>
+              <input type="number" id="currentBalance" value="50000" min="0" step="1000">
+            </div>
+            <div class="form-group">
+              <label for="yearsToRetire">Years Until Retirement</label>
+              <input type="number" id="yearsToRetire" value="25" min="1" max="45" step="1" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="portfolioReturn">Expected Annual Return (%)</label>
+            <input type="number" id="portfolioReturn" value="7.0" min="1.0" max="15.0" step="0.5" required>
+            <span class="input-hint">Historical broad-market equity return is ~7.0%</span>
+          </div>
+
+          <div style="display:flex;gap:10px;margin-top:20px;">
+            <button type="submit" class="btn btn-primary" style="flex:1;">Project 401(k) Growth →</button>
+            <button type="button" class="btn btn-secondary" onclick="share401kUrl()" title="Share calculation link">🔗 Share</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Results Display Area -->
+      <div class="calc-card" id="k-results-card">
+        <h2 style="font-size:1.15rem;margin-bottom:20px;display:flex;align-items:center;gap:8px;">
+          <span>📊</span> Projected Retirement Nest Egg
+        </h2>
+
+        <div style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:24px;text-align:center;margin-bottom:20px;">
+          <div style="font-size:0.85rem;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);font-weight:700;">401(k) Balance in <span id="res-years-badge">25 Years</span></div>
+          <div id="res-future-balance" style="font-size:2.4rem;font-weight:800;font-family:var(--font-mono);color:var(--accent);margin:8px 0;">$1,348,220</div>
+          <div id="res-nest-egg-sub" style="font-size:0.95rem;color:var(--text-muted);">Provides ~$53,928 / yr at 4% safe withdrawal</div>
+        </div>
+
+        <div class="stats-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;">
+          <div style="background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px;">
+            <div style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;">Employer "Free Money"</div>
+            <div id="res-employer-total" style="font-size:1.3rem;font-weight:700;color:var(--accent3);margin-top:4px;">$109,378</div>
+            <div style="font-size:0.75rem;color:var(--text-muted);margin-top:4px;">100% company matching</div>
+          </div>
+          <div style="background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px;">
+            <div style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;">Compound Interest Growth</div>
+            <div id="res-compound-growth" style="font-size:1.3rem;font-weight:700;color:var(--accent);margin-top:4px;">$824,249</div>
+            <div style="font-size:0.75rem;color:var(--text-muted);margin-top:4px;">Pure market earnings</div>
+          </div>
+        </div>
+
+        <!-- Breakdown Table -->
+        <table style="width:100%;border-collapse:collapse;font-size:0.85rem;margin-top:16px;">
+          <thead>
+            <tr style="border-bottom:1px solid var(--border);text-align:left;color:var(--text-muted);">
+              <th style="padding:8px 4px;">Contribution Source</th>
+              <th style="padding:8px 4px;">Year 1 Annual</th>
+              <th style="padding:8px 4px;text-align:right;color:var(--accent);">Cumulative Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border-subtle);">
+              <td style="padding:8px 4px;">Your Employee Contributions</td>
+              <td id="res-year1-employee" style="padding:8px 4px;">$10,000 / yr</td>
+              <td id="res-total-employee" style="padding:8px 4px;font-weight:700;text-align:right;">$364,593</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-subtle);">
+              <td style="padding:8px 4px;">Company Matching</td>
+              <td id="res-year1-match" style="padding:8px 4px;color:var(--accent3);">$3,000 / yr</td>
+              <td id="res-total-match" style="padding:8px 4px;font-weight:700;color:var(--accent3);text-align:right;">$109,378</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-subtle);">
+              <td style="padding:8px 4px;">Current Starting Balance</td>
+              <td style="padding:8px 4px;">Lump Sum</td>
+              <td id="res-starting-balance" style="padding:8px 4px;text-align:right;">$50,000</td>
+            </tr>
+            <tr>
+              <td style="padding:8px 4px;font-weight:700;">Final Portfolio Value</td>
+              <td style="padding:8px 4px;">At Retirement</td>
+              <td id="res-total-final" style="padding:8px 4px;font-weight:800;color:var(--accent);text-align:right;">$1,348,220</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Contextual Affiliate Slot -->
+        <div id="finmatrix-affiliate-slot" data-category="tax-software" style="margin-top:24px;"></div>
+
+        <!-- Non-shifting Ad Container Slot -->
+        <div id="finmatrix-ad-slot" style="margin-top:20px;"></div>
+      </div>
+    </div>
+
+    <!-- Educational Deep-Dive: How this is calculated -->
+    <div class="calc-card" style="margin-top:32px;">
+      <h2 style="font-size:1.2rem;margin-bottom:16px;">How 401(k) Compound Growth & Matching Work</h2>
+      <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.6;margin-bottom:16px;">
+        A 401(k) combines two of the most potent wealth multipliers in personal finance: <strong>immediate employer matching (an instant 50% to 100% return)</strong> and <strong>tax-deferred compounding</strong>:
+      </p>
+      <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:16px;font-family:var(--font-mono);font-size:0.85rem;color:var(--text);margin-bottom:16px;">
+        1. <strong>Employee Deferral:</strong> min(Salary × Contribution %, $24,500 statutory 2026 cap)<br>
+        2. <strong>Employer Match:</strong> Salary × min(Contribution %, Match Cap %) × Match Ratio<br>
+        3. <strong>Annual Compound Engine:</strong> Ending Balance = (Starting Balance + Total Annual Additions) × (1 + Return %)
+      </div>
+      <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.6;margin-bottom:16px;">
+        <strong>The "Free Money" Rule:</strong> Financial advisors universally recommend contributing at least enough to capture your full employer match. For example, if your employer offers a 50% match up to 6% of salary, contributing 6% guarantees an immediate 50% risk-free return before your money even enters the stock market.
+      </p>
+      <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.6;">
+        <strong>Worked Example:</strong> On a <strong>$100,000 salary</strong> with a 10% contribution ($10,000/yr) and a 50% match up to 6% ($3,000/yr), you invest $13,000 annually. Over 25 years with 3% annual salary raises and a 7.0% return on an initial $50,000 balance, your personal out-of-pocket contributions total <strong>$364,593</strong>. Meanwhile, your employer contributes <strong>$109,378</strong>, and compound interest produces <strong>$824,249</strong>, yielding a final nest egg of <strong>$1,348,220</strong>!
+      </p>
+    </div>
+
+    <!-- Assumptions and Sources -->
+    <div class="calc-card" style="margin-top:24px;">
+      <h2 style="font-size:1.2rem;margin-bottom:16px;">Assumptions & Official Sources</h2>
+      <ul style="color:var(--text-muted);font-size:0.9rem;line-height:1.6;padding-left:20px;margin-bottom:16px;">
+        <li><strong>Statutory Elective Deferral Limit:</strong> Employee contributions are capped at <strong>$24,500</strong> for the 2026 tax year per IRS Notice 2025-xx (<a href="https://www.irs.gov/newsroom/401k-limit-increases-for-2026" target="_blank" rel="noopener" style="color:var(--accent);">IRS.gov</a>).</li>
+        <li><strong>Vesting Schedule:</strong> Assumes the employee is 100% vested in all employer matching contributions upon retirement.</li>
+        <li><strong>Compounding Standard:</strong> Modeled with annual end-of-year compounding and salary indexation.</li>
+        <li><strong>Source Citations:</strong> Employee Benefits Security Administration (EBSA) Retirement Plan Guides (<a href="https://www.dol.gov/agencies/ebsa" target="_blank" rel="noopener" style="color:var(--accent);">DOL.gov/ebsa</a>).</li>
+      </ul>
+      <p class="disclaimer" style="margin:0;">* Disclaimer: Investment returns fluctuate and are not guaranteed. This calculator does not account for plan administration fees, mutual fund expense ratios, or inflation discounting.</p>
+    </div>
+
+    <!-- Frequently Asked Questions -->
+    <div class="calc-card" style="margin-top:24px;">
+      <h2 style="font-size:1.2rem;margin-bottom:16px;">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>What is the 2026 401(k) contribution limit?</summary>
+          <div class="faq-answer">
+            The 2026 employee elective deferral limit is $24,500. Savers aged 50 and older can contribute an extra $8,000 catch-up contribution, for a total of $32,500.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>How does an employer match work?</summary>
+          <div class="faq-answer">
+            An employer match is when your employer deposits money into your 401(k) based on your contributions, such as 50 cents per dollar up to 6% of your salary.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Does company match count toward the $24,500 limit?</summary>
+          <div class="faq-answer">
+            No. The $24,500 limit applies only to employee salary deferrals. Total additions (employee + employer) can reach up to $72,000 in 2026.
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <!-- Related Calculators -->
+    <div style="margin-top:32px;">
+      <h3 style="font-size:1.1rem;margin-bottom:16px;">Related Retirement & Savings Calculators</h3>
+      <div class="cards-grid">
+        <a href="/calculators/roth-vs-traditional-ira-calculator.html" class="card">
+          <div class="card-icon">🏦</div>
+          <h3>Roth vs. Traditional IRA</h3>
+          <p>Compare tax-free Roth growth against upfront Traditional IRA deductions under 2026 limits.</p>
+        </a>
+        <a href="/calculators/compound-interest-calculator.html" class="card">
+          <div class="card-icon">📈</div>
+          <h3>Compound Interest Calculator</h3>
+          <p>Simulate how recurring monthly deposits compound over decades in index funds.</p>
+        </a>
+        <a href="/calculators/fire-calculator.html" class="card">
+          <div class="card-icon">🔥</div>
+          <h3>FIRE Early Retirement</h3>
+          <p>Calculate your Financial Independence number based on 25x annual spending.</p>
+        </a>
+        <a href="/calculators/paycheck-calculator.html" class="card">
+          <div class="card-icon">💵</div>
+          <h3>Paycheck & Take-Home Pay</h3>
+          <p>See exactly how increasing your 401(k) contribution lowers your federal taxable paycheck.</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="nav-logo">Finmatrix</div>
+        <p>Free, verified personal finance calculators for every US household. 100% private with zero sign-up required.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Calculators</h4>
+        <a href="/calculators/debt-elimination-planner.html">Debt Elimination Planner</a>
+        <a href="/calculators/paycheck-calculator.html">Paycheck Calculator</a>
+        <a href="/calculators/401k-calculator.html">401(k) Calculator</a>
+        <a href="/calculators/mortgage-calculator.html">Mortgage Calculator</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company & Legal</h4>
+        <a href="/about.html">About Finmatrix</a>
+        <a href="/editorial-policy.html">Editorial & Calculation Policy</a>
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/terms-of-service.html">Terms of Service</a>
+        <a href="/disclaimer.html">Disclaimer</a>
+        <a href="/contact.html">Contact Us</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Finmatrix. All rights reserved.</span>
+      <span>Contact: <a href="mailto:novamatrix1564@gmail.com" style="color:var(--text-muted);">novamatrix1564@gmail.com</a></span>
+    </div>
+    <p class="disclaimer">* Finmatrix tools provide estimations for educational purposes only. Always consult a licensed CFP® or tax advisor before making major financial commitments.</p>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/tool-engine.js"></script>
+<script src="/js/analytics.js"></script>
+<script>
+function calculate401k() {
+  const currentSalary = parseFloat(document.getElementById('currentSalary').value) || 0;
+  const employeePct = (parseFloat(document.getElementById('employeePct').value) || 0) / 100;
+  const salaryGrowthPct = (parseFloat(document.getElementById('salaryGrowthPct').value) || 0) / 100;
+  const matchRatio = parseFloat(document.getElementById('matchRatio').value) || 0;
+  const matchCapPct = (parseFloat(document.getElementById('matchCapPct').value) || 0) / 100;
+  const currentBalance = parseFloat(document.getElementById('currentBalance').value) || 0;
+  const years = parseInt(document.getElementById('yearsToRetire').value) || 25;
+  const returnPct = (parseFloat(document.getElementById('portfolioReturn').value) || 0) / 100;
+
+  const electiveDeferralLimit = 24500; // 2026 IRS limit
+  let balance = currentBalance;
+  let salary = currentSalary;
+  let totalEmployee = 0;
+  let totalEmployer = 0;
+
+  let y1Employee = 0;
+  let y1Employer = 0;
+
+  for (let y = 1; y <= years; y++) {
+    const desiredEmployee = salary * employeePct;
+    const actualEmployee = Math.min(desiredEmployee, electiveDeferralLimit);
+
+    const matchableSalary = salary * Math.min(employeePct, matchCapPct);
+    const actualEmployer = matchableSalary * matchRatio;
+
+    if (y === 1) {
+      y1Employee = actualEmployee;
+      y1Employer = actualEmployer;
+    }
+
+    totalEmployee += actualEmployee;
+    totalEmployer += actualEmployer;
+
+    balance = (balance + actualEmployee + actualEmployer) * (1 + returnPct);
+    salary *= (1 + salaryGrowthPct);
+  }
+
+  const compoundGrowth = Math.max(0, balance - currentBalance - totalEmployee - totalEmployer);
+  const safeWithdrawal = balance * 0.04;
+
+  document.getElementById('res-years-badge').textContent = years + ' Years';
+  document.getElementById('res-future-balance').textContent = '$' + Math.round(balance).toLocaleString();
+  document.getElementById('res-nest-egg-sub').textContent = 'Provides ~$' + Math.round(safeWithdrawal).toLocaleString() + ' / yr at 4% safe withdrawal';
+  document.getElementById('res-employer-total').textContent = '$' + Math.round(totalEmployer).toLocaleString();
+  document.getElementById('res-compound-growth').textContent = '$' + Math.round(compoundGrowth).toLocaleString();
+
+  document.getElementById('res-year1-employee').textContent = '$' + Math.round(y1Employee).toLocaleString() + ' / yr';
+  document.getElementById('res-total-employee').textContent = '$' + Math.round(totalEmployee).toLocaleString();
+  document.getElementById('res-year1-match').textContent = '$' + Math.round(y1Employer).toLocaleString() + ' / yr';
+  document.getElementById('res-total-match').textContent = '$' + Math.round(totalEmployer).toLocaleString();
+  document.getElementById('res-starting-balance').textContent = '$' + Math.round(currentBalance).toLocaleString();
+  document.getElementById('res-total-final').textContent = '$' + Math.round(balance).toLocaleString();
+
+  if (window.FinmatrixEngine) {
+    FinmatrixEngine.updateUrl({
+      currentSalary,
+      employeePct: Math.round(employeePct * 100),
+      salaryGrowthPct: (salaryGrowthPct * 100).toFixed(1),
+      matchRatio,
+      matchCapPct: (matchCapPct * 100).toFixed(1),
+      currentBalance,
+      yearsToRetire: years,
+      portfolioReturn: (returnPct * 100).toFixed(1)
+    });
+  }
+}
+
+function share401kUrl() {
+  if (window.FinmatrixEngine) {
+    FinmatrixEngine.copyShareUrl();
+  } else {
+    navigator.clipboard.writeText(window.location.href);
+    alert('Calculation link copied to clipboard!');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.FinmatrixEngine) {
+    FinmatrixEngine.initParams();
+    FinmatrixEngine.initAffiliateBox('finmatrix-affiliate-slot');
+    FinmatrixEngine.initAdSlot('finmatrix-ad-slot');
+  }
+  calculate401k();
+});
+</script>
+</body>
+</html>

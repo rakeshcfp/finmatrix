@@ -157,8 +157,8 @@
   <div class="nav-links">
     <a href="/">Home</a>
     <a href="/calculators/" class="active">Calculators</a>
-    <a href="/articles/">Articles</a>
     <a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a>
     <button class="theme-toggle theme-toggle-btn" onclick="toggleTheme()">☀️ Light Mode</button>
   </div>
   <button class="menu-btn" onclick="toggleMobileMenu()">☰ Menu</button>
@@ -236,6 +236,18 @@
 
       <!-- SVG Donut Chart -->
       <div class="chart-container" id="loan-chart"></div>
+
+      <div style="margin-top:20px;">
+        <button class="calc-btn" onclick="shareLoanUrl()" style="width:100%;background:var(--bg3);border:1px solid var(--border);color:var(--text);font-size:0.85rem;display:flex;align-items:center;justify-content:center;gap:6px;">
+          <span>🔗</span> Share This Calculation
+        </button>
+      </div>
+
+      <!-- Contextual Affiliate Slot -->
+      <div id="finmatrix-affiliate-slot" data-category="loan" style="margin-top:24px;"></div>
+
+      <!-- Non-shifting Ad Container Slot -->
+      <div id="finmatrix-ad-slot" style="margin-top:20px;"></div>
     </div>
   </div>
 
@@ -436,6 +448,8 @@
 
 <script src="/js/main.js"></script>
 <script src="/js/charts.js"></script>
+<script src="/js/tool-engine.js"></script>
+<script src="/js/analytics.js"></script>
 <script>
 function calculateLoan() {
   const amt = parseFloat(document.getElementById('loan-amount').value) || 0;
@@ -463,7 +477,7 @@ function calculateLoan() {
   ], 'Principal vs. Interest Cost');
 
   document.getElementById('ai-advice-body').innerHTML = `
-    <div class="ai-tip"><span class="ai-tip-icon">✦</span><span>Total interest cost will be **${fmtCurrency(totalInterest)}** (${((totalInterest/amt)*100).toFixed(1)}% of principal).</span></div>
+    <div class="ai-tip"><span class="ai-tip-icon">✦</span><span>Total interest cost will be **${fmtCurrency(totalInterest)}** (${amt > 0 ? ((totalInterest/amt)*100).toFixed(1) : 0}% of principal).</span></div>
     <div class="ai-tip"><span class="ai-tip-icon">✦</span><span>Paying an extra **$50/month** saves **${fmtCurrency(totalInterest * 0.2)}** in total interest.</span></div>
   `;
 
@@ -485,6 +499,23 @@ function calculateLoan() {
     scheduleHTML += `<tr><td>Year ${yr}</td><td>${fmtCurrency(yrPrin)}</td><td>${fmtCurrency(yrInt)}</td><td>${fmtCurrency(bal)}</td></tr>`;
   }
   document.getElementById('schedule-rows').innerHTML = scheduleHTML;
+
+  if (window.FinmatrixEngine) {
+    FinmatrixEngine.updateUrl({
+      amount: amt,
+      rate: ratePct,
+      term: months
+    });
+  }
+}
+
+function shareLoanUrl() {
+  if (window.FinmatrixEngine) {
+    FinmatrixEngine.copyShareUrl();
+  } else {
+    navigator.clipboard.writeText(window.location.href);
+    alert('Calculation link copied to clipboard!');
+  }
 }
 
 function toggleSchedule() {
@@ -499,9 +530,16 @@ function toggleSchedule() {
   }
 }
 
-initCurrencySelector(calculateLoan);
-renderSocialShareBar('social-share-bar-container', 'Personal Loan Payment Calculator — Finmatrix', window.location.href);
-calculateLoan();
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.FinmatrixEngine) {
+    FinmatrixEngine.initParams();
+    FinmatrixEngine.initAffiliateBox('finmatrix-affiliate-slot');
+    FinmatrixEngine.initAdSlot('finmatrix-ad-slot');
+  }
+  initCurrencySelector(calculateLoan);
+  renderSocialShareBar('social-share-bar-container', 'Personal Loan Payment Calculator — Finmatrix', window.location.href);
+  calculateLoan();
+});
 </script>
 </body>
 </html>
