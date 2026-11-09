@@ -6,6 +6,9 @@ on:
       - main
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   deploy:
     name: 🚀 Sync to Hostinger
@@ -29,6 +32,7 @@ jobs:
 
             async function probe() {
               const client = new ftp.Client();
+              const logs = [];
               let verifiedTarget = '';
 
               try {
@@ -40,31 +44,22 @@ jobs:
                   secure: false
                 });
 
+                const pwd = await client.pwd();
+                logs.push('PWD: ' + pwd);
                 const rootList = await client.list();
-                const names = rootList.map(f => f.name);
-                console.log('Root directory entries:', names.join(', '));
+                logs.push('Root: ' + rootList.map(f => (f.isDirectory ? '[D] ' : '') + f.name).join(', '));
 
-                // Candidate paths to test
-                const candidates = [
-                  'public_html/',
-                  './',
-                  'domains/finmatrix.cloud/public_html/',
-                  'domains/finmatrix.cloud/',
-                  'finmatrix.cloud/public_html/'
-                ];
-
-                // If domains exists, add any actual folder found under domains/
-                if (names.includes('domains')) {
-                  try {
-                    const doms = await client.list('domains');
-                    for (const d of doms) {
-                      candidates.push('domains/' + d.name + '/public_html/');
-                      candidates.push('domains/' + d.name + '/');
-                    }
-                  } catch(e){}
+                const candidates = ['public_html/', './'];
+                if (rootList.some(f => f.name === 'domains')) {
+                  const doms = await client.list('domains');
+                  logs.push('domains/: ' + doms.map(f => f.name).join(', '));
+                  for (const d of doms) {
+                    candidates.push('domains/' + d.name + '/public_html/');
+                    candidates.push('domains/' + d.name + '/');
+                  }
                 }
 
-                console.log('Testing candidates:', candidates);
+                logs.push('Testing candidates: ' + candidates.join(', '));
 
                 const testToken = 'probe_' + Date.now();
                 const testFileName = 'finmatrix_probe.txt';
@@ -72,45 +67,33 @@ jobs:
                 for (const cand of candidates) {
                   try {
                     const targetFile = (cand.endsWith('/') ? cand : cand + '/') + testFileName;
-                    console.log('Testing upload to:', targetFile);
-                    
                     const s = new stream.Readable();
                     s.push(testToken);
                     s.push(null);
-                    
                     await client.uploadFrom(s, targetFile);
+                    await new Promise(r => setTimeout(r, 2000));
                     
-                    // Wait 1 second and check via HTTP
-                    await new Promise(r => setTimeout(r, 1500));
-                    const res = await fetch('https://finmatrix.cloud/' + testFileName + '?t=' + Date.now());
-                    if (res.status === 200) {
-                      const txt = await res.text();
-                      if (txt.includes(testToken)) {
-                        console.log('🎉 FOUND MATCH! Live web root is:', cand);
-                        verifiedTarget = cand;
-                        // Clean up probe file
-                        try { await client.remove(targetFile); } catch(e){}
-                        break;
-                      }
-                    } else {
-                      console.log('HTTP returned', res.status, 'for candidate', cand);
+                    const res = await fetch('https://finmatrix.cloud/' + testFileName + '?t=' + Date.now(), { cache: 'no-store' });
+                    const resText = res.status === 200 ? await res.text() : '';
+                    logs.push(cand + ' => HTTP ' + res.status + ' (matched: ' + resText.includes(testToken) + ')');
+
+                    if (res.status === 200 && resText.includes(testToken)) {
+                      verifiedTarget = cand;
+                      try { await client.remove(targetFile); } catch(e){}
+                      break;
                     }
-                    // Clean up candidate test file
                     try { await client.remove(targetFile); } catch(e){}
                   } catch(err) {
-                    console.log('Candidate failed:', cand, err.message);
+                    logs.push(cand + ' => ERR: ' + err.message);
                   }
                 }
               } catch(e) {
-                console.error('Probe error:', e.message);
+                logs.push('CATCH: ' + e.message);
               } finally {
                 client.close();
-                if (!verifiedTarget) {
-                  verifiedTarget = 'public_html/';
-                  console.log('No HTTP probe match found, falling back to public_html/');
-                }
+                if (!verifiedTarget) verifiedTarget = 'public_html/';
+                fs.writeFileSync('probe-result.json', JSON.stringify({ verifiedTarget, logs }, null, 2));
                 fs.appendFileSync(process.env.GITHUB_OUTPUT, 'target_dir=' + verifiedTarget + '\n');
-                console.log('VERIFIED TARGET DIR:', verifiedTarget);
               }
             }
             probe();
@@ -118,6 +101,14 @@ jobs:
         env:
           FTP_USER: ${{ secrets.FTP_USERNAME }}
           FTP_PASS: ${{ secrets.FTP_PASSWORD }}
+
+      - name: 📝 Commit Probe Report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add probe-result.json
+          git commit -m "chore: record Hostinger directory probe report [skip ci]" || echo "No changes"
+          git push origin main || echo "Push skipped"
 
       - name: 📤 Sync Files to Hostinger
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
@@ -143,5 +134,6 @@ jobs:
             ELI5_GUIDE.md
             PLAYBOOK.md
             GROWTH_ROUTINE.md
+            probe-result.json
             *.py
             *.zip
