@@ -19,21 +19,27 @@ workflow = {
           ]
         }
       },
-      "id": "e1f2a3b4-5c6d-7e8f-9a0b-1c2d3e4f5a6b",
+      "id": "6fd2c876-349d-4dda-9cfa-98eaa34f1e2d",
       "name": "Every Morning at 8:00 AM",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
-      "position": [420, 380]
+      "position": [
+        880,
+        208
+      ]
     },
     {
       "parameters": {
         "jsCode": js_code
       },
-      "id": "a2b3c4d5-6e7f-8a9b-0c1d-2e3f4a5b6c7d",
+      "id": "b2187473-83a4-4113-801f-42b2e0ef9cc0",
       "name": "Generate Finmatrix Morning Briefing",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [720, 380]
+      "position": [
+        1184,
+        208
+      ]
     },
     {
       "parameters": {
@@ -43,11 +49,21 @@ workflow = {
         "html": "={{ $json.briefingHtml }}",
         "options": {}
       },
-      "id": "b3c4d5e6-7f8a-9b0c-1d2e-3f4a5b6c7d8e",
+      "id": "3cc40dac-c7b7-44c1-b482-5eab0e9799f6",
       "name": "Send Morning Briefing Email",
       "type": "n8n-nodes-base.emailSend",
       "typeVersion": 2.1,
-      "position": [1020, 380]
+      "position": [
+        1488,
+        208
+      ],
+      "webhookId": "fb91d32a-d9f4-45f1-9e14-4f1a98900da0",
+      "credentials": {
+        "smtp": {
+          "id": "8PcGewmN8tSE4r3w",
+          "name": "SMTP account"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -77,12 +93,22 @@ workflow = {
   },
   "active": True,
   "settings": {
-    "executionOrder": "v1"
-  }
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": False
+  },
+  "versionId": "a542ca9b-9602-44d1-8b93-93cfc599d8d6",
+  "meta": {
+    "templateCredsSetupCompleted": True,
+    "instanceId": "96fbe9d9c6a77ca502b83dd37d9d3b4920bc2fba5c65cc3700027ca5d1cae302"
+  },
+  "nodeGroups": [],
+  "id": "rVaRJWMGUaBeutcd",
+  "tags": []
 }
 
 target_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "workflows", "finmatrix-morning-assistant-workflow.json"))
 with open(target_path, "w", encoding="utf-8") as f:
     json.dump(workflow, f, indent=2)
 
-print(f"SUCCESS: Generated finmatrix-morning-assistant-workflow.json with clean embedded JS!")
+print("SUCCESS: Updated finmatrix-morning-assistant-workflow.json with automated CI/CD instructions and user credentials!")

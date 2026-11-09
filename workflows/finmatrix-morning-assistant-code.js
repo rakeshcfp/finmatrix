@@ -1,4 +1,4 @@
-// --- FINMATRIX ELI5 CHIEF OF STAFF ENGINE ---
+// --- FINMATRIX ELI5 CHIEF OF STAFF ENGINE (AUTOMATED GITHUB CI/CD DEPLOYMENT) ---
 const now = new Date();
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -12,16 +12,16 @@ const dateString = `${dayName}, ${months[now.getMonth()]} ${dayOfMonth}, ${now.g
 const isToolSprintCycle = (dayOfMonth <= 15);
 const cycleName = isToolSprintCycle ? "Tool Sprint Phase (Days 1–15)" : "Template Sprint Phase (Days 16–31)";
 
-// Day-specific ELI5 Plans
+// Day-specific ELI5 Plans with 1-Step Automated GitHub -> Hostinger CI/CD Deployment
 let plan = {};
 
 if (dayIndex === 1) { // MONDAY
   plan = {
-    focusTitle: "Article 1 of 2: Publish & Deploy",
-    estTime: "15–20 Minutes",
+    focusTitle: "Article 1 of 2: Publish & Auto-Deploy",
+    estTime: "10–15 Minutes",
     themeBadge: "🚀 ARTICLE 1 PUBLISH DAY",
     headline: "Publish This Week's 1st Low-KD Article to Google",
-    eli5Summary: "Today is Monday! We publish our first article of the week. You don't need to write anything by hand. We use our automated 1-line command to pull the lowest-KD keyword, create a rich financial guide with an interactive tool, and push it to Hostinger in 3 minutes.",
+    eli5Summary: "Today is Monday! We publish our first article of the week. You don't need to write anything by hand or upload zip files. We use our 1-line generator command, push to GitHub, and our GitHub Actions pipeline automatically updates Hostinger in 20 seconds!",
     steps: [
       {
         stepNum: "1",
@@ -31,27 +31,22 @@ if (dayIndex === 1) { // MONDAY
       {
         stepNum: "2",
         title: "Run the 1-Line Article Generator",
-        instruction: "Copy and paste this exact command into the terminal and press Enter:<br/><div style='background:#0f172a;color:#38bdf8;padding:12px;border-radius:8px;font-family:monospace;font-size:12px;margin:8px 0;border:1px solid #334155;'>npm run ingest -- data/ --sort-kd --top 1 --build</div><span style='color:#64748b;font-size:12px;'>👉 This picks the lowest KD keyword from your CSV files, writes the complete SEO article with formulas & FAQs, and builds the static HTML.</span>"
+        instruction: "Copy and paste this command and press Enter:<br/><div style='background:#0f172a;color:#38bdf8;padding:12px;border-radius:8px;font-family:monospace;font-size:12px;margin:8px 0;border:1px solid #334155;'>npm run ingest -- data/ --sort-kd --top 1 --build</div><span style='color:#64748b;font-size:12px;'>👉 This picks the lowest KD keyword from your CSV files, writes the complete SEO article with formulas & FAQs, and pre-builds the static HTML.</span>"
       },
       {
         stepNum: "3",
-        title: "Package the Update for Hostinger",
-        instruction: "Run this command to create the upload zip file:<br/><div style='background:#0f172a;color:#38bdf8;padding:12px;border-radius:8px;font-family:monospace;font-size:12px;margin:8px 0;border:1px solid #334155;'>npm run package</div>"
+        title: "Push to GitHub (Automated Hostinger Deployment)",
+        instruction: "Copy and paste this 1-line command into your terminal:<br/><div style='background:#0f172a;color:#10b981;padding:12px;border-radius:8px;font-family:monospace;font-size:12px;margin:8px 0;border:1px solid #334155;'>git add -A && git commit -m \"feat: publish Monday article\" && git push origin main</div><span style='color:#64748b;font-size:12px;'>⚡ <strong>That's it!</strong> GitHub Actions immediately builds and deploys your changes to Hostinger in ~20 seconds. No zip upload or unzip.php needed!</span>"
       },
       {
         stepNum: "4",
-        title: "Upload & Unzip on Hostinger (Takes 30 Seconds)",
-        instruction: "1. Log into Hostinger File Manager in <code>public_html/</code>.<br/>2. Click <strong>Upload</strong> and select <code>finmatrix-production-deploy.zip</code> from your computer.<br/>3. In your browser, open this link to unzip everything in 1 click: <br/><a href='https://finmatrix.cloud/unzip.php' style='color:#059669;font-weight:700;'>https://finmatrix.cloud/unzip.php</a>"
-      },
-      {
-        stepNum: "5",
         title: "Submit URL to Google for Instant Indexing",
         instruction: "Open <a href='https://search.google.com/search-console' style='color:#0284c7;font-weight:700;'>Google Search Console</a>, paste your newly published article URL into the top search bar, and click <strong>Request Indexing</strong>. Done!"
       }
     ],
     growthTip: "By publishing on Monday morning, Google's crawler crawls your page before mid-week search volume peaks, giving you maximum weekend impressions.",
     quickLinks: [
-      { text: "Hostinger Unzip Tool", url: "https://finmatrix.cloud/unzip.php" },
+      { text: "Live Deployment Status (GitHub Actions)", url: "https://github.com/rakeshcfp/finmatrix/actions" },
       { text: "Google Search Console", url: "https://search.google.com/search-console" },
       { text: "View Live Articles", url: "https://finmatrix.cloud/articles/" }
     ]
@@ -91,7 +86,7 @@ if (dayIndex === 1) { // MONDAY
   if (isToolSprintCycle) {
     plan = {
       focusTitle: "15-Day Cadence: Add 1 New In-Demand Tool",
-      estTime: "25–35 Minutes",
+      estTime: "15–20 Minutes",
       themeBadge: "🛠️ 15-DAY TOOL SPRINT",
       headline: "Deploy 1 New Interactive Web Calculator",
       eli5Summary: "Every 15 days, we add 1 new interactive calculator to Finmatrix so our tool directory expands. Today in Phase 1 (Days 1–15), we add our next in-demand tool from our keyword research: the Real Estate Seller Net Sheet Calculator (KD 28, 4,500 monthly searches!).",
@@ -108,20 +103,20 @@ if (dayIndex === 1) { // MONDAY
         },
         {
           stepNum: "3",
-          title: "Package & Deploy to Hostinger",
-          instruction: "Run <code>npm run package</code>, upload the zip to Hostinger <code>public_html/</code>, and open <a href='https://finmatrix.cloud/unzip.php' style='color:#059669;font-weight:700;'>https://finmatrix.cloud/unzip.php</a>."
+          title: "Push to GitHub (Automated Hostinger Deployment)",
+          instruction: "Push your new tool to GitHub with this command:<br/><div style='background:#0f172a;color:#10b981;padding:12px;border-radius:8px;font-family:monospace;font-size:12px;margin:8px 0;border:1px solid #334155;'>git add -A && git commit -m \"feat: add Seller Net Sheet calculator\" && git push origin main</div><span style='color:#64748b;font-size:12px;'>⚡ GitHub Actions automatically builds and publishes the tool to Hostinger in ~20 seconds!</span>"
         }
       ],
       growthTip: "Interactive calculators have the lowest bounce rate of any webpage type (averaging >2.5 minutes on page). Google rewards high dwell time with higher search rankings.",
       quickLinks: [
-        { text: "All Live Calculators", url: "https://finmatrix.cloud/calculators/" },
-        { text: "Hostinger Unzip", url: "https://finmatrix.cloud/unzip.php" }
+        { text: "Live GitHub Deployment Status", url: "https://github.com/rakeshcfp/finmatrix/actions" },
+        { text: "All Live Calculators", url: "https://finmatrix.cloud/calculators/" }
       ]
     };
   } else {
     plan = {
       focusTitle: "15-Day Cadence: Add 1 New Downloadable Template",
-      estTime: "25–35 Minutes",
+      estTime: "15–20 Minutes",
       themeBadge: "📊 15-DAY TEMPLATE SPRINT",
       headline: "Deploy 1 New Downloadable Excel Template & PDF",
       eli5Summary: "Every 15 days, we add 1 new corporate-grade Excel spreadsheet (.xlsx) and PDF guide to our Downloads Hub. Today in Phase 2 (Days 16–31), we add our next in-demand template: the 50/30/20 Automated Budgeting Blueprint & Excel Tracker.",
@@ -133,29 +128,29 @@ if (dayIndex === 1) { // MONDAY
         },
         {
           stepNum: "2",
-          title: "Connect to n8n Delivery Node",
-          instruction: "Ensure the new tool's name is added into the intent matching in your n8n workflow so users who request it get the download link in Email 1 automatically."
+          title: "Verify n8n Auto-Detection",
+          instruction: "Because our future-proof n8n engine is already installed, n8n will automatically deliver this new file without any new code!"
         },
         {
           stepNum: "3",
-          title: "Package & Deploy to Hostinger",
-          instruction: "Run <code>npm run package</code>, upload the zip to Hostinger <code>public_html/</code>, and open <a href='https://finmatrix.cloud/unzip.php' style='color:#059669;font-weight:700;'>https://finmatrix.cloud/unzip.php</a>."
+          title: "Push to GitHub (Automated Hostinger Deployment)",
+          instruction: "Push the new template to GitHub:<br/><div style='background:#0f172a;color:#10b981;padding:12px;border-radius:8px;font-family:monospace;font-size:12px;margin:8px 0;border:1px solid #334155;'>git add -A && git commit -m \"feat: add 50/30/20 Budget template\" && git push origin main</div><span style='color:#64748b;font-size:12px;'>⚡ GitHub Actions syncs the new Excel and PDF files directly to Hostinger's downloads hub!</span>"
         }
       ],
       growthTip: "Templates are your #1 email capture tool. While web calculators attract visitors, Excel spreadsheets convert them into permanent subscribers and affiliate buyers.",
       quickLinks: [
-        { text: "Downloads Hub", url: "https://finmatrix.cloud/downloads/" },
-        { text: "Hostinger Unzip", url: "https://finmatrix.cloud/unzip.php" }
+        { text: "Live GitHub Deployment Status", url: "https://github.com/rakeshcfp/finmatrix/actions" },
+        { text: "Downloads Hub", url: "https://finmatrix.cloud/downloads/" }
       ]
     };
   }
 } else if (dayIndex === 4) { // THURSDAY
   plan = {
-    focusTitle: "Article 2 of 2: Publish & Deploy",
-    estTime: "15–20 Minutes",
+    focusTitle: "Article 2 of 2: Publish & Auto-Deploy",
+    estTime: "10–15 Minutes",
     themeBadge: "🚀 ARTICLE 2 PUBLISH DAY",
     headline: "Publish This Week's 2nd Low-KD Article to Google",
-    eli5Summary: "Today is Thursday! We publish our second article of the week to hit our target of 2 articles per week. Our multi-CSV engine handles the math, comparison tables, and FAQs automatically.",
+    eli5Summary: "Today is Thursday! We publish our second article of the week to hit our target of 2 articles per week. Our multi-CSV engine handles the math, comparison tables, and FAQs automatically, and GitHub Actions deploys it instantly.",
     steps: [
       {
         stepNum: "1",
@@ -165,12 +160,12 @@ if (dayIndex === 1) { // MONDAY
       {
         stepNum: "2",
         title: "Run the 1-Line Article Generator for Article 2",
-        instruction: "Copy and paste this exact command into the terminal and press Enter:<br/><div style='background:#0f172a;color:#38bdf8;padding:12px;border-radius:8px;font-family:monospace;font-size:12px;margin:8px 0;border:1px solid #334155;'>npm run ingest -- data/ --sort-kd --top 1 --build</div><span style='color:#64748b;font-size:12px;'>👉 This grabs the next lowest-KD keyword, creates a completely non-repetitive article, and builds the updated site.</span>"
+        instruction: "Copy and paste this command and press Enter:<br/><div style='background:#0f172a;color:#38bdf8;padding:12px;border-radius:8px;font-family:monospace;font-size:12px;margin:8px 0;border:1px solid #334155;'>npm run ingest -- data/ --sort-kd --top 1 --build</div><span style='color:#64748b;font-size:12px;'>👉 This grabs the next lowest-KD keyword, creates a completely non-repetitive article, and builds the updated site.</span>"
       },
       {
         stepNum: "3",
-        title: "Package & Deploy to Hostinger",
-        instruction: "Run <code>npm run package</code>, upload <code>finmatrix-production-deploy.zip</code> to Hostinger <code>public_html/</code>, and open <a href='https://finmatrix.cloud/unzip.php' style='color:#059669;font-weight:700;'>https://finmatrix.cloud/unzip.php</a>."
+        title: "Push to GitHub (Automated Hostinger Deployment)",
+        instruction: "Copy and paste this 1-line command into your terminal:<br/><div style='background:#0f172a;color:#10b981;padding:12px;border-radius:8px;font-family:monospace;font-size:12px;margin:8px 0;border:1px solid #334155;'>git add -A && git commit -m \"feat: publish Thursday article\" && git push origin main</div><span style='color:#64748b;font-size:12px;'>⚡ Hostinger updates live in 20 seconds via GitHub Actions!</span>"
       },
       {
         stepNum: "4",
@@ -180,7 +175,7 @@ if (dayIndex === 1) { // MONDAY
     ],
     growthTip: "Consistency is everything in SEO. Publishing twice every week without missing a beat signals domain authority to Google's ranking algorithms.",
     quickLinks: [
-      { text: "Hostinger Unzip Tool", url: "https://finmatrix.cloud/unzip.php" },
+      { text: "Live GitHub Deployment Status", url: "https://github.com/rakeshcfp/finmatrix/actions" },
       { text: "Google Search Console", url: "https://search.google.com/search-console" },
       { text: "Finmatrix Blog Index", url: "https://finmatrix.cloud/articles/" }
     ]
@@ -258,7 +253,7 @@ if (dayIndex === 1) { // MONDAY
       {
         stepNum: "1",
         title: "Review This Week's Accomplishments",
-        instruction: "✅ 2 New SEO Articles Published & Submitted to Google.<br/>✅ Social Signals Generated on Pinterest / Reddit.<br/>✅ New Leads Recorded in Google Sheets CRM."
+        instruction: "✅ 2 New SEO Articles Published & Auto-Deployed to Hostinger via GitHub.<br/>✅ Social Signals Generated on Pinterest / Reddit.<br/>✅ New Leads Recorded in Google Sheets CRM."
       },
       {
         stepNum: "2",
@@ -322,7 +317,7 @@ const briefingHtml = `<!DOCTYPE html>
     <div style="background:#f8fafc; border-left:4px solid #059669; border-radius:8px; padding:18px 22px; margin-bottom:24px;">
       <div style="font-size:11px; font-weight:800; color:#059669; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:4px;">Today's Mission: ${plan.focusTitle}</div>
       <div style="font-size:18px; font-weight:800; color:#0f172a; line-height:1.3;">${plan.headline}</div>
-      <div style="font-size:12px; color:#64748b; font-weight:600; margin-top:6px;">⏱️ Estimated Time: <strong>${plan.estTime}</strong></div>
+      <div style="font-size:12px; color:#64748b; font-weight:600; margin-top:6px;">⏱️ Estimated Time: <strong>${plan.estTime}</strong> (⚡ Automated CI/CD Active)</div>
       <p style="font-size:13.5px;color:#475569;line-height:1.6;margin:12px 0 0 0;border-top:1px dashed #cbd5e1;padding-top:10px;">${plan.eli5Summary}</p>
     </div>
 
@@ -362,4 +357,3 @@ return [{
     briefingHtml
   }
 }];
-
