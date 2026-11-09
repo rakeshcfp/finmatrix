@@ -46,10 +46,10 @@ function parseCsv(content) {
       rows.push({
         keyword: kw,
         intent: row['Search Intent'] || row['intent'] || row['search intent'] || 'Informational',
-        kd: parseInt(row['KD'] || row['kd'] || row['difficulty'] || row['kd %'] || '0', 10),
+        kd: parseInt(row['KD'] || row['kd'] || row['difficulty'] || row['keyword difficulty'] || row['kd %'] || '0', 10),
         volume: parseInt(row['Search Volume'] || row['volume'] || row['search volume'] || '0', 10),
-        topicGroup: row['Topic Group (derived)'] || row['Topic Group'] || row['topic group'] || row['category'] || row['cluster'] || 'Personal Finance & Loans',
-        cpc: parseFloat(row['CPC (source value)'] || row['CPC'] || row['cpc'] || '0'),
+        topicGroup: row['Topic Group (derived)'] || row['Topic Group'] || row['topic group'] || row['category'] || row['cluster'] || row['topic'] || 'Personal Finance & Loans',
+        cpc: parseFloat(row['CPC (source value)'] || row['CPC'] || row['cpc'] || row['cpc (usd)'] || '0'),
         raw: row
       });
     }
