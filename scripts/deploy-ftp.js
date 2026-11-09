@@ -3,7 +3,7 @@ const path = require('path');
 const fs = require('fs');
 
 const EXCLUDED_DIRS = new Set(['.git', '.github', 'node_modules', 'workflows', 'tests', 'src', 'scripts']);
-const EXCLUDED_FILES = new Set(['package.json', 'package-lock.json', 'README.md', 'ELI5_GUIDE.md', 'PLAYBOOK.md', 'GROWTH_ROUTINE.md', 'probe-result.json', 'check-status.js']);
+const EXCLUDED_FILES = new Set(['package.json', 'package-lock.json', 'README.md', 'ELI5_GUIDE.md', 'PLAYBOOK.md', 'GROWTH_ROUTINE.md', 'probe-result.json', 'check-status.js', 'ftp-diagnostic.json']);
 const EXCLUDED_EXTS = new Set(['.py', '.zip']);
 
 async function deploy() {
@@ -30,20 +30,11 @@ async function deploy() {
       secure: false
     });
     
-    const initialPwd = await client.pwd();
-    console.log('✅ Connected! Root working directory:', initialPwd);
-
-    // Clean up any accidental nested public_html directory if present
-    try {
-      const rootItems = await client.list();
-      if (rootItems.some(f => f.name === 'public_html' && f.isDirectory)) {
-        console.log('🧹 Removing accidental nested public_html directory...');
-        await client.removeDir('public_html');
-        console.log('✅ Cleaned up accidental nested public_html.');
-      }
-    } catch(e) {
-      console.log('ℹ️ Nested folder notice:', e.message);
-    }
+    // The EXACT live web root for finmatrix.cloud on Hostinger multi-domain hosting
+    const targetWebRoot = '/domains/finmatrix.cloud/public_html';
+    console.log(`📍 Navigating to live web root: ${targetWebRoot}`);
+    await client.cd(targetWebRoot);
+    console.log('✅ Current directory:', await client.pwd());
 
     const rootDir = path.resolve(__dirname, '..');
 
@@ -65,9 +56,7 @@ async function deploy() {
     }
 
     const files = getAllFiles(rootDir);
-    console.log(`📦 Found ${files.length} production files to sync to Hostinger.`);
-
-    await client.cd(initialPwd);
+    console.log(`📦 Found ${files.length} production files to sync to Hostinger (${targetWebRoot}).`);
 
     let uploadedCount = 0;
     for (const relPath of files) {
@@ -75,8 +64,8 @@ async function deploy() {
       const remoteDir = path.posix.dirname(relPath);
 
       if (remoteDir !== '.') {
-        await client.ensureDir(remoteDir);
-        await client.cd(initialPwd);
+        await client.ensureDir(`${targetWebRoot}/${remoteDir}`);
+        await client.cd(targetWebRoot);
       }
 
       await client.uploadFrom(fullLocalPath, relPath);
@@ -86,12 +75,13 @@ async function deploy() {
       }
     }
 
-    // Verify upload
-    const artList = await client.list('articles');
+    // Verify upload on the real live web root
+    const artList = await client.list(`${targetWebRoot}/articles`);
     const hasArticle = artList.some(f => f.name === 'payment-calculator-with-interest.html');
-    console.log(`\n🔍 Verification: payment-calculator-with-interest.html in articles/ => ${hasArticle ? '✅ FOUND' : '❌ NOT FOUND'}`);
+    console.log(`\n🔍 Live Verification in ${targetWebRoot}/articles:`);
+    console.log(`   payment-calculator-with-interest.html => ${hasArticle ? '✅ FOUND & VERIFIED' : '❌ NOT FOUND'}`);
 
-    console.log('\n🎉 ALL FILES SUCCESSFULLY DEPLOYED TO HOSTINGER!');
+    console.log('\n🎉 ALL FILES SUCCESSFULLY DEPLOYED TO FINMATRIX.CLOUD!');
   } catch (err) {
     console.error('❌ Deployment error:', err.message);
     process.exit(1);
