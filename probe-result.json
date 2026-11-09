@@ -1,0 +1,10 @@
+{
+  "verifiedTarget": "public_html/",
+  "logs": [
+    "PWD: /public_html",
+    "Root: .htaccess, llms.txt, go.php, metrics-tracker.html, contact.html, llms-full.txt, disclaimer.html, [D] css, .ftp-deploy-sync-state.json, [D] embed, subscribe.php, _redirects, privacy-policy.html, [D] articles, index.html, favicon.svg, [D] data, netlify.toml, [D] config, favicon.ico, [D] js, _headers, [D] calculators, sitemap.xml, editorial-policy.html, [D] assets, [D] public_html, site.webmanifest, robots.txt, fix-dirs.php, [D] downloads, terms-of-service.html, about.html, unzip.php",
+    "Testing candidates: public_html/, ./",
+    "public_html/ => HTTP 404 (matched: false)",
+    "./ => HTTP 404 (matched: false)"
+  ]
+}
