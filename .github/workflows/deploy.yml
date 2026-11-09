@@ -14,73 +14,17 @@ jobs:
       - name: 📥 Check out repository
         uses: actions/checkout@v4
 
-      - name: 🧹 Clean server state & accidental nested folder
-        id: clean
-        run: |
-          RAW_SERVER="${{ secrets.FTP_SERVER }}"
-          CLEAN_SERVER=$(echo "$RAW_SERVER" | sed -e 's|^[^/]*//||' -e 's|/.*$||' | tr -d '[:space:]')
-          echo "clean_server=$CLEAN_SERVER" >> $GITHUB_OUTPUT
-
-          npm install --no-save basic-ftp
-          node -e "
-            const ftp = require('basic-ftp');
-            async function run() {
-              const client = new ftp.Client();
-              try {
-                await client.access({
-                  host: '$CLEAN_SERVER',
-                  user: process.env.FTP_USER,
-                  password: process.env.FTP_PASS,
-                  port: 21,
-                  secure: false
-                });
-                console.log('PWD:', await client.pwd());
-                try {
-                  await client.removeDir('public_html');
-                  console.log('Cleaned up accidental nested public_html directory.');
-                } catch(e) {
-                  console.log('Nested public_html notice:', e.message);
-                }
-                try {
-                  await client.remove('.ftp-deploy-sync-state.json');
-                  console.log('Reset sync state for fresh full synchronization.');
-                } catch(e) {}
-              } catch(e) {
-                console.error(e.message);
-              } finally {
-                client.close();
-              }
-            }
-            run();
-          "
-        env:
-          FTP_USER: ${{ secrets.FTP_USERNAME }}
-          FTP_PASS: ${{ secrets.FTP_PASSWORD }}
-
-      - name: 📤 Sync Files to Hostinger
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: 📦 Set up Node.js
+        uses: actions/setup-node@v4
         with:
-          server: ${{ steps.clean.outputs.clean_server }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: ./
-          dangerous-clean-slate: false
-          protocol: ftp
-          timeout: 60000
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/node_modules/**
-            **/workflows/**
-            **/tests/**
-            **/src/**
-            **/scripts/**
-            package.json
-            package-lock.json
-            README.md
-            ELI5_GUIDE.md
-            PLAYBOOK.md
-            GROWTH_ROUTINE.md
-            probe-result.json
-            *.py
-            *.zip
+          node-version: 22
+
+      - name: 📥 Install basic-ftp
+        run: npm install basic-ftp
+
+      - name: 📤 Deploy to Hostinger via Native FTP
+        run: node scripts/deploy-ftp.js
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
