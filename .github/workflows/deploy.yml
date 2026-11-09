@@ -1,0 +1,46 @@
+name: Deploy Finmatrix to Hostinger
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: 🚀 Build & Deploy to Hostinger
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Check out repository
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 🏗️ Build SEO Articles, Navbars & Sitemap
+        run: |
+          npm run build
+
+      - name: 📤 Sync Files to Hostinger public_html
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: /public_html/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/workflows/**
+            **/tests/**
+            **/src/**
+            **/scripts/**
+            package.json
+            package-lock.json
+            README.md
+            ELI5_GUIDE.md
+            PLAYBOOK.md
+            *.py
+            *.zip
