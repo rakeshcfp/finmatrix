@@ -14,77 +14,86 @@ jobs:
       - name: 📥 Check out repository
         uses: actions/checkout@v4
 
-      - name: 🔍 Validate & Clean FTP Server Host
-        id: prep
+      - name: 🔍 Detect Hostinger Target Directory
+        id: detect
         run: |
           RAW_SERVER="${{ secrets.FTP_SERVER }}"
           CLEAN_SERVER=$(echo "$RAW_SERVER" | sed -e 's|^[^/]*//||' -e 's|/.*$||' | tr -d '[:space:]')
-          echo "server=$CLEAN_SERVER" >> $GITHUB_OUTPUT
-          echo "FTP Host target: $CLEAN_SERVER"
-
-      - name: 📂 Inspect Hostinger Directory Structure
-        run: |
+          echo "clean_server=$CLEAN_SERVER" >> $GITHUB_OUTPUT
+          
           npm install --no-save basic-ftp
           node -e "
-            const fs = require('fs');
             const ftp = require('basic-ftp');
-            async function run() {
-              const summaryFile = process.env.GITHUB_STEP_SUMMARY;
-              let report = '### 📂 Hostinger FTP Diagnostic Inspection\n\n';
+            const fs = require('fs');
+
+            async function detect() {
               const client = new ftp.Client();
+              client.ftp.verbose = false;
+              let targetDir = 'public_html/';
+
               try {
                 await client.access({
-                  host: '${{ steps.prep.outputs.server }}',
+                  host: '$CLEAN_SERVER',
                   user: process.env.FTP_USER,
                   password: process.env.FTP_PASS,
                   port: 21,
                   secure: false
                 });
+
                 const pwd = await client.pwd();
-                report += '* **Initial PWD:** \`' + pwd + '\`\n';
+                console.log('📍 Current working directory (PWD):', pwd);
                 const rootList = await client.list();
-                report += '* **Root Items:** ' + rootList.map(f => (f.isDirectory ? '[DIR] ' : '') + f.name).join(', ') + '\n';
-                
-                if (rootList.some(f => f.name === 'domains')) {
+                const names = rootList.map(f => f.name);
+                console.log('📁 Root items:', names.join(', '));
+
+                // Case 1: Already inside finmatrix web root
+                if (names.includes('calculators') || names.includes('articles') || names.includes('downloads')) {
+                  targetDir = './';
+                  console.log('🎯 Detected: FTP root is ALREADY web root! Using: ./');
+                }
+                // Case 2: Hostinger multi-domain structure (domains/finmatrix.cloud/public_html)
+                else if (names.includes('domains')) {
                   const domList = await client.list('domains');
-                  report += '* **domains/ Directory:** ' + domList.map(f => f.name).join(', ') + '\n';
-                  for (const d of domList) {
-                    if (d.isDirectory) {
-                      try {
-                        const sub = await client.list('domains/' + d.name);
-                        report += '  * **domains/' + d.name + '/:** ' + sub.map(f => f.name).join(', ') + '\n';
-                      } catch(e){}
-                    }
+                  console.log('📁 domains/ list:', domList.map(f => f.name).join(', '));
+                  const match = domList.find(d => d.name.toLowerCase().includes('finmatrix'));
+                  if (match) {
+                    targetDir = 'domains/' + match.name + '/public_html/';
+                    console.log('🎯 Detected Hostinger addon domain! Using:', targetDir);
+                  } else {
+                    targetDir = 'public_html/';
+                    console.log('🎯 Fallback to public_html/');
                   }
                 }
-                
-                if (rootList.some(f => f.name === 'public_html')) {
-                  const pubList = await client.list('public_html');
-                  report += '* **public_html/ Items (first 20):** ' + pubList.map(f => f.name).slice(0, 20).join(', ') + '\n';
+                // Case 3: Standard single domain public_html
+                else if (names.includes('public_html')) {
+                  targetDir = 'public_html/';
+                  console.log('🎯 Detected standard public_html/');
+                } else {
+                  targetDir = './';
+                  console.log('🎯 Fallback to: ./');
                 }
-              } catch (err) {
-                report += '⚠️ **Diagnostic Error:** ' + err.message + '\n';
+              } catch(err) {
+                console.error('Detection error:', err.message);
               } finally {
                 client.close();
-                if (summaryFile) {
-                  fs.appendFileSync(summaryFile, report);
-                }
-                console.log(report);
+                const outLine = 'target_dir=' + targetDir;
+                fs.appendFileSync(process.env.GITHUB_OUTPUT, outLine + '\n');
+                console.log('FINAL SELECTED TARGET:', targetDir);
               }
             }
-            run();
+            detect();
           "
         env:
           FTP_USER: ${{ secrets.FTP_USERNAME }}
           FTP_PASS: ${{ secrets.FTP_PASSWORD }}
 
-      - name: 📤 Sync Files to Hostinger public_html
+      - name: 📤 Sync Files to Hostinger
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ steps.prep.outputs.server }}
+          server: ${{ steps.detect.outputs.clean_server }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: public_html/
+          server-dir: ${{ steps.detect.outputs.target_dir }}
           protocol: ftp
           timeout: 60000
           exclude: |
