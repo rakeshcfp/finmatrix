@@ -7,20 +7,11 @@ on:
 
 jobs:
   deploy:
-    name: 🚀 Build & Deploy to Hostinger
+    name: 🚀 Sync to Hostinger
     runs-on: ubuntu-latest
     steps:
       - name: 📥 Check out repository
         uses: actions/checkout@v4
-
-      - name: ⚙️ Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-
-      - name: 🏗️ Build SEO Articles, Navbars & Sitemap
-        run: |
-          npm run build
 
       - name: 📤 Sync Files to Hostinger public_html
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5

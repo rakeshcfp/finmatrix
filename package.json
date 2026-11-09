@@ -1,7 +1,6 @@
 {
   "name": "finmatrix",
   "version": "2.0.0",
-  "type": "module",
   "description": "Finmatrix — Programmatic SEO Blog Engine, Financial Calculators & Lead Capture System",
   "scripts": {
     "build:blog": "node --experimental-strip-types scripts/build-blog.mjs",
