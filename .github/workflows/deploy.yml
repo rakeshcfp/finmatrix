@@ -6,6 +6,9 @@ on:
       - main
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   deploy:
     name: 🚀 Sync to Hostinger
@@ -22,9 +25,17 @@ jobs:
       - name: 📥 Install basic-ftp
         run: npm install basic-ftp
 
-      - name: 📤 Deploy to Hostinger via Native FTP
-        run: node scripts/deploy-ftp.js
+      - name: 🔍 Debug FTP Paths
+        run: node scripts/debug-ftp.js
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+
+      - name: 📝 Commit Diagnostic Result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add ftp-diagnostic.json
+          git commit -m "chore: record FTP diagnostic tree [skip ci]" || echo "No changes"
+          git push origin main || echo "Push skipped"
