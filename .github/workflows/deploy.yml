@@ -6,9 +6,6 @@ on:
       - main
   workflow_dispatch:
 
-permissions:
-  contents: write
-
 jobs:
   deploy:
     name: 🚀 Sync to Hostinger
@@ -17,24 +14,18 @@ jobs:
       - name: 📥 Check out repository
         uses: actions/checkout@v4
 
-      - name: 🔍 Find Exact Live Web Root
-        id: probe
+      - name: 🧹 Clean server state & accidental nested folder
+        id: clean
         run: |
           RAW_SERVER="${{ secrets.FTP_SERVER }}"
           CLEAN_SERVER=$(echo "$RAW_SERVER" | sed -e 's|^[^/]*//||' -e 's|/.*$||' | tr -d '[:space:]')
           echo "clean_server=$CLEAN_SERVER" >> $GITHUB_OUTPUT
-          
+
           npm install --no-save basic-ftp
           node -e "
             const ftp = require('basic-ftp');
-            const fs = require('fs');
-            const stream = require('stream');
-
-            async function probe() {
+            async function run() {
               const client = new ftp.Client();
-              const logs = [];
-              let verifiedTarget = '';
-
               try {
                 await client.access({
                   host: '$CLEAN_SERVER',
@@ -43,80 +34,36 @@ jobs:
                   port: 21,
                   secure: false
                 });
-
-                const pwd = await client.pwd();
-                logs.push('PWD: ' + pwd);
-                const rootList = await client.list();
-                logs.push('Root: ' + rootList.map(f => (f.isDirectory ? '[D] ' : '') + f.name).join(', '));
-
-                const candidates = ['public_html/', './'];
-                if (rootList.some(f => f.name === 'domains')) {
-                  const doms = await client.list('domains');
-                  logs.push('domains/: ' + doms.map(f => f.name).join(', '));
-                  for (const d of doms) {
-                    candidates.push('domains/' + d.name + '/public_html/');
-                    candidates.push('domains/' + d.name + '/');
-                  }
+                console.log('PWD:', await client.pwd());
+                try {
+                  await client.removeDir('public_html');
+                  console.log('Cleaned up accidental nested public_html directory.');
+                } catch(e) {
+                  console.log('Nested public_html notice:', e.message);
                 }
-
-                logs.push('Testing candidates: ' + candidates.join(', '));
-
-                const testToken = 'probe_' + Date.now();
-                const testFileName = 'finmatrix_probe.txt';
-
-                for (const cand of candidates) {
-                  try {
-                    const targetFile = (cand.endsWith('/') ? cand : cand + '/') + testFileName;
-                    const s = new stream.Readable();
-                    s.push(testToken);
-                    s.push(null);
-                    await client.uploadFrom(s, targetFile);
-                    await new Promise(r => setTimeout(r, 2000));
-                    
-                    const res = await fetch('https://finmatrix.cloud/' + testFileName + '?t=' + Date.now(), { cache: 'no-store' });
-                    const resText = res.status === 200 ? await res.text() : '';
-                    logs.push(cand + ' => HTTP ' + res.status + ' (matched: ' + resText.includes(testToken) + ')');
-
-                    if (res.status === 200 && resText.includes(testToken)) {
-                      verifiedTarget = cand;
-                      try { await client.remove(targetFile); } catch(e){}
-                      break;
-                    }
-                    try { await client.remove(targetFile); } catch(e){}
-                  } catch(err) {
-                    logs.push(cand + ' => ERR: ' + err.message);
-                  }
-                }
+                try {
+                  await client.remove('.ftp-deploy-sync-state.json');
+                  console.log('Reset sync state for fresh full synchronization.');
+                } catch(e) {}
               } catch(e) {
-                logs.push('CATCH: ' + e.message);
+                console.error(e.message);
               } finally {
                 client.close();
-                if (!verifiedTarget) verifiedTarget = 'public_html/';
-                fs.writeFileSync('probe-result.json', JSON.stringify({ verifiedTarget, logs }, null, 2));
-                fs.appendFileSync(process.env.GITHUB_OUTPUT, 'target_dir=' + verifiedTarget + '\n');
               }
             }
-            probe();
+            run();
           "
         env:
           FTP_USER: ${{ secrets.FTP_USERNAME }}
           FTP_PASS: ${{ secrets.FTP_PASSWORD }}
 
-      - name: 📝 Commit Probe Report
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add probe-result.json
-          git commit -m "chore: record Hostinger directory probe report [skip ci]" || echo "No changes"
-          git push origin main || echo "Push skipped"
-
       - name: 📤 Sync Files to Hostinger
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ steps.probe.outputs.clean_server }}
+          server: ${{ steps.clean.outputs.clean_server }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: ${{ steps.probe.outputs.target_dir }}
+          server-dir: ./
           dangerous-clean-slate: false
           protocol: ftp
           timeout: 60000
