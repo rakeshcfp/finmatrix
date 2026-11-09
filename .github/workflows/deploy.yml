@@ -18,10 +18,65 @@ jobs:
         id: prep
         run: |
           RAW_SERVER="${{ secrets.FTP_SERVER }}"
-          # Clean any leading http://, https://, ftp://, trailing slashes, or whitespace
           CLEAN_SERVER=$(echo "$RAW_SERVER" | sed -e 's|^[^/]*//||' -e 's|/.*$||' | tr -d '[:space:]')
           echo "server=$CLEAN_SERVER" >> $GITHUB_OUTPUT
           echo "FTP Host target: $CLEAN_SERVER"
+
+      - name: 📂 Inspect Hostinger Directory Structure
+        run: |
+          npm install --no-save basic-ftp
+          node -e "
+            const fs = require('fs');
+            const ftp = require('basic-ftp');
+            async function run() {
+              const summaryFile = process.env.GITHUB_STEP_SUMMARY;
+              let report = '### 📂 Hostinger FTP Diagnostic Inspection\n\n';
+              const client = new ftp.Client();
+              try {
+                await client.access({
+                  host: '${{ steps.prep.outputs.server }}',
+                  user: process.env.FTP_USER,
+                  password: process.env.FTP_PASS,
+                  port: 21,
+                  secure: false
+                });
+                const pwd = await client.pwd();
+                report += '* **Initial PWD:** \`' + pwd + '\`\n';
+                const rootList = await client.list();
+                report += '* **Root Items:** ' + rootList.map(f => (f.isDirectory ? '[DIR] ' : '') + f.name).join(', ') + '\n';
+                
+                if (rootList.some(f => f.name === 'domains')) {
+                  const domList = await client.list('domains');
+                  report += '* **domains/ Directory:** ' + domList.map(f => f.name).join(', ') + '\n';
+                  for (const d of domList) {
+                    if (d.isDirectory) {
+                      try {
+                        const sub = await client.list('domains/' + d.name);
+                        report += '  * **domains/' + d.name + '/:** ' + sub.map(f => f.name).join(', ') + '\n';
+                      } catch(e){}
+                    }
+                  }
+                }
+                
+                if (rootList.some(f => f.name === 'public_html')) {
+                  const pubList = await client.list('public_html');
+                  report += '* **public_html/ Items (first 20):** ' + pubList.map(f => f.name).slice(0, 20).join(', ') + '\n';
+                }
+              } catch (err) {
+                report += '⚠️ **Diagnostic Error:** ' + err.message + '\n';
+              } finally {
+                client.close();
+                if (summaryFile) {
+                  fs.appendFileSync(summaryFile, report);
+                }
+                console.log(report);
+              }
+            }
+            run();
+          "
+        env:
+          FTP_USER: ${{ secrets.FTP_USERNAME }}
+          FTP_PASS: ${{ secrets.FTP_PASSWORD }}
 
       - name: 📤 Sync Files to Hostinger public_html
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
