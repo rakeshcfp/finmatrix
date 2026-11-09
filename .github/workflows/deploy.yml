@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -13,13 +14,24 @@ jobs:
       - name: 📥 Check out repository
         uses: actions/checkout@v4
 
+      - name: 🔍 Validate & Clean FTP Server Host
+        id: prep
+        run: |
+          RAW_SERVER="${{ secrets.FTP_SERVER }}"
+          # Clean any leading http://, https://, ftp://, trailing slashes, or whitespace
+          CLEAN_SERVER=$(echo "$RAW_SERVER" | sed -e 's|^[^/]*//||' -e 's|/.*$||' | tr -d '[:space:]')
+          echo "server=$CLEAN_SERVER" >> $GITHUB_OUTPUT
+          echo "FTP Host target: $CLEAN_SERVER"
+
       - name: 📤 Sync Files to Hostinger public_html
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ secrets.FTP_SERVER }}
+          server: ${{ steps.prep.outputs.server }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: public_html/
+          protocol: ftp
+          timeout: 60000
           exclude: |
             **/.git*
             **/.git*/**
@@ -33,5 +45,6 @@ jobs:
             README.md
             ELI5_GUIDE.md
             PLAYBOOK.md
+            GROWTH_ROUTINE.md
             *.py
             *.zip
