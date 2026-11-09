@@ -885,6 +885,14 @@ select:focus {
   transform: rotate(180deg);
 }
 
+/* Suppress pseudo-element icon when explicit icon or blog question layout exists */
+.faq-question::after,
+.faq-item summary:has(.faq-icon)::after,
+.faq-item summary:has(.faq-question-group)::after {
+  content: none !important;
+  display: none !important;
+}
+
 .faq-answer {
   margin-top: 12px;
   font-size: 0.9rem;

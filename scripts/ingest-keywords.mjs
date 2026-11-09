@@ -485,7 +485,7 @@ function synthesizeArticle(row, clusterRows) {
     { id: 'case-study', text: 'Scenario Analysis: Real-World Case Study' },
     { id: 'interactive-tool', text: 'Interactive Calculation Simulator' },
     { id: 'common-pitfalls', text: 'Strategic Hazards & Costly Mistakes to Avoid' },
-    { id: 'faqs', text: 'Frequently Asked Questions (PAA)' }
+    { id: 'faqs', text: 'Frequently Asked Questions' }
   ];
 
   const content = `
@@ -570,7 +570,7 @@ function synthesizeArticle(row, clusterRows) {
 <div class="finmatrix-lead-capture" data-magnet-id="${topicConfig.leadMagnetId}"></div>
 
 <section id="faqs" class="article-section">
-  <h2>Frequently Asked Questions (PAA)</h2>
+  <h2>Frequently Asked Questions</h2>
   <div class="faq-accordion-container">
     <!-- Populated automatically from faqs array -->
   </div>

@@ -34,7 +34,10 @@ function generateArticleHtml(article) {
   const faqsHtml = article.faqs.map(faq => `
     <details class="faq-item">
       <summary class="faq-question">
-        <span>${escapeHtml(faq.question)}</span>
+        <div class="faq-question-group">
+          <span class="faq-badge">?</span>
+          <span>${escapeHtml(faq.question)}</span>
+        </div>
         <span class="faq-icon">+</span>
       </summary>
       <div class="faq-answer">
