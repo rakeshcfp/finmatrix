@@ -14,8 +14,8 @@ jobs:
       - name: 📥 Check out repository
         uses: actions/checkout@v4
 
-      - name: 🔍 Detect Hostinger Target Directory
-        id: detect
+      - name: 🔍 Find Exact Live Web Root
+        id: probe
         run: |
           RAW_SERVER="${{ secrets.FTP_SERVER }}"
           CLEAN_SERVER=$(echo "$RAW_SERVER" | sed -e 's|^[^/]*//||' -e 's|/.*$||' | tr -d '[:space:]')
@@ -25,11 +25,11 @@ jobs:
           node -e "
             const ftp = require('basic-ftp');
             const fs = require('fs');
+            const stream = require('stream');
 
-            async function detect() {
+            async function probe() {
               const client = new ftp.Client();
-              client.ftp.verbose = false;
-              let targetDir = 'public_html/';
+              let verifiedTarget = '';
 
               try {
                 await client.access({
@@ -40,48 +40,80 @@ jobs:
                   secure: false
                 });
 
-                const pwd = await client.pwd();
-                console.log('📍 Current working directory (PWD):', pwd);
                 const rootList = await client.list();
                 const names = rootList.map(f => f.name);
-                console.log('📁 Root items:', names.join(', '));
+                console.log('Root directory entries:', names.join(', '));
 
-                // Case 1: Already inside finmatrix web root
-                if (names.includes('calculators') || names.includes('articles') || names.includes('downloads')) {
-                  targetDir = './';
-                  console.log('🎯 Detected: FTP root is ALREADY web root! Using: ./');
+                // Candidate paths to test
+                const candidates = [
+                  'public_html/',
+                  './',
+                  'domains/finmatrix.cloud/public_html/',
+                  'domains/finmatrix.cloud/',
+                  'finmatrix.cloud/public_html/'
+                ];
+
+                // If domains exists, add any actual folder found under domains/
+                if (names.includes('domains')) {
+                  try {
+                    const doms = await client.list('domains');
+                    for (const d of doms) {
+                      candidates.push('domains/' + d.name + '/public_html/');
+                      candidates.push('domains/' + d.name + '/');
+                    }
+                  } catch(e){}
                 }
-                // Case 2: Hostinger multi-domain structure (domains/finmatrix.cloud/public_html)
-                else if (names.includes('domains')) {
-                  const domList = await client.list('domains');
-                  console.log('📁 domains/ list:', domList.map(f => f.name).join(', '));
-                  const match = domList.find(d => d.name.toLowerCase().includes('finmatrix'));
-                  if (match) {
-                    targetDir = 'domains/' + match.name + '/public_html/';
-                    console.log('🎯 Detected Hostinger addon domain! Using:', targetDir);
-                  } else {
-                    targetDir = 'public_html/';
-                    console.log('🎯 Fallback to public_html/');
+
+                console.log('Testing candidates:', candidates);
+
+                const testToken = 'probe_' + Date.now();
+                const testFileName = 'finmatrix_probe.txt';
+
+                for (const cand of candidates) {
+                  try {
+                    const targetFile = (cand.endsWith('/') ? cand : cand + '/') + testFileName;
+                    console.log('Testing upload to:', targetFile);
+                    
+                    const s = new stream.Readable();
+                    s.push(testToken);
+                    s.push(null);
+                    
+                    await client.uploadFrom(s, targetFile);
+                    
+                    // Wait 1 second and check via HTTP
+                    await new Promise(r => setTimeout(r, 1500));
+                    const res = await fetch('https://finmatrix.cloud/' + testFileName + '?t=' + Date.now());
+                    if (res.status === 200) {
+                      const txt = await res.text();
+                      if (txt.includes(testToken)) {
+                        console.log('🎉 FOUND MATCH! Live web root is:', cand);
+                        verifiedTarget = cand;
+                        // Clean up probe file
+                        try { await client.remove(targetFile); } catch(e){}
+                        break;
+                      }
+                    } else {
+                      console.log('HTTP returned', res.status, 'for candidate', cand);
+                    }
+                    // Clean up candidate test file
+                    try { await client.remove(targetFile); } catch(e){}
+                  } catch(err) {
+                    console.log('Candidate failed:', cand, err.message);
                   }
                 }
-                // Case 3: Standard single domain public_html
-                else if (names.includes('public_html')) {
-                  targetDir = 'public_html/';
-                  console.log('🎯 Detected standard public_html/');
-                } else {
-                  targetDir = './';
-                  console.log('🎯 Fallback to: ./');
-                }
-              } catch(err) {
-                console.error('Detection error:', err.message);
+              } catch(e) {
+                console.error('Probe error:', e.message);
               } finally {
                 client.close();
-                const outLine = 'target_dir=' + targetDir;
-                fs.appendFileSync(process.env.GITHUB_OUTPUT, outLine + '\n');
-                console.log('FINAL SELECTED TARGET:', targetDir);
+                if (!verifiedTarget) {
+                  verifiedTarget = 'public_html/';
+                  console.log('No HTTP probe match found, falling back to public_html/');
+                }
+                fs.appendFileSync(process.env.GITHUB_OUTPUT, 'target_dir=' + verifiedTarget + '\n');
+                console.log('VERIFIED TARGET DIR:', verifiedTarget);
               }
             }
-            detect();
+            probe();
           "
         env:
           FTP_USER: ${{ secrets.FTP_USERNAME }}
@@ -90,10 +122,11 @@ jobs:
       - name: 📤 Sync Files to Hostinger
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ steps.detect.outputs.clean_server }}
+          server: ${{ steps.probe.outputs.clean_server }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: ${{ steps.detect.outputs.target_dir }}
+          server-dir: ${{ steps.probe.outputs.target_dir }}
+          dangerous-clean-slate: false
           protocol: ftp
           timeout: 60000
           exclude: |
