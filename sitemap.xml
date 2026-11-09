@@ -247,6 +247,12 @@
     <priority>0.90</priority>
   </url>
   <url>
+    <loc>https://finmatrix.cloud/articles/payment-calculator-with-interest.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.88</priority>
+  </url>
+  <url>
     <loc>https://finmatrix.cloud/articles/payment-calculator.html</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
