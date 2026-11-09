@@ -98,10 +98,12 @@
     Finmatrix <span class="nav-logo-badge">PRO</span>
   </a>
   <div class="nav-links">
-    <a href="/" class="active">Home</a>
-    <a href="/calculators/">Calculators</a>
-    <a href="/about.html">About</a>
-    <a href="/contact.html">Contact</a>
+    <a href="/" class="active">🏠 Home</a>
+    <a href="/calculators/" >🧮 Calculators</a>
+    <a href="/articles/" >📖 Articles</a>
+    <a href="/downloads/" >📥 Free Excel &amp; Downloads</a>
+    <a href="/about.html" >About</a>
+    <a href="/contact.html" >Contact</a>
     <button class="theme-toggle theme-toggle-btn" onclick="toggleTheme()">☀️ Light Mode</button>
     <a href="/calculators/" class="nav-cta">Explore Tools →</a>
   </div>
@@ -176,6 +178,16 @@
 
     <div class="cards-grid" id="popular-calculators-grid">
       <!-- Populated dynamically via js/search.js / calculators.json -->
+      <a href="/calculators/payment-calculator.html" class="card card-popular">
+        <div class="card-icon">💳</div>
+        <h3>Universal Payment Calculator</h3>
+        <p>Calculate exact monthly payments, lifetime interest, and amortization schedules with extra prepayment acceleration for auto, home, and personal loans.</p>
+        <div class="card-footer">
+          <span class="chip orange">🔥 74K Search Winner</span>
+          <span style="color:var(--accent);font-weight:700;">Calculate →</span>
+        </div>
+      </a>
+
       <a href="/calculators/debt-elimination-planner.html" class="card">
         <div class="card-icon">⚡</div>
         <h3>Debt Avalanche vs Snowball</h3>
@@ -388,6 +400,7 @@
       </div>
       <div class="footer-col">
         <h4>Calculators</h4>
+        <a href="/calculators/payment-calculator.html">Payment Calculator</a>
         <a href="/calculators/debt-elimination-planner.html">Debt Elimination Planner</a>
         <a href="/calculators/paycheck-calculator.html">Paycheck Calculator</a>
         <a href="/calculators/mortgage-calculator.html">Mortgage Calculator</a>
@@ -423,7 +436,7 @@
 </footer>
 
 <script src="/js/main.js"></script>
-<script src="/js/search.js"></script>
+<script src="/js/search.js?v=20261106_4"></script>
 <script src="/js/analytics.js"></script>
 <script>
 function selectWizardGoal(goal) {

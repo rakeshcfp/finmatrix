@@ -5,7 +5,6 @@ import shutil
 ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 ZIP_NAME = 'finmatrix-production-deploy.zip'
 ZIP_PATH = os.path.join(ROOT_DIR, ZIP_NAME)
-ALT_ZIP_PATH = os.path.join(ROOT_DIR, 'finmatrix-deployment.zip')
 
 print("--- Building POSIX-Compliant Linux Deployable ZIP for Hostinger ---")
 
@@ -29,6 +28,8 @@ FILES_TO_INCLUDE = [
     'netlify.toml',
     '.htaccess',
     'subscribe.php',
+    'go.php',
+    'package.json',
     'unzip.php',
     'fix-dirs.php',
     'llms.txt',
@@ -43,7 +44,9 @@ DIRS_TO_INCLUDE = [
     'calculators',
     'embed',
     'assets',
-    'articles'
+    'articles',
+    'downloads',
+    'src'
 ]
 
 if os.path.exists(ZIP_PATH):
@@ -76,8 +79,6 @@ with zipfile.ZipFile(ZIP_PATH, 'w', compression=zipfile.ZIP_DEFLATED) as zipf:
                     print(f"[OK] Added: {posix_arcname}")
                     total_files += 1
 
-# Mirror to finmatrix-deployment.zip
-shutil.copyfile(ZIP_PATH, ALT_ZIP_PATH)
 
 size_bytes = os.path.getsize(ZIP_PATH)
 size_mb = size_bytes / (1024 * 1024)

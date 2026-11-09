@@ -690,6 +690,7 @@ section {
   letter-spacing: 0.15px;
 }
 
+/* Universal Input Styling */
 .field input,
 .field select,
 .form-group input,
@@ -712,6 +713,43 @@ select {
   outline: none;
   box-sizing: border-box;
   transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+/* Chrome/Safari Autofill Dark Mode Fix */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active,
+select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #131a22 inset !important;
+  -webkit-text-fill-color: #ffffff !important;
+  caret-color: #ffffff !important;
+  transition: background-color 5000s ease-in-out 0s !important;
+}
+
+/* Lead Capture Phone Group Fix: Ensure Country Code select never squashes Phone input */
+.lead-phone-container {
+  display: flex !important;
+  gap: 10px !important;
+  align-items: stretch !important;
+  width: 100% !important;
+}
+
+.lead-phone-container select,
+select[name="country_code"] {
+  width: 125px !important;
+  min-width: 125px !important;
+  max-width: 125px !important;
+  flex: 0 0 125px !important;
+  box-sizing: border-box !important;
+}
+
+.lead-phone-container input[type="tel"],
+input[name="phone"] {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
 }
 
 select {

@@ -1,0 +1,62 @@
+{
+  "debt-snowball-avalanche-toolkit": {
+    "id": "debt-snowball-avalanche-toolkit",
+    "title": "Debt Snowball vs. Avalanche Payoff Toolkit & Automated Spreadsheet",
+    "badge": "FREE SPREADSHEET & WORKBOOK",
+    "tagline": "Eliminate high-interest debt up to 18 months faster with automated formula tracking.",
+    "deliverables": [
+      "Pre-built Excel (.xlsx) & Google Sheets payoff schedule with automated formula macros",
+      "Side-by-side mathematical vs psychological payoff comparison model",
+      "0% Intro APR balance transfer decision tree & credit impact checklist",
+      "Debt-free milestone printable visual progress tracker"
+    ],
+    "pdfDownloadUrl": "/downloads/Debt-Snowball-vs-Avalanche-Payoff-Toolkit.pdf",
+    "excelDownloadUrl": "/downloads/Debt-Snowball-vs-Avalanche-Payoff-Tracker.xlsx",
+    "category": "Snowball & Avalanche"
+  },
+  "emergency-fund-cushion-blueprint": {
+    "id": "emergency-fund-cushion-blueprint",
+    "title": "The 3-to-6 Month Liquid Emergency Cushion Blueprint",
+    "badge": "FREE LIQUIDITY BLUEPRINT",
+    "tagline": "Calculate your true monthly survival number and optimize cash yields safely.",
+    "deliverables": [
+      "Pre-configured Excel (.xlsx) & Sheets survival expense audit model",
+      "Essential vs discretionary monthly expense audit worksheet",
+      "High-Yield Savings (HYSA) vs Cash CD rate lock decision matrix",
+      "FDIC insurance coverage optimization checklist for balances above $250,000"
+    ],
+    "pdfDownloadUrl": "/downloads/Emergency-Fund-Blueprint-2026.pdf",
+    "excelDownloadUrl": "/downloads/Emergency-Fund-Blueprint-2026.xlsx",
+    "category": "Savings & Investing"
+  },
+  "retirement-longevity-matrix": {
+    "id": "retirement-longevity-matrix",
+    "title": "The 4% Rule & Retirement Longevity Distribution Matrix",
+    "badge": "FREE RETIREMENT TOOLKIT",
+    "tagline": "Stress-test your nest egg against inflation and sequence-of-returns risk.",
+    "deliverables": [
+      "Automated Excel (.xlsx) portfolio longevity probability model across 25, 30, and 40 years",
+      "401(k), Traditional IRA, and Roth IRA tax-efficient withdrawal order waterfall",
+      "Social Security claiming optimization worksheet at ages 62, 67, and 70",
+      "Required Minimum Distribution (RMD) statutory tax buffer checklist"
+    ],
+    "pdfDownloadUrl": "/downloads/Retirement-Longevity-Matrix-2026.pdf",
+    "excelDownloadUrl": "/downloads/Retirement-Longevity-Matrix-2026.xlsx",
+    "category": "Retirement & Drawdown"
+  },
+  "mortgage-amortization-accelerator": {
+    "id": "mortgage-amortization-accelerator",
+    "title": "Mortgage Amortization & Early Payoff Accelerator Guide",
+    "badge": "FREE MORTGAGE GUIDE",
+    "tagline": "Shave 5 to 11 years off your 30-year fixed home loan with targeted prepayments.",
+    "deliverables": [
+      "Pre-built Excel (.xlsx) amortization schedule with extra principal simulation",
+      "Bi-weekly vs monthly extra principal interest savings comparison schedule",
+      "Refinance break-even point analysis template with closing cost amortizer",
+      "Recast vs refinance decision framework for lower monthly obligations"
+    ],
+    "pdfDownloadUrl": "/downloads/Mortgage-Amortization-Accelerator-2026.pdf",
+    "excelDownloadUrl": "/downloads/Mortgage-Amortization-Accelerator-2026.xlsx",
+    "category": "Mortgage & Refinancing"
+  }
+}

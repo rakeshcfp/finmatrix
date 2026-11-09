@@ -10,7 +10,7 @@
     "name": "Finmatrix Financial Research Desk",
     "role": "Financial Engineering & Quantitative Analysis",
     "bio": "TODO: VERIFY - Replace with real author name and professional biographical credentials.",
-    "email": "novamatrix1564@gmail.com",
+    "email": "support@finmatrix.cloud",
     "sameAs": []
   },
   "organization": {
@@ -26,5 +26,9 @@
       "enabled": false,
       "client_id": "ca-pub-XXXXXXXXXXXXXXXX"
     }
+  },
+  "automation": {
+    "n8n_webhook_url": "https://automation.novamatrixin.cloud/webhook/finmatrix-lead",
+    "fallback_url": "/subscribe.php"
   }
 }

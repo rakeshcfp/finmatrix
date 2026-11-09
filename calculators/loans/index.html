@@ -75,11 +75,14 @@
 <nav>
   <a href="/" class="nav-logo">Finmatrix <span class="nav-logo-badge">PRO</span></a>
   <div class="nav-links">
-    <a href="/">Home</a>
-    <a href="/calculators/" class="active">Calculators</a>
-    <a href="/about.html">About</a>
-    <a href="/contact.html">Contact</a>
+    <a href="/" >🏠 Home</a>
+    <a href="/calculators/" class="active">🧮 Calculators</a>
+    <a href="/articles/" >📖 Articles</a>
+    <a href="/downloads/" >📥 Free Excel &amp; Downloads</a>
+    <a href="/about.html" >About</a>
+    <a href="/contact.html" >Contact</a>
     <button class="theme-toggle theme-toggle-btn" onclick="toggleTheme()">☀️ Light Mode</button>
+    <a href="/calculators/" class="nav-cta">Explore Tools →</a>
   </div>
   <button class="menu-btn" onclick="toggleMobileMenu()">☰ Menu</button>
 </nav>
@@ -97,42 +100,70 @@
     </div>
 
     <div class="cards-grid" id="category-tools-grid">
-      <a href="/calculators/debt-to-income-calculator.html" class="card">
+      <a href="/calculators/payment-calculator.html" class="card card-popular" data-category="loans" data-id="payment-calculator">
+        <div class="card-icon">💳</div>
+        <h3>Payment Calculator</h3>
+        <p>Calculate exact monthly payments, total interest, and amortization schedules with extra prepayments for car, mortgage, and personal loans.</p>
+        <div class="card-footer">
+          <span class="chip orange">🔥 74K Search Winner</span>
+          <span style="color:var(--accent);font-weight:700;">Calculate →</span>
+        </div>
+      </a>
+
+      <a href="/calculators/debt-to-income-calculator.html" class="card " data-category="loans" data-id="debt-to-income-calculator">
         <div class="card-icon">⚖️</div>
-        <h3>Debt-to-Income (DTI) Ratio Calculator</h3>
-        <p>Calculate front-end housing and back-end total debt ratios to verify qualification for Conventional (36%–43%), FHA (43%–50%), and VA mortgage loans.</p>
+        <h3>Debt-to-Income (DTI)</h3>
+        <p>Calculate front-end and back-end DTI ratios required for conventional, FHA, and VA mortgage approvals.</p>
         <div class="card-footer">
-          <span class="chip orange">Underwriting Benchmark</span>
+          <span class="chip ">Lending Benchmark</span>
           <span style="color:var(--accent);font-weight:700;">Calculate →</span>
         </div>
       </a>
 
-      <a href="/calculators/auto-loan-calculator.html" class="card">
+      <a href="/calculators/auto-loan-calculator.html" class="card " data-category="loans" data-id="auto-loan-calculator">
         <div class="card-icon">🚗</div>
-        <h3>Auto Loan Calculator with Trade-In & Tax</h3>
-        <p>Calculate exact monthly car payments factoring vehicle sales price, trade-in equity, state sales tax credits, and loan term lengths (36 to 84 months).</p>
+        <h3>Auto Loan & Trade-In</h3>
+        <p>Calculate monthly car payments, trade-in equity tax credits, and total financing interest charges.</p>
         <div class="card-footer">
-          <span class="chip">Auto Financing</span>
+          <span class="chip ">Sales Tax & Equity</span>
           <span style="color:var(--accent);font-weight:700;">Calculate →</span>
         </div>
       </a>
 
-      <a href="/calculators/student-loan-calculator.html" class="card">
+      <a href="/calculators/student-loan-calculator.html" class="card " data-category="loans" data-id="student-loan-calculator">
         <div class="card-icon">🎓</div>
-        <h3>Student Loan Payoff with Extra Payments</h3>
-        <p>Determine exactly how extra monthly principal payments reduce interest charges and compress standard 10-year repayment schedules.</p>
+        <h3>Student Loan Payoff</h3>
+        <p>Determine how an extra $50, $100, or $200 per month cuts years off your student loan repayment term.</p>
         <div class="card-footer">
-          <span class="chip">Debt Acceleration</span>
+          <span class="chip ">Interest Accelerator</span>
           <span style="color:var(--accent);font-weight:700;">Calculate →</span>
         </div>
       </a>
 
-      <a href="/calculators/loan-calculator.html" class="card">
+      <a href="/calculators/loan-calculator.html" class="card " data-category="loans" data-id="loan-calculator">
         <div class="card-icon">📑</div>
-        <h3>Personal Loan Payment & Amortization</h3>
-        <p>Compute fixed monthly installments, loan origination fee impacts, and total borrowing interest for personal, debt consolidation, or home improvement loans.</p>
+        <h3>Personal Loan Payment</h3>
+        <p>Find fixed monthly payments and total interest costs for personal loans, auto financing, or debt consolidation.</p>
         <div class="card-footer">
-          <span class="chip">Fixed Amortization</span>
+          <span class="chip ">Fixed Rate</span>
+          <span style="color:var(--accent);font-weight:700;">Calculate →</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Hub Internal Linking Bar -->00 per month cuts years off your student loan repayment term.</p>
+        <div class="card-footer">
+          <span class="chip ">Interest Accelerator</span>
+          <span style="color:var(--accent);font-weight:700;">Calculate →</span>
+        </div>
+      </a>
+
+      <a href="/calculators/loan-calculator.html" class="card " data-category="loans" data-id="loan-calculator">
+        <div class="card-icon">📑</div>
+        <h3>Personal Loan Payment</h3>
+        <p>Find fixed monthly payments and total interest costs for personal loans, auto financing, or debt consolidation.</p>
+        <div class="card-footer">
+          <span class="chip ">Fixed Rate</span>
           <span style="color:var(--accent);font-weight:700;">Calculate →</span>
         </div>
       </a>
@@ -160,6 +191,7 @@
       </div>
       <div class="footer-col">
         <h4>Calculators</h4>
+        <a href="/calculators/payment-calculator.html">Payment Calculator</a>
         <a href="/calculators/debt-elimination-planner.html">Debt Elimination Planner</a>
         <a href="/calculators/paycheck-calculator.html">Paycheck Calculator</a>
         <a href="/calculators/mortgage-calculator.html">Mortgage Calculator</a>

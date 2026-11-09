@@ -2,218 +2,254 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://finmatrix.cloud/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://finmatrix.cloud/calculators/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.98</priority>
   </url>
   <url>
     <loc>https://finmatrix.cloud/calculators/income-tax/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.92</priority>
   </url>
   <url>
     <loc>https://finmatrix.cloud/calculators/debt/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.92</priority>
   </url>
   <url>
     <loc>https://finmatrix.cloud/calculators/housing/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.92</priority>
   </url>
   <url>
     <loc>https://finmatrix.cloud/calculators/savings-investing/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.92</priority>
   </url>
   <url>
     <loc>https://finmatrix.cloud/calculators/loans/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.92</priority>
+  </url>
+  <url>
+    <loc>https://finmatrix.cloud/downloads/</loc>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.92</priority>
   </url>
   <url>
     <loc>https://finmatrix.cloud/about.html</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.60</priority>
   </url>
   <url>
     <loc>https://finmatrix.cloud/editorial-policy.html</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.60</priority>
   </url>
   <url>
     <loc>https://finmatrix.cloud/privacy-policy.html</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.50</priority>
   </url>
   <url>
     <loc>https://finmatrix.cloud/terms-of-service.html</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.50</priority>
   </url>
   <url>
     <loc>https://finmatrix.cloud/disclaimer.html</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.50</priority>
   </url>
   <url>
     <loc>https://finmatrix.cloud/contact.html</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.60</priority>
   </url>
   <url>
+    <loc>https://finmatrix.cloud/calculators/payment-calculator.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
     <loc>https://finmatrix.cloud/calculators/debt-elimination-planner.html</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://finmatrix.cloud/calculators/paycheck-calculator.html</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://finmatrix.cloud/calculators/mortgage-calculator.html</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://finmatrix.cloud/calculators/compound-interest-calculator.html</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://finmatrix.cloud/calculators/credit-card-payoff-calculator.html</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://finmatrix.cloud/calculators/refinance-break-even-calculator.html</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://finmatrix.cloud/calculators/rent-vs-buy-calculator.html</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://finmatrix.cloud/calculators/roth-vs-traditional-ira-calculator.html</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://finmatrix.cloud/calculators/401k-calculator.html</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://finmatrix.cloud/calculators/hysa-vs-cd-calculator.html</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://finmatrix.cloud/calculators/self-employed-tax-calculator.html</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://finmatrix.cloud/calculators/bonus-tax-calculator.html</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
     <loc>https://finmatrix.cloud/calculators/hourly-to-salary-calculator.html</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
     <loc>https://finmatrix.cloud/calculators/home-affordability-calculator.html</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
     <loc>https://finmatrix.cloud/calculators/debt-to-income-calculator.html</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
     <loc>https://finmatrix.cloud/calculators/auto-loan-calculator.html</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
     <loc>https://finmatrix.cloud/calculators/student-loan-calculator.html</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
     <loc>https://finmatrix.cloud/calculators/loan-calculator.html</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
     <loc>https://finmatrix.cloud/calculators/fire-calculator.html</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://finmatrix.cloud/calculators/retirement-calculator.html</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
     <loc>https://finmatrix.cloud/calculators/emergency-fund-calculator.html</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
     <loc>https://finmatrix.cloud/calculators/college-savings-calculator.html</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
     <loc>https://finmatrix.cloud/calculators/time-value-of-money-calculator.html</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://finmatrix.cloud/articles/amortization-schedule.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.88</priority>
+  </url>
+  <url>
+    <loc>https://finmatrix.cloud/articles/debt-snowball-vs-avalanche-calculator.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.88</priority>
+  </url>
+  <url>
+    <loc>https://finmatrix.cloud/articles/</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://finmatrix.cloud/articles/payment-calculator.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.88</priority>
   </url>
 </urlset>

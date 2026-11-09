@@ -15,8 +15,13 @@
   # Serve index.html for directory requests
   DirectoryIndex index.html
 
-  # 3. Redirect Legacy Articles to Calculators
-  RewriteRule ^articles/avalanche-vs-snowball-debt\.html$ /calculators/debt-elimination-planner.html [R=301,L]
+  # Do NOT rewrite real existing files or directories (serves calculators, articles, downloads directly)
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # 3. Redirect Legacy Articles to Upgraded Guides / Calculators
+  RewriteRule ^articles/avalanche-vs-snowball-debt\.html$ /articles/debt-snowball-vs-avalanche-calculator.html [R=301,L]
   RewriteRule ^articles/ultimate-credit-card-debt-elimination-guide\.html$ /calculators/credit-card-payoff-calculator.html [R=301,L]
   RewriteRule ^articles/hysa-vs-cd-2025\.html$ /calculators/hysa-vs-cd-calculator.html [R=301,L]
   RewriteRule ^articles/rent-vs-buy-2025\.html$ /calculators/rent-vs-buy-calculator.html [R=301,L]
@@ -27,13 +32,6 @@
   RewriteRule ^articles/boost-credit-score-30-days\.html$ /calculators/debt-elimination-planner.html [R=301,L]
   RewriteRule ^articles/investing-50-dollars\.html$ /calculators/compound-interest-calculator.html [R=301,L]
   RewriteRule ^articles/side-hustles-1000-month\.html$ /calculators/hourly-to-salary-calculator.html [R=301,L]
-  RewriteRule ^articles/?$ /calculators/ [R=301,L]
-  RewriteRule ^articles/index\.html$ /calculators/ [R=301,L]
-
-  # Do NOT rewrite real existing files or directories
-  RewriteCond %{REQUEST_FILENAME} -f [OR]
-  RewriteCond %{REQUEST_FILENAME} -d
-  RewriteRule ^ - [L]
 
   # Serve .html files without requiring extension in URL
   RewriteCond %{REQUEST_FILENAME}\.html -f

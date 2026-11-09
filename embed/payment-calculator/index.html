@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Universal Payment Calculator Widget | Finmatrix</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #080c10;
+    --card: #0d1117;
+    --border: #30363d;
+    --accent: #00d4aa;
+    --accent-glow: rgba(0, 212, 170, 0.15);
+    --text: #f0f6fc;
+    --text-muted: #8b949e;
+    --font-main: 'DM Sans', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font-main);
+    padding: 14px;
+    font-size: 13.5px;
+    line-height: 1.4;
+  }
+  .widget-container {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px;
+    max-width: 580px;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  }
+  .widget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .widget-title {
+    font-size: 15px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .widget-badge {
+    background: var(--accent-glow);
+    color: var(--accent);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 999px;
+    border: 1px solid rgba(0,212,170,0.3);
+  }
+  .preset-bar {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  .preset-btn {
+    background: #161b22;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .preset-btn:hover, .preset-btn.active {
+    background: rgba(0,212,170,0.12);
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .field label {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .field input {
+    background: #131a22;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    padding: 9px 12px;
+    font-size: 14px;
+    font-family: var(--font-mono);
+    outline: none;
+  }
+  .field input:focus {
+    border-color: var(--accent);
+  }
+  .results-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 14px 0;
+  }
+  .result-card {
+    background: #131a22;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+  }
+  .result-card.highlight {
+    border-color: rgba(0,212,170,0.4);
+    background: rgba(0,212,170,0.04);
+  }
+  .res-label {
+    font-size: 10.5px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .res-value {
+    font-size: 20px;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    color: var(--accent);
+  }
+  .progress-wrap {
+    margin: 12px 0 16px 0;
+  }
+  .progress-bar-bg {
+    height: 8px;
+    background: #21262d;
+    border-radius: 999px;
+    overflow: hidden;
+    display: flex;
+  }
+  .bar-principal {
+    background: var(--accent);
+    height: 100%;
+  }
+  .bar-interest {
+    background: #ff6b35;
+    height: 100%;
+  }
+  .progress-legend {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+  .widget-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+  .widget-footer a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 700;
+  }
+</style>
+</head>
+<body>
+
+<div class="widget-container">
+  <div class="widget-header">
+    <div class="widget-title">
+      <span>💳 Universal Payment Calculator</span>
+    </div>
+    <span class="widget-badge">INSTANT CALC</span>
+  </div>
+
+  <div class="preset-bar">
+    <button type="button" class="preset-btn active" onclick="setPreset(35000, 6.5, 60, this)">🚗 Auto Loan (60m)</button>
+    <button type="button" class="preset-btn" onclick="setPreset(15000, 10.5, 36, this)">💳 Personal Loan (36m)</button>
+    <button type="button" class="preset-btn" onclick="setPreset(350000, 6.8, 360, this)">🏠 Mortgage (30y)</button>
+  </div>
+
+  <div class="form-grid">
+    <div class="field">
+      <label for="p-amount">Loan Amount ($)</label>
+      <input type="number" id="p-amount" value="35000" step="1000" oninput="calcPayment()">
+    </div>
+    <div class="field">
+      <label for="p-rate">Interest Rate APR (%)</label>
+      <input type="number" id="p-rate" value="6.5" step="0.1" oninput="calcPayment()">
+    </div>
+    <div class="field">
+      <label for="p-term">Loan Term (Months)</label>
+      <input type="number" id="p-term" value="60" step="6" oninput="calcPayment()">
+    </div>
+    <div class="field">
+      <label for="p-extra">Extra Monthly Payment ($)</label>
+      <input type="number" id="p-extra" value="50" step="25" oninput="calcPayment()">
+    </div>
+  </div>
+
+  <div class="results-grid">
+    <div class="result-card highlight">
+      <div class="res-label">Monthly Payment</div>
+      <div class="res-value" id="out-payment">$684.85</div>
+    </div>
+    <div class="result-card">
+      <div class="res-label">Total Interest Cost</div>
+      <div class="res-value" id="out-interest" style="color:#ff6b35;">$6,091</div>
+    </div>
+    <div class="result-card">
+      <div class="res-label">Total Loan Payoff</div>
+      <div class="res-value" id="out-total" style="color:#f0f6fc;">$41,091</div>
+    </div>
+    <div class="result-card">
+      <div class="res-label">Accelerated Savings</div>
+      <div class="res-value" id="out-savings" style="color:var(--accent); font-size:16px;">Saves $480 &amp; 5 Mos</div>
+    </div>
+  </div>
+
+  <div class="progress-wrap">
+    <div class="progress-bar-bg">
+      <div class="bar-principal" id="bar-p" style="width: 85%;"></div>
+      <div class="bar-interest" id="bar-i" style="width: 15%;"></div>
+    </div>
+    <div class="progress-legend">
+      <span><strong style="color:var(--accent);">■</strong> Principal: <span id="leg-p">$35,000</span></span>
+      <span><strong style="color:#ff6b35;">■</strong> Interest: <span id="leg-i">$6,091</span></span>
+    </div>
+  </div>
+
+  <div class="widget-footer">
+    <span>Updated for 2026</span>
+    <a href="/calculators/payment-calculator.html" target="_blank">Full Schedule &amp; Amortizer &rarr;</a>
+  </div>
+</div>
+
+<script>
+function setPreset(amt, rate, term, btn) {
+  document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('p-amount').value = amt;
+  document.getElementById('p-rate').value = rate;
+  document.getElementById('p-term').value = term;
+  calcPayment();
+}
+
+function calcPayment() {
+  const P = parseFloat(document.getElementById('p-amount').value) || 0;
+  const apr = parseFloat(document.getElementById('p-rate').value) || 0;
+  const n = parseInt(document.getElementById('p-term').value) || 0;
+  const extra = parseFloat(document.getElementById('p-extra').value) || 0;
+
+  if (P <= 0 || n <= 0) return;
+
+  const r = apr > 0 ? (apr / 100) / 12 : 0;
+  let pmt = 0;
+  if (r === 0) {
+    pmt = P / n;
+  } else {
+    pmt = P * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+  }
+
+  const baseTotalInterest = (pmt * n) - P;
+
+  // Accelerated amortization
+  let bal = P;
+  let accInterest = 0;
+  let monthsCount = 0;
+  const totalMonthlyPay = pmt + extra;
+
+  while (bal > 0 && monthsCount < n + 120) {
+    monthsCount++;
+    const interest = bal * r;
+    accInterest += interest;
+    const principal = totalMonthlyPay - interest;
+    bal -= principal;
+  }
+
+  const interestSaved = Math.max(0, baseTotalInterest - accInterest);
+  const monthsSaved = Math.max(0, n - monthsCount);
+
+  document.getElementById('out-payment').innerText = '$' + pmt.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  document.getElementById('out-interest').innerText = '$' + Math.round(baseTotalInterest).toLocaleString('en-US');
+  document.getElementById('out-total').innerText = '$' + Math.round(P + baseTotalInterest).toLocaleString('en-US');
+
+  if (extra > 0 && interestSaved > 0) {
+    document.getElementById('out-savings').innerText = `Saves $${Math.round(interestSaved).toLocaleString()} & ${monthsSaved}m`;
+  } else {
+    document.getElementById('out-savings').innerText = 'No Prepayment';
+  }
+
+  const totalCost = P + baseTotalInterest;
+  const pPct = totalCost > 0 ? (P / totalCost) * 100 : 80;
+  const iPct = 100 - pPct;
+
+  document.getElementById('bar-p').style.width = pPct + '%';
+  document.getElementById('bar-i').style.width = iPct + '%';
+  document.getElementById('leg-p').innerText = '$' + Math.round(P).toLocaleString('en-US');
+  document.getElementById('leg-i').innerText = '$' + Math.round(baseTotalInterest).toLocaleString('en-US');
+}
+
+calcPayment();
+</script>
+</body>
+</html>
+

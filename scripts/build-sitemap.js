@@ -20,6 +20,7 @@ const corePages = [
   { path: '/calculators/housing/', priority: '0.92', changefreq: 'weekly' },
   { path: '/calculators/savings-investing/', priority: '0.92', changefreq: 'weekly' },
   { path: '/calculators/loans/', priority: '0.92', changefreq: 'weekly' },
+  { path: '/downloads/', priority: '0.92', changefreq: 'weekly' },
   { path: '/about.html', priority: '0.60', changefreq: 'monthly' },
   { path: '/editorial-policy.html', priority: '0.60', changefreq: 'monthly' },
   { path: '/privacy-policy.html', priority: '0.50', changefreq: 'yearly' },
@@ -60,6 +61,25 @@ calculators.forEach(c => {
     priority: c.popular ? '0.95' : '0.90'
   });
 });
+
+// Add educational articles hub & articles
+const articlesDir = path.join(ROOT_DIR, 'articles');
+if (fs.existsSync(articlesDir)) {
+  const articleFiles = fs.readdirSync(articlesDir).filter(f => f.endsWith('.html'));
+  articleFiles.forEach(f => {
+    // Only index valid full articles, not legacy redirect stubs
+    const content = fs.readFileSync(path.join(articlesDir, f), 'utf8');
+    if (!content.includes('http-equiv="refresh"')) {
+      const urlPath = f === 'index.html' ? '/articles/' : `/articles/${f}`;
+      urls.push({
+        loc: `${DOMAIN}${urlPath}`,
+        lastmod: TODAY,
+        changefreq: 'weekly',
+        priority: f === 'index.html' ? '0.90' : '0.88'
+      });
+    }
+  });
+}
 
 // 4. Generate XML
 const xmlLines = [

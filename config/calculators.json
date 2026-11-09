@@ -1,5 +1,17 @@
 [
   {
+    "id": "payment-calculator",
+    "name": "Universal Payment Calculator (Car, Mortgage & Loans)",
+    "shortName": "Payment Calculator",
+    "category": "loans",
+    "url": "/calculators/payment-calculator.html",
+    "icon": "💳",
+    "badge": "🔥 74K Search Winner",
+    "popular": true,
+    "description": "Calculate exact monthly payments, total interest, and amortization schedules with extra prepayments for car, mortgage, and personal loans.",
+    "keywords": ["payment calculator", "loan payment calculator", "car payment calculator", "mortgage payment calculator", "monthly loan payment", "payment calculator with interest"]
+  },
+  {
     "id": "debt-elimination-planner",
     "name": "Debt Snowball vs Avalanche Calculator",
     "shortName": "Debt Avalanche vs Snowball",

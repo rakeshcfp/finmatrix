@@ -1,0 +1,19 @@
+{
+  "name": "finmatrix",
+  "version": "2.0.0",
+  "description": "Finmatrix — Programmatic SEO Blog Engine, Financial Calculators & Lead Capture System",
+  "scripts": {
+    "build:blog": "node --experimental-strip-types scripts/build-blog.mjs",
+    "build:sitemap": "node scripts/build-sitemap.js",
+    "sync": "node scripts/sync-calculator-grids.mjs",
+    "navbars": "node scripts/update-navbars.mjs",
+    "build": "node --experimental-strip-types scripts/build-blog.mjs && node scripts/sync-calculator-grids.mjs && node scripts/update-navbars.mjs && node scripts/build-sitemap.js",
+    "ingest": "node --experimental-strip-types scripts/ingest-keywords.mjs",
+    "keyword": "node --experimental-strip-types scripts/ingest-keywords.mjs",
+    "package": "python scripts/package-deploy.py",
+    "test:n8n": "node scripts/test-n8n-webhook.mjs",
+    "test": "node tests/calculator-formulas.test.js"
+  },
+  "author": "Finmatrix Financial Research Desk",
+  "license": "MIT"
+}
