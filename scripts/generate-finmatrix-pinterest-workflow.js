@@ -1326,6 +1326,40 @@ if (n16) {
 }) }}`;
 }
 
+// Update Node 10 reference to new Node 8 name
+const n10 = wf.nodes.find(n => n.name.includes('Attach Rendered Image URL'));
+if (n10) {
+  n10.parameters.jsCode = `const prev = $('Configure & Generate Pin Image (Finmatrix Studio Engine)').item.json;
+const base = $json.url || '';
+if (!base) throw new Error('Render failed: no url returned');
+const { pinHtml, ...rest } = prev;          // keep the HTML out of Sheets/email
+const imageUrl = (base.endsWith('.png') || base.endsWith('.jpg') || base.endsWith('.jpeg')) ? base : base + '.png';
+return { json: { ...rest, imageUrl, shortImageUrl: imageUrl, imageRenderedAt: new Date().toISOString() } };`;
+}
+
+// Fix connections for renamed nodes
+if (wf.connections['Pick Next Pinterest Ebook Angle & Board']) {
+  wf.connections['Pick Next Finmatrix Keyword, Angle & Board'] = wf.connections['Pick Next Pinterest Ebook Angle & Board'];
+  delete wf.connections['Pick Next Pinterest Ebook Angle & Board'];
+}
+if (wf.connections['Configure & Generate Pin Image (Dynamic Photo CDN Engine)']) {
+  wf.connections['Configure & Generate Pin Image (Finmatrix Studio Engine)'] = wf.connections['Configure & Generate Pin Image (Dynamic Photo CDN Engine)'];
+  delete wf.connections['Configure & Generate Pin Image (Dynamic Photo CDN Engine)'];
+}
+
+for (const [src, conns] of Object.entries(wf.connections)) {
+  for (const list of conns.main || []) {
+    for (const target of list) {
+      if (target.node === 'Pick Next Pinterest Ebook Angle & Board') {
+        target.node = 'Pick Next Finmatrix Keyword, Angle & Board';
+      }
+      if (target.node === 'Configure & Generate Pin Image (Dynamic Photo CDN Engine)') {
+        target.node = 'Configure & Generate Pin Image (Finmatrix Studio Engine)';
+      }
+    }
+  }
+}
+
 // Sanitize API keys to placeholders so git secret scanners and public pushes are safe
 const n6Node = wf.nodes.find(n => n.name.includes('Ideate Fresh Concept'));
 if (n6Node && n6Node.parameters && n6Node.parameters.url) {

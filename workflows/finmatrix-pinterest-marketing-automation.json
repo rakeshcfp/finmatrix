@@ -25,7 +25,7 @@
       "parameters": {
         "documentId": {
           "__rl": true,
-          "value": "1sPshk7V0i767_HhxnBQoCbomr3g0VevbeffA3gKhU4k",
+          "value": "1UQfW35vX_b9uohLPWBsYlEACiwPm3Rv2f0Cjpch6x1E",
           "mode": "id"
         },
         "sheetName": {
@@ -68,7 +68,7 @@
       "parameters": {
         "documentId": {
           "__rl": true,
-          "value": "1sPshk7V0i767_HhxnBQoCbomr3g0VevbeffA3gKhU4k",
+          "value": "1UQfW35vX_b9uohLPWBsYlEACiwPm3Rv2f0Cjpch6x1E",
           "mode": "id"
         },
         "sheetName": {
@@ -188,7 +188,7 @@
     },
     {
       "parameters": {
-        "jsCode": "const prev = $('Configure & Generate Pin Image (Dynamic Photo CDN Engine)').item.json;\nconst base = $json.url || '';\nif (!base) throw new Error('Render failed: no url returned');\nconst { pinHtml, ...rest } = prev;          // keep the HTML out of Sheets/email\nconst imageUrl = (base.endsWith('.png') || base.endsWith('.jpg') || base.endsWith('.jpeg')) ? base : base + '.png';\nreturn { json: { ...rest, imageUrl, shortImageUrl: imageUrl, imageRenderedAt: new Date().toISOString() } };"
+        "jsCode": "const prev = $('Configure & Generate Pin Image (Finmatrix Studio Engine)').item.json;\nconst base = $json.url || '';\nif (!base) throw new Error('Render failed: no url returned');\nconst { pinHtml, ...rest } = prev;          // keep the HTML out of Sheets/email\nconst imageUrl = (base.endsWith('.png') || base.endsWith('.jpg') || base.endsWith('.jpeg')) ? base : base + '.png';\nreturn { json: { ...rest, imageUrl, shortImageUrl: imageUrl, imageRenderedAt: new Date().toISOString() } };"
       },
       "id": "b8ae78ca-92a3-4263-84d3-e47ce63450a2",
       "name": "Attach Rendered Image URL",
@@ -282,7 +282,7 @@
         "operation": "append",
         "documentId": {
           "__rl": true,
-          "value": "1sPshk7V0i767_HhxnBQoCbomr3g0VevbeffA3gKhU4k",
+          "value": "1UQfW35vX_b9uohLPWBsYlEACiwPm3Rv2f0Cjpch6x1E",
           "mode": "id"
         },
         "sheetName": {
@@ -412,18 +412,7 @@
       "main": [
         [
           {
-            "node": "Pick Next Pinterest Ebook Angle & Board",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Pick Next Pinterest Ebook Angle & Board": {
-      "main": [
-        [
-          {
-            "node": "Gemini API: Ideate Fresh Concept (Style-Specific)",
+            "node": "Pick Next Finmatrix Keyword, Angle & Board",
             "type": "main",
             "index": 0
           }
@@ -445,18 +434,7 @@
       "main": [
         [
           {
-            "node": "Configure & Generate Pin Image (Dynamic Photo CDN Engine)",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Configure & Generate Pin Image (Dynamic Photo CDN Engine)": {
-      "main": [
-        [
-          {
-            "node": "Render Pin Image (Hostinger Engine)",
+            "node": "Configure & Generate Pin Image (Finmatrix Studio Engine)",
             "type": "main",
             "index": 0
           }
@@ -528,6 +506,28 @@
         [
           {
             "node": "Verify Image Availability (HTTP 200 Check)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pick Next Finmatrix Keyword, Angle & Board": {
+      "main": [
+        [
+          {
+            "node": "Gemini API: Ideate Fresh Concept (Style-Specific)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Configure & Generate Pin Image (Finmatrix Studio Engine)": {
+      "main": [
+        [
+          {
+            "node": "Render Pin Image (Hostinger Engine)",
             "type": "main",
             "index": 0
           }
