@@ -1,0 +1,537 @@
+import fs from 'fs';
+import http from 'http';
+
+export function buildPinHtml({
+  theme = 'navy',
+  headline = 'FD Interest Calculator',
+  subtitle = 'Calculate your fixed deposit interest and maturity amount',
+  calcHeader = 'FD INTEREST CALCULATOR',
+  in1Label = 'Deposit Amount:',
+  in1Val = '$100,000',
+  in2Label = 'Interest Rate (% APY):',
+  in2Val = '7.5%',
+  in3Label = 'Deposit Term:',
+  in3Val = '5 Years',
+  btnText = 'CALCULATE NOW',
+  res1Label = 'Total Interest Earned:',
+  res1Val = '$43,577',
+  res2Label = 'Final Maturity Amount:',
+  res2Val = '$143,577',
+  b1 = { icon: '🧮', text: 'Free FD interest calculator' },
+  b2 = { icon: '📅', text: 'Calculate maturity amount online' },
+  b3 = { icon: '🔑', text: 'Find best savings scheme' },
+  b4 = { icon: '💰', text: 'Accurate compound interest math' },
+  currency = '$'
+} = {}) {
+  const themes = {
+    navy: {
+      bgGrad: 'radial-gradient(circle at 50% 15%, #0e3058 0%, #03142e 50%, #010a18 100%)',
+      topGlow: 'rgba(14, 165, 233, 0.28)',
+      calcBorder: 'rgba(56, 189, 248, 0.45)',
+      calcHeaderGrad: 'linear-gradient(90deg, #0284c7 0%, #0369a1 100%)',
+      cardBg: 'linear-gradient(180deg, #1b385e 0%, #0c213b 100%)'
+    },
+    emerald: {
+      bgGrad: 'radial-gradient(circle at 50% 15%, #064e3b 0%, #022c22 50%, #01140f 100%)',
+      topGlow: 'rgba(16, 185, 129, 0.28)',
+      calcBorder: 'rgba(52, 211, 153, 0.45)',
+      calcHeaderGrad: 'linear-gradient(90deg, #059669 0%, #047857 100%)',
+      cardBg: 'linear-gradient(180deg, #0d4233 0%, #062b21 100%)'
+    },
+    amethyst: {
+      bgGrad: 'radial-gradient(circle at 50% 15%, #2e1065 0%, #170933 50%, #090315 100%)',
+      topGlow: 'rgba(168, 85, 247, 0.28)',
+      calcBorder: 'rgba(192, 132, 252, 0.45)',
+      calcHeaderGrad: 'linear-gradient(90deg, #7c3aed 0%, #6d28d9 100%)',
+      cardBg: 'linear-gradient(180deg, #321959 0%, #1b0a33 100%)'
+    },
+    carbon: {
+      bgGrad: 'radial-gradient(circle at 50% 15%, #1e293b 0%, #0f172a 50%, #020617 100%)',
+      topGlow: 'rgba(56, 189, 248, 0.25)',
+      calcBorder: 'rgba(148, 163, 184, 0.45)',
+      calcHeaderGrad: 'linear-gradient(90deg, #334155 0%, #1e293b 100%)',
+      cardBg: 'linear-gradient(180deg, #1e293b 0%, #0f172a 100%)'
+    }
+  };
+
+  const t = themes[theme] || themes.navy;
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Finmatrix Pin Showcase</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  width: 1000px;
+  height: 1500px;
+  background: #010a18;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #ffffff;
+  overflow: hidden;
+}
+.pin-wrapper {
+  position: relative;
+  width: 1000px;
+  height: 1500px;
+  background: ${t.bgGrad};
+  overflow: hidden;
+  padding: 55px 54px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.glow-orb-top {
+  position: absolute;
+  top: -80px;
+  left: 200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, ${t.topGlow} 0%, transparent 70%);
+  pointer-events: none;
+}
+.glow-orb-coins {
+  position: absolute;
+  top: 360px;
+  right: 10px;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.35) 0%, transparent 65%);
+  pointer-events: none;
+}
+.bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+}
+
+/* Header */
+.header-box {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  margin-top: 5px;
+}
+.tag-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #34d399;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 8px 22px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+}
+.main-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 64px;
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  background: linear-gradient(135deg, #ffffff 25%, #fde047 65%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 12px;
+  text-shadow: 0 4px 24px rgba(245, 158, 11, 0.3);
+}
+.sub-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #cbd5e1;
+  line-height: 1.4;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+/* Hero Showcase */
+.hero-showcase {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 15px 0;
+}
+.calculator-card {
+  width: 580px;
+  background: ${t.cardBg};
+  border: 2px solid ${t.calcBorder};
+  border-radius: 26px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.75), 0 0 35px rgba(14, 165, 233, 0.25);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.calc-top-header {
+  background: ${t.calcHeaderGrad};
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.calc-top-title {
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+.calc-top-dots {
+  display: flex;
+  gap: 6px;
+}
+.calc-top-dots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.45);
+}
+.calc-body {
+  padding: 26px 24px 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.calc-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.calc-label {
+  font-size: 19px;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+.calc-input-box {
+  width: 260px;
+  background: #ffffff;
+  color: #0f172a;
+  font-size: 21px;
+  font-weight: 800;
+  padding: 11px 18px;
+  border-radius: 10px;
+  text-align: right;
+  border: 1px solid #cbd5e1;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
+}
+.calc-btn-container {
+  margin-top: 4px;
+}
+.calc-action-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+.calc-results-box {
+  background: linear-gradient(180deg, #f0fdf4 0%, #e0f2fe 100%);
+  border-radius: 16px;
+  padding: 16px 22px;
+  border: 1px solid #bae6fd;
+  margin-top: 4px;
+  color: #0f172a;
+}
+.result-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.result-item:first-child {
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+.result-lbl {
+  font-size: 17px;
+  font-weight: 700;
+  color: #334155;
+}
+.result-val {
+  font-size: 22px;
+  font-weight: 900;
+  color: #0369a1;
+}
+.result-val.highlight {
+  font-size: 26px;
+  color: #059669;
+}
+
+/* 3D Wealth Visual (Shield & Multiple Coin Stacks) */
+.hero-3d-visual {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.wealth-shield-svg {
+  width: 290px;
+  height: 320px;
+  filter: drop-shadow(0 20px 35px rgba(0,0,0,0.7));
+}
+
+/* Feature List (4 Icon Bullets) */
+.features-container {
+  position: relative;
+  z-index: 10;
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  padding: 24px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  backdrop-filter: blur(20px);
+}
+.feature-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.feature-icon-badge {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.22) 0%, rgba(16, 185, 129, 0.22) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  flex-shrink: 0;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+.feature-text {
+  font-size: 22px;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+/* Footer */
+.footer-bar {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 28px;
+  background: #0f172a;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+}
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.brand-logo-text {
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  color: #ffffff;
+}
+.brand-domain {
+  font-size: 15px;
+  color: #38bdf8;
+  font-weight: 600;
+}
+.footer-cta-pill {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 14px 28px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(16, 185, 129, 0.4);
+}
+</style>
+</head>
+<body>
+<div class="pin-wrapper">
+  <div class="glow-orb-top"></div>
+  <div class="glow-orb-coins"></div>
+  <div class="bg-grid"></div>
+
+  <!-- Header -->
+  <div class="header-box">
+    <div class="tag-badge">⚡ 100% FREE CALCULATOR</div>
+    <h1 class="main-title">${headline}</h1>
+    <p class="sub-title">${subtitle}</p>
+  </div>
+
+  <!-- Hero Showcase: Calculator Card + 3D Gold Shield & Stacks of Coins -->
+  <div class="hero-showcase">
+    <div class="calculator-card">
+      <div class="calc-top-header">
+        <span class="calc-top-title">${calcHeader}</span>
+        <div class="calc-top-dots">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+      <div class="calc-body">
+        <div class="calc-row">
+          <span class="calc-label">${in1Label}</span>
+          <div class="calc-input-box">${in1Val}</div>
+        </div>
+        <div class="calc-row">
+          <span class="calc-label">${in2Label}</span>
+          <div class="calc-input-box">${in2Val}</div>
+        </div>
+        <div class="calc-row">
+          <span class="calc-label">${in3Label}</span>
+          <div class="calc-input-box">${in3Val}</div>
+        </div>
+        <div class="calc-btn-container">
+          <div class="calc-action-btn">${btnText}</div>
+        </div>
+        <div class="calc-results-box">
+          <div class="result-item">
+            <span class="result-lbl">${res1Label}</span>
+            <span class="result-val">${res1Val}</span>
+          </div>
+          <div class="result-item">
+            <span class="result-lbl">${res2Label}</span>
+            <span class="result-val highlight">${res2Val}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3D Gold Shield & Shiny Coins -->
+    <div class="hero-3d-visual">
+      <svg class="wealth-shield-svg" viewBox="0 0 240 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="goldRim" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#fffbeb"/>
+            <stop offset="30%" stop-color="#fde047"/>
+            <stop offset="70%" stop-color="#d97706"/>
+            <stop offset="100%" stop-color="#78350f"/>
+          </linearGradient>
+          <linearGradient id="shieldFace" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#fef08a"/>
+            <stop offset="40%" stop-color="#f59e0b"/>
+            <stop offset="85%" stop-color="#b45309"/>
+            <stop offset="100%" stop-color="#78350f"/>
+          </linearGradient>
+          <linearGradient id="coinEdge" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#92400e"/>
+            <stop offset="25%" stop-color="#fef08a"/>
+            <stop offset="65%" stop-color="#f59e0b"/>
+            <stop offset="100%" stop-color="#78350f"/>
+          </linearGradient>
+          <linearGradient id="coinTop" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#fef9c3"/>
+            <stop offset="50%" stop-color="#fde047"/>
+            <stop offset="100%" stop-color="#d97706"/>
+          </linearGradient>
+          <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="4" result="blur" />
+            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+          </filter>
+        </defs>
+
+        <!-- Golden Wealth Shield -->
+        <g transform="translate(20, 10)">
+          <path d="M100 5 L185 45 C185 145 100 215 100 215 C100 215 15 145 15 45 Z" fill="url(#goldRim)" filter="url(#glow)"/>
+          <path d="M100 12 L177 49 C177 140 100 205 100 205 C100 205 23 140 23 49 Z" fill="url(#shieldFace)" stroke="#fffbeb" stroke-width="2"/>
+          <path d="M100 24 L165 56 C165 132 100 188 100 188 C100 188 35 132 35 56 Z" fill="rgba(0,0,0,0.18)"/>
+          <!-- Currency Emblem -->
+          <text x="100" y="120" font-family="'Outfit', sans-serif" font-size="82" font-weight="900" fill="#ffffff" text-anchor="middle" dominant-baseline="central" style="filter: drop-shadow(0 4px 10px rgba(0,0,0,0.4));">${currency}</text>
+        </g>
+
+        <!-- Stacks of Shiny 3D Gold Coins -->
+        <!-- Left Coin Stack (Lower, 2 coins) -->
+        <g transform="translate(25, 175)">
+          <ellipse cx="35" cy="42" rx="30" ry="11" fill="#78350f"/>
+          <rect x="5" y="32" width="60" height="10" fill="url(#coinEdge)"/>
+          <ellipse cx="35" cy="32" rx="30" ry="11" fill="url(#coinTop)" stroke="#fef08a" stroke-width="1.5"/>
+
+          <rect x="5" y="20" width="60" height="10" fill="url(#coinEdge)"/>
+          <ellipse cx="35" cy="20" rx="30" ry="11" fill="url(#coinTop)" stroke="#ffffff" stroke-width="1.5"/>
+        </g>
+
+        <!-- Right / Front Main Stack (Taller, 4 coins) -->
+        <g transform="translate(110, 155)">
+          <ellipse cx="45" cy="65" rx="42" ry="14" fill="#78350f"/>
+          <rect x="3" y="53" width="84" height="12" fill="url(#coinEdge)"/>
+          <ellipse cx="45" cy="53" rx="42" ry="14" fill="url(#coinTop)" stroke="#fef08a" stroke-width="1.5"/>
+
+          <rect x="3" y="38" width="84" height="12" fill="url(#coinEdge)"/>
+          <ellipse cx="45" cy="38" rx="42" ry="14" fill="url(#coinTop)" stroke="#fef08a" stroke-width="1.5"/>
+
+          <rect x="3" y="23" width="84" height="12" fill="url(#coinEdge)"/>
+          <ellipse cx="45" cy="23" rx="42" ry="14" fill="url(#coinTop)" stroke="#fef08a" stroke-width="1.5"/>
+
+          <rect x="3" y="8" width="84" height="12" fill="url(#coinEdge)"/>
+          <ellipse cx="45" cy="8" rx="42" ry="14" fill="url(#coinTop)" stroke="#ffffff" stroke-width="2"/>
+        </g>
+
+        <!-- Sparkles -->
+        <text x="30" y="35" font-size="24" fill="#fef08a">✦</text>
+        <text x="215" y="80" font-size="18" fill="#ffffff">✦</text>
+        <text x="190" y="210" font-size="20" fill="#fef08a">✦</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- 4 Feature Bullets -->
+  <div class="features-container">
+    <div class="feature-row">
+      <div class="feature-icon-badge">${b1.icon}</div>
+      <span class="feature-text">${b1.text}</span>
+    </div>
+    <div class="feature-row">
+      <div class="feature-icon-badge">${b2.icon}</div>
+      <span class="feature-text">${b2.text}</span>
+    </div>
+    <div class="feature-row">
+      <div class="feature-icon-badge">${b3.icon}</div>
+      <span class="feature-text">${b3.text}</span>
+    </div>
+    <div class="feature-row">
+      <div class="feature-icon-badge">${b4.icon}</div>
+      <span class="feature-text">${b4.text}</span>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer-bar">
+    <div class="footer-brand">
+      <div class="brand-logo-text">Finmatrix Cloud</div>
+      <span class="brand-domain">finmatrix.cloud · Quantitative Finance</span>
+    </div>
+    <div class="footer-cta-pill">VISIT SITE & CALCULATE →</div>
+  </div>
+</div>
+</body>
+</html>`;
+}
+
+// Write dynamic HTML to file
+const html = buildPinHtml({ theme: 'navy' });
+fs.writeFileSync('test-dynamic-pin.html', html, 'utf8');
+console.log('Successfully written test-dynamic-pin.html');
