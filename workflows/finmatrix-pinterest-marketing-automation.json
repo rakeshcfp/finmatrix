@@ -49,7 +49,8 @@
           "name": "Google Sheet Novamatrix"
         }
       },
-      "continueOnFail": true
+      "continueOnFail": true,
+      "alwaysOutputData": true
     },
     {
       "parameters": {
@@ -94,7 +95,8 @@
           "name": "Google Sheet Novamatrix"
         }
       },
-      "continueOnFail": true
+      "continueOnFail": true,
+      "alwaysOutputData": true
     },
     {
       "parameters": {

@@ -79,6 +79,8 @@ const n2 = wf.nodes.find(n => n.name.includes('Fetch Boards Registry'));
 if (n2) {
   n2.parameters.documentId.value = FINMATRIX_SHEET_ID;
   n2.parameters.sheetName.value = "Finmatrix_Pinterest_Boards";
+  n2.alwaysOutputData = true;
+  n2.continueOnFail = true;
 }
 
 // Node 4 (Fetch Recent Queue History)
@@ -86,6 +88,8 @@ const n4 = wf.nodes.find(n => n.name.includes('Fetch Recent Queue History'));
 if (n4) {
   n4.parameters.documentId.value = FINMATRIX_SHEET_ID;
   n4.parameters.sheetName.value = "Finmatrix_Pinterest_Queue";
+  n4.alwaysOutputData = true;
+  n4.continueOnFail = true;
 }
 
 // Node 5 (Pick Next Keyword & Board)
