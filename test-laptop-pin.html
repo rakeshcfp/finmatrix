@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Finmatrix Laptop Workspace Pin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Outfit:wght@700;800;900&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  width: 1000px;
+  height: 1500px;
+  background: #f8fafc;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #0f172a;
+  overflow: hidden;
+}
+.pin-wrapper {
+  position: relative;
+  width: 1000px;
+  height: 1500px;
+  background: linear-gradient(180deg, #f0f7ff 0%, #ffffff 42%, #f8fafc 75%, #e2e8f0 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+/* Desk Surface Bottom */
+.desk-surface {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 540px;
+  background: linear-gradient(180deg, #dfd5c6 0%, #d2c3b0 35%, #c5b39e 100%);
+  border-top: 3px solid rgba(255, 255, 255, 0.7);
+  box-shadow: inset 0 12px 30px rgba(0,0,0,0.06);
+}
+
+/* Top Section */
+.top-content {
+  position: relative;
+  z-index: 10;
+  padding: 40px 48px 0 48px;
+  text-align: center;
+}
+.script-tag {
+  font-family: 'Caveat', cursive;
+  font-size: 40px;
+  font-weight: 700;
+  color: #0369a1;
+  transform: rotate(-3deg);
+  display: inline-block;
+  margin-bottom: 2px;
+}
+.main-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 70px;
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -1.5px;
+  color: #0c2340;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.highlight-pill {
+  display: inline-block;
+  background: #fde047;
+  color: #0f172a;
+  font-size: 26px;
+  font-weight: 800;
+  padding: 9px 36px;
+  border-radius: 999px;
+  box-shadow: 0 4px 14px rgba(253, 224, 71, 0.45);
+  margin-bottom: 22px;
+}
+
+/* 5 Category Pills */
+.categories-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 22px;
+  margin-bottom: 22px;
+}
+.cat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+}
+.cat-icon-circle {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  border: 2px solid #ffffff;
+}
+.cat-item:nth-child(1) .cat-icon-circle { background: #bae6fd; }
+.cat-item:nth-child(2) .cat-icon-circle { background: #bbf7d0; }
+.cat-item:nth-child(3) .cat-icon-circle { background: #fef08a; }
+.cat-item:nth-child(4) .cat-icon-circle { background: #e9d5ff; }
+.cat-item:nth-child(5) .cat-icon-circle { background: #a7f3d0; }
+
+.cat-label {
+  font-size: 15px;
+  font-weight: 800;
+  color: #1e293b;
+}
+
+/* Mid Hero Area: Left Checklist + Right Laptop */
+.mid-hero-container {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0 35px 22px 42px;
+  flex: 1;
+}
+
+/* Left Checklist */
+.left-col {
+  width: 275px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 35px;
+}
+.script-checklist-title {
+  font-family: 'Caveat', cursive;
+  font-size: 38px;
+  font-weight: 700;
+  color: #0369a1;
+  transform: rotate(-2deg);
+  margin-bottom: -2px;
+}
+.checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.check-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #10b981;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 900;
+  flex-shrink: 0;
+  box-shadow: 0 3px 8px rgba(16, 185, 129, 0.35);
+}
+.check-text {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0c2340;
+}
+
+/* Notepad sticky */
+.notepad-sticky {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 14px 18px;
+  width: 215px;
+  box-shadow: 0 10px 22px rgba(0,0,0,0.09);
+  transform: rotate(-4deg);
+  margin-top: 8px;
+}
+.np-line1 {
+  font-family: 'Caveat', cursive;
+  font-size: 25px;
+  font-weight: 700;
+  color: #0284c7;
+  line-height: 1.2;
+}
+.np-line2 {
+  font-family: 'Caveat', cursive;
+  font-size: 22px;
+  font-weight: 700;
+  color: #64748b;
+}
+
+/* Right Laptop Mockup */
+.laptop-mockup-wrapper {
+  position: relative;
+  width: 615px;
+  margin-bottom: 15px;
+}
+/* Laptop Screen Bezel */
+.laptop-screen {
+  width: 590px;
+  height: 390px;
+  background: #0f172a;
+  border: 11px solid #1e293b;
+  border-radius: 18px 18px 0 0;
+  margin: 0 auto;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.35);
+  overflow: hidden;
+  position: relative;
+}
+.laptop-webcam {
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background: #475569;
+  border-radius: 50%;
+  z-index: 20;
+}
+/* Inside Laptop Screen (Interactive App UI) */
+.laptop-display {
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+.app-header {
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 9px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.app-brand {
+  font-size: 14px;
+  font-weight: 800;
+  color: #0c2340;
+  letter-spacing: -0.3px;
+}
+.app-dots {
+  display: flex;
+  gap: 5px;
+}
+.app-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #cbd5e1;
+}
+
+/* App Body (Inputs on Left, Results & Mini Schedule on Right) */
+.app-body {
+  padding: 12px 16px;
+  display: flex;
+  gap: 14px;
+  flex: 1;
+  background: #ffffff;
+}
+.app-inputs-col {
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.app-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.app-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #475569;
+}
+.app-input {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 14px;
+  font-weight: 800;
+  color: #0f172a;
+}
+.app-calc-btn {
+  background: #0284c7;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 8px;
+  border-radius: 6px;
+  text-align: center;
+  margin-top: 3px;
+  box-shadow: 0 3px 8px rgba(2, 132, 199, 0.4);
+}
+
+.app-results-col {
+  width: 52%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+.res-hero {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 6px;
+  padding: 8px 10px;
+  margin-bottom: 6px;
+}
+.res-hero-lbl {
+  font-size: 11px;
+  font-weight: 700;
+  color: #166534;
+}
+.res-hero-val {
+  font-size: 26px;
+  font-weight: 900;
+  color: #15803d;
+  letter-spacing: -0.5px;
+}
+.res-sub-grid {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  font-weight: 700;
+  color: #475569;
+  margin-bottom: 6px;
+}
+.res-sub-grid strong {
+  color: #0f172a;
+  font-weight: 800;
+}
+
+/* Mini Amortization Table */
+.mini-schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9.5px;
+  margin-top: 2px;
+}
+.mini-schedule-table th {
+  background: #e2e8f0;
+  color: #334155;
+  font-weight: 800;
+  padding: 3px 4px;
+  text-align: right;
+}
+.mini-schedule-table th:first-child { text-align: left; }
+.mini-schedule-table td {
+  padding: 3px 4px;
+  border-bottom: 1px solid #f1f5f9;
+  text-align: right;
+  color: #475569;
+  font-weight: 600;
+}
+.mini-schedule-table td:first-child { text-align: left; font-weight: 700; color: #0f172a; }
+
+/* Laptop Base (Keyboard & Trackpad) */
+.laptop-base {
+  width: 620px;
+  height: 16px;
+  background: linear-gradient(180deg, #94a3b8 0%, #64748b 100%);
+  border-radius: 0 0 16px 16px;
+  position: relative;
+  box-shadow: 0 18px 30px rgba(0,0,0,0.32);
+}
+.laptop-notch {
+  width: 80px;
+  height: 5px;
+  background: #475569;
+  border-radius: 0 0 6px 6px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Bottom Navy Brand Banner */
+.bottom-brand-banner {
+  position: relative;
+  z-index: 20;
+  background: #0c2340;
+  padding: 24px 45px 30px 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 -10px 25px rgba(0,0,0,0.18);
+}
+.brand-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.brand-logo-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: #0284c7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 22px;
+}
+.brand-domain-text {
+  font-family: 'Outfit', sans-serif;
+  font-size: 38px;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+}
+.brand-tagline-text {
+  font-size: 16px;
+  font-weight: 700;
+  color: #93c5fd;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.bottom-cta-ribbon {
+  background: #0284c7;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 800;
+  padding: 8px 34px;
+  border-radius: 999px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.45);
+}
+</style>
+</head>
+<body>
+<div class="pin-wrapper">
+  <div class="desk-surface"></div>
+
+  <!-- Top Content -->
+  <div class="top-content">
+    <div class="script-tag">Free &amp; Easy to Use</div>
+    <h1 class="main-title">Amortization Calculator</h1>
+    <div class="highlight-pill">Calculate Your Monthly Loan Payment</div>
+
+    <!-- 5 Category Pills -->
+    <div class="categories-row">
+      <div class="cat-item">
+        <div class="cat-icon-circle">🏠</div>
+        <span class="cat-label">Mortgage</span>
+      </div>
+      <div class="cat-item">
+        <div class="cat-icon-circle">🚗</div>
+        <span class="cat-label">Auto Loan</span>
+      </div>
+      <div class="cat-item">
+        <div class="cat-icon-circle">💰</div>
+        <span class="cat-label">Personal Loan</span>
+      </div>
+      <div class="cat-item">
+        <div class="cat-icon-circle">🤝</div>
+        <span class="cat-label">Refinance</span>
+      </div>
+      <div class="cat-item">
+        <div class="cat-icon-circle">🏢</div>
+        <span class="cat-label">Business Loan</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mid Hero: Left Checklist + Right Laptop Mockup -->
+  <div class="mid-hero-container">
+    <!-- Left Checklist -->
+    <div class="left-col">
+      <div class="script-checklist-title">Know Your Numbers!</div>
+      <div class="checklist-item">
+        <div class="check-icon">✓</div>
+        <span class="check-text">Monthly Payment</span>
+      </div>
+      <div class="checklist-item">
+        <div class="check-icon">✓</div>
+        <span class="check-text">Total Interest</span>
+      </div>
+      <div class="checklist-item">
+        <div class="check-icon">✓</div>
+        <span class="check-text">Loan Balance</span>
+      </div>
+      <div class="checklist-item">
+        <div class="check-icon">✓</div>
+        <span class="check-text">Amortization Schedule</span>
+      </div>
+
+      <!-- Sticky Note -->
+      <div class="notepad-sticky">
+        <div class="np-line1">Plan • Calculate • Achieve</div>
+        <div class="np-line2">100% Free • Finmatrix :)</div>
+      </div>
+    </div>
+
+    <!-- Right Laptop Mockup -->
+    <div class="laptop-mockup-wrapper">
+      <div class="laptop-screen">
+        <div class="laptop-webcam"></div>
+        <div class="laptop-display">
+          <div class="app-header">
+            <span class="app-brand">Finmatrix Amortization Engine</span>
+            <div class="app-dots"><span></span><span></span><span></span></div>
+          </div>
+          <div class="app-body">
+            <!-- Left inputs inside laptop -->
+            <div class="app-inputs-col">
+              <div class="app-row">
+                <span class="app-label">Loan Amount</span>
+                <div class="app-input">$ 250,000</div>
+              </div>
+              <div class="app-row">
+                <span class="app-label">Interest Rate (%)</span>
+                <div class="app-input">6.5%</div>
+              </div>
+              <div class="app-row">
+                <span class="app-label">Loan Term (Years)</span>
+                <div class="app-input">30 Years</div>
+              </div>
+              <div class="app-calc-btn">🧮 CALCULATE PAYMENT</div>
+            </div>
+
+            <!-- Right results inside laptop -->
+            <div class="app-results-col">
+              <div class="res-hero">
+                <div class="res-hero-lbl">Monthly Payment</div>
+                <div class="res-hero-val">$1,580.74</div>
+              </div>
+              <div class="res-sub-grid">
+                <div>Total Paid: <strong>$569,064</strong></div>
+                <div>Interest: <strong>$319,064</strong></div>
+              </div>
+              <!-- Mini Schedule Table -->
+              <table class="mini-schedule-table">
+                <thead>
+                  <tr>
+                    <th>Yr</th>
+                    <th>Principal</th>
+                    <th>Interest</th>
+                    <th>Balance</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>$3,980</td>
+                    <td>$12,236</td>
+                    <td>$246,019</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>$4,054</td>
+                    <td>$12,162</td>
+                    <td>$241,964</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>$4,131</td>
+                    <td>$12,085</td>
+                    <td>$237,833</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Laptop Keyboard Base -->
+      <div class="laptop-base">
+        <div class="laptop-notch"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Finmatrix Navy Brand Banner -->
+  <div class="bottom-brand-banner">
+    <div class="brand-top-row">
+      <div class="brand-logo-icon">🧮</div>
+      <div class="brand-domain-text">Finmatrix.cloud</div>
+    </div>
+    <div class="brand-tagline-text">Simple • Fast • Accurate</div>
+    <div class="bottom-cta-ribbon">Make Smarter Financial Decisions →</div>
+  </div>
+</div>
+</body>
+</html>

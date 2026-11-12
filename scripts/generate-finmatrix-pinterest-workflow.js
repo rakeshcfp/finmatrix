@@ -1,11 +1,11 @@
 import fs from 'fs';
-import path from 'path';
+import path from 'child_process';
 
 // 1. Read source workflow to preserve node graph, IDs, credentials, and coordinates
 const sourcePath = 'C:\\Users\\Rakesh\\.gemini\\antigravity\\brain\\0b073859-daa6-48de-a2bb-926d79f02937\\.user_uploaded\\media_1794424387069_bf7bb5a5.json';
 const sourceWf = JSON.parse(fs.readFileSync(sourcePath, 'utf8'));
 
-// 2. Extract keywords from CSV files
+// 2. Extract and SANITIZE keywords from CSV files (PURGE ALL COMPETITOR BRANDS)
 function parseCsv(filePath, defaultPillar, defaultUrl) {
   if (!fs.existsSync(filePath)) return [];
   const content = fs.readFileSync(filePath, 'utf8');
@@ -22,8 +22,21 @@ function parseCsv(filePath, defaultPillar, defaultUrl) {
   for (let i = 1; i < lines.length; i++) {
     const parts = lines[i].split(/[,\t]/).map(p => p.replace(/[\"']/g, '').trim());
     if (parts.length <= kwIdx) continue;
-    const kw = parts[kwIdx];
+    let kw = parts[kwIdx];
     if (!kw || kw.length < 3) continue;
+
+    // Purge competitor domain names and brands (e.g. myusfinance, nerdwallet, bankrate)
+    kw = kw.replace(/myusfinance(\.com)?/gi, '')
+           .replace(/nerdwallet(\.com)?/gi, '')
+           .replace(/bankrate(\.com)?/gi, '')
+           .replace(/smartasset(\.com)?/gi, '')
+           .replace(/calculator\.net/gi, '')
+           .replace(/creditkarma(\.com)?/gi, '')
+           .replace(/\s+/g, ' ')
+           .trim();
+
+    if (kw.length < 3) continue;
+
     const vol = parseInt(parts[volIdx], 10) || 100;
     const kd = Math.round(parseFloat(parts[kdIdx]) || 15);
     const intent = (intentIdx !== -1 && parts[intentIdx]) ? parts[intentIdx] : 'Informational';
@@ -37,6 +50,7 @@ const c2 = parseCsv('data/CERTIFICATE-OD-DEPOSITS-CD_saved-keywords_2026-11-08.c
 const c3 = parseCsv('data/401k-growth-calculator_saved-keywords_2026-11-08.csv', 'Retirement & 401(k)', 'https://finmatrix.cloud/calculators/401k-calculator.html');
 
 const coreHighIntent = [
+  { keyword: "amortization schedule calculator extra payments", volume: 22000, kd: 16, intent: "Commercial", pillar: "Mortgage & Real Estate", targetUrl: "https://finmatrix.cloud/calculators/mortgage-calculator.html" },
   { keyword: "debt snowball vs avalanche calculator", volume: 14800, kd: 12, intent: "Commercial", pillar: "Debt & Credit Payoff", targetUrl: "https://finmatrix.cloud/calculators/debt-elimination-planner.html" },
   { keyword: "credit card payoff calculator with extra payments", volume: 18100, kd: 14, intent: "Commercial", pillar: "Debt & Credit Payoff", targetUrl: "https://finmatrix.cloud/calculators/credit-card-payoff-calculator.html" },
   { keyword: "mortgage amortization schedule calculator with extra principal", volume: 22000, kd: 16, intent: "Commercial", pillar: "Mortgage & Real Estate", targetUrl: "https://finmatrix.cloud/calculators/mortgage-calculator.html" },
@@ -61,12 +75,13 @@ const allParsed = [...coreHighIntent, ...c1, ...c2, ...c3];
 const uniqueMap = new Map();
 allParsed.forEach(item => {
   const k = item.keyword.toLowerCase().trim();
-  if (!uniqueMap.has(k)) {
+  // Filter out any lingering competitor remnants
+  if (!uniqueMap.has(k) && !k.includes('myusfinance') && !k.includes('nerdwallet') && !k.includes('.com') && !k.includes('.net')) {
     uniqueMap.set(k, item);
   }
 });
 const masterKeywords = Array.from(uniqueMap.values());
-console.log(`Loaded ${masterKeywords.length} master keywords.`);
+console.log(`Loaded ${masterKeywords.length} sanitized master keywords (100% competitor-free).`);
 
 // 3. Clone workflow
 const wf = JSON.parse(JSON.stringify(sourceWf));
@@ -99,7 +114,7 @@ if (n5) {
   n5.name = "Pick Next Finmatrix Keyword, Angle & Board";
   n5.parameters.jsCode = `// FINMATRIX MASTER KEYWORD ENGINE & STRATEGIC REPETITION SELECTOR
 // Rotates across ${masterKeywords.length} verified high-intent SEMrush financial queries!
-// Promotes Finmatrix Calculators with Pinterest-proven Calculator Showcase Designs.
+// Promotes Finmatrix Calculators with Pinterest-proven Laptop Workspace Showcase Designs.
 
 const masterKeywords = ${JSON.stringify(masterKeywords, null, 2)};
 
@@ -221,7 +236,7 @@ try {
   boardsList = defaultBoardsRegistry;
 }
 
-// 2. Fetch past queue history for 30-Day Rolling Cooldown & Theme Rotation
+// 2. Fetch past queue history for 30-Day Rolling Cooldown
 let pastRows = [];
 try {
   pastRows = $('Fetch Recent Queue History from Google Sheets').all().map(i => i.json);
@@ -230,13 +245,9 @@ try {
 }
 
 const pastTopics = [];
-const recentStyles = [];
-
 pastRows.forEach(r => {
   const top = r.Topic || r.Pillar || r.PinTitle || r.HeadlineOnImage || r.topic || r.pin_title;
   if (top) pastTopics.push(top.toLowerCase().trim());
-  const sty = r.PinStyle || r.ContentAngle || r.pin_style || r.content_angle || r.pinStyle;
-  if (sty) recentStyles.push(sty);
 });
 
 // 3. 30-DAY ROLLING COOLDOWN
@@ -269,22 +280,10 @@ const keywordPillar = selectedKwObj.pillar || 'Debt & Credit Payoff';
 const mappedBoardName = mapKeywordToBoard(targetKeyword);
 let selectedBoard = boardsList.find(b => b.BoardName.toLowerCase() === mappedBoardName.toLowerCase()) || boardsList[0];
 
-// 4. LUXURY THEME ROTATION (Always matching the Calculator Showcase pattern)
-const luxuryThemes = [
-  { id: 'THEME_NAVY_GOLD', theme: 'navy', name: 'Royal Navy & Gold Showcase', badge: '100% FREE CALCULATOR' },
-  { id: 'THEME_EMERALD_GOLD', theme: 'emerald', name: 'Emerald Wealth & Gold Showcase', badge: 'INSTANT SIMULATOR' },
-  { id: 'THEME_AMETHYST_GOLD', theme: 'amethyst', name: 'Midnight Amethyst & Gold Showcase', badge: 'QUANTITATIVE TOOLKIT' },
-  { id: 'THEME_CARBON_GOLD', theme: 'carbon', name: 'Carbon Sapphire & Gold Showcase', badge: 'FINANCIAL CALCULATOR' }
-];
-
-const lastStyle = recentStyles[recentStyles.length - 1];
-const availableThemes = luxuryThemes.filter(s => s.id !== lastStyle);
-const chosenThemeObj = availableThemes[Math.floor(Math.random() * availableThemes.length)] || luxuryThemes[0];
-
-const pinStyle = chosenThemeObj.id;
-const styleName = chosenThemeObj.name;
-const styleBadge = chosenThemeObj.badge;
-const themeVariant = chosenThemeObj.theme;
+// 4. Style configuration (Bright Laptop Workspace Pin)
+const pinStyle = 'STYLE_LAPTOP_WORKSPACE';
+const styleName = 'Bright Laptop Workspace Showcase';
+const styleBadge = '100% FREE CALCULATOR';
 
 // 5. Unique PinID
 const now = new Date();
@@ -318,7 +317,6 @@ return [{
     pinStyle: pinStyle,
     styleName: styleName,
     styleBadge: styleBadge,
-    themeVariant: themeVariant,
     destinationUrl: destinationWithUtm,
     baseDestinationUrl: destBaseUrl,
     utmCampaign: utmCamp,
@@ -332,7 +330,7 @@ return [{
 `;
 }
 
-// Node 6 (Gemini API Ideation Prompt - STRICT FINANCIAL CALCULATOR SCHEMA)
+// Node 6 (Gemini API Ideation Prompt - STRICT FINMATRIX BRAND LOCK)
 const n6 = wf.nodes.find(n => n.name.includes('Ideate Fresh Concept'));
 if (n6) {
   n6.parameters.url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent?key=YOUR_GEMINI_API_KEY';
@@ -342,7 +340,7 @@ if (n6) {
       parts: [
         {
           text: \`You are the Chief Quantitative Content Strategist for Finmatrix (https://finmatrix.cloud).
-Your mission: Generate mathematically grounded parameters for an interactive Financial Calculator Showcase Pin (1000x1500 vertical) that directly answers a real user search query.
+Your mission: Generate mathematically grounded parameters for an interactive Financial Laptop Workspace Pin (1000x1500 vertical) that directly answers a real user search query.
 
 TARGET SEARCH QUERY:
 - Exact Keyword: "\${$json.targetKeyword}"
@@ -351,19 +349,25 @@ TARGET SEARCH QUERY:
 - Target Board: "\${$json.targetBoard}"
 
 PIN DESIGN SPECIFICATIONS:
-The graphic showcases an interactive calculator card with input fields, a 3D Calculate button, realistic output results, a 3D gold wealth shield, and 4 high-value feature bullet points.
+The pin shows a bright, high-converting desktop workspace with:
+1. Handwritten tag: "Free & Easy to Use"
+2. Huge bold headline (e.g. "Amortization Calculator", "Debt Payoff Calculator", "401(k) Growth Calculator")
+3. Yellow highlight pill (e.g. "Calculate Your Monthly Loan Payment", "Simulate Your Exact Debt-Free Date")
+4. 5 Category pills (e.g. Mortgage, Auto Loan, Personal Loan, Refinance, Business Loan)
+5. Left side checklist under "Know Your Numbers!" (Monthly Payment, Total Interest, Loan Balance, Amortization Schedule)
+6. Modern Laptop mockup displaying the interactive Finmatrix calculator inputs and results.
+7. Bottom navy brand banner: Finmatrix.cloud
 
-CRITICAL INSTRUCTIONS:
-1. All inputs, calculations, and output numbers must reflect authentic personal finance mathematics for "\${$json.targetKeyword}".
-2. NO freelance proposals, NO client revivals, NO chat prompts, NO resume dumping pills. This is STRICTLY a quantitative financial tool showcase!
-3. Keep headline punchy (2-4 words, e.g. "FD Interest Calculator", "Debt Payoff Calculator", "401(k) Growth Calculator", "Mortgage Payoff Calculator", "HYSA vs CD Calculator").
-4. Keep subtitle concise and educational (under 12 words).
+STRICT BRAND RULES:
+1. The brand is strictly "Finmatrix" (https://finmatrix.cloud). NEVER mention any other brand or website (e.g. MyUSFinance, NerdWallet, Bankrate, etc.).
+2. The tool title inside the laptop screen must be: "Finmatrix " + Tool Name (e.g. "Finmatrix Amortization Engine" or "Finmatrix Debt Eliminator").
+3. All inputs, calculations, and output numbers must reflect authentic personal finance mathematics for "\${$json.targetKeyword}".
 
 RETURN ONLY VALID JSON wrapped in a single \\\`\\\`\\\`json markdown block:
 {
   "headlineOnImage": "...",
   "subtitleOnImage": "...",
-  "calcHeaderTitle": "...",
+  "calcHeaderTitle": "Finmatrix Calculator",
   "currencySymbol": "$",
   "input1Label": "...",
   "input1Val": "...",
@@ -371,15 +375,20 @@ RETURN ONLY VALID JSON wrapped in a single \\\`\\\`\\\`json markdown block:
   "input2Val": "...",
   "input3Label": "...",
   "input3Val": "...",
-  "btnText": "CALCULATE NOW",
-  "result1Label": "...",
-  "result1Val": "...",
-  "result2Label": "...",
-  "result2Val": "...",
-  "bullet1Text": "...",
-  "bullet2Text": "...",
-  "bullet3Text": "...",
-  "bullet4Text": "..."
+  "btnText": "🧮 CALCULATE PAYMENT",
+  "heroResultLabel": "...",
+  "heroResultVal": "...",
+  "subResult1Label": "Total Paid:",
+  "subResult1Val": "...",
+  "subResult2Label": "Interest:",
+  "subResult2Val": "...",
+  "tableRow1": ["1", "$3,980", "$12,236", "$246,019"],
+  "tableRow2": ["2", "$4,054", "$12,162", "$241,964"],
+  "tableRow3": ["3", "$4,131", "$12,085", "$237,833"],
+  "check1": "Monthly Payment",
+  "check2": "Total Interest",
+  "check3": "Loan Balance",
+  "check4": "Amortization Schedule"
 }
 \`
         }
@@ -389,101 +398,98 @@ RETURN ONLY VALID JSON wrapped in a single \\\`\\\`\\\`json markdown block:
 } }}`;
 }
 
-// Node 7 (Validate Brief & Robust Fallbacks for All Financial Pillars)
+// Node 7 (Validate Brief & Sanitize Competitor Names)
 const n7 = wf.nodes.find(n => n.name.includes('Validate Topic'));
 if (n7) {
-  n7.parameters.jsCode = `// VALIDATE BRIEF & PREPARE AUDIT DATA FOR FINMATRIX CALCULATOR SHOWCASE
+  n7.parameters.jsCode = `// VALIDATE BRIEF & ENFORCE STRICT FINMATRIX BRANDING
 const prev = $('Pick Next Finmatrix Keyword, Angle & Board').item.json || {};
-const rawGemini = $json.candidates?.[0]?.content?.parts?.[0]?.text || '';
-const kw = prev.targetKeyword || 'Personal Finance Calculator';
+let rawGemini = $json.candidates?.[0]?.content?.parts?.[0]?.text || '';
+const kw = prev.targetKeyword || 'Financial Calculator';
 const pillar = (prev.pillar || '').toLowerCase();
 
 // Context-aware defaults based on pillar
-let defaultHeadline = 'Financial Growth Calculator';
-let defaultSub = 'Simulate exact interest, compound yield & payoff timeline';
-let defaultHeader = 'FINMATRIX CALCULATOR';
-let in1L = 'Initial Amount:', in1V = '$25,000';
-let in2L = 'Interest Rate (APY):', in2V = '6.5%';
-let in3L = 'Time Horizon:', in3V = '5 Years';
-let res1L = 'Total Interest Earned:', res1V = '$9,240';
-let res2L = 'Final Total Balance:', res2V = '$34,240';
-let b1 = 'Free interactive online calculation simulator';
-let b2 = 'Instant real-time compound growth results';
-let b3 = 'Includes free downloadable Excel spreadsheet (.xlsx)';
-let b4 = '100% Private & Free • Zero sign-up required';
-let curr = '$';
+let defaultHeadline = 'Amortization Calculator';
+let defaultSub = 'Calculate Your Monthly Loan Payment';
+let defaultHeader = 'Finmatrix Amortization Engine';
+let in1L = 'Loan Amount:', in1V = '$ 250,000';
+let in2L = 'Interest Rate (%):', in2V = '6.5%';
+let in3L = 'Loan Term (Years):', in3V = '30 Years';
+let btn = '🧮 CALCULATE PAYMENT';
+let heroL = 'Monthly Payment', heroV = '$1,580.74';
+let sub1L = 'Total Paid:', sub1V = '$569,064';
+let sub2L = 'Interest:', sub2V = '$319,064';
+let t1 = ['1', '$3,980', '$12,236', '$246,019'];
+let t2 = ['2', '$4,054', '$12,162', '$241,964'];
+let t3 = ['3', '$4,131', '$12,085', '$237,833'];
+let ch1 = 'Monthly Payment', ch2 = 'Total Interest', ch3 = 'Loan Balance', ch4 = 'Amortization Schedule';
 
 if (pillar.includes('debt') || kw.includes('debt') || kw.includes('credit card') || kw.includes('avalanche') || kw.includes('snowball')) {
   defaultHeadline = 'Debt Payoff Calculator';
-  defaultSub = 'Simulate exact debt-free dates and interest savings instantly';
-  defaultHeader = 'DEBT ELIMINATION SIMULATOR';
-  in1L = 'Total Card Debt:'; in1V = '$18,500';
-  in2L = 'Average APR:'; in2V = '22.4%';
-  in3L = 'Monthly Payment:'; in3V = '$550/mo';
-  res1L = 'Total Interest Saved:'; res1V = '$9,420';
-  res2L = 'Accelerated Payoff Date:'; res2V = '2.1 Years';
-  b1 = 'Free debt avalanche & snowball simulator';
-  b2 = 'Calculate exact debt-free milestone online';
-  b3 = 'Includes free Excel debt payoff tracker (.xlsx)';
-  b4 = '100% Free • No registration or credit check required';
+  defaultSub = 'Simulate Your Exact Debt-Free Payoff Date';
+  defaultHeader = 'Finmatrix Debt Eliminator';
+  in1L = 'Total Debt Balance:'; in1V = '$ 18,500';
+  in2L = 'Average APR (%):'; in2V = '22.4%';
+  in3L = 'Monthly Payment:'; in3V = '$ 550/mo';
+  btn = '🧮 CALCULATE PAYOFF';
+  heroL = 'Debt-Free In'; heroV = '2.1 Years';
+  sub1L = 'Total Saved:'; sub1V = '$9,420';
+  sub2L = 'Interest Cut:'; sub2V = '68% Less';
+  t1 = ['Year 1', '$6,600', '$2,480', '$12,240'];
+  t2 = ['Year 2', '$6,600', '$1,120', '$5,820'];
+  t3 = ['Year 3', '$5,820', '$180', '$0 PAID'];
+  ch1 = 'Monthly Surplus'; ch2 = 'Total Interest Saved'; ch3 = 'Debt-Free Date'; ch4 = 'Payoff Schedule';
 } else if (pillar.includes('savings') || kw.includes('cd') || kw.includes('hysa') || kw.includes('deposit') || kw.includes('compound')) {
   defaultHeadline = kw.includes('fd') ? 'FD Interest Calculator' : 'HYSA & Savings Calculator';
-  defaultSub = 'Calculate your exact compound interest, APY yield and maturity amount';
-  defaultHeader = kw.includes('fd') ? 'FD INTEREST CALCULATOR' : 'COMPOUND SAVINGS SIMULATOR';
-  curr = kw.includes('fd') ? '₹' : '$';
-  in1L = 'Deposit Amount:'; in1V = curr === '₹' ? '₹ 100,000' : '$100,000';
-  in2L = 'Interest Rate (APY):'; in2V = '7.5%';
+  defaultSub = 'Calculate Your Exact Maturity Interest & Balance';
+  defaultHeader = 'Finmatrix Savings Simulator';
+  in1L = 'Initial Deposit:'; in1V = kw.includes('fd') ? '₹ 100,000' : '$ 100,000';
+  in2L = 'Annual APY (%):'; in2V = '7.5%';
   in3L = 'Deposit Term:'; in3V = '5 Years';
-  res1L = 'Total Interest Earned:'; res1V = curr === '₹' ? '₹ 43,577' : '$43,577';
-  res2L = 'Final Maturity Amount:'; res2V = curr === '₹' ? '₹ 143,577' : '$143,577';
-  b1 = 'Free interactive deposit yield calculator';
-  b2 = 'Calculate exact maturity amount online';
-  b3 = 'Find highest yield risk-free savings scheme';
-  b4 = 'Accurate compound interest math • 100% Free';
-} else if (pillar.includes('retirement') || kw.includes('401k') || kw.includes('roth') || kw.includes('ira') || kw.includes('fire')) {
+  btn = '🧮 CALCULATE INTEREST';
+  heroL = 'Maturity Balance'; heroV = kw.includes('fd') ? '₹ 143,577' : '$143,577';
+  sub1L = 'Principal:'; sub1V = kw.includes('fd') ? '₹ 100,000' : '$100,000';
+  sub2L = 'Interest Earned:'; sub2V = kw.includes('fd') ? '₹ 43,577' : '$43,577';
+  t1 = ['Yr 1', '+$7,500', '+$7,500', '$107,500'];
+  t2 = ['Yr 3', '+$8,655', '+$24,230', '$124,230'];
+  t3 = ['Yr 5', '+$9,985', '+$43,577', '$143,577'];
+  ch1 = 'Compound APY Yield'; ch2 = 'Maturity Amount'; ch3 = 'Total Interest Earned'; ch4 = 'Growth Schedule';
+} else if (pillar.includes('retirement') || kw.includes('401k') || kw.includes('roth') || kw.includes('ira')) {
   defaultHeadline = '401(k) Growth Calculator';
-  defaultSub = 'Project retirement nest egg with employer match & compound yield';
-  defaultHeader = '401(K) RETIREMENT SIMULATOR';
-  in1L = 'Current 401(k) Balance:'; in1V = '$65,000';
-  in2L = 'Annual Contribution:'; in2V = '$12,000';
+  defaultSub = 'Project Retirement Nest Egg with Employer Match';
+  defaultHeader = 'Finmatrix 401(k) Simulator';
+  in1L = 'Current Balance:'; in1V = '$ 65,000';
+  in2L = 'Annual Addition:'; in2V = '$ 12,000';
   in3L = 'Employer Match:'; in3V = '50% to 6%';
-  res1L = 'Future Balance (25 Yrs):'; res1V = '$1,428,500';
-  res2L = 'Total Employer Match:'; res2V = '+$185,000';
-  b1 = 'Free 401(k) compound growth calculator';
-  b2 = 'Project tax-deferred wealth accumulation';
-  b3 = 'Includes downloadable retirement Excel model';
-  b4 = 'Instant results • 100% Free & private';
-} else if (pillar.includes('mortgage') || kw.includes('mortgage') || kw.includes('afford') || kw.includes('amortiz')) {
-  defaultHeadline = 'Mortgage Payoff Calculator';
-  defaultSub = 'Calculate extra principal savings and early payoff date';
-  defaultHeader = 'MORTGAGE AMORTIZATION CALCULATOR';
-  in1L = 'Loan Amount:'; in1V = '$380,000';
-  in2L = 'Interest Rate:'; in2V = '6.5%';
-  in3L = 'Extra Monthly Principal:'; in3V = '+$200/mo';
-  res1L = 'Total Interest Saved:'; res1V = '+$68,450';
-  res2L = 'Term Shortened:'; res2V = '6.8 Years Early';
-  b1 = 'Free mortgage amortization calculator';
-  b2 = 'Calculate interest savings with extra payments';
-  b3 = 'Includes full yearly & monthly payment schedule';
-  b4 = 'Free Excel amortization template included';
+  btn = '🧮 PROJECT GROWTH';
+  heroL = 'Nest Egg (25 Yrs)'; heroV = '$1,428,500';
+  sub1L = 'Contributions:'; sub1V = '$365,000';
+  sub2L = 'Compound Growth:'; sub2V = '+$1,063,500';
+  t1 = ['Yr 5', '$78,000', '+$36,400', '$179,400'];
+  t2 = ['Yr 15', '$234,000', '+$312,000', '$611,000'];
+  t3 = ['Yr 25', '$390,000', '+$1,038,500', '$1,428,500'];
+  ch1 = 'Employer Match Math'; ch2 = 'Compound Growth'; ch3 = 'Tax-Deferred Nest Egg'; ch4 = 'Retirement Milestones';
 }
 
 const finFallbacks = {
   headlineOnImage: defaultHeadline,
   subtitleOnImage: defaultSub,
   calcHeaderTitle: defaultHeader,
-  currencySymbol: curr,
   input1Label: in1L, input1Val: in1V,
   input2Label: in2L, input2Val: in2V,
   input3Label: in3L, input3Val: in3V,
-  btnText: 'CALCULATE NOW',
-  result1Label: res1L, result1Val: res1V,
-  result2Label: res2L, result2Val: res2V,
-  bullet1Text: b1,
-  bullet2Text: b2,
-  bullet3Text: b3,
-  bullet4Text: b4
+  btnText: btn,
+  heroResultLabel: heroL, heroResultVal: heroV,
+  subResult1Label: sub1L, subResult1Val: sub1V,
+  subResult2Label: sub2L, subResult2Val: sub2V,
+  tableRow1: t1, tableRow2: t2, tableRow3: t3,
+  check1: ch1, check2: ch2, check3: ch3, check4: ch4
 };
+
+// PURGE any competitor brand names that Gemini might have copied from search queries
+rawGemini = rawGemini.replace(/myusfinance(\.com)?/gi, 'Finmatrix')
+                     .replace(/nerdwallet(\.com)?/gi, 'Finmatrix')
+                     .replace(/bankrate(\.com)?/gi, 'Finmatrix')
+                     .replace(/smartasset(\.com)?/gi, 'Finmatrix');
 
 let cleanJson = rawGemini.replace(/\\\`\\\`\\\`json/gi, '').replace(/\\\`\\\`\\\`/g, '').trim();
 let parsed = {};
@@ -493,9 +499,16 @@ try {
   parsed = finFallbacks;
 }
 
-const finalData = { ...prev, ...finFallbacks, ...parsed };
+// Enforce Finmatrix prefix in header
+let calcHead = (parsed.calcHeaderTitle || defaultHeader);
+calcHead = calcHead.replace(/myusfinance/gi, 'Finmatrix').replace(/calculator/gi, 'Engine');
+if (!calcHead.toLowerCase().includes('finmatrix')) {
+  calcHead = 'Finmatrix ' + calcHead;
+}
 
-const breakdown = \`Calculator: \${finalData.calcHeaderTitle} | Inputs: \${finalData.input1Label} \${finalData.input1Val}, \${finalData.input2Label} \${finalData.input2Val}, \${finalData.input3Label} \${finalData.input3Val} | Results: \${finalData.result1Label} \${finalData.result1Val}, \${finalData.result2Label} \${finalData.result2Val}\`;
+const finalData = { ...prev, ...finFallbacks, ...parsed, calcHeaderTitle: calcHead };
+
+const breakdown = \`Tool: \${finalData.calcHeaderTitle} | Inputs: \${finalData.input1Label} \${finalData.input1Val}, \${finalData.input2Label} \${finalData.input2Val}, \${finalData.input3Label} \${finalData.input3Val} | Key Result: \${finalData.heroResultLabel} \${finalData.heroResultVal}\`;
 
 return [{
   json: {
@@ -507,536 +520,654 @@ return [{
 `;
 }
 
-// Node 8 (CALCULATOR SHOWCASE HTML ENGINE)
+// Node 8 (BRIGHT LAPTOP WORKSPACE HTML ENGINE)
 const n8 = wf.nodes.find(n => n.name.includes('Generate Pin Image'));
 if (n8) {
   n8.name = "Configure & Generate Pin Image (Finmatrix Studio Engine)";
-  n8.parameters.jsCode = `// FINMATRIX CALCULATOR SHOWCASE STUDIO ENGINE (PINTEREST HIGH-CONVERTING DESIGN)
+  n8.parameters.jsCode = `// FINMATRIX LAPTOP WORKSPACE PIN STUDIO ENGINE (PINTEREST PROVEN DESIGN)
 const item = $json;
 
-const theme = item.themeVariant || 'navy';
-const themes = {
-  navy: {
-    bgGrad: 'radial-gradient(circle at 50% 15%, #0e3058 0%, #03142e 50%, #010a18 100%)',
-    topGlow: 'rgba(14, 165, 233, 0.28)',
-    calcBorder: 'rgba(56, 189, 248, 0.45)',
-    calcHeaderGrad: 'linear-gradient(90deg, #0284c7 0%, #0369a1 100%)',
-    cardBg: 'linear-gradient(180deg, #1b385e 0%, #0c213b 100%)'
-  },
-  emerald: {
-    bgGrad: 'radial-gradient(circle at 50% 15%, #064e3b 0%, #022c22 50%, #01140f 100%)',
-    topGlow: 'rgba(16, 185, 129, 0.28)',
-    calcBorder: 'rgba(52, 211, 153, 0.45)',
-    calcHeaderGrad: 'linear-gradient(90deg, #059669 0%, #047857 100%)',
-    cardBg: 'linear-gradient(180deg, #0d4233 0%, #062b21 100%)'
-  },
-  amethyst: {
-    bgGrad: 'radial-gradient(circle at 50% 15%, #2e1065 0%, #170933 50%, #090315 100%)',
-    topGlow: 'rgba(168, 85, 247, 0.28)',
-    calcBorder: 'rgba(192, 132, 252, 0.45)',
-    calcHeaderGrad: 'linear-gradient(90deg, #7c3aed 0%, #6d28d9 100%)',
-    cardBg: 'linear-gradient(180deg, #321959 0%, #1b0a33 100%)'
-  },
-  carbon: {
-    bgGrad: 'radial-gradient(circle at 50% 15%, #1e293b 0%, #0f172a 50%, #020617 100%)',
-    topGlow: 'rgba(56, 189, 248, 0.25)',
-    calcBorder: 'rgba(148, 163, 184, 0.45)',
-    calcHeaderGrad: 'linear-gradient(90deg, #334155 0%, #1e293b 100%)',
-    cardBg: 'linear-gradient(180deg, #1e293b 0%, #0f172a 100%)'
-  }
-};
+const headline = item.headlineOnImage || 'Amortization Calculator';
+const subtitle = item.subtitleOnImage || 'Calculate Your Monthly Loan Payment';
+const calcHeader = item.calcHeaderTitle || 'Finmatrix Amortization Engine';
 
-const t = themes[theme] || themes.navy;
+const in1Label = item.input1Label || 'Loan Amount';
+const in1Val = item.input1Val || '$ 250,000';
+const in2Label = item.input2Label || 'Interest Rate (%)';
+const in2Val = item.input2Val || '6.5%';
+const in3Label = item.input3Label || 'Loan Term (Years)';
+const in3Val = item.input3Val || '30 Years';
+const btnText = item.btnText || '🧮 CALCULATE PAYMENT';
 
-const headline = item.headlineOnImage || 'FD & Savings Calculator';
-const subtitle = item.subtitleOnImage || 'Calculate your fixed deposit interest and maturity amount';
-const calcHeader = item.calcHeaderTitle || 'FD INTEREST CALCULATOR';
-const in1Label = item.input1Label || 'Deposit Amount:';
-const in1Val = item.input1Val || '$100,000';
-const in2Label = item.input2Label || 'Interest Rate (% APY):';
-const in2Val = item.input2Val || '7.5%';
-const in3Label = item.input3Label || 'Deposit Term:';
-const in3Val = item.input3Val || '5 Years';
-const btnText = item.btnText || 'CALCULATE NOW';
-const res1Label = item.result1Label || 'Total Interest Earned:';
-const res1Val = item.result1Val || '$43,577';
-const res2Label = item.result2Label || 'Final Maturity Amount:';
-const res2Val = item.result2Val || '$143,577';
-const b1Text = item.bullet1Text || 'Free interactive online calculation simulator';
-const b2Text = item.bullet2Text || 'Calculate maturity amount online';
-const b3Text = item.bullet3Text || 'Find best savings scheme';
-const b4Text = item.bullet4Text || 'Accurate compound interest math';
-const currency = item.currencySymbol || '$';
+const heroResultLabel = item.heroResultLabel || 'Monthly Payment';
+const heroResultVal = item.heroResultVal || '$1,580.74';
+const sub1Label = item.subResult1Label || 'Total Paid:';
+const sub1Val = item.subResult1Val || '$569,064';
+const sub2Label = item.subResult2Label || 'Interest:';
+const sub2Val = item.subResult2Val || '$319,064';
+
+const t1 = item.tableRow1 || ['1', '$3,980', '$12,236', '$246,019'];
+const t2 = item.tableRow2 || ['2', '$4,054', '$12,162', '$241,964'];
+const t3 = item.tableRow3 || ['3', '$4,131', '$12,085', '$237,833'];
+
+const ch1 = item.check1 || 'Monthly Payment';
+const ch2 = item.check2 || 'Total Interest';
+const ch3 = item.check3 || 'Loan Balance';
+const ch4 = item.check4 || 'Amortization Schedule';
+
+// Dynamic 5 category pills tailored to the pillar
+const pillar = (item.pillar || '').toLowerCase();
+let catPills = [
+  { icon: '🏠', label: 'Mortgage' },
+  { icon: '🚗', label: 'Auto Loan' },
+  { icon: '💰', label: 'Personal Loan' },
+  { icon: '🤝', label: 'Refinance' },
+  { icon: '🏢', label: 'Business Loan' }
+];
+
+if (pillar.includes('debt')) {
+  catPills = [
+    { icon: '💳', label: 'Credit Cards' },
+    { icon: '🚗', label: 'Auto Loan' },
+    { icon: '🎓', label: 'Student Loan' },
+    { icon: '⚡', label: 'Avalanche' },
+    { icon: '❄️', label: 'Snowball' }
+  ];
+} else if (pillar.includes('savings')) {
+  catPills = [
+    { icon: '🏦', label: 'HYSA' },
+    { icon: '📜', label: 'CD Ladder' },
+    { icon: '🛡️', label: 'Emergency' },
+    { icon: '💰', label: 'Fixed Deposit' },
+    { icon: '📈', label: 'Compound APY' }
+  ];
+} else if (pillar.includes('retirement')) {
+  catPills = [
+    { icon: '💼', label: '401(k)' },
+    { icon: '🪙', label: 'Roth IRA' },
+    { icon: '📊', label: 'Pension' },
+    { icon: '🎯', label: 'FIRE' },
+    { icon: '📈', label: 'Index Funds' }
+  ];
+}
 
 const pinHtml = \`<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Finmatrix Pin Showcase</title>
+<title>Finmatrix Laptop Workspace Pin</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Outfit:wght@700;800;900&family=Caveat:wght@700&display=swap" rel="stylesheet">
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
   width: 1000px;
   height: 1500px;
-  background: #010a18;
+  background: #f8fafc;
   font-family: 'Plus Jakarta Sans', sans-serif;
-  color: #ffffff;
+  color: #0f172a;
   overflow: hidden;
 }
 .pin-wrapper {
   position: relative;
   width: 1000px;
   height: 1500px;
-  background: \${t.bgGrad};
-  overflow: hidden;
-  padding: 55px 54px;
+  background: linear-gradient(180deg, #f0f7ff 0%, #ffffff 42%, #f8fafc 75%, #e2e8f0 100%);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
-.glow-orb-top {
-  position: absolute;
-  top: -80px;
-  left: 200px;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, \${t.topGlow} 0%, transparent 70%);
-  pointer-events: none;
-}
-.glow-orb-coins {
-  position: absolute;
-  top: 360px;
-  right: 10px;
-  width: 480px;
-  height: 480px;
-  background: radial-gradient(circle, rgba(245, 158, 11, 0.35) 0%, transparent 65%);
-  pointer-events: none;
-}
-.bg-grid {
-  position: absolute;
-  inset: 0;
-  background-image: 
-    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
-  background-size: 48px 48px;
-  pointer-events: none;
+  overflow: hidden;
 }
 
-/* Header */
-.header-box {
+/* Desk Surface Bottom */
+.desk-surface {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 540px;
+  background: linear-gradient(180deg, #dfd5c6 0%, #d2c3b0 35%, #c5b39e 100%);
+  border-top: 3px solid rgba(255, 255, 255, 0.7);
+  box-shadow: inset 0 12px 30px rgba(0,0,0,0.06);
+}
+
+/* Top Section */
+.top-content {
   position: relative;
   z-index: 10;
+  padding: 40px 48px 0 48px;
   text-align: center;
-  margin-top: 5px;
 }
-.tag-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(16, 185, 129, 0.15);
-  border: 1px solid rgba(16, 185, 129, 0.4);
-  color: #34d399;
-  font-size: 14px;
-  font-weight: 800;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  padding: 8px 22px;
-  border-radius: 999px;
-  margin-bottom: 16px;
+.script-tag {
+  font-family: 'Caveat', cursive;
+  font-size: 40px;
+  font-weight: 700;
+  color: #0369a1;
+  transform: rotate(-3deg);
+  display: inline-block;
+  margin-bottom: 2px;
 }
 .main-title {
   font-family: 'Outfit', sans-serif;
-  font-size: 64px;
+  font-size: 70px;
   font-weight: 900;
-  line-height: 1.1;
-  letter-spacing: -1px;
-  background: linear-gradient(135deg, #ffffff 25%, #fde047 65%, #f59e0b 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  line-height: 1.05;
+  letter-spacing: -1.5px;
+  color: #0c2340;
+  text-transform: uppercase;
   margin-bottom: 12px;
-  text-shadow: 0 4px 24px rgba(245, 158, 11, 0.3);
 }
-.sub-title {
-  font-size: 24px;
-  font-weight: 600;
-  color: #cbd5e1;
-  line-height: 1.4;
-  max-width: 820px;
-  margin: 0 auto;
+.highlight-pill {
+  display: inline-block;
+  background: #fde047;
+  color: #0f172a;
+  font-size: 26px;
+  font-weight: 800;
+  padding: 9px 36px;
+  border-radius: 999px;
+  box-shadow: 0 4px 14px rgba(253, 224, 71, 0.45);
+  margin-bottom: 22px;
 }
 
-/* Hero Showcase */
-.hero-showcase {
+/* 5 Category Pills */
+.categories-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 22px;
+  margin-bottom: 22px;
+}
+.cat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+}
+.cat-icon-circle {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  border: 2px solid #ffffff;
+}
+.cat-item:nth-child(1) .cat-icon-circle { background: #bae6fd; }
+.cat-item:nth-child(2) .cat-icon-circle { background: #bbf7d0; }
+.cat-item:nth-child(3) .cat-icon-circle { background: #fef08a; }
+.cat-item:nth-child(4) .cat-icon-circle { background: #e9d5ff; }
+.cat-item:nth-child(5) .cat-icon-circle { background: #a7f3d0; }
+
+.cat-label {
+  font-size: 15px;
+  font-weight: 800;
+  color: #1e293b;
+}
+
+/* Mid Hero Area: Left Checklist + Right Laptop */
+.mid-hero-container {
   position: relative;
   z-index: 10;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
-  gap: 24px;
-  margin: 15px 0;
+  padding: 0 35px 22px 42px;
+  flex: 1;
 }
-.calculator-card {
-  width: 580px;
-  background: \${t.cardBg};
-  border: 2px solid \${t.calcBorder};
-  border-radius: 26px;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.75), 0 0 35px rgba(14, 165, 233, 0.25);
-  overflow: hidden;
-  flex-shrink: 0;
-}
-.calc-top-header {
-  background: \${t.calcHeaderGrad};
-  padding: 16px 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.calc-top-title {
-  font-size: 15px;
-  font-weight: 900;
-  letter-spacing: 2px;
-  color: #ffffff;
-  text-transform: uppercase;
-}
-.calc-top-dots {
-  display: flex;
-  gap: 6px;
-}
-.calc-top-dots span {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.45);
-}
-.calc-body {
-  padding: 26px 24px 22px 24px;
+
+/* Left Checklist */
+.left-col {
+  width: 275px;
   display: flex;
   flex-direction: column;
   gap: 15px;
+  margin-bottom: 35px;
 }
-.calc-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-}
-.calc-label {
-  font-size: 19px;
+.script-checklist-title {
+  font-family: 'Caveat', cursive;
+  font-size: 38px;
   font-weight: 700;
-  color: #f1f5f9;
-}
-.calc-input-box {
-  width: 260px;
-  background: #ffffff;
-  color: #0f172a;
-  font-size: 21px;
-  font-weight: 800;
-  padding: 11px 18px;
-  border-radius: 10px;
-  text-align: right;
-  border: 1px solid #cbd5e1;
-  box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
-}
-.calc-btn-container {
-  margin-top: 4px;
-}
-.calc-action-btn {
-  width: 100%;
-  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-  color: #ffffff;
-  font-size: 20px;
-  font-weight: 900;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  padding: 15px;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-}
-.calc-results-box {
-  background: linear-gradient(180deg, #f0fdf4 0%, #e0f2fe 100%);
-  border-radius: 16px;
-  padding: 16px 22px;
-  border: 1px solid #bae6fd;
-  margin-top: 4px;
-  color: #0f172a;
-}
-.result-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.result-item:first-child {
-  margin-bottom: 8px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid rgba(0,0,0,0.08);
-}
-.result-lbl {
-  font-size: 17px;
-  font-weight: 700;
-  color: #334155;
-}
-.result-val {
-  font-size: 22px;
-  font-weight: 900;
   color: #0369a1;
+  transform: rotate(-2deg);
+  margin-bottom: -2px;
 }
-.result-val.highlight {
-  font-size: 26px;
-  color: #059669;
-}
-
-/* 3D Wealth Visual (Shield & Multiple Coin Stacks) */
-.hero-3d-visual {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.wealth-shield-svg {
-  width: 290px;
-  height: 320px;
-  filter: drop-shadow(0 20px 35px rgba(0,0,0,0.7));
-}
-
-/* Feature List (4 Icon Bullets) */
-.features-container {
-  position: relative;
-  z-index: 10;
-  background: rgba(15, 23, 42, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 24px;
-  padding: 24px 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  backdrop-filter: blur(20px);
-}
-.feature-row {
+.checklist-item {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 12px;
 }
-.feature-icon-badge {
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
-  background: linear-gradient(135deg, rgba(56, 189, 248, 0.22) 0%, rgba(16, 185, 129, 0.22) 100%);
-  border: 1px solid rgba(56, 189, 248, 0.4);
+.check-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #10b981;
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 26px;
+  font-size: 16px;
+  font-weight: 900;
   flex-shrink: 0;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  box-shadow: 0 3px 8px rgba(16, 185, 129, 0.35);
 }
-.feature-text {
+.check-text {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0c2340;
+}
+
+/* Notepad sticky */
+.notepad-sticky {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 14px 18px;
+  width: 215px;
+  box-shadow: 0 10px 22px rgba(0,0,0,0.09);
+  transform: rotate(-4deg);
+  margin-top: 8px;
+}
+.np-line1 {
+  font-family: 'Caveat', cursive;
+  font-size: 25px;
+  font-weight: 700;
+  color: #0284c7;
+  line-height: 1.2;
+}
+.np-line2 {
+  font-family: 'Caveat', cursive;
   font-size: 22px;
   font-weight: 700;
-  color: #f8fafc;
+  color: #64748b;
 }
 
-/* Footer */
-.footer-bar {
+/* Right Laptop Mockup */
+.laptop-mockup-wrapper {
   position: relative;
-  z-index: 10;
+  width: 615px;
+  margin-bottom: 15px;
+}
+/* Laptop Screen Bezel */
+.laptop-screen {
+  width: 590px;
+  height: 390px;
+  background: #0f172a;
+  border: 11px solid #1e293b;
+  border-radius: 18px 18px 0 0;
+  margin: 0 auto;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.35);
+  overflow: hidden;
+  position: relative;
+}
+.laptop-webcam {
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background: #475569;
+  border-radius: 50%;
+  z-index: 20;
+}
+/* Inside Laptop Screen (Interactive App UI) */
+.laptop-display {
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+.app-header {
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 9px 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 28px;
-  background: #0f172a;
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.5);
 }
-.footer-brand {
+.app-brand {
+  font-size: 14px;
+  font-weight: 800;
+  color: #0c2340;
+  letter-spacing: -0.3px;
+}
+.app-dots {
   display: flex;
-  align-items: center;
+  gap: 5px;
+}
+.app-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #cbd5e1;
+}
+
+/* App Body (Inputs on Left, Results & Mini Schedule on Right) */
+.app-body {
+  padding: 12px 16px;
+  display: flex;
   gap: 14px;
+  flex: 1;
+  background: #ffffff;
 }
-.brand-logo-text {
-  font-size: 22px;
-  font-weight: 900;
-  letter-spacing: -0.5px;
+.app-inputs-col {
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.app-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.app-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #475569;
+}
+.app-input {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 14px;
+  font-weight: 800;
+  color: #0f172a;
+}
+.app-calc-btn {
+  background: #0284c7;
   color: #ffffff;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 8px;
+  border-radius: 6px;
+  text-align: center;
+  margin-top: 3px;
+  box-shadow: 0 3px 8px rgba(2, 132, 199, 0.4);
 }
-.brand-domain {
-  font-size: 15px;
-  color: #38bdf8;
+
+.app-results-col {
+  width: 52%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+.res-hero {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 6px;
+  padding: 8px 10px;
+  margin-bottom: 6px;
+}
+.res-hero-lbl {
+  font-size: 11px;
+  font-weight: 700;
+  color: #166534;
+}
+.res-hero-val {
+  font-size: 26px;
+  font-weight: 900;
+  color: #15803d;
+  letter-spacing: -0.5px;
+}
+.res-sub-grid {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  font-weight: 700;
+  color: #475569;
+  margin-bottom: 6px;
+}
+.res-sub-grid strong {
+  color: #0f172a;
+  font-weight: 800;
+}
+
+/* Mini Amortization Table */
+.mini-schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9.5px;
+  margin-top: 2px;
+}
+.mini-schedule-table th {
+  background: #e2e8f0;
+  color: #334155;
+  font-weight: 800;
+  padding: 3px 4px;
+  text-align: right;
+}
+.mini-schedule-table th:first-child { text-align: left; }
+.mini-schedule-table td {
+  padding: 3px 4px;
+  border-bottom: 1px solid #f1f5f9;
+  text-align: right;
+  color: #475569;
   font-weight: 600;
 }
-.footer-cta-pill {
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+.mini-schedule-table td:first-child { text-align: left; font-weight: 700; color: #0f172a; }
+
+/* Laptop Base (Keyboard & Trackpad) */
+.laptop-base {
+  width: 620px;
+  height: 16px;
+  background: linear-gradient(180deg, #94a3b8 0%, #64748b 100%);
+  border-radius: 0 0 16px 16px;
+  position: relative;
+  box-shadow: 0 18px 30px rgba(0,0,0,0.32);
+}
+.laptop-notch {
+  width: 80px;
+  height: 5px;
+  background: #475569;
+  border-radius: 0 0 6px 6px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Bottom Navy Brand Banner */
+.bottom-brand-banner {
+  position: relative;
+  z-index: 20;
+  background: #0c2340;
+  padding: 24px 45px 30px 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 -10px 25px rgba(0,0,0,0.18);
+}
+.brand-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.brand-logo-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: #0284c7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 22px;
+}
+.brand-domain-text {
+  font-family: 'Outfit', sans-serif;
+  font-size: 38px;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+}
+.brand-tagline-text {
+  font-size: 16px;
+  font-weight: 700;
+  color: #93c5fd;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.bottom-cta-ribbon {
+  background: #0284c7;
   color: #ffffff;
   font-size: 16px;
   font-weight: 800;
-  letter-spacing: 1px;
-  padding: 14px 28px;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(16, 185, 129, 0.4);
+  padding: 8px 34px;
+  border-radius: 999px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.45);
 }
 </style>
 </head>
 <body>
 <div class="pin-wrapper">
-  <div class="glow-orb-top"></div>
-  <div class="glow-orb-coins"></div>
-  <div class="bg-grid"></div>
+  <div class="desk-surface"></div>
 
-  <!-- Header -->
-  <div class="header-box">
-    <div class="tag-badge">⚡ 100% FREE CALCULATOR</div>
+  <!-- Top Content -->
+  <div class="top-content">
+    <div class="script-tag">Free &amp; Easy to Use</div>
     <h1 class="main-title">\${headline}</h1>
-    <p class="sub-title">\${subtitle}</p>
+    <div class="highlight-pill">\${subtitle}</div>
+
+    <!-- 5 Category Pills -->
+    <div class="categories-row">
+      \${catPills.map(c => \`
+        <div class="cat-item">
+          <div class="cat-icon-circle">\${c.icon}</div>
+          <span class="cat-label">\${c.label}</span>
+        </div>
+      \`).join('')}
+    </div>
   </div>
 
-  <!-- Hero Showcase: Calculator Card + 3D Gold Shield & Stacks of Coins -->
-  <div class="hero-showcase">
-    <div class="calculator-card">
-      <div class="calc-top-header">
-        <span class="calc-top-title">\${calcHeader}</span>
-        <div class="calc-top-dots">
-          <span></span><span></span><span></span>
+  <!-- Mid Hero: Left Checklist + Right Laptop Mockup -->
+  <div class="mid-hero-container">
+    <!-- Left Checklist -->
+    <div class="left-col">
+      <div class="script-checklist-title">Know Your Numbers!</div>
+      <div class="checklist-item">
+        <div class="check-icon">✓</div>
+        <span class="check-text">\${ch1}</span>
+      </div>
+      <div class="checklist-item">
+        <div class="check-icon">✓</div>
+        <span class="check-text">\${ch2}</span>
+      </div>
+      <div class="checklist-item">
+        <div class="check-icon">✓</div>
+        <span class="check-text">\${ch3}</span>
+      </div>
+      <div class="checklist-item">
+        <div class="check-icon">✓</div>
+        <span class="check-text">\${ch4}</span>
+      </div>
+
+      <!-- Sticky Note -->
+      <div class="notepad-sticky">
+        <div class="np-line1">Plan • Calculate • Achieve</div>
+        <div class="np-line2">100% Free • Finmatrix :)</div>
+      </div>
+    </div>
+
+    <!-- Right Laptop Mockup -->
+    <div class="laptop-mockup-wrapper">
+      <div class="laptop-screen">
+        <div class="laptop-webcam"></div>
+        <div class="laptop-display">
+          <div class="app-header">
+            <span class="app-brand">\${calcHeader}</span>
+            <div class="app-dots"><span></span><span></span><span></span></div>
+          </div>
+          <div class="app-body">
+            <!-- Left inputs inside laptop -->
+            <div class="app-inputs-col">
+              <div class="app-row">
+                <span class="app-label">\${in1Label}</span>
+                <div class="app-input">\${in1Val}</div>
+              </div>
+              <div class="app-row">
+                <span class="app-label">\${in2Label}</span>
+                <div class="app-input">\${in2Val}</div>
+              </div>
+              <div class="app-row">
+                <span class="app-label">\${in3Label}</span>
+                <div class="app-input">\${in3Val}</div>
+              </div>
+              <div class="app-calc-btn">\${btnText}</div>
+            </div>
+
+            <!-- Right results inside laptop -->
+            <div class="app-results-col">
+              <div class="res-hero">
+                <div class="res-hero-lbl">\${heroResultLabel}</div>
+                <div class="res-hero-val">\${heroResultVal}</div>
+              </div>
+              <div class="res-sub-grid">
+                <div>\${sub1Label} <strong>\${sub1Val}</strong></div>
+                <div>\${sub2Label} <strong>\${sub2Val}</strong></div>
+              </div>
+              <!-- Mini Schedule Table -->
+              <table class="mini-schedule-table">
+                <thead>
+                  <tr>
+                    <th>Yr</th>
+                    <th>Principal</th>
+                    <th>Interest</th>
+                    <th>Balance</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>\${t1[0]}</td>
+                    <td>\${t1[1]}</td>
+                    <td>\${t1[2]}</td>
+                    <td>\${t1[3]}</td>
+                  </tr>
+                  <tr>
+                    <td>\${t2[0]}</td>
+                    <td>\${t2[1]}</td>
+                    <td>\${t2[2]}</td>
+                    <td>\${t2[3]}</td>
+                  </tr>
+                  <tr>
+                    <td>\${t3[0]}</td>
+                    <td>\${t3[1]}</td>
+                    <td>\${t3[2]}</td>
+                    <td>\${t3[3]}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="calc-body">
-        <div class="calc-row">
-          <span class="calc-label">\${in1Label}</span>
-          <div class="calc-input-box">\${in1Val}</div>
-        </div>
-        <div class="calc-row">
-          <span class="calc-label">\${in2Label}</span>
-          <div class="calc-input-box">\${in2Val}</div>
-        </div>
-        <div class="calc-row">
-          <span class="calc-label">\${in3Label}</span>
-          <div class="calc-input-box">\${in3Val}</div>
-        </div>
-        <div class="calc-btn-container">
-          <div class="calc-action-btn">\${btnText}</div>
-        </div>
-        <div class="calc-results-box">
-          <div class="result-item">
-            <span class="result-lbl">\${res1Label}</span>
-            <span class="result-val">\${res1Val}</span>
-          </div>
-          <div class="result-item">
-            <span class="result-lbl">\${res2Label}</span>
-            <span class="result-val highlight">\${res2Val}</span>
-          </div>
-        </div>
+      <!-- Laptop Keyboard Base -->
+      <div class="laptop-base">
+        <div class="laptop-notch"></div>
       </div>
     </div>
-
-    <!-- 3D Gold Shield & Shiny Coins -->
-    <div class="hero-3d-visual">
-      <svg class="wealth-shield-svg" viewBox="0 0 240 280" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="goldRim" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#fffbeb"/>
-            <stop offset="30%" stop-color="#fde047"/>
-            <stop offset="70%" stop-color="#d97706"/>
-            <stop offset="100%" stop-color="#78350f"/>
-          </linearGradient>
-          <linearGradient id="shieldFace" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#fef08a"/>
-            <stop offset="40%" stop-color="#f59e0b"/>
-            <stop offset="85%" stop-color="#b45309"/>
-            <stop offset="100%" stop-color="#78350f"/>
-          </linearGradient>
-          <linearGradient id="coinEdge" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#92400e"/>
-            <stop offset="25%" stop-color="#fef08a"/>
-            <stop offset="65%" stop-color="#f59e0b"/>
-            <stop offset="100%" stop-color="#78350f"/>
-          </linearGradient>
-          <linearGradient id="coinTop" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#fef9c3"/>
-            <stop offset="50%" stop-color="#fde047"/>
-            <stop offset="100%" stop-color="#d97706"/>
-          </linearGradient>
-          <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation="4" result="blur" />
-            <feComposite in="SourceGraphic" in2="blur" operator="over" />
-          </filter>
-        </defs>
-
-        <!-- Golden Wealth Shield -->
-        <g transform="translate(20, 10)">
-          <path d="M100 5 L185 45 C185 145 100 215 100 215 C100 215 15 145 15 45 Z" fill="url(#goldRim)" filter="url(#glow)"/>
-          <path d="M100 12 L177 49 C177 140 100 205 100 205 C100 205 23 140 23 49 Z" fill="url(#shieldFace)" stroke="#fffbeb" stroke-width="2"/>
-          <path d="M100 24 L165 56 C165 132 100 188 100 188 C100 188 35 132 35 56 Z" fill="rgba(0,0,0,0.18)"/>
-          <!-- Currency Emblem -->
-          <text x="100" y="120" font-family="'Outfit', sans-serif" font-size="82" font-weight="900" fill="#ffffff" text-anchor="middle" dominant-baseline="central" style="filter: drop-shadow(0 4px 10px rgba(0,0,0,0.4));">\${currency}</text>
-        </g>
-
-        <!-- Stacks of Shiny 3D Gold Coins -->
-        <!-- Left Coin Stack (Lower, 2 coins) -->
-        <g transform="translate(25, 175)">
-          <ellipse cx="35" cy="42" rx="30" ry="11" fill="#78350f"/>
-          <rect x="5" y="32" width="60" height="10" fill="url(#coinEdge)"/>
-          <ellipse cx="35" cy="32" rx="30" ry="11" fill="url(#coinTop)" stroke="#fef08a" stroke-width="1.5"/>
-
-          <rect x="5" y="20" width="60" height="10" fill="url(#coinEdge)"/>
-          <ellipse cx="35" cy="20" rx="30" ry="11" fill="url(#coinTop)" stroke="#ffffff" stroke-width="1.5"/>
-        </g>
-
-        <!-- Right / Front Main Stack (Taller, 4 coins) -->
-        <g transform="translate(110, 155)">
-          <ellipse cx="45" cy="65" rx="42" ry="14" fill="#78350f"/>
-          <rect x="3" y="53" width="84" height="12" fill="url(#coinEdge)"/>
-          <ellipse cx="45" cy="53" rx="42" ry="14" fill="url(#coinTop)" stroke="#fef08a" stroke-width="1.5"/>
-
-          <rect x="3" y="38" width="84" height="12" fill="url(#coinEdge)"/>
-          <ellipse cx="45" cy="38" rx="42" ry="14" fill="url(#coinTop)" stroke="#fef08a" stroke-width="1.5"/>
-
-          <rect x="3" y="23" width="84" height="12" fill="url(#coinEdge)"/>
-          <ellipse cx="45" cy="23" rx="42" ry="14" fill="url(#coinTop)" stroke="#fef08a" stroke-width="1.5"/>
-
-          <rect x="3" y="8" width="84" height="12" fill="url(#coinEdge)"/>
-          <ellipse cx="45" cy="8" rx="42" ry="14" fill="url(#coinTop)" stroke="#ffffff" stroke-width="2"/>
-        </g>
-
-        <!-- Sparkles -->
-        <text x="30" y="35" font-size="24" fill="#fef08a">✦</text>
-        <text x="215" y="80" font-size="18" fill="#ffffff">✦</text>
-        <text x="190" y="210" font-size="20" fill="#fef08a">✦</text>
-      </svg>
-    </div>
   </div>
 
-  <!-- 4 Feature Bullets -->
-  <div class="features-container">
-    <div class="feature-row">
-      <div class="feature-icon-badge">🧮</div>
-      <span class="feature-text">\${b1Text}</span>
+  <!-- Bottom Finmatrix Navy Brand Banner -->
+  <div class="bottom-brand-banner">
+    <div class="brand-top-row">
+      <div class="brand-logo-icon">🧮</div>
+      <div class="brand-domain-text">Finmatrix.cloud</div>
     </div>
-    <div class="feature-row">
-      <div class="feature-icon-badge">📅</div>
-      <span class="feature-text">\${b2Text}</span>
-    </div>
-    <div class="feature-row">
-      <div class="feature-icon-badge">🔑</div>
-      <span class="feature-text">\${b3Text}</span>
-    </div>
-    <div class="feature-row">
-      <div class="feature-icon-badge">💰</div>
-      <span class="feature-text">\${b4Text}</span>
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <div class="footer-bar">
-    <div class="footer-brand">
-      <div class="brand-logo-text">Finmatrix Cloud</div>
-      <span class="brand-domain">finmatrix.cloud · Quantitative Finance</span>
-    </div>
-    <div class="footer-cta-pill">VISIT SITE & CALCULATE →</div>
+    <div class="brand-tagline-text">Simple • Fast • Accurate</div>
+    <div class="bottom-cta-ribbon">Make Smarter Financial Decisions →</div>
   </div>
 </div>
 </body>
@@ -1064,7 +1195,7 @@ const imageUrl = (base.endsWith('.png') || base.endsWith('.jpg') || base.endsWit
 return [{ json: { ...rest, imageUrl, shortImageUrl: imageUrl, imageRenderedAt: new Date().toISOString() } }];`;
 }
 
-// Node 13 (Gemini Copywriter)
+// Node 13 (Gemini Copywriter - STRICT BRAND RULES)
 const n13 = wf.nodes.find(n => n.name.includes('Generate Pin SEO Title'));
 if (n13) {
   n13.parameters.url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent?key=YOUR_GEMINI_API_KEY';
@@ -1074,13 +1205,15 @@ if (n13) {
       parts: [
         {
           text: \`You are an elite Pinterest SEO Strategist and Financial Copywriter for Finmatrix (https://finmatrix.cloud).
-A high-converting vertical educational infographic (1000x1500) showcasing a Financial Calculator has been generated for this pin.
+A high-converting vertical educational infographic (1000x1500) showcasing a Financial Laptop Workspace Calculator has been generated for this pin.
 
-CRITICAL SEO REQUIREMENT:
-Your copy MUST be directly optimized to rank on Pinterest Search and Google SEO for the real user search query: "\${$json.targetKeyword}".
+CRITICAL BRAND REQUIREMENT:
+1. The brand is strictly "Finmatrix" (https://finmatrix.cloud).
+2. NEVER mention or reference any competitor brand names (like MyUSFinance, NerdWallet, Bankrate, SmartAsset, etc.) anywhere in the title, hook, bullets, or description.
+3. Your copy MUST be directly optimized to rank on Pinterest Search for the search query: "\${$json.targetKeyword}".
 
 INFOGRAPHIC DETAILS:
-- Target Search Keyword: "\${$json.targetKeyword}" (Monthly Search Volume: \${$json.keywordVolume}, Keyword Difficulty: \${$json.keywordKD})
+- Target Search Keyword: "\${$json.targetKeyword}"
 - Visual Title on Graphic: "\${$json.headlineOnImage}"
 - Subtitle on Graphic: "\${$json.subtitleOnImage}"
 - Breakdown: "\${$json.infographicBreakdown}"
@@ -1091,7 +1224,7 @@ DESTINATION LINK: \${$json.destinationUrl}
 STRICT FORMAT & COMPLIANCE RULES:
 1. pinTitle:
    - Under 90 characters.
-   - Must include the exact target keyword: "\${$json.targetKeyword}".
+   - Must include the search query topic: "\${$json.targetKeyword}".
    - Zero clickbait, zero markdown asterisks.
 
 2. hook:
@@ -1125,13 +1258,19 @@ RETURN ONLY VALID JSON wrapped in a single \\\`\\\`\\\`json markdown block:
 } }}`;
 }
 
-// Node 14 (Parse & Format Pin Data - GUARANTEED HASHTAGS & TRUNCATION-FREE)
+// Node 14 (Parse & Format Pin Data - SANITIZE ALL BRAND LEAKS & GUARANTEE HASHTAGS)
 const n14 = wf.nodes.find(n => n.name.includes('Parse & Format Pin Data'));
 if (n14) {
-  n14.parameters.jsCode = `// PARSE & FORMAT PIN DATA (GUARANTEED HASHTAGS & ZERO MARKDOWN)
+  n14.parameters.jsCode = `// PARSE & FORMAT PIN DATA (STRICT BRAND SANITIZER & GUARANTEED HASHTAGS)
 let rawText = $json.candidates?.[0]?.content?.parts?.[0]?.text || '';
 const prev = $('Inspect Asset Status & Validation').item.json || {};
 const destUrl = prev.destinationUrl || 'https://finmatrix.cloud/calculators/debt-elimination-planner.html';
+
+// SANITIZE ANY COMPETITOR DOMAINS OR BRANDS
+rawText = rawText.replace(/myusfinance(\.com)?/gi, 'Finmatrix')
+                 .replace(/nerdwallet(\.com)?/gi, 'Finmatrix')
+                 .replace(/bankrate(\.com)?/gi, 'Finmatrix')
+                 .replace(/smartasset(\.com)?/gi, 'Finmatrix');
 
 rawText = rawText.replace(/\\\`\\\`\\\`json/gi, '').replace(/\\\`\\\`\\\`/g, '').trim();
 
@@ -1141,19 +1280,25 @@ try {
 } catch (e) {
   parsed = {
     pinTitle: (\`\${prev.headlineOnImage || prev.topic || 'Finmatrix'}: \${prev.subtitleOnImage || 'Free Calculator'}\`).substring(0, 90).trim(),
-    hook: \`Discover the exact mathematical framework for \${prev.targetKeyword || 'personal finance'}.\`,
-    bullet1: 'Deploy proven formulas to slash interest and build wealth faster.',
+    hook: \`Discover the exact numbers with the Finmatrix calculator.\`,
+    bullet1: 'Calculate exact payments and slash interest charges.',
     bullet2: 'Download free Excel toolkits with zero sign-up required.',
-    altText: \`Infographic for \${prev.targetKeyword || 'Finmatrix'}\`
+    altText: \`Infographic for Finmatrix \${prev.targetKeyword || 'Calculator'}\`
   };
 }
 
-let pinTitle = (parsed.pinTitle || prev.headlineOnImage || prev.topic || 'Financial Calculator').replace(/[*_#\`]/g, '').trim();
+let pinTitle = (parsed.pinTitle || prev.headlineOnImage || 'Finmatrix Financial Calculator').replace(/[*_#\`]/g, '').trim();
+pinTitle = pinTitle.replace(/myusfinance(\.com)?/gi, 'Finmatrix');
 if (pinTitle.length > 90) pinTitle = pinTitle.substring(0, 87) + '...';
 
-const hook = (parsed.hook || parsed.pinDescription || \`Discover the exact numbers for \${prev.targetKeyword || 'finances'}.\`).replace(/[*_#\`]/g, '').trim().slice(0, 115);
-const b1 = (parsed.bullet1 || 'Deploy quantitative rules to halt compounding finance charges.').replace(/[*_#\`]/g, '').trim().slice(0, 65);
-const b2 = (parsed.bullet2 || 'Calculate debt-free dates and investment growth in real time.').replace(/[*_#\`]/g, '').trim().slice(0, 65);
+let hook = (parsed.hook || \`Discover the exact numbers for \${prev.targetKeyword || 'finances'} on Finmatrix.\`).replace(/[*_#\`]/g, '').trim();
+hook = hook.replace(/myusfinance(\.com)?/gi, 'Finmatrix').slice(0, 115);
+
+let b1 = (parsed.bullet1 || 'Deploy quantitative rules to halt compounding finance charges.').replace(/[*_#\`]/g, '').trim();
+b1 = b1.replace(/myusfinance(\.com)?/gi, 'Finmatrix').slice(0, 65);
+
+let b2 = (parsed.bullet2 || 'Calculate payoff dates and investment growth in real time.').replace(/[*_#\`]/g, '').trim();
+b2 = b2.replace(/myusfinance(\.com)?/gi, 'Finmatrix').slice(0, 65);
 
 const ctaLine = '👉 Free Calculator & Toolkit: ' + destUrl;
 const hashtags = '#personalfinance #financialfreedom #debtfree #moneytips #finmatrix';
@@ -1161,7 +1306,8 @@ const hashtags = '#personalfinance #financialfreedom #debtfree #moneytips #finma
 // Assemble complete description under 500 chars with guaranteed hashtags:
 const pinDescription = \`\${hook}\\n\\n• \${b1}\\n• \${b2}\\n\\n\${ctaLine}\\n\\n\${hashtags}\`;
 
-let altText = (parsed.altText || \`Infographic showing \${prev.headlineOnImage || 'financial calculator'}\`).replace(/[*_#\`]/g, '').trim();
+let altText = (parsed.altText || \`Infographic showing Finmatrix \${prev.headlineOnImage || 'financial calculator'}\`).replace(/[*_#\`]/g, '').trim();
+altText = altText.replace(/myusfinance(\.com)?/gi, 'Finmatrix');
 if (altText.length > 100) altText = altText.substring(0, 97) + '...';
 
 const taggedTopics = ['Personal Finance', 'Debt Free', 'Investing', 'Saving Money', 'Money Tips'];

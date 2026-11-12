@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Finmatrix Light Showcase Pin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Outfit:wght@700;800;900&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  width: 1000px;
+  height: 1500px;
+  background: #f8fafc;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #0f172a;
+  overflow: hidden;
+}
+.pin-wrapper {
+  position: relative;
+  width: 1000px;
+  height: 1500px;
+  background: linear-gradient(180deg, #f0f7ff 0%, #ffffff 40%, #f1f5f9 75%, #e2e8f0 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+/* Subtle background ambient desk glow */
+.bg-ambient-blur {
+  position: absolute;
+  top: 550px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 600px;
+  background: radial-gradient(ellipse, rgba(224, 242, 254, 0.8) 0%, rgba(241, 245, 249, 0) 70%);
+  pointer-events: none;
+}
+
+/* Desk Surface Bottom */
+.desk-surface {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 520px;
+  background: linear-gradient(180deg, #e2d9cc 0%, #d5c7b5 35%, #c8b7a2 100%);
+  border-top: 3px solid rgba(255, 255, 255, 0.6);
+  box-shadow: inset 0 10px 25px rgba(0,0,0,0.06);
+}
+
+/* Top Section */
+.top-content {
+  position: relative;
+  z-index: 10;
+  padding: 45px 50px 0 50px;
+  text-align: center;
+}
+.script-tag {
+  font-family: 'Caveat', cursive;
+  font-size: 38px;
+  font-weight: 700;
+  color: #0369a1;
+  transform: rotate(-3deg);
+  display: inline-block;
+  margin-bottom: 4px;
+}
+.main-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 68px;
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -1.5px;
+  color: #0f2c59;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.highlight-pill {
+  display: inline-block;
+  background: #fde047;
+  color: #0f172a;
+  font-size: 26px;
+  font-weight: 800;
+  padding: 10px 36px;
+  border-radius: 999px;
+  box-shadow: 0 4px 14px rgba(253, 224, 71, 0.5);
+  margin-bottom: 24px;
+}
+
+/* 5 Category Pills */
+.categories-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 22px;
+  margin-bottom: 25px;
+}
+.cat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.cat-icon-circle {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  border: 2px solid #ffffff;
+}
+.cat-item:nth-child(1) .cat-icon-circle { background: #bae6fd; }
+.cat-item:nth-child(2) .cat-icon-circle { background: #bbf7d0; }
+.cat-item:nth-child(3) .cat-icon-circle { background: #fef08a; }
+.cat-item:nth-child(4) .cat-icon-circle { background: #e9d5ff; }
+.cat-item:nth-child(5) .cat-icon-circle { background: #a7f3d0; }
+
+.cat-label {
+  font-size: 15px;
+  font-weight: 800;
+  color: #1e293b;
+}
+
+/* Mid Hero Area: Left Checklist + Right Laptop */
+.mid-hero-container {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0 35px 20px 45px;
+  flex: 1;
+}
+
+/* Left Checklist */
+.left-col {
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+.script-checklist-title {
+  font-family: 'Caveat', cursive;
+  font-size: 36px;
+  font-weight: 700;
+  color: #0369a1;
+  transform: rotate(-2deg);
+  margin-bottom: -4px;
+}
+.checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.check-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #10b981;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 900;
+  flex-shrink: 0;
+  box-shadow: 0 3px 8px rgba(16, 185, 129, 0.35);
+}
+.check-text {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0f2c59;
+}
+
+/* Notepad sticky */
+.notepad-sticky {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 14px 18px;
+  width: 210px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  transform: rotate(-4deg);
+  margin-top: 10px;
+}
+.np-line1 {
+  font-family: 'Caveat', cursive;
+  font-size: 24px;
+  font-weight: 700;
+  color: #0284c7;
+  line-height: 1.2;
+}
+.np-line2 {
+  font-family: 'Caveat', cursive;
+  font-size: 22px;
+  font-weight: 700;
+  color: #64748b;
+}
+
+/* Right Laptop Mockup */
+.laptop-mockup-wrapper {
+  position: relative;
+  width: 610px;
+  margin-bottom: 20px;
+}
+/* Laptop Screen Bezel */
+.laptop-screen {
+  width: 580px;
+  height: 380px;
+  background: #0f172a;
+  border: 10px solid #1e293b;
+  border-radius: 18px 18px 0 0;
+  margin: 0 auto;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+  overflow: hidden;
+  position: relative;
+}
+.laptop-webcam {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background: #475569;
+  border-radius: 50%;
+  z-index: 20;
+}
+/* Inside Laptop Screen (Interactive App UI) */
+.laptop-display {
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+.app-header {
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 10px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.app-brand {
+  font-size: 15px;
+  font-weight: 800;
+  color: #0f2c59;
+  letter-spacing: -0.3px;
+}
+.app-dots {
+  display: flex;
+  gap: 5px;
+}
+.app-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #cbd5e1;
+}
+
+/* App Body (Inputs on Left, Results on Right) */
+.app-body {
+  padding: 14px 18px;
+  display: flex;
+  gap: 16px;
+  flex: 1;
+  background: #ffffff;
+}
+.app-inputs-col {
+  width: 52%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.app-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.app-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #475569;
+}
+.app-input {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 14px;
+  font-weight: 800;
+  color: #0f172a;
+}
+.app-calc-btn {
+  background: #0284c7;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 8px;
+  border-radius: 6px;
+  text-align: center;
+  margin-top: 4px;
+  box-shadow: 0 3px 8px rgba(2, 132, 199, 0.4);
+}
+
+.app-results-col {
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 12px;
+}
+.res-hero {
+  text-align: left;
+}
+.res-hero-lbl {
+  font-size: 12px;
+  font-weight: 700;
+  color: #166534;
+}
+.res-hero-val {
+  font-size: 28px;
+  font-weight: 900;
+  color: #15803d;
+  letter-spacing: -0.5px;
+  margin-top: 2px;
+}
+.res-sub-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-top: 1px solid #dcfce7;
+  padding-top: 6px;
+}
+.res-sub-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  font-weight: 700;
+  color: #334155;
+}
+.res-sub-val {
+  font-weight: 800;
+  color: #0f2c59;
+}
+
+/* Laptop Base (Keyboard & Trackpad) */
+.laptop-base {
+  width: 610px;
+  height: 16px;
+  background: linear-gradient(180deg, #94a3b8 0%, #64748b 100%);
+  border-radius: 0 0 16px 16px;
+  position: relative;
+  box-shadow: 0 18px 30px rgba(0,0,0,0.3);
+}
+.laptop-notch {
+  width: 80px;
+  height: 5px;
+  background: #475569;
+  border-radius: 0 0 6px 6px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Bottom Navy Brand Banner */
+.bottom-brand-banner {
+  position: relative;
+  z-index: 20;
+  background: #0f2c59;
+  padding: 24px 45px 30px 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 -10px 25px rgba(0,0,0,0.15);
+}
+.brand-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.brand-logo-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: #0284c7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 22px;
+}
+.brand-domain-text {
+  font-family: 'Outfit', sans-serif;
+  font-size: 36px;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+}
+.brand-tagline-text {
+  font-size: 16px;
+  font-weight: 700;
+  color: #93c5fd;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.bottom-cta-ribbon {
+  background: #0284c7;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 800;
+  padding: 8px 32px;
+  border-radius: 999px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.4);
+}
+</style>
+</head>
+<body>
+<div class="pin-wrapper">
+  <div class="bg-ambient-blur"></div>
+  <div class="desk-surface"></div>
+
+  <!-- Top Content -->
+  <div class="top-content">
+    <div class="script-tag">Free &amp; Easy to Use</div>
+    <h1 class="main-title">Debt Payoff Calculator</h1>
+    <div class="highlight-pill">Simulate Your Exact Debt-Free Payoff Date</div>
+
+    <!-- 5 Category Pills -->
+    <div class="categories-row">
+      <div class="cat-item">
+        <div class="cat-icon-circle">💳</div>
+        <span class="cat-label">Credit Cards</span>
+      </div>
+      <div class="cat-item">
+        <div class="cat-icon-circle">🚗</div>
+        <span class="cat-label">Auto Loan</span>
+      </div>
+      <div class="cat-item">
+        <div class="cat-icon-circle">🎓</div>
+        <span class="cat-label">Student Loan</span>
+      </div>
+      <div class="cat-item">
+        <div class="cat-icon-circle">⚡</div>
+        <span class="cat-label">Avalanche</span>
+      </div>
+      <div class="cat-item">
+        <div class="cat-icon-circle">❄️</div>
+        <span class="cat-label">Snowball</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mid Hero: Left Checklist + Right Laptop Mockup -->
+  <div class="mid-hero-container">
+    <!-- Left Checklist -->
+    <div class="left-col">
+      <div class="script-checklist-title">Know Your Numbers!</div>
+      <div class="checklist-item">
+        <div class="check-icon">✓</div>
+        <span class="check-text">Monthly Payment</span>
+      </div>
+      <div class="checklist-item">
+        <div class="check-icon">✓</div>
+        <span class="check-text">Total Interest Saved</span>
+      </div>
+      <div class="checklist-item">
+        <div class="check-icon">✓</div>
+        <span class="check-text">Debt-Free Timeline</span>
+      </div>
+      <div class="checklist-item">
+        <div class="check-icon">✓</div>
+        <span class="check-text">Payoff Schedule</span>
+      </div>
+
+      <!-- Sticky Note -->
+      <div class="notepad-sticky">
+        <div class="np-line1">Plan • Calculate • Achieve</div>
+        <div class="np-line2">100% Free • Finmatrix :)</div>
+      </div>
+    </div>
+
+    <!-- Right Laptop Mockup -->
+    <div class="laptop-mockup-wrapper">
+      <div class="laptop-screen">
+        <div class="laptop-webcam"></div>
+        <div class="laptop-display">
+          <div class="app-header">
+            <span class="app-brand">Finmatrix Debt Eliminator</span>
+            <div class="app-dots"><span></span><span></span><span></span></div>
+          </div>
+          <div class="app-body">
+            <!-- Left inputs inside laptop -->
+            <div class="app-inputs-col">
+              <div class="app-row">
+                <span class="app-label">Total Debt Balance</span>
+                <div class="app-input">$18,500</div>
+              </div>
+              <div class="app-row">
+                <span class="app-label">Average APR (%)</span>
+                <div class="app-input">22.4%</div>
+              </div>
+              <div class="app-row">
+                <span class="app-label">Monthly Payment</span>
+                <div class="app-input">$550/mo</div>
+              </div>
+              <div class="app-calc-btn">🧮 CALCULATE PAYOFF</div>
+            </div>
+
+            <!-- Right results inside laptop -->
+            <div class="app-results-col">
+              <div class="res-hero">
+                <div class="res-hero-lbl">Debt-Free In</div>
+                <div class="res-hero-val">2.1 Years</div>
+              </div>
+              <div class="res-sub-grid">
+                <div class="res-sub-item">
+                  <span>Total Saved:</span>
+                  <span class="res-sub-val">$9,420</span>
+                </div>
+                <div class="res-sub-item">
+                  <span>Interest Cut:</span>
+                  <span class="res-sub-val">68% Less</span>
+                </div>
+                <div class="res-sub-item">
+                  <span>Method:</span>
+                  <span class="res-sub-val">Avalanche</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Laptop Keyboard Base -->
+      <div class="laptop-base">
+        <div class="laptop-notch"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Finmatrix Navy Brand Banner -->
+  <div class="bottom-brand-banner">
+    <div class="brand-top-row">
+      <div class="brand-logo-icon">🧮</div>
+      <div class="brand-domain-text">Finmatrix.cloud</div>
+    </div>
+    <div class="brand-tagline-text">Simple • Fast • Accurate</div>
+    <div class="bottom-cta-ribbon">Make Smarter Financial Decisions →</div>
+  </div>
+</div>
+</body>
+</html>
