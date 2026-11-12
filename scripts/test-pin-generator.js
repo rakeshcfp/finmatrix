@@ -535,3 +535,4 @@ body {
 const html = buildPinHtml({ theme: 'navy' });
 fs.writeFileSync('test-dynamic-pin.html', html, 'utf8');
 console.log('Successfully written test-dynamic-pin.html');
+
