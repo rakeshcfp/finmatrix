@@ -1649,6 +1649,28 @@ if (n16) {
 }) }}`;
 }
 
+// Node 10: Attach Rendered Image URL (Ensure accurate reference to Finmatrix Studio Engine)
+const n10 = wf.nodes.find(n => n.name === 'Attach Rendered Image URL');
+if (n10) {
+  n10.parameters.jsCode = `const prev = $('Configure & Generate Pin Image (Finmatrix Studio Engine)').item.json;
+const base = $json.url || '';
+if (!base) throw new Error('Render failed: no url returned');
+const { pinHtml, ...rest } = prev;          // keep the HTML out of Sheets/email
+const imageUrl = (base.endsWith('.png') || base.endsWith('.jpg') || base.endsWith('.jpeg')) ? base : base + '.png';
+return { json: { ...rest, imageUrl, shortImageUrl: imageUrl, imageRenderedAt: new Date().toISOString() } };`;
+}
+
+// Global pass: replace any references across all node parameters
+for (const node of wf.nodes) {
+  if (node.parameters && typeof node.parameters.jsCode === 'string') {
+    node.parameters.jsCode = node.parameters.jsCode
+      .split('Configure & Generate Pin Image (Dynamic Photo CDN Engine)')
+      .join('Configure & Generate Pin Image (Finmatrix Studio Engine)')
+      .split('Pick Next Pinterest Ebook Angle & Board')
+      .join('Pick Next Finmatrix Keyword, Angle & Board');
+  }
+}
+
 // Wire connections cleanly
 if (wf.connections['Pick Next Pinterest Ebook Angle & Board']) {
   wf.connections['Pick Next Finmatrix Keyword, Angle & Board'] = wf.connections['Pick Next Pinterest Ebook Angle & Board'];

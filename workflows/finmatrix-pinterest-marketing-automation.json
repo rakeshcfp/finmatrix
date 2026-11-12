@@ -188,7 +188,7 @@
     },
     {
       "parameters": {
-        "jsCode": "const prev = $('Configure & Generate Pin Image (Dynamic Photo CDN Engine)').item.json;\nconst base = $json.url || '';\nif (!base) throw new Error('Render failed: no url returned');\nconst { pinHtml, ...rest } = prev;          // keep the HTML out of Sheets/email\nconst imageUrl = (base.endsWith('.png') || base.endsWith('.jpg') || base.endsWith('.jpeg')) ? base : base + '.png';\nreturn { json: { ...rest, imageUrl, shortImageUrl: imageUrl, imageRenderedAt: new Date().toISOString() } };"
+        "jsCode": "const prev = $('Configure & Generate Pin Image (Finmatrix Studio Engine)').item.json;\nconst base = $json.url || '';\nif (!base) throw new Error('Render failed: no url returned');\nconst { pinHtml, ...rest } = prev;          // keep the HTML out of Sheets/email\nconst imageUrl = (base.endsWith('.png') || base.endsWith('.jpg') || base.endsWith('.jpeg')) ? base : base + '.png';\nreturn { json: { ...rest, imageUrl, shortImageUrl: imageUrl, imageRenderedAt: new Date().toISOString() } };"
       },
       "id": "b8ae78ca-92a3-4263-84d3-e47ce63450a2",
       "name": "Attach Rendered Image URL",
