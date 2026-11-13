@@ -43,3 +43,4 @@ for (const [src, conns] of Object.entries(wf.connections)) {
 if (!hasConnError) {
   console.log('✓ All connections valid!');
 }
+

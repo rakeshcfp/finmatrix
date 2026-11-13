@@ -31,10 +31,10 @@ function parseCsv(filePath, defaultPillar, defaultUrl) {
     if (!kw || kw.length < 3) continue;
 
     kw = kw.replace(/myusfinance(\.com)?/gi, '')
-           .replace(/nerdwallet(\.com)?/gi, '')
-           .replace(/bankrate(\.com)?/gi, '')
-           .replace(/smartasset(\.com)?/gi, '')
-           .trim();
+      .replace(/nerdwallet(\.com)?/gi, '')
+      .replace(/bankrate(\.com)?/gi, '')
+      .replace(/smartasset(\.com)?/gi, '')
+      .trim();
     if (!kw || kw.length < 3) continue;
 
     const vol = parseInt(parts[volIdx], 10) || 500;
@@ -979,6 +979,61 @@ const { pinHtml, ...rest } = prev;
 const imageUrl = (base.endsWith('.png') || base.endsWith('.jpg') || base.endsWith('.jpeg')) ? base : base + '.png';
 return { json: { ...rest, imageUrl, shortImageUrl: imageUrl, imageRenderedAt: new Date().toISOString() } };
 `;
+}
+
+// Node 13 (Gemini API: Generate Pin SEO Title & Copy)
+const n13Copy = wf.nodes.find(n => n.name.includes('Generate Pin SEO Title & Copy'));
+if (n13Copy) {
+  n13Copy.parameters.url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent?key=YOUR_GEMINI_API_KEY';
+  n13Copy.parameters.jsonBody = `={{ {
+  contents: [
+    {
+      parts: [
+        {
+          text: \`You are an elite Pinterest SEO Strategist and Quantitative Copywriter for Finmatrix (https://finmatrix.cloud).
+A high-converting vertical educational infographic (1000x1500) has been generated for this Pinterest pin.
+
+CRITICAL SEO REQUIREMENT:
+Your copy MUST be directly and specifically optimized to rank on Pinterest Search and Google SEO for the real user search query: "\${$json.targetKeyword}".
+Explain the exact quantitative framework described on the graphic. Do NOT write generic filler.
+
+INFOGRAPHIC DETAILS:
+- Target Search Keyword: "\${$json.targetKeyword}" (Monthly Search Volume: \${$json.keywordVolume}, Keyword Difficulty: \${$json.keywordKD})
+- Graphic Filename: \${$json.imageFilename}
+- Assigned Style: \${$json.styleName} (\${$json.pinStyle})
+- Main Headline on the Graphic: "\${$json.headlineOnImage}"
+- Subtitle on the Graphic: "\${$json.subtitleOnImage}"
+- Visual Breakdown on the Graphic: \${$json.infographicBreakdown}
+
+TARGET PINTEREST BOARD: \${$json.targetBoard}
+SEARCH KEYWORDS: \${$json.targetKeyword}, personal finance, financial calculators, money management, wealth building
+LANDING PAGE LINK: \${$json.destinationUrl}
+
+STRICT FORMATTING RULES:
+1. NO MARKDOWN: Pinterest does NOT support markdown. NEVER use any asterisks (**bold** or *italic*), double asterisks, markdown bullets, or backticks in pinTitle or pinDescription. Output clean plain text only!
+2. pinTitle: (Max 90 characters). Punchy, high-CTR, title case. MUST naturally include the search query "\${$json.targetKeyword}". Strictly no asterisks.
+3. pinDescription: (STRICT LIMIT: MUST BE UNDER 450 CHARACTERS TOTAL INCLUDING LINK AND HASHTAGS. Pinterest hard limit is 500 chars). Structure with clean emojis:
+   📌 Hook answering the search query "\${$json.targetKeyword}"
+   ⚡ 2-3 bullet points breaking down the exact numbers, formulas, or rules from the graphic
+   👉 Soft CTA: '👉 Free Calculator & Strategy: \${$json.destinationUrl}'
+   End with 5 relevant hashtags (e.g. #\${$json.targetKeyword.replace(/\\s+/g, '')} #personalfinance #moneytips #investing #finmatrix).
+4. altText: (Under 100 characters). Accurate description of the vertical infographic diagram explaining "\${$json.targetKeyword}" for Pinterest visual search SEO.
+5. taggedTopics: 5 Pinterest search tag names matching "\${$json.targetKeyword}" and personal finance.
+
+Return ONLY a valid JSON object matching this exact schema:
+{
+  \"pinTitle\": \"(Max 90 chars. Punchy, keyword-matched, title case, NO asterisks)\",
+  \"pinDescription\": \"(Educational plain text copy under 450 chars explaining the infographic cards with emojis, CTA link, and hashtags)\",
+  \"targetBoard\": \"\${$json.targetBoard}\",
+  \"taggedTopics\": [\"Personal Finance\", \"Money Tips\", \"Investing\", \"Financial Planning\", \"Wealth Building\"],
+  \"altText\": \"(Under 100 chars describing the vertical infographic layout for visual search)\",
+  \"hashtags\": [\"#personalfinance\", \"#financialfreedom\", \"#moneytips\", \"#investing\", \"#finmatrix\"]
+}\`
+        }
+      ]
+    }
+  ]
+} }}`;
 }
 
 // Node 14 (Parse & Format Pin Data)
