@@ -366,3 +366,4 @@ When submitting this dossier to Claude for a comprehensive audit, prompt Claude 
 3. **Pinterest SEO Compliance:** Does the copy generation in Node 13/Node 14 strictly respect Pinterest's character limits (<= 90 char title, <= 450 char description, no Markdown asterisks)?
 4. **Data Leakage & Branding:** Are there any lingering traces of competitor brand names or unauthorized affiliate links in the master data or prompt templates?
 5. **Database / Audit Integrity:** Does the 25-column mapping in Node 15 accurately map to Google Sheets without schema collisions?
+

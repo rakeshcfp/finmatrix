@@ -15,5 +15,8 @@
     "test": "node tests/calculator-formulas.test.js"
   },
   "author": "Finmatrix Financial Research Desk",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "lucide-static": "^0.468.0"
+  }
 }
